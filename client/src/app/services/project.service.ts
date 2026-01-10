@@ -10,7 +10,9 @@ import { environment } from '../../environments/environment';
 })
 export class ProjectService {
   private http = inject(HttpClient);
-  private baseApiUrl = environment.apiUrl;
+  private baseApiUrl = environment.apiUrl.endsWith('/') 
+    ? environment.apiUrl.slice(0, -1) 
+    : environment.apiUrl;
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.baseApiUrl}/projects`);
