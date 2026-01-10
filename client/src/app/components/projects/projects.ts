@@ -5,6 +5,8 @@ import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -16,6 +18,7 @@ export class Projects implements OnInit {
   private projectService = inject(ProjectService);
   projects: Project[] = [];
   errorMessage: string | null = null;
+  apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
     this.projectService.getProjects().subscribe({
@@ -26,7 +29,7 @@ export class Projects implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching projects', err);
-        this.errorMessage = `Failed to load projects (Status: ${err.status}). Please ensure the backend server is running at http://127.0.0.1:3000`;
+        this.errorMessage = `Failed to load projects (Status: ${err.status}). API Endpoint: ${this.apiUrl}`;
       }
     });
   }
