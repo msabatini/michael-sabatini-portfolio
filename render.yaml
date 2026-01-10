@@ -1,0 +1,18 @@
+services:
+  # Backend Service
+  - type: web
+    name: portfolio-api
+    env: node
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/database.sqlite
+      - key: ALLOWED_ORIGINS
+        value: https://your-portfolio.netlify.app # Replace with your Netlify URL
+    disk:
+      name: sqlite-data
+      mountPath: /var/data
+      sizeGB: 1

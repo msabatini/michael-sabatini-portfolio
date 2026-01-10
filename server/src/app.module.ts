@@ -13,11 +13,13 @@ import { ContactController } from './contact/contact.controller';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'database.sqlite',
-      entities: [Project],
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'sqlite',
+        database: process.env.DATABASE_PATH || 'database.sqlite',
+        entities: [Project],
+        synchronize: true, // Set to false in a real production app with migrations
+      }),
     }),
     ProjectsModule,
     MailModule,
