@@ -13,7 +13,7 @@ services:
       - key: DATABASE_PATH
         value: /var/data/database.sqlite
       - key: ALLOWED_ORIGINS
-        value: "*" # Temporary for debugging to ensure connection works
+        value: https://michael-sabatini-portfolio.netlify.app,http://localhost:4200
     disk:
       name: sqlite-data
       mountPath: /var/data
