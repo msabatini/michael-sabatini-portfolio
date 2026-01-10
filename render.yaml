@@ -8,6 +8,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NPM_CONFIG_PRODUCTION
+        value: false # Ensures devDependencies (like Nest CLI) are installed for the build
       - key: DATABASE_PATH
         value: /var/data/database.sqlite
       - key: ALLOWED_ORIGINS
