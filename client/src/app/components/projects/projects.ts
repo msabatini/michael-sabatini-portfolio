@@ -23,13 +23,12 @@ export class Projects implements OnInit {
   ngOnInit(): void {
     this.projectService.getProjects().subscribe({
       next: (data) => {
-        console.log('Projects received:', data);
         this.projects = data;
         this.errorMessage = null;
       },
       error: (err) => {
         console.error('Error fetching projects', err);
-        this.errorMessage = `Failed to load projects (Status: ${err.status}). API Endpoint: ${this.apiUrl}`;
+        this.errorMessage = `Failed to load projects. Please try again later.`;
       }
     });
   }
