@@ -14,7 +14,12 @@ export class ProjectService {
     ? environment.apiUrl.slice(0, -1) 
     : environment.apiUrl;
 
+  constructor() {
+    console.log('ProjectService initialized with API URL:', this.baseApiUrl);
+  }
+
   getProjects(): Observable<Project[]> {
+    console.log('Fetching projects from:', `${this.baseApiUrl}/projects`);
     return this.http.get<Project[]>(`${this.baseApiUrl}/projects`);
   }
 
