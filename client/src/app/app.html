@@ -1,0 +1,90 @@
+<nav [class.menu-open]="isMenuOpen()">
+  <div class="nav-container">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <img src="/main-logo.svg" alt="Portfolio Logo" class="nav-logo">
+      <div class="full-name">Michael Sabatini</div>
+    </a>
+
+    <div class="nav-actions">
+      <div class="desktop-links">
+        <a routerLink="/projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Projects</a>
+        <a routerLink="/resume" routerLinkActive="active">Resumé</a>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+        <a routerLink="/contact" routerLinkActive="active">Contact</a>
+      </div>
+
+      <button class="theme-toggle" (click)="themeService.toggleTheme()" [title]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'">
+        @if (themeService.theme() === 'light') {
+          <app-icon name="moon" [size]="20"></app-icon>
+        } @else {
+          <app-icon name="sun" [size]="20"></app-icon>
+        }
+      </button>
+
+      <button class="burger" (click)="toggleMenu()" [class.open]="isMenuOpen()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" [class.open]="isMenuOpen()">
+  <div class="mobile-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+  </div>
+</div>
+
+@if (isMenuOpen()) {
+  <div class="menu-overlay" (click)="closeMenu()"></div>
+}
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/main-logo.svg" alt="Portfolio Logo">
+          <span>Michael Sabatini</span>
+        </div>
+        <p>Crafting high-performance, accessible, and beautiful web experiences with Angular and NestJS.</p>
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" aria-label="GitHub"><app-icon name="github" [size]="20"></app-icon></a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><app-icon name="linkedin" [size]="20"></app-icon></a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter"><app-icon name="twitter" [size]="20"></app-icon></a>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+          <li><a routerLink="/resume" routerLinkActive="active">Resumé</a></li>
+          <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <ul>
+          <li><app-icon name="mail" [size]="18"></app-icon> michaelsabatinidesign@gmail.com</li>
+          <li><app-icon name="map-pin" [size]="18"></app-icon> Hingham, MA</li>
+          <li><app-icon name="send" [size]="18"></app-icon> Available for opportunities</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Michael Sabatini. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

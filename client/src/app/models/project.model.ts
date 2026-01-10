@@ -1,0 +1,14 @@
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  companyLogo?: string;
+  gallery?: string[];
+  content: string;
+  tags?: string[];
+  challenge?: string;
+  solution?: string;
+  result?: string;
+  createdAt: Date;
+}

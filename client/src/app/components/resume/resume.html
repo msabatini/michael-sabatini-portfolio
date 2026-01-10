@@ -1,0 +1,194 @@
+<article class="resume-container">
+  <header class="resume-header">
+    <div class="container">
+      <div class="header-grid">
+        <div class="header-content">
+          <span class="status-badge">Available for Innovation</span>
+          <h1>Michael Sabatini</h1>
+          <h2 class="role-title">AI-Augmented Senior Frontend Engineer & Digital Designer</h2>
+          <p class="summary">
+            Senior Frontend Engineer with 10+ years of experience architecting Angular applications, UI component libraries, and design systems. Specialized in <strong>AI-augmented development workflows</strong> that bridge the gap between complex engineering and sophisticated design to accelerate delivery and ensure pixel-perfect reliability.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:michaelsabatinidesign@gmail.com" class="contact-item">
+              <app-icon name="mail" [size]="18"></app-icon> michaelsabatinidesign@gmail.com
+            </a>
+            <span class="contact-item">
+              <app-icon name="map-pin" [size]="18"></app-icon> Hingham, MA
+            </span>
+            <a href="https://linkedin.com/in/michaelsabatini" target="_blank" class="contact-item">
+              <app-icon name="linkedin" [size]="18"></app-icon> /in/michaelsabatini
+            </a>
+            <a href="https://github.com/msabatini" target="_blank" class="contact-item">
+              <app-icon name="github" [size]="18"></app-icon> /msabatini
+            </a>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="download-btn" (click)="downloadResume()">
+            <app-icon name="download" [size]="20"></app-icon> Download PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container resume-body">
+    <div class="resume-grid">
+      <!-- Sidebar / Skills -->
+      <aside class="resume-sidebar">
+        <section class="sidebar-section">
+          <h3>AI & Modern Tooling</h3>
+          <div class="skill-group ai-specialty">
+            <span class="skill-tag highlight">GitHub Copilot</span>
+            <span class="skill-tag highlight">Augment</span>
+            <span class="skill-tag highlight">Zencoder</span>
+            <span class="skill-tag">Automated Refactoring</span>
+            <span class="skill-tag">AI-Assisted Testing</span>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h3>Core Expertise</h3>
+          <div class="skill-group">
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">RxJS</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">Sass / SCSS</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Design Systems</span>
+            <span class="skill-tag">State Management</span>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h3>Platform & Infrastructure</h3>
+          <div class="skill-group">
+            <span class="skill-tag">AWS (CloudWatch, S3, ECS)</span>
+            <span class="skill-tag">Node.js / Express</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+            <span class="skill-tag">WCAG Accessibility</span>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <strong>B.S. Graphic Design</strong>
+            <p>New England Institute of Art</p>
+          </div>
+          <div class="edu-item">
+            <strong>Diploma Web Development</strong>
+            <p>Art Institute of Pittsburgh</p>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Main Experience -->
+      <main class="resume-main">
+        <section class="main-section">
+          <div class="section-title">
+            <app-icon name="briefcase" [size]="24" color="var(--accent-color)"></app-icon>
+            <h2>Professional Experience</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>Pixlhaus Internet Technologies</h4>
+                  <span class="position">UI Architect & Senior Frontend Engineer</span>
+                </div>
+                <span class="date">2025 — Present</span>
+              </div>
+              <ul class="achievements">
+                <li>Architecting Angular applications with scalable component systems, reducing UI duplication by 40% and accelerating delivery cycles.</li>
+                <li>Pioneered <strong>AI-augmented engineering workflows</strong>, leveraging tools like Copilot and Zencoder to enforce clean architecture and automate unit test generation.</li>
+                <li>Engineered high-performance analytics dashboards with custom data visualizations powered by AWS.</li>
+                <li>Modernized legacy clinical workflows into digital assessment tools (Hook Chart), improving pathologist efficiency across the industry.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>Soffra.io</h4>
+                  <span class="position">Founder & Lead Frontend Engineer</span>
+                </div>
+                <span class="date">2022 — 2025</span>
+              </div>
+              <ul class="achievements">
+                <li>Built a global cycling analytics platform from concept to scale using the MEAN stack and Angular.</li>
+                <li>Designed and engineered a mobile-first interface processing 8,000+ mountain climb segments with integrated Strava data.</li>
+                <li>Implemented sophisticated Google Maps and Google Charts integrations for real-time geographic insights.</li>
+                <li>Led a team of three engineers, managing full product lifecycle from UX wireframes to cloud deployment.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>OneSky Flight / Tuvoli</h4>
+                  <span class="position">Frontend Engineer</span>
+                </div>
+                <span class="date">2019 — 2022</span>
+              </div>
+              <ul class="achievements">
+                <li>Owned UI architecture across multiple aviation-tech platforms, standardizing design consistency via reusable CSS component systems.</li>
+                <li>Hardened component logic and cross-browser reliability for mission-critical flight management interfaces.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>Homesite Insurance</h4>
+                  <span class="position">Frontend Developer & UI Designer</span>
+                </div>
+                <span class="date">2014 — 2019</span>
+              </div>
+              <ul class="achievements">
+                <li>Developed enterprise-level insurance dashboards within Agile teams, ensuring brand consistency across high-traffic platforms.</li>
+                <li>Resolved complex cross-browser compatibility issues and reduced UI defects by 25% through standardized patterns.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>J. Calnan & Associates</h4>
+                  <span class="position">Senior Graphic Designer</span>
+                </div>
+                <span class="date">2012 — 2013</span>
+              </div>
+              <ul class="achievements">
+                <li>Led the in-house marketing department's creative direction, managing design deliverables and a junior designer.</li>
+                <li>Designed and produced high-stakes project proposals that contributed to over $5 million in generated revenue for fiscal year 2012.</li>
+                <li>Collaborated with Team Impact (internal charity) on branding and routine print marketing communications.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div class="company-info">
+                  <h4>Axon Communications Inc.</h4>
+                  <span class="position">Senior Graphic Designer</span>
+                </div>
+                <span class="date">2007 — 2012</span>
+              </div>
+              <ul class="achievements">
+                <li>Founding graphic designer for a start-up marketing firm, establishing the entire original creative infrastructure and workflow.</li>
+                <li>Acted as the internal liaison between Post Production, Replication, and Client Services teams to ensure product delivery.</li>
+                <li>Created sophisticated user interfaces, graphics packages, and on-screen elements for all core products.</li>
+                <li>Designed an industry-recognized product logo featured in Med Ad News.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</article>

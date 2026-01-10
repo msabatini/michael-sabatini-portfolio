@@ -1,0 +1,51 @@
+<section class="projects-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="title">Technical Case Studies</h1>
+      <p class="subtitle">Deep dives into architecture, engineering, and design implementation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects-list-section">
+  <div class="container">
+    <div class="projects-grid">
+      @if (errorMessage) {
+        <div class="error-state">
+          <p>{{ errorMessage }}</p>
+        </div>
+      } @else {
+        @for (project of projects; track project.id) {
+          <div class="project-card" [routerLink]="['/projects', project.id]">
+            @if (project.imageUrl) {
+              <div class="project-image">
+                <img [src]="project.imageUrl" [alt]="project.title">
+                <div class="project-overlay">
+                  <span class="view-project">View Case Study</span>
+                </div>
+              </div>
+            }
+            <div class="project-content">
+              @if (project.tags) {
+                <div class="project-tags">
+                  @for (tag of project.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+              <h2 class="project-title">{{ project.title }}</h2>
+              <p class="project-description">{{ project.description }}</p>
+              <div class="project-footer">
+                <span class="btn-link">Read More <app-icon name="chevron-right" [size]="16"></app-icon></span>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <div class="no-projects">
+            <p>No projects found. Please check if the backend server is running.</p>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>
