@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'https://portfolio-api-l2k6.onrender.com' // Using production API even in dev for testing
 };
