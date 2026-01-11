@@ -3,10 +3,11 @@ import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } fro
 import { filter } from 'rxjs';
 import { ThemeService } from './services/theme';
 import { Icon } from './components/icon/icon';
+import { BackToTop } from './components/back-to-top/back-to-top';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, Icon],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, Icon, BackToTop],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

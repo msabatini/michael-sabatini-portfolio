@@ -7,12 +7,6 @@ export class SeedService implements OnModuleInit {
 
   async onModuleInit() {
     const projects = await this.projectsService.findAll();
-    if (projects.length === 0) {
-      await this.seed();
-    }
-  }
-
-  private async seed() {
     const initialProjects = [
       {
         title: 'Sorella Home Solutions',
@@ -112,11 +106,41 @@ export class SeedService implements OnModuleInit {
         solution: 'I developed a robust full-stack architecture featuring a Stripe-integrated payment gateway for multi-entity contributions. I implemented an interactive impact map using D3.js and Google Maps to visualize project progress, and built a comprehensive analytics dashboard for tracking donation flows and environmental ROI.',
         result: 'Delivered a production-ready platform capable of supporting thousands of simultaneous transactions, featuring a verifiable audit trail for every dollar donated and establishing a new standard for transparency in environmental crowdsourcing.',
       },
+      {
+        title: 'Pixlhaus Internet Technologies',
+        description: 'Full-service digital agency specializing in high-performance web, mobile, and e-commerce solutions.',
+        imageUrl: '/assets/projects/pixlhaus/pixlhaus-1.png',
+        gallery: [
+          '/assets/projects/pixlhaus/pixlhaus-1.png',
+          '/assets/projects/pixlhaus/pixlhaus-2.png',
+          '/assets/projects/pixlhaus/pixlhaus-3.png',
+          '/assets/projects/pixlhaus/pixlhaus-4.png',
+          '/assets/projects/pixlhaus/pixlhaus-5.png',
+          '/assets/projects/pixlhaus/pixlhaus-6.png',
+          '/assets/projects/pixlhaus/pixlhaus-7.png',
+          '/assets/projects/pixlhaus/pixlhaus-8.png',
+          '/assets/projects/pixlhaus/pixlhaus-9.png',
+          '/assets/projects/pixlhaus/pixlhaus-10.png',
+          '/assets/projects/pixlhaus/pixlhaus-11.png',
+          '/assets/projects/pixlhaus/pixlhaus-12.png',
+          '/assets/projects/pixlhaus/pixlhaus-13.png',
+          '/assets/projects/pixlhaus/pixlhaus-14.png'
+        ],
+        content: 'Pixlhaus is a comprehensive digital agency that delivers pixel-perfect websites, intuitive user interfaces, and robust backend systems. It bridges the gap between creative design thinking and technical expertise to bring complex digital visions to life.',
+        tags: ['React', 'Angular', 'Vue.js', 'Node.js', 'Shopify', 'UI/UX Design', 'Full-Stack'],
+        challenge: 'Businesses often struggle with fragmented digital strategies and non-scalable solutions. They need a unified partner to handle everything from brand identity to complex system architecture with a focus on performance and security.',
+        solution: 'Provided a comprehensive "Design & Build" approach, leveraging cutting-edge technologies and enterprise-grade security. Implemented lightning-fast performance optimizations and responsive designs that work flawlessly across all devices.',
+        result: 'Successfully established a premium market position, delivering scalable solutions that grow with client businesses while maintaining 24/7 uptime through proactive maintenance plans.',
+      },
     ];
 
+    const existingTitles = projects.map(p => p.title);
+    
     for (const project of initialProjects) {
-      await this.projectsService.create(project);
+      if (!existingTitles.includes(project.title)) {
+        await this.projectsService.create(project);
+        console.log(`Added new project: ${project.title}`);
+      }
     }
-    console.log('Database seeded with initial projects');
   }
 }
