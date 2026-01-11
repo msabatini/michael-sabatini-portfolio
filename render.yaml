@@ -13,7 +13,7 @@ services:
       - key: DATABASE_PATH
         value: /var/data/database.sqlite
       - key: ALLOWED_ORIGINS
-        value: https://michaelsabatinidesign.com,https://www.michaelsabatinidesign.com,https://michael-sabatini-portfolio.netlify.app,http://localhost:4200
+        value: https://michaelsabatinidesign.com,http://michaelsabatinidesign.com,https://www.michaelsabatinidesign.com,http://www.michaelsabatinidesign.com,https://michael-sabatini-portfolio.netlify.app,http://localhost:4200
     disk:
       name: sqlite-data
       mountPath: /var/data
