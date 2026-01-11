@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Icon } from '../icon/icon';
 import { ProjectService } from '../../services/project.service';
+import { SeoService } from '../../services/seo';
 
 @Component({
   selector: 'app-contact',
@@ -11,9 +12,10 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {
+export class Contact implements OnInit {
   private fb = inject(FormBuilder);
   private projectService = inject(ProjectService);
+  private seoService = inject(SeoService);
   contactForm: FormGroup;
   submitted = false;
   success = false;
@@ -24,6 +26,14 @@ export class Contact {
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       message: ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+
+  ngOnInit(): void {
+    this.seoService.updateMetaTags({
+      title: 'Contact',
+      description: 'Get in touch with Michael Sabatini for collaborations, project inquiries, or just to say hello.',
+      url: 'contact'
     });
   }
 
