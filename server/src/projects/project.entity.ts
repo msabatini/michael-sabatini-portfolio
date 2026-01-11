@@ -34,4 +34,7 @@ export class Project {
 
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
+
+  @Column({ nullable: true })
+  mockupUrl: string;
 }

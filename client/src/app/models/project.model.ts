@@ -11,4 +11,5 @@ export interface Project {
   solution?: string;
   result?: string;
   createdAt: Date;
+  mockupUrl?: string;
 }

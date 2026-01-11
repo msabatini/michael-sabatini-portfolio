@@ -6,16 +6,25 @@
           <a routerLink="/projects" class="back-link">
             <app-icon name="chevron-left" [size]="16"></app-icon> Back to Projects
           </a>
-          <div class="hero-content">
-            @if (project.tags) {
-              <div class="project-tags">
-                @for (tag of project.tags; track tag) {
-                  <span class="tag">{{ tag }}</span>
-                }
-              </div>
-            }
-            <h1 class="project-title">{{ project.title }}</h1>
-            <p class="project-subtitle">{{ project.description }}</p>
+          <div class="hero-content" [class.has-mockup]="project.mockupUrl">
+            <div class="title-container">
+              @if (project.tags) {
+                <div class="project-tags">
+                  @for (tag of project.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+              <h1 class="project-title">{{ project.title }}</h1>
+              <p class="project-subtitle">{{ project.description }}</p>
+            </div>
+            <div class="image-container">
+              @if (project.mockupUrl) {
+                <div class="project-mockup">
+                  <img [src]="project.mockupUrl" alt="Project Mockup">
+                </div>
+              }
+            </div>
           </div>
         </div>
       </div>

@@ -24,6 +24,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/sorella/sorella-case-study8.jpg',
           '/assets/projects/sorella/sorella-case-study9.jpg'
         ],
+        mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
         content: 'Developed a professional digital presence for a premium home concierge service, establishing their brand and laying the groundwork for a comprehensive client portal system.',
         tags: ['HTML5', 'SCSS', 'JavaScript', 'UI/UX Design', 'Mobile First'],
         challenge: 'Sorella Home Solutions needed a digital presence that reflected their premium service quality across property management, project oversight, and corporate relocation. The site had to be scalable enough to serve as the foundation for a Phase 2 client portal.',
@@ -44,6 +45,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/clinical/cr-mobile-1.jpg',
           '/assets/projects/clinical/cr-mobile-2.jpg'
         ],
+        mockupUrl: '/assets/projects/clinical/cr-hero.jpg',
         content: 'An evidence-based platform designed to empower pathologists with digital tools for clinical assessments, featuring the industry\'s first interactive Hook Chart.',
         tags: ['Angular', 'TypeScript', 'Node.js', 'Sass', 'Clinical Tech'],
         challenge: 'Transforming complex, paper-based assessment visualization systems (like the Hook Chart) into an interactive digital experience. The system needed to handle dynamic performance scaling and color-coded results across multiple test types like BRIEF, CTOPP, and WISC-V.',
@@ -126,6 +128,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pixlhaus/pixlhaus-13.png',
           '/assets/projects/pixlhaus/pixlhaus-14.png'
         ],
+        mockupUrl: '/assets/projects/pixlhaus/pixlhaus-1.png',
         content: 'Pixlhaus is a comprehensive digital agency that delivers pixel-perfect websites, intuitive user interfaces, and robust backend systems. It bridges the gap between creative design thinking and technical expertise to bring complex digital visions to life.',
         tags: ['React', 'Angular', 'Vue.js', 'Node.js', 'Shopify', 'UI/UX Design', 'Full-Stack'],
         challenge: 'Businesses often struggle with fragmented digital strategies and non-scalable solutions. They need a unified partner to handle everything from brand identity to complex system architecture with a focus on performance and security.',
@@ -134,12 +137,16 @@ export class SeedService implements OnModuleInit {
       },
     ];
 
-    const existingTitles = projects.map(p => p.title);
-    
-    for (const project of initialProjects) {
-      if (!existingTitles.includes(project.title)) {
-        await this.projectsService.create(project);
-        console.log(`Added new project: ${project.title}`);
+    for (const projectData of initialProjects) {
+      const existingProject = projects.find(p => p.title === projectData.title);
+      
+      if (!existingProject) {
+        await this.projectsService.create(projectData);
+        console.log(`Added new project: ${projectData.title}`);
+      } else {
+        // Update existing project with any new fields (like mockupUrl)
+        await this.projectsService.update(existingProject.id, projectData);
+        console.log(`Updated project: ${projectData.title}`);
       }
     }
   }

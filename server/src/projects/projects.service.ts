@@ -23,6 +23,11 @@ export class ProjectsService {
     return this.projectsRepository.save(newProject);
   }
 
+  async update(id: number, project: Partial<Project>): Promise<Project | null> {
+    await this.projectsRepository.update(id, project);
+    return this.findOne(id);
+  }
+
   async remove(id: number): Promise<void> {
     await this.projectsRepository.delete(id);
   }
