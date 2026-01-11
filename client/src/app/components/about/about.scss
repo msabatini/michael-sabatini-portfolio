@@ -114,6 +114,16 @@
   }
 
   .skill-category {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: .5rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
     h3 {
       font-size: 1.125rem;
       font-weight: 700;

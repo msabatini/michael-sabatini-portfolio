@@ -57,7 +57,7 @@ nav {
     margin-left: 1rem;
     padding: 0.5rem 1rem;
     transition: all 0.3s;
-    font-weight: 500;
+    font-weight: 300;
 
     &:hover, &.active {
       color: #28a9e1;
@@ -108,7 +108,7 @@ nav {
 
   span {
     width: 2rem;
-    height: 0.15rem;
+    height: 0.075rem;
     background: var(--nav-text);
     border-radius: 10px;
     transition: all 0.3s linear;
