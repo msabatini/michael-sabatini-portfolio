@@ -11,8 +11,13 @@ export class ContactController {
       await this.mailService.sendContactForm(body.name, body.email, body.subject, body.message);
       return { message: 'Email sent successfully' };
     } catch (error) {
-      console.error('Failed to send email:', error);
-      throw new HttpException('Failed to send message', HttpStatus.INTERNAL_SERVER_ERROR);
+      console.error('Failed to send email. Error details:', {
+        message: error.message,
+        stack: error.stack,
+        code: error.code,
+        command: error.command
+      });
+      throw new HttpException(`Failed to send message: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 }

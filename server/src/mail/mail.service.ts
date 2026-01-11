@@ -9,7 +9,6 @@ export class MailService {
     await this.mailerService.sendMail({
       to: 'michaelsabatinidesign@gmail.com', // destination email
       subject: `New Contact Form Submission: ${subject}`,
-      template: './contact', // maybe use text for now if no templates
       context: {
         name,
         email,
