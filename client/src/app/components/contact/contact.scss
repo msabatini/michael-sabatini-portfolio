@@ -1,28 +1,69 @@
-.contact-section {
-  padding: 3rem 0;
+.contact-hero {
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0;
+  overflow: hidden;
 
-  @media (min-width: 768px) {
-    padding: 6rem 0;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.5));
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-content {
+    .title {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: white;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 5rem;
-
-  .title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-  }
-
-  .subtitle {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-  }
+.contact-section {
+  padding: 5rem 0;
+  background-color: var(--bg-color);
 }
 
 .contact-grid {
@@ -154,6 +195,9 @@
 }
 
 @media (max-width: 992px) {
+  .contact-hero {
+    min-height: 30vh;
+  }
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -165,9 +209,11 @@
 }
 
 @media (max-width: 576px) {
-  .section-header {
-    .title {
-      font-size: 2.5rem;
+  .contact-hero {
+    .hero-content {
+      .title {
+        font-size: 2.5rem;
+      }
     }
   }
 }
