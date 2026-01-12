@@ -109,8 +109,11 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .skill-category {
@@ -156,7 +159,7 @@
 
 @media (max-width: 992px) {
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     gap: 3rem;
   }
 
