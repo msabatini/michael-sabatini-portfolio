@@ -8,6 +8,8 @@
           </a>
           <div class="hero-content" [class.has-mockup]="project.mockupUrl">
             <div class="title-container">
+              <h1 class="project-title">{{ project.title }}</h1>
+              <p class="project-subtitle">{{ project.description }}</p>
               @if (project.tags) {
                 <div class="project-tags">
                   @for (tag of project.tags; track tag) {
@@ -15,8 +17,6 @@
                   }
                 </div>
               }
-              <h1 class="project-title">{{ project.title }}</h1>
-              <p class="project-subtitle">{{ project.description }}</p>
             </div>
             <div class="image-container">
               @if (project.mockupUrl) {

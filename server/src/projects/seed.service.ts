@@ -15,14 +15,15 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/sorella/sorella-case-study10.jpg',
           '/assets/projects/sorella/sorella-case-study1.jpg',
+          '/assets/projects/sorella/sorella-case-study9.jpg',
           '/assets/projects/sorella/sorella-case-study2.jpg',
           '/assets/projects/sorella/sorella-case-study3.jpg',
           '/assets/projects/sorella/sorella-case-study4.jpg',
           '/assets/projects/sorella/sorella-case-study5.jpg',
           '/assets/projects/sorella/sorella-case-study6.jpg',
           '/assets/projects/sorella/sorella-case-study7.jpg',
-          '/assets/projects/sorella/sorella-case-study8.jpg',
-          '/assets/projects/sorella/sorella-case-study9.jpg'
+          '/assets/projects/sorella/sorella-case-study8.jpg'
+          
         ],
         mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
         content: 'Developed a professional digital presence for a premium home concierge service, establishing their brand and laying the groundwork for a comprehensive client portal system.',

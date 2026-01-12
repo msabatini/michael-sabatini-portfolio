@@ -58,10 +58,12 @@ nav {
     padding: 0.5rem 1rem;
     transition: all 0.3s;
     font-weight: 300;
+    border-bottom: 1px solid transparent;
 
     &:hover, &.active {
       color: #28a9e1;
       border-bottom: 1px solid;
+      font-weight: 500;
     }
   }
 
@@ -199,7 +201,7 @@ nav {
       }
 
       &.active {
-        font-weight: 300;
+        font-weight: 500;
         background: rgba(var(--accent-rgb), 0.08);
       }
     }
@@ -219,10 +221,6 @@ nav {
 
 main {
   min-height: calc(100vh - 80px - 300px);
-
-  @media (max-width: 768px) {
-    padding-top: 1rem;
-  }
 }
 
 footer {
