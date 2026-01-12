@@ -5,6 +5,7 @@ import { About } from './components/about/about';
 import { Contact } from './components/contact/contact';
 import { Resume } from './components/resume/resume';
 import { ProjectDetail } from './components/project-detail/project-detail';
+import { NotFound } from './components/not-found/not-found';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'projects/:id', component: ProjectDetail },
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
-  { path: '**', redirectTo: '' }
+  { path: '404', component: NotFound },
+  { path: '**', redirectTo: '/404' }
 ];
