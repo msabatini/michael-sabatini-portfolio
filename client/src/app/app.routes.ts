@@ -3,6 +3,7 @@ import { Home } from './components/home/home';
 import { Projects } from './components/projects/projects';
 import { About } from './components/about/about';
 import { Contact } from './components/contact/contact';
+import { QuickEstimate } from './components/quick-estimate/quick-estimate';
 import { Resume } from './components/resume/resume';
 import { ProjectDetail } from './components/project-detail/project-detail';
 import { NotFound } from './components/not-found/not-found';
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'projects/:id', component: ProjectDetail },
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
+  { path: 'quick-estimate', component: QuickEstimate },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' }
 ];

@@ -1,0 +1,161 @@
+<section class="estimate-hero fade-in-animation">
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <h1 class="title">Quick Project Estimate</h1>
+      <p class="subtitle">A simple way to see if I’m the right fit</p>
+    </div>
+  </div>
+</section>
+
+<section class="estimate-section">
+  <div class="container">
+    <div class="estimate-intro">
+      <p>If you’re considering a website or web app project and want a rough sense of scope, timeline, or cost, this quick estimate helps us decide whether it makes sense to move forward — no obligation.</p>
+    </div>
+
+    <div class="estimate-container">
+      <form [formGroup]="estimateForm" (ngSubmit)="onSubmit()" *ngIf="!success; else successMsg">
+        
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h2>A few basics</h2>
+          </div>
+          
+          <div class="form-group">
+            <label for="basics">What are you trying to build or improve?</label>
+            <p class="label-hint">(Example: new website, small web app, redesign, fixing an existing site)</p>
+            <textarea id="basics" formControlName="basics" rows="4" [class.error]="submitted && estimateForm.get('basics')?.errors"></textarea>
+            <span class="error-msg" *ngIf="submitted && estimateForm.get('basics')?.errors">Please provide some details.</span>
+          </div>
+
+          <div class="form-group">
+            <label>Do you already have anything?</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" formControlName="existing" value="existing-site">
+                <span>Existing website</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="existing" value="designs">
+                <span>Designs (Figma, sketches, etc.)</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="existing" value="nothing">
+                <span>Nothing yet — starting fresh</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="problem">What’s the main problem you’re trying to solve?</label>
+            <p class="label-hint">(Outdated look, not mobile-friendly, hard to maintain, never finished, etc.)</p>
+            <textarea id="problem" formControlName="problem" rows="3" [class.error]="submitted && estimateForm.get('problem')?.errors"></textarea>
+            <span class="error-msg" *ngIf="submitted && estimateForm.get('problem')?.errors">This field is required.</span>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h2>Timeline & urgency</h2>
+          </div>
+
+          <div class="form-group">
+            <label>Is there a target timeline?</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" formControlName="timeline" value="no-rush">
+                <span>No rush</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="timeline" value="1-2-months">
+                <span>Within 1–2 months</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="timeline" value="time-sensitive">
+                <span>Time-sensitive (please explain below)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="estimateForm.get('timeline')?.value === 'time-sensitive'">
+            <label for="timelineExplanation">Timeline Details:</label>
+            <textarea id="timelineExplanation" formControlName="timelineExplanation" rows="2"></textarea>
+          </div>
+          
+          <p class="note">Knowing this helps me give realistic guidance, not rushed promises.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h2>Budget comfort range <span class="optional">(optional but helpful)</span></h2>
+          </div>
+          
+          <p class="step-intro">You don’t need an exact number — a range is enough.</p>
+
+          <div class="form-group">
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" formControlName="budget" value="under-2500">
+                <span>Under $2,500</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="budget" value="2500-5000">
+                <span>$2,500–$5,000</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="budget" value="5000-10000">
+                <span>$5,000–$10,000</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" formControlName="budget" value="not-sure">
+                <span>Not sure yet</span>
+              </label>
+            </div>
+          </div>
+          
+          <p class="note">This helps me recommend the right approach (and tell you honestly if something won’t fit).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">4</span>
+            <h2>How I’ll respond</h2>
+          </div>
+          
+          <div class="response-info">
+            <p>Once I review your answers, I’ll reply with one of the following:</p>
+            <ul>
+              <li>A rough estimate and suggested next steps</li>
+              <li>A recommendation for a smaller starting point</li>
+              <li>An honest “this may not be the right fit” (with guidance if possible)</li>
+            </ul>
+            <p>If it makes sense, we can schedule a short call — but only if helpful.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email (to receive the estimate):</label>
+            <input type="email" id="email" formControlName="email" placeholder="email@example.com">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">Submit Estimate Request</button>
+          <p class="disclaimer">Let me know if you need clarity / Let's get started.</p>
+        </div>
+      </form>
+
+      <ng-template #successMsg>
+        <div class="success-container">
+          <div class="success-icon">✓</div>
+          <h2>Estimate Request Received!</h2>
+          <p>Thank you for sharing your project details. I'll review everything and get back to you shortly with a rough estimate or next steps.</p>
+          <button class="btn btn-outline" (click)="success = false">Send Another Request</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
