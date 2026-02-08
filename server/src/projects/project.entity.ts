@@ -37,4 +37,7 @@ export class Project {
 
   @Column({ nullable: true })
   mockupUrl: string;
+
+  @Column({ nullable: true })
+  completedDate: string;
 }

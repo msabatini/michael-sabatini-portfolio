@@ -86,7 +86,7 @@
             <ul class="meta-list">
               <li>
                 <strong>Date</strong>
-                <span>{{ project.createdAt | date:'MMMM yyyy' }}</span>
+                <span>{{ project.completedDate || (project.createdAt | date:'MMMM yyyy') }}</span>
               </li>
               <li>
                 <strong>Category</strong>

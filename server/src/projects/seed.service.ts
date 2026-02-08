@@ -31,6 +31,7 @@ export class SeedService implements OnModuleInit {
         challenge: 'Sorella Home Solutions needed a digital presence that reflected their premium service quality across property management, project oversight, and corporate relocation. The site had to be scalable enough to serve as the foundation for a Phase 2 client portal.',
         solution: 'I created a modern, responsive mobile-first website utilizing advanced SCSS for styling and interactive JavaScript for smooth functionality. The architecture was built with future scalability in mind, preparing the system for backend database integration and API gateways.',
         result: 'Launched within 1 month with 100% client satisfaction, successfully establishing a premium brand position and completing all Phase 2 readiness requirements.',
+        completedDate: 'September 2025',
       },
       {
         title: 'Clinical Resources SLP Platform',
@@ -52,6 +53,7 @@ export class SeedService implements OnModuleInit {
         challenge: 'Transforming complex, paper-based assessment visualization systems (like the Hook Chart) into an interactive digital experience. The system needed to handle dynamic performance scaling and color-coded results across multiple test types like BRIEF, CTOPP, and WISC-V.',
         solution: 'Built a high-performance Angular application featuring the groundbreaking digital Hook Chart. Integrated a comprehensive reporting system with instant preview, PDF generation, and CSV exports for comparison summaries across 50+ language assessments.',
         result: 'Delivered the industry\'s first digital Hook Chart within a 1-month development cycle, providing revolutionary SLP innovation with 6 categories of performance scales.',
+        completedDate: 'August 2025',
       },
       {
         title: 'SOFFRA Climbing Platform',
@@ -87,6 +89,7 @@ export class SeedService implements OnModuleInit {
         challenge: 'Managing and visualizing massive amounts of global climbing data, including 6,000+ segments across 22 countries. The platform required complex ranking systems, interactive vector maps (ClimbAtlas), and seamless payment processing.',
         solution: 'Developed a full-stack MEAN application featuring a Stripe-integrated payment gateway and an interactive ClimbAtlas. I implemented Google Maps integration for segment tracking, elevation charts for effort visualization, and a scalable DevOps strategy for global deployment.',
         result: 'Successfully mapped 6,199 segments across 22 countries, tracking over 4.8 million meters of elevation and reaching launch readiness for Spring 2026.',
+        completedDate: 'June 2022',
       },
       {
         title: 'Flourrish Environmental Funding',
@@ -110,6 +113,7 @@ export class SeedService implements OnModuleInit {
         challenge: 'Creating a secure, transparent, and scalable platform that could handle multi-currency donations and complex fund distribution across diverse global jurisdictions. The system needed to provide real-time impact tracking and verifiable reporting for both individual donors and institutional partners.',
         solution: 'I developed a robust full-stack architecture featuring a Stripe-integrated payment gateway for multi-entity contributions. I implemented an interactive impact map using D3.js and Google Maps to visualize project progress, and built a comprehensive analytics dashboard for tracking donation flows and environmental ROI.',
         result: 'Delivered a production-ready platform capable of supporting thousands of simultaneous transactions, featuring a verifiable audit trail for every dollar donated and establishing a new standard for transparency in environmental crowdsourcing.',
+        completedDate: 'October 2025',
       },
       {
         title: 'Pixlhaus Internet Technologies',
@@ -137,6 +141,7 @@ export class SeedService implements OnModuleInit {
         challenge: 'Businesses often struggle with fragmented digital strategies and non-scalable solutions. They need a unified partner to handle everything from brand identity to complex system architecture with a focus on performance and security.',
         solution: 'Provided a comprehensive "Design & Build" approach, leveraging cutting-edge technologies and enterprise-grade security. Implemented lightning-fast performance optimizations and responsive designs that work flawlessly across all devices.',
         result: 'Successfully established a premium market position, delivering scalable solutions that grow with client businesses while maintaining 24/7 uptime through proactive maintenance plans.',
+        completedDate: 'July 2025',
       },
     ];
 

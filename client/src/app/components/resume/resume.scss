@@ -183,6 +183,16 @@
 
   .edu-item {
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+
+    .edu-bu {
+      margin-bottom: 4px;
+    }
+    
+    .edu-meta {
+      font-size: .75rem;
+    }
 
     strong {
       display: block;
@@ -324,3 +334,4 @@
     background: #ccc !important;
   }
 }
+
