@@ -159,11 +159,11 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/harrison-deller-art/harrison-art-9.png'
         ],
         mockupUrl: '/assets/projects/harrison-deller-art/harrison-art-2.png',
-        content: "Harrison Deller is a contemporary artist and musician whose work explores the intersection of visual and auditory expression. Through painting and music, Harrison creates immersive experiences that challenge conventional boundaries between artistic mediums. With a background in both fine arts and music composition, Harrison's paintings often reflect rhythmic patterns and harmonic structures, while his musical compositions draw inspiration from visual landscapes and color theory.",
-        tags: ['Fine Art', 'Painting', 'Music', 'Contemporary Art', 'Visual Arts'],
-        challenge: 'Harrison acknowledges being a compulsive creator of images forged through intuition and trust in the artistic process and materials; the works do not come from preconceived concepts or ideas and are direct manifestations of the subconscious.',
-        solution: "Harrison's paintings often reflect rhythmic patterns and harmonic structures, while his musical compositions draw inspiration from visual landscapes and color theory, creating a seamless dialogue between visual and auditory expression.",
-        result: 'Harrison (1993 Quito, Ecuador) earned his Bachelor\'s degree in Painting from SCAD in 2017 and his Master\'s degree in Painting and Drawing at the School of the Art Institute of Chicago in 2022. He has received several awards including the studio award at Mana Contemporary Miami.',
+        content: "Harrison Deller is a prolific Paraguayan artist and musician whose multidisciplinary work explores the intersection of visual and auditory expression. As a compulsive creator of images and sound, Harrison requires a digital home that can keep pace with his rapid artistic output, providing a unified space for his subconscious-driven paintings and complex musical compositions.",
+        tags: ['Angular', 'Node.js', 'Custom CMS', 'Fine Art', 'Music Streaming'],
+        challenge: "Managing an ever-expanding portfolio of diverse media across multiple disciplines proved difficult with traditional static solutions. Harrison needed a platform that could handle the frequent addition of high-resolution visual art and integrated audio tracks while maintaining a clean, minimalist aesthetic that allows the work to remain the focal point.",
+        solution: "I developed a bespoke full-stack application featuring a custom-built Content Management System (CMS) tailored specifically to Harrison's workflow. The backend provides an intuitive interface for independently uploading, tagging, and organizing new artwork and music in real-time. The system utilizes optimized image loading and a custom audio player to ensure a high-performance experience.",
+        result: "The final platform serves as a dynamic, living archive that Harrison manages entirely on his own. By eliminating the technical barrier of manual updates, the custom CMS has empowered the artist to maintain an up-to-the-minute showcase of his career, bridging his Paraguayan roots with his formal training from SCAD and the School of the Art Institute of Chicago.",
         completedDate: 'February 2026',
       },
     ];
