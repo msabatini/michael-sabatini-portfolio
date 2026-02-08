@@ -143,6 +143,29 @@ export class SeedService implements OnModuleInit {
         result: 'Successfully established a premium market position, delivering scalable solutions that grow with client businesses while maintaining 24/7 uptime through proactive maintenance plans.',
         completedDate: 'July 2025',
       },
+      {
+        title: 'Harrison Deller Art',
+        description: 'Harrison Deller acknowledges being a compulsive creator of images forged through intuition and trust in the artistic process and materials; the works do not come from preconceived concepts or ideas and are direct manifestations of the subconscious, which also applies to his poetry writing and music composition.',
+        imageUrl: '/assets/projects/harrison-deller-art/harrison-art-2.png',
+        gallery: [
+          '/assets/projects/harrison-deller-art/harrison-art-1.png',
+          '/assets/projects/harrison-deller-art/harrison-art-2.png',
+          '/assets/projects/harrison-deller-art/harrison-art-3.png',
+          '/assets/projects/harrison-deller-art/harrison-art-4.png',
+          '/assets/projects/harrison-deller-art/harrison-art-5.png',
+          '/assets/projects/harrison-deller-art/harrison-art-6.png',
+          '/assets/projects/harrison-deller-art/harrison-art-7.png',
+          '/assets/projects/harrison-deller-art/harrison-art-8.png',
+          '/assets/projects/harrison-deller-art/harrison-art-9.png'
+        ],
+        mockupUrl: '/assets/projects/harrison-deller-art/harrison-art-2.png',
+        content: "Harrison Deller is a contemporary artist and musician whose work explores the intersection of visual and auditory expression. Through painting and music, Harrison creates immersive experiences that challenge conventional boundaries between artistic mediums. With a background in both fine arts and music composition, Harrison's paintings often reflect rhythmic patterns and harmonic structures, while his musical compositions draw inspiration from visual landscapes and color theory.",
+        tags: ['Fine Art', 'Painting', 'Music', 'Contemporary Art', 'Visual Arts'],
+        challenge: 'Harrison acknowledges being a compulsive creator of images forged through intuition and trust in the artistic process and materials; the works do not come from preconceived concepts or ideas and are direct manifestations of the subconscious.',
+        solution: "Harrison's paintings often reflect rhythmic patterns and harmonic structures, while his musical compositions draw inspiration from visual landscapes and color theory, creating a seamless dialogue between visual and auditory expression.",
+        result: 'Harrison (1993 Quito, Ecuador) earned his Bachelor\'s degree in Painting from SCAD in 2017 and his Master\'s degree in Painting and Drawing at the School of the Art Institute of Chicago in 2022. He has received several awards including the studio award at Mana Contemporary Miami.',
+        completedDate: 'February 2026',
+      },
     ];
 
     for (const projectData of initialProjects) {
