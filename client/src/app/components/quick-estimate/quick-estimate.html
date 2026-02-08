@@ -12,6 +12,14 @@
   <div class="container">
     <div class="estimate-intro">
       <p>If you’re considering a website or web app project and want a rough sense of scope, timeline, or cost, this quick estimate helps us decide whether it makes sense to move forward — no obligation.</p>
+      
+      <div class="intro-cta">
+        <p>Prefer to skip the form?</p>
+        <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-outline">
+          <app-icon name="chat" [size]="18"></app-icon>
+          Schedule a project chat
+        </a>
+      </div>
     </div>
 
     <div class="estimate-container">
@@ -165,7 +173,14 @@
           <div class="success-icon">✓</div>
           <h2>Estimate Request Received!</h2>
           <p>Thank you for sharing your project details. I'll review everything and get back to you shortly with a rough estimate or next steps.</p>
-          <button class="btn btn-outline" (click)="success = false">Send Another Request</button>
+          
+          <div class="success-actions">
+            <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+              <app-icon name="chat" [size]="24"></app-icon>
+              Schedule a project chat
+            </a>
+            <button class="btn btn-link" (click)="success = false">Send Another Request</button>
+          </div>
         </div>
       </ng-template>
     </div>

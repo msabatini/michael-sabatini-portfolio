@@ -45,6 +45,18 @@ nav {
 .nav-actions {
   display: flex;
   align-items: center;
+
+  .schedule-btn {
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
 }
 
 .desktop-links {
@@ -162,6 +174,21 @@ nav {
     display: flex;
     flex-direction: column;
     padding-top: 6rem;
+
+    .mobile-cta {
+      padding: 2.5rem;
+      margin-top: 1rem;
+      
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+    }
 
     a {
       color: var(--nav-text);
