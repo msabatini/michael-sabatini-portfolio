@@ -63,6 +63,7 @@
     h1 {
       font-size: clamp(3.5rem, 10vw, 5.5rem);
       font-weight: 900;
+      max-width: 900px;
       line-height: 1;
       margin-bottom: 2rem;
       color: white;
@@ -301,11 +302,12 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .hero {
     .hero-content {
       h1 {
         font-size: 3rem;
+        line-height: 3.5rem;
       }
       .subtitle {
         font-size: 1.25rem;
