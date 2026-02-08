@@ -22,6 +22,9 @@ export class Resume implements OnInit {
   }
 
   downloadResume() {
-    window.print();
+    const link = document.createElement('a');
+    link.href = '/Michael_Sabatini_Resume.pdf';
+    link.download = 'Michael_Sabatini_Resume.pdf';
+    link.click();
   }
 }
