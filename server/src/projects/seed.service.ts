@@ -158,7 +158,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/harrison-deller-art/harrison-art-8.png',
           '/assets/projects/harrison-deller-art/harrison-art-9.png'
         ],
-        mockupUrl: '/assets/projects/harrison-deller-art/harrison-art-mockup.jpg',
+        mockupUrl: '/assets/projects/harrison-deller-art/harrison-art-mockup.png',
         content: "Harrison Deller is a prolific Paraguayan artist and musician whose multidisciplinary work explores the intersection of visual and auditory expression. As a compulsive creator of images and sound, Harrison requires a digital home that can keep pace with his rapid artistic output, providing a unified space for his subconscious-driven paintings and complex musical compositions.",
         tags: ['Angular', 'Node.js', 'Custom CMS', 'Fine Art', 'Music Streaming'],
         challenge: "Managing an ever-expanding portfolio of diverse media across multiple disciplines proved difficult with traditional static solutions. Harrison needed a platform that could handle the frequent addition of high-resolution visual art and integrated audio tracks while maintaining a clean, minimalist aesthetic that allows the work to remain the focal point.",
