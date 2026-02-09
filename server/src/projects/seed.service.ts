@@ -148,8 +148,8 @@ export class SeedService implements OnModuleInit {
         description: 'Harrison Deller acknowledges being a compulsive creator of images forged through intuition and trust in the artistic process and materials; the works do not come from preconceived concepts or ideas and are direct manifestations of the subconscious, which also applies to his poetry writing and music composition.',
         imageUrl: '/assets/projects/harrison-deller-art/harrison-art-2.png',
         gallery: [
-          '/assets/projects/harrison-deller-art/harrison-art-1.png',
           '/assets/projects/harrison-deller-art/harrison-art-2.png',
+          '/assets/projects/harrison-deller-art/harrison-art-1.png',
           '/assets/projects/harrison-deller-art/harrison-art-3.png',
           '/assets/projects/harrison-deller-art/harrison-art-4.png',
           '/assets/projects/harrison-deller-art/harrison-art-5.png',
