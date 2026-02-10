@@ -24,8 +24,10 @@ export class ProjectsService {
   }
 
   async update(id: number, project: Partial<Project>): Promise<Project | null> {
-    await this.projectsRepository.update(id, project);
-    return this.findOne(id);
+    const existing = await this.findOne(id);
+    if (!existing) return null;
+    Object.assign(existing, project);
+    return this.projectsRepository.save(existing);
   }
 
   async remove(id: number): Promise<void> {
