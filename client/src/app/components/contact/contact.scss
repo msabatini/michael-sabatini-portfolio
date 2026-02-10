@@ -242,4 +242,12 @@
       }
     }
   }
+  .info-card {
+    display: block;
+    text-align: center;
+    align-items: center;
+    .info-icon {
+      width: 100%;
+    }
+  }
 }
