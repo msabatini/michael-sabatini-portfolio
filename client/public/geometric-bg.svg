@@ -22,9 +22,13 @@
       .st4 {
         fill: #8c8c8c;
       }
+
+      .st5 {
+        display: none;
+      }
     </style>
   </defs>
-  <g id="Layer_1">
+  <g id="Layer_1" class="st5">
     <g class="st1">
       <g id="Layer_11" data-name="Layer_1">
         <g class="st2">
@@ -258,7 +262,7 @@
       </g>
     </g>
   </g>
-  <g id="Layer_1_copy">
+  <g id="Layer_1_copy" class="st5">
     <g class="st1">
       <g id="Layer_12" data-name="Layer_1">
         <g class="st2">
@@ -492,7 +496,7 @@
       </g>
     </g>
   </g>
-  <g id="Layer_1_copy_3">
+  <g id="Layer_1_copy_3" class="st5">
     <g class="st1">
       <g id="Layer_13" data-name="Layer_1">
         <g class="st2">
@@ -726,7 +730,7 @@
       </g>
     </g>
   </g>
-  <g id="Layer_1_copy_2">
+  <g id="Layer_1_copy_2" class="st5">
     <g class="st1">
       <g id="Layer_14" data-name="Layer_1">
         <g class="st2">
@@ -960,7 +964,7 @@
       </g>
     </g>
   </g>
-  <g id="Layer_1_copy_7">
+  <g id="Layer_1_copy_7" class="st5">
     <g class="st1">
       <g id="Layer_15" data-name="Layer_1">
         <g class="st2">
