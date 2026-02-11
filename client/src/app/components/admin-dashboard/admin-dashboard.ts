@@ -35,6 +35,12 @@ export class AdminDashboard implements OnInit {
   settings = signal<AppSettings | null>(null);
   mediaList = signal<Media[]>([]);
   
+  dateRange = signal<{start: string, end: string}>({
+    start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    end: new Date().toISOString().split('T')[0]
+  });
+  analyticsFilters = signal<any>({});
+  
   unreadCount = computed(() => this.messages().filter(m => !m.isRead).length);
   
   isFormOpen = signal(false);
@@ -91,13 +97,66 @@ export class AdminDashboard implements OnInit {
   }
 
   loadStats() {
-    this.analyticsService.getStats().subscribe({
+    const range = this.dateRange();
+    this.analyticsService.getStats(range.start, range.end, this.analyticsFilters()).subscribe({
       next: (data) => this.stats.set(data),
       error: (err) => {
         console.error('Failed to load stats', err);
         if (err.status === 401) this.authService.logout();
       }
     });
+  }
+
+  updateDateRange(start: string, end: string) {
+    this.dateRange.set({ start, end });
+    this.loadStats();
+  }
+
+  setDatePreset(days: number) {
+    const end = new Date().toISOString().split('T')[0];
+    const start = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    this.updateDateRange(start, end);
+  }
+
+  updateFilter(key: string, value: string) {
+    const current = this.analyticsFilters();
+    if (!value) {
+      delete current[key];
+    } else {
+      current[key] = value;
+    }
+    this.analyticsFilters.set({ ...current });
+    this.loadStats();
+  }
+
+  downloadCSV(type: string) {
+    const stats = this.stats();
+    if (!stats) return;
+
+    let data: any[] = [];
+    let filename = `analytics-${type}.csv`;
+
+    if (type === 'pages') data = stats.topPages;
+    if (type === 'referrers') data = stats.topReferrers;
+    if (type === 'utm') data = stats.utmStats;
+
+    if (data.length === 0) return;
+
+    const headers = Object.keys(data[0]).join(',');
+    const rows = data.map(item => Object.values(item).join(',')).join('\n');
+    const csvContent = `data:text/csv;charset=utf-8,${headers}\n${rows}`;
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  exportPDF() {
+    window.print();
   }
 
   loadProjects() {

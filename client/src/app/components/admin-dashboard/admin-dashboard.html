@@ -68,6 +68,68 @@
 
   <div class="dashboard-content">
     @if (activeTab() === 'analytics') {
+      <div class="analytics-controls data-table-card">
+        <div class="control-group">
+          <label>Date Range</label>
+          <div class="presets">
+            <button (click)="setDatePreset(0)" class="btn btn-xs" [class.active]="dateRange().start === dateRange().end">Today</button>
+            <button (click)="setDatePreset(7)" class="btn btn-xs">7d</button>
+            <button (click)="setDatePreset(30)" class="btn btn-xs">30d</button>
+          </div>
+          <div class="date-inputs">
+            <input type="date" [value]="dateRange().start" (change)="updateDateRange($any($event.target).value, dateRange().end)">
+            <span>to</span>
+            <input type="date" [value]="dateRange().end" (change)="updateDateRange(dateRange().start, $any($event.target).value)">
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Device</label>
+          <select (change)="updateFilter('device', $any($event.target).value)">
+            <option value="">All</option>
+            <option value="Desktop">Desktop</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Tablet">Tablet</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Campaign</label>
+          <select (change)="updateFilter('campaign', $any($event.target).value)">
+            <option value="">All</option>
+            @for (utm of stats()?.utmStats; track utm.campaign) {
+              @if (utm.campaign) {
+                <option [value]="utm.campaign">{{ utm.campaign }}</option>
+              }
+            }
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Location</label>
+          <select (change)="updateFilter('location', $any($event.target).value)">
+            <option value="">All</option>
+            @for (loc of stats()?.locationStats; track loc.name) {
+              <option [value]="loc.name">{{ loc.name }}</option>
+            }
+          </select>
+        </div>
+        <div class="control-actions">
+          <button (click)="exportPDF()" class="btn btn-outline btn-sm">
+            <app-icon name="file-text" [size]="14"></app-icon> PDF Report
+          </button>
+          <button (click)="downloadCSV('pages')" class="btn btn-outline btn-sm">
+            <app-icon name="download" [size]="14"></app-icon> Export CSV
+          </button>
+        </div>
+      </div>
+
+      @if (analyticsFilters().path) {
+        <div class="active-filters">
+          <span class="filter-tag">
+            Path: {{ analyticsFilters().path }}
+            <button (click)="updateFilter('path', '')"><app-icon name="x" [size]="12"></app-icon></button>
+          </span>
+        </div>
+      }
+
       <div class="stats-grid">
         <div class="stat-card">
           <h3>Total Views</h3>
@@ -123,7 +185,11 @@
               <tbody>
                 @for (page of stats()?.topPages; track page.path) {
                   <tr>
-                    <td>{{ page.path }}</td>
+                    <td>
+                      <a href="javascript:void(0)" (click)="updateFilter('path', page.path)" class="drill-down-link">
+                        {{ page.path }}
+                      </a>
+                    </td>
                     <td>{{ page.count }}</td>
                     <td>
                       <div class="progress-bar">
@@ -152,7 +218,11 @@
               <tbody>
                 @for (project of stats()?.topProjects; track project.path) {
                   <tr>
-                    <td>{{ project.path.replace('/projects/', '') || 'All' }}</td>
+                    <td>
+                      <a href="javascript:void(0)" (click)="updateFilter('path', project.path)" class="drill-down-link">
+                        {{ project.path.replace('/projects/', '') || 'All' }}
+                      </a>
+                    </td>
                     <td>{{ project.count }}</td>
                   </tr>
                 }
@@ -184,6 +254,30 @@
             </table>
           } @else {
             <div class="empty-state">No referrer data yet</div>
+          }
+        </div>
+
+        <div class="data-table-card">
+          <h2>Top Locations</h2>
+          @if (stats()?.locationStats?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>City / Country</th>
+                  <th>Visitors</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (loc of stats()?.locationStats; track loc.name) {
+                  <tr>
+                    <td>{{ loc.name }}</td>
+                    <td>{{ loc.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No location data yet</div>
           }
         </div>
 
@@ -231,6 +325,37 @@
               <div class="empty-state">No device data yet</div>
             }
           </div>
+        </div>
+
+        <div class="data-table-card">
+          <div class="card-header">
+            <h2>Campaign Traffic (UTM)</h2>
+            <button (click)="downloadCSV('utm')" class="icon-btn" title="Download CSV">
+              <app-icon name="download" [size]="14"></app-icon>
+            </button>
+          </div>
+          @if (stats()?.utmStats?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Campaign</th>
+                  <th>Source / Medium</th>
+                  <th>Views</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (utm of stats()?.utmStats; track $index) {
+                  <tr>
+                    <td>{{ utm.campaign || 'None' }}</td>
+                    <td>{{ utm.source }} / {{ utm.medium || 'direct' }}</td>
+                    <td>{{ utm.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No campaign data yet</div>
+          }
         </div>
 
         <div class="data-table-card">

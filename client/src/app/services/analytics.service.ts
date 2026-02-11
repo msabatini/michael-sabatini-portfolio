@@ -55,11 +55,16 @@ export class AnalyticsService {
       return;
     }
 
+    const params = new URLSearchParams(window.location.search);
+
     this.http.post(`${this.apiUrl}/analytics/track`, {
       path,
       sessionId: this.getSessionId(),
       referrer: document.referrer || null,
-      eventType: eventType
+      eventType: eventType,
+      utmSource: params.get('utm_source'),
+      utmMedium: params.get('utm_medium'),
+      utmCampaign: params.get('utm_campaign')
     }).subscribe({
       error: (err) => console.error('Analytics tracking failed', err)
     });
@@ -76,7 +81,14 @@ export class AnalyticsService {
     });
   }
 
-  getStats() {
-    return this.http.get(`${this.apiUrl}/analytics/stats`);
+  getStats(start?: string, end?: string, filters: any = {}) {
+    let url = `${this.apiUrl}/analytics/stats?`;
+    if (start) url += `start=${start}&`;
+    if (end) url += `end=${end}&`;
+    if (filters.device) url += `device=${filters.device}&`;
+    if (filters.campaign) url += `campaign=${filters.campaign}&`;
+    if (filters.path) url += `path=${filters.path}&`;
+    
+    return this.http.get(url);
   }
 }

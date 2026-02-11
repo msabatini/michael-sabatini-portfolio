@@ -14,21 +14,53 @@ export class AnalyticsService {
     path: string,
     userAgent: string,
     sessionId: string,
+    ip: string,
     referrer?: string,
     eventType: string = 'page_view',
     eventData?: string,
+    utmSource?: string,
+    utmMedium?: string,
+    utmCampaign?: string,
   ): Promise<Analytics> {
     const deviceType = this.parseDeviceType(userAgent);
+    
+    // Create basic event
     const event = this.analyticsRepository.create({
       path,
       userAgent,
       sessionId,
+      ip,
       referrer,
       eventType,
       eventData,
       deviceType,
+      utmSource,
+      utmMedium,
+      utmCampaign,
     });
-    return this.analyticsRepository.save(event);
+
+    // Save initially
+    const savedEvent = await this.analyticsRepository.save(event);
+
+    // Background location lookup
+    this.lookupLocation(savedEvent.id, ip);
+
+    return savedEvent;
+  }
+
+  private async lookupLocation(eventId: number, ip: string) {
+    if (!ip || ip === 'unknown' || ip === '127.0.0.1' || ip === '::1') return;
+
+    try {
+      const response = await fetch(`http://ip-api.com/json/${ip}`);
+      const data = await response.json() as any;
+      if (data.status === 'success') {
+        const location = `${data.city}, ${data.country}`;
+        await this.analyticsRepository.update(eventId, { location });
+      }
+    } catch (err) {
+      console.error('Location lookup failed', err);
+    }
   }
 
   private parseDeviceType(ua: string): string {
@@ -42,106 +74,105 @@ export class AnalyticsService {
     return 'Desktop';
   }
 
-  async getStats() {
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+  async getStats(startDate?: string, endDate?: string, filters: any = {}) {
+    const start = startDate ? new Date(startDate) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const end = endDate ? new Date(endDate) : new Date();
 
-    const totalViews = await this.analyticsRepository.count({
-      where: { eventType: 'page_view' }
-    });
-    
-    const recentViews = await this.analyticsRepository.count({
-      where: { 
-        timestamp: MoreThan(twentyFourHoursAgo),
-        eventType: 'page_view'
-      }
-    });
+    const query = this.analyticsRepository.createQueryBuilder('analytics')
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end });
 
-    const uniqueVisitors = await this.analyticsRepository
-      .createQueryBuilder('analytics')
+    if (filters.deviceType) {
+      query.andWhere('analytics.deviceType = :deviceType', { deviceType: filters.deviceType });
+    }
+    if (filters.utmCampaign) {
+      query.andWhere('analytics.utmCampaign = :utmCampaign', { utmCampaign: filters.utmCampaign });
+    }
+    if (filters.path) {
+      query.andWhere('analytics.path = :path', { path: filters.path });
+    }
+
+    const totalViews = await query.clone()
+      .andWhere('analytics.eventType = :type', { type: 'page_view' })
+      .getCount();
+
+    const uniqueVisitorsRaw = await query.clone()
       .select('COUNT(DISTINCT(analytics.sessionId))', 'count')
       .getRawOne();
+    const uniqueVisitors = parseInt(uniqueVisitorsRaw.count, 10);
 
-    const topPages = await this.analyticsRepository
-      .createQueryBuilder('analytics')
+    const topPages = await query.clone()
       .select('analytics.path', 'path')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.eventType = :type', { type: 'page_view' })
       .groupBy('analytics.path')
       .orderBy('count', 'DESC')
-      .limit(5)
+      .limit(10)
       .getRawMany();
 
-    const interactions = await this.analyticsRepository
-      .createQueryBuilder('analytics')
-      .select('analytics.eventData', 'name')
-      .addSelect('COUNT(*)', 'count')
-      .where('analytics.eventType = :type', { type: 'click' })
-      .groupBy('analytics.eventData')
-      .orderBy('count', 'DESC')
-      .getRawMany();
-
-    const topReferrers = await this.analyticsRepository
-      .createQueryBuilder('analytics')
+    const topReferrers = await query.clone()
       .select('analytics.referrer', 'referrer')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.referrer IS NOT NULL AND analytics.referrer != ""')
       .groupBy('analytics.referrer')
       .orderBy('count', 'DESC')
-      .limit(5)
+      .limit(10)
       .getRawMany();
 
-    const browserStats = await this.analyticsRepository
-      .createQueryBuilder('analytics')
-      .select('analytics.userAgent', 'userAgent')
+    const utmStats = await query.clone()
+      .select('analytics.utmSource', 'source')
+      .addSelect('analytics.utmMedium', 'medium')
+      .addSelect('analytics.utmCampaign', 'campaign')
       .addSelect('COUNT(*)', 'count')
-      .groupBy('analytics.userAgent')
+      .where('analytics.utmSource IS NOT NULL')
+      .groupBy('analytics.utmSource, analytics.utmMedium, analytics.utmCampaign')
       .getRawMany();
 
-    // Simple manual parsing of browsers for dashboard
-    const browsers = this.parseBrowsers(browserStats);
+    const locationStats = await query.clone()
+      .select('analytics.location', 'name')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.location IS NOT NULL')
+      .groupBy('analytics.location')
+      .orderBy('count', 'DESC')
+      .limit(10)
+      .getRawMany();
 
-    const dailyActivity = await this.getDailyActivity(7);
-    const avgSessionDuration = await this.getAverageSessionDuration();
-
-    const deviceStats = await this.analyticsRepository
-      .createQueryBuilder('analytics')
+    const deviceStats = await query.clone()
       .select('analytics.deviceType', 'name')
       .addSelect('COUNT(*)', 'count')
       .groupBy('analytics.deviceType')
       .getRawMany();
 
-    const topProjects = await this.analyticsRepository
-      .createQueryBuilder('analytics')
-      .select('analytics.path', 'path')
+    const browserStatsRaw = await query.clone()
+      .select('analytics.userAgent', 'userAgent')
       .addSelect('COUNT(*)', 'count')
-      .where('analytics.path LIKE :pattern', { pattern: '/projects/%' })
-      .andWhere('analytics.eventType = :type', { type: 'page_view' })
-      .groupBy('analytics.path')
-      .orderBy('count', 'DESC')
-      .limit(5)
+      .groupBy('analytics.userAgent')
       .getRawMany();
+    const browsers = this.parseBrowsers(browserStatsRaw);
+
+    const dailyActivity = await this.getDailyActivityInRange(start, end);
+    const avgSessionDuration = await this.getAverageSessionDurationInRange(start, end);
 
     return {
       totalViews,
-      recentViews,
-      uniqueVisitors: parseInt(uniqueVisitors.count, 10),
+      uniqueVisitors,
       avgSessionDuration,
       topPages,
-      topProjects,
       topReferrers,
+      utmStats,
+      locationStats,
       browsers,
       deviceStats,
-      interactions,
       dailyActivity
     };
   }
 
-  private async getAverageSessionDuration() {
+  private async getAverageSessionDurationInRange(start: Date, end: Date) {
     const sessions = await this.analyticsRepository
       .createQueryBuilder('analytics')
       .select('analytics.sessionId', 'sessionId')
       .addSelect('MIN(analytics.timestamp)', 'start')
       .addSelect('MAX(analytics.timestamp)', 'end')
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end })
       .groupBy('analytics.sessionId')
       .getRawMany();
 
@@ -151,11 +182,9 @@ export class AnalyticsService {
     let countedSessions = 0;
 
     sessions.forEach(session => {
-      const start = new Date(session.start).getTime();
-      const end = new Date(session.end).getTime();
-      const duration = end - start;
-      
-      // Only count sessions with more than one event (duration > 0)
+      const sStart = new Date(session.start).getTime();
+      const sEnd = new Date(session.end).getTime();
+      const duration = sEnd - sStart;
       if (duration > 0) {
         totalDurationMs += duration;
         countedSessions++;
@@ -163,46 +192,27 @@ export class AnalyticsService {
     });
 
     if (countedSessions === 0) return '0:00';
-
     const avgSeconds = Math.floor((totalDurationMs / countedSessions) / 1000);
     const mins = Math.floor(avgSeconds / 60);
     const secs = avgSeconds % 60;
-
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   }
 
-  private async getDailyActivity(days: number) {
-    const activity: { date: string; count: number }[] = [];
-    for (let i = days - 1; i >= 0; i--) {
-      const date = new Date();
-      date.setHours(0, 0, 0, 0);
-      date.setDate(date.getDate() - i);
+  private async getDailyActivityInRange(start: Date, end: Date) {
+    const activity = await this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .select('DATE(analytics.timestamp)', 'date')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end })
+      .andWhere('analytics.eventType = :type', { type: 'page_view' })
+      .groupBy('DATE(analytics.timestamp)')
+      .orderBy('date', 'ASC')
+      .getRawMany();
 
-      const nextDate = new Date(date);
-      nextDate.setDate(nextDate.getDate() + 1);
-
-      const count = await this.analyticsRepository.count({
-        where: {
-          timestamp: MoreThan(date),
-          eventType: 'page_view'
-        }
-      });
-      
-      // The count above is actually "since date", we need "between date and nextDate"
-      // But for SQLite simple count with MoreThan is often enough if we filter properly
-      // Let's refine for actual daily buckets
-      const dailyCount = await this.analyticsRepository
-        .createQueryBuilder('analytics')
-        .where('analytics.timestamp >= :date AND analytics.timestamp < :nextDate', { date, nextDate })
-        .andWhere('analytics.eventType = :type', { type: 'page_view' })
-        .getCount();
-
-      activity.push({
-        date: date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
-        count: dailyCount
-      });
-    }
-    return activity;
+    return activity.map(a => ({
+      date: new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      count: parseInt(a.count, 10)
+    }));
   }
 
   private parseBrowsers(rawStats: any[]) {

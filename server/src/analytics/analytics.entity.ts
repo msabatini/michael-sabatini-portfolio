@@ -26,6 +26,21 @@ export class Analytics {
   @Column({ nullable: true })
   deviceType: string;
 
+  @Column({ nullable: true })
+  ip: string;
+
+  @Column({ nullable: true })
+  location: string;
+
+  @Column({ nullable: true })
+  utmSource: string;
+
+  @Column({ nullable: true })
+  utmMedium: string;
+
+  @Column({ nullable: true })
+  utmCampaign: string;
+
   @CreateDateColumn()
   timestamp: Date;
 }
