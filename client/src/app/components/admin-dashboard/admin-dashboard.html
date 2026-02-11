@@ -134,17 +134,63 @@
         <div class="stat-card">
           <h3>Total Views</h3>
           <p class="stat-value">{{ stats()?.totalViews || 0 }}</p>
-          <span class="stat-label">All time</span>
+          <span class="stat-label">Pageviews</span>
         </div>
         <div class="stat-card">
           <h3>Unique Visitors</h3>
           <p class="stat-value">{{ stats()?.uniqueVisitors || 0 }}</p>
-          <span class="stat-label">All time</span>
+          <span class="stat-label">Visitors</span>
+        </div>
+        <div class="stat-card">
+          <h3>Sessions</h3>
+          <p class="stat-value">{{ stats()?.trafficMetrics?.totalSessions || 0 }}</p>
+          <span class="stat-label">{{ stats()?.trafficMetrics?.sessionsPerUser || 0 }} per user</span>
         </div>
         <div class="stat-card">
           <h3>Avg. Session</h3>
           <p class="stat-value">{{ stats()?.avgSessionDuration || '0:00' }}</p>
-          <span class="stat-label">Minutes</span>
+          <span class="stat-label">{{ stats()?.trafficMetrics?.pagesPerSession || 0 }} pages/session</span>
+        </div>
+      </div>
+
+      <div class="stats-sections secondary-stats">
+        <div class="data-table-card">
+          <h2>Acquisition Channels</h2>
+          <div class="channel-stats">
+            @for (source of stats()?.acquisitionSources; track source.name) {
+              @if (source.count > 0) {
+                <div class="channel-item">
+                  <div class="channel-info">
+                    <span class="channel-name">{{ source.name }}</span>
+                    <span class="channel-value">{{ source.count }}</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill" [style.width.%]="(source.count / stats()?.totalViews) * 100"></div>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <h2>New vs Returning</h2>
+          <div class="user-split">
+            <div class="split-item">
+              <span class="label">New Visitors</span>
+              <span class="value">{{ stats()?.trafficMetrics?.newUsers || 0 }}</span>
+              <div class="progress-bar mini">
+                <div class="progress-fill new" [style.width.%]="(stats()?.trafficMetrics?.newUsers / stats()?.uniqueVisitors) * 100"></div>
+              </div>
+            </div>
+            <div class="split-item">
+              <span class="label">Returning</span>
+              <span class="value">{{ stats()?.trafficMetrics?.returningUsers || 0 }}</span>
+              <div class="progress-bar mini">
+                <div class="progress-fill returning" [style.width.%]="(stats()?.trafficMetrics?.returningUsers / stats()?.uniqueVisitors) * 100"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

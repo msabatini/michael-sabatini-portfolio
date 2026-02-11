@@ -27,9 +27,58 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+.secondary-stats {
+  margin-bottom: 2rem;
+}
+
+.channel-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .channel-item {
+    .channel-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.user-split {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+
+  .split-item {
+    .label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .progress-bar.mini {
+    height: 6px;
+    
+    .progress-fill.new { background: #10b981; }
+    .progress-fill.returning { background: var(--accent-color); }
+  }
 }
 
 .stat-card {
