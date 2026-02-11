@@ -16,6 +16,7 @@ export class AnalyticsService {
   constructor() {
     this.initSession();
     this.trackPageViews();
+    this.initExitTracking();
     // Track initial load
     this.track(window.location.pathname);
   }
@@ -40,7 +41,15 @@ export class AnalyticsService {
     });
   }
 
-  private track(path: string) {
+  private initExitTracking() {
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        this.track(window.location.pathname, 'page_exit');
+      }
+    });
+  }
+
+  private track(path: string, eventType: string = 'page_view') {
     // Don't track admin pages to keep analytics clean
     if (path.startsWith('/admin')) {
       return;
@@ -50,7 +59,7 @@ export class AnalyticsService {
       path,
       sessionId: this.getSessionId(),
       referrer: document.referrer || null,
-      eventType: 'page_view'
+      eventType: eventType
     }).subscribe({
       error: (err) => console.error('Analytics tracking failed', err)
     });

@@ -88,17 +88,54 @@ export class AnalyticsService {
     const browsers = this.parseBrowsers(browserStats);
 
     const dailyActivity = await this.getDailyActivity(7);
+    const avgSessionDuration = await this.getAverageSessionDuration();
 
     return {
       totalViews,
       recentViews,
       uniqueVisitors: parseInt(uniqueVisitors.count, 10),
+      avgSessionDuration,
       topPages,
       topReferrers,
       browsers,
       interactions,
       dailyActivity
     };
+  }
+
+  private async getAverageSessionDuration() {
+    const sessions = await this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .select('analytics.sessionId', 'sessionId')
+      .addSelect('MIN(analytics.timestamp)', 'start')
+      .addSelect('MAX(analytics.timestamp)', 'end')
+      .groupBy('analytics.sessionId')
+      .getRawMany();
+
+    if (sessions.length === 0) return '0:00';
+
+    let totalDurationMs = 0;
+    let countedSessions = 0;
+
+    sessions.forEach(session => {
+      const start = new Date(session.start).getTime();
+      const end = new Date(session.end).getTime();
+      const duration = end - start;
+      
+      // Only count sessions with more than one event (duration > 0)
+      if (duration > 0) {
+        totalDurationMs += duration;
+        countedSessions++;
+      }
+    });
+
+    if (countedSessions === 0) return '0:00';
+
+    const avgSeconds = Math.floor((totalDurationMs / countedSessions) / 1000);
+    const mins = Math.floor(avgSeconds / 60);
+    const secs = avgSeconds % 60;
+
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
   }
 
   private async getDailyActivity(days: number) {
