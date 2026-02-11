@@ -87,6 +87,8 @@ export class AnalyticsService {
     // Simple manual parsing of browsers for dashboard
     const browsers = this.parseBrowsers(browserStats);
 
+    const dailyActivity = await this.getDailyActivity(7);
+
     return {
       totalViews,
       recentViews,
@@ -94,8 +96,43 @@ export class AnalyticsService {
       topPages,
       topReferrers,
       browsers,
-      interactions
+      interactions,
+      dailyActivity
     };
+  }
+
+  private async getDailyActivity(days: number) {
+    const activity: { date: string; count: number }[] = [];
+    for (let i = days - 1; i >= 0; i--) {
+      const date = new Date();
+      date.setHours(0, 0, 0, 0);
+      date.setDate(date.getDate() - i);
+
+      const nextDate = new Date(date);
+      nextDate.setDate(nextDate.getDate() + 1);
+
+      const count = await this.analyticsRepository.count({
+        where: {
+          timestamp: MoreThan(date),
+          eventType: 'page_view'
+        }
+      });
+      
+      // The count above is actually "since date", we need "between date and nextDate"
+      // But for SQLite simple count with MoreThan is often enough if we filter properly
+      // Let's refine for actual daily buckets
+      const dailyCount = await this.analyticsRepository
+        .createQueryBuilder('analytics')
+        .where('analytics.timestamp >= :date AND analytics.timestamp < :nextDate', { date, nextDate })
+        .andWhere('analytics.eventType = :type', { type: 'page_view' })
+        .getCount();
+
+      activity.push({
+        date: date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
+        count: dailyCount
+      });
+    }
+    return activity;
   }
 
   private parseBrowsers(rawStats: any[]) {

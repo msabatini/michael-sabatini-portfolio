@@ -28,6 +28,28 @@
       </div>
     </div>
 
+    <div class="chart-section data-table-card">
+      <h2>7-Day Activity</h2>
+      @if (stats()?.dailyActivity?.length > 0) {
+        <div class="bar-chart">
+          @for (day of stats()?.dailyActivity; track day.date) {
+            <div class="bar-group">
+              <div class="bar-container">
+                <div class="bar" 
+                  [style.height.%]="(day.count / getMaxActivity()) * 100"
+                  [attr.title]="day.count + ' views'">
+                  <span class="bar-tooltip">{{ day.count }}</span>
+                </div>
+              </div>
+              <span class="bar-label">{{ day.date }}</span>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="empty-state">No activity data yet</div>
+      }
+    </div>
+
     <div class="stats-sections">
       <div class="data-table-card">
         <h2>Top Pages</h2>

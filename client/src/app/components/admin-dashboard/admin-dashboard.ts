@@ -33,6 +33,12 @@ export class AdminDashboard implements OnInit {
     });
   }
 
+  getMaxActivity(): number {
+    const activity = this.stats()?.dailyActivity;
+    if (!activity || activity.length === 0) return 0;
+    return Math.max(...activity.map((a: any) => a.count), 1);
+  }
+
   logout() {
     localStorage.removeItem('admin_session');
     this.router.navigate(['/']);
