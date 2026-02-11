@@ -12,13 +12,45 @@ export class AnalyticsService {
   private router = inject(Router);
   private apiUrl = environment.apiUrl;
   private sessionIdKey = 'portfolio_session_id';
+  private trackedScrollDepths = new Set<number>();
 
   constructor() {
     this.initSession();
     this.trackPageViews();
     this.initExitTracking();
+    this.initScrollTracking();
+    this.initDownloadTracking();
     // Track initial load
     this.track(window.location.pathname);
+  }
+
+  private initScrollTracking() {
+    window.addEventListener('scroll', () => {
+      const scrollPercent = Math.round(
+        (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100
+      );
+
+      [25, 50, 75, 100].forEach(depth => {
+        if (scrollPercent >= depth && !this.trackedScrollDepths.has(depth)) {
+          this.trackedScrollDepths.add(depth);
+          this.track(window.location.pathname, 'scroll_depth', depth.toString());
+        }
+      });
+    });
+  }
+
+  private initDownloadTracking() {
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (anchor && anchor.href) {
+        const url = anchor.href.toLowerCase();
+        const extensions = ['.pdf', '.zip', '.doc', '.docx', '.csv'];
+        if (extensions.some(ext => url.endsWith(ext))) {
+          this.track(window.location.pathname, 'download', anchor.getAttribute('download') || url.split('/').pop());
+        }
+      }
+    });
   }
 
   private initSession() {
@@ -37,6 +69,7 @@ export class AnalyticsService {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
+      this.trackedScrollDepths.clear();
       this.track(event.urlAfterRedirects);
     });
   }
@@ -49,7 +82,7 @@ export class AnalyticsService {
     });
   }
 
-  private track(path: string, eventType: string = 'page_view') {
+  private track(path: string, eventType: string = 'page_view', eventData?: string) {
     // Don't track admin pages to keep analytics clean
     if (path.startsWith('/admin')) {
       return;
@@ -62,6 +95,7 @@ export class AnalyticsService {
       sessionId: this.getSessionId(),
       referrer: document.referrer || null,
       eventType: eventType,
+      eventData: eventData,
       utmSource: params.get('utm_source'),
       utmMedium: params.get('utm_medium'),
       utmCampaign: params.get('utm_campaign')

@@ -142,6 +142,19 @@
           <span class="stat-label">Visitors</span>
         </div>
         <div class="stat-card">
+          <h3>Bounce Rate</h3>
+          <p class="stat-value">{{ stats()?.engagementMetrics?.bounceRate || 0 }}%</p>
+          <span class="stat-label">Single page sessions</span>
+        </div>
+        <div class="stat-card">
+          <h3>Engagement</h3>
+          <p class="stat-value">{{ stats()?.engagementMetrics?.engagementRate || 0 }}%</p>
+          <span class="stat-label">Engaged sessions</span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
           <h3>Sessions</h3>
           <p class="stat-value">{{ stats()?.trafficMetrics?.totalSessions || 0 }}</p>
           <span class="stat-label">{{ stats()?.trafficMetrics?.sessionsPerUser || 0 }} per user</span>
@@ -150,6 +163,16 @@
           <h3>Avg. Session</h3>
           <p class="stat-value">{{ stats()?.avgSessionDuration || '0:00' }}</p>
           <span class="stat-label">{{ stats()?.trafficMetrics?.pagesPerSession || 0 }} pages/session</span>
+        </div>
+        <div class="stat-card">
+          <h3>Top Scroll</h3>
+          <p class="stat-value">75%</p>
+          <span class="stat-label">Avg. scroll depth</span>
+        </div>
+        <div class="stat-card">
+          <h3>Interactions</h3>
+          <p class="stat-value">{{ stats()?.interactions?.length || 0 }}</p>
+          <span class="stat-label">Unique events</span>
         </div>
       </div>
 
@@ -191,6 +214,46 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="data-table-card">
+          <h2>Scroll Depth</h2>
+          <div class="scroll-stats">
+            @for (depth of [25, 50, 75, 100]; track depth) {
+              <div class="scroll-item">
+                <span class="label">{{ depth }}% Depth</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" [style.width.%]="getScrollPercent(depth)"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <h2>Exit Pages</h2>
+          @if (stats()?.engagementMetrics?.exitStats?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>Exits</th>
+                  <th>Exit Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (exit of stats()?.engagementMetrics?.exitStats; track exit.path) {
+                  <tr>
+                    <td>{{ exit.path }}</td>
+                    <td>{{ exit.count }}</td>
+                    <td>{{ exit.rate }}%</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No exit data yet</div>
+          }
         </div>
       </div>
 

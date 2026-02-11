@@ -154,6 +154,7 @@ export class AnalyticsService {
 
     const acquisitionSources = await this.getAcquisitionSources(query.clone());
     const trafficMetrics = await this.getTrafficMetrics(query.clone(), uniqueVisitors, totalViews);
+    const engagementMetrics = await this.getEngagementMetrics(query.clone(), totalViews);
 
     return {
       totalViews,
@@ -167,7 +168,62 @@ export class AnalyticsService {
       deviceStats,
       dailyActivity,
       acquisitionSources,
-      trafficMetrics
+      trafficMetrics,
+      engagementMetrics
+    };
+  }
+
+  private async getEngagementMetrics(query: any, totalViews: number) {
+    const sessions = await query.clone()
+      .select('analytics.sessionId', 'id')
+      .addSelect('COUNT(*)', 'eventCount')
+      .addSelect('MIN(analytics.timestamp)', 'start')
+      .addSelect('MAX(analytics.timestamp)', 'end')
+      .groupBy('analytics.sessionId')
+      .getRawMany();
+
+    const totalSessionsCount = sessions.length;
+    if (totalSessionsCount === 0) return null;
+
+    let bounces = 0;
+    let engagedSessions = 0;
+    let totalDurationMs = 0;
+
+    sessions.forEach(s => {
+      const duration = new Date(s.end).getTime() - new Date(s.start).getTime();
+      const events = parseInt(s.eventCount, 10);
+      
+      if (events === 1) bounces++;
+      if (events > 1 || duration > 10000) engagedSessions++;
+      totalDurationMs += duration;
+    });
+
+    const bounceRate = ((bounces / totalSessionsCount) * 100).toFixed(1);
+    const engagementRate = ((engagedSessions / totalSessionsCount) * 100).toFixed(1);
+
+    const scrollStats = await query.clone()
+      .select('analytics.eventData', 'depth')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.eventType = :type', { type: 'scroll_depth' })
+      .groupBy('analytics.eventData')
+      .getRawMany();
+
+    const exitStats = await query.clone()
+      .select('analytics.path', 'path')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.eventType = :type', { type: 'page_exit' })
+      .groupBy('analytics.path')
+      .getRawMany();
+
+    return {
+      bounceRate,
+      engagementRate,
+      scrollStats,
+      exitStats: exitStats.map(e => ({
+        path: e.path,
+        count: parseInt(e.count, 10),
+        rate: ((parseInt(e.count, 10) / totalViews) * 100).toFixed(1)
+      }))
     };
   }
 

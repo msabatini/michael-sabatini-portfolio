@@ -129,6 +129,16 @@ export class AdminDashboard implements OnInit {
     this.loadStats();
   }
 
+  getScrollPercent(depth: number): number {
+    const stats = this.stats();
+    if (!stats?.engagementMetrics?.scrollStats) return 0;
+    
+    const depthStat = stats.engagementMetrics.scrollStats.find((s: any) => s.depth === depth.toString());
+    if (!depthStat) return 0;
+    
+    return (parseInt(depthStat.count) / stats.totalViews) * 100;
+  }
+
   downloadCSV(type: string) {
     const stats = this.stats();
     if (!stats) return;

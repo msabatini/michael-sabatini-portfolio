@@ -81,6 +81,22 @@
   }
 }
 
+.scroll-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+
+  .scroll-item {
+    .label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  }
+}
+
 .stat-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Icon } from '../icon/icon';
 import { ProjectService } from '../../services/project.service';
 import { SeoService } from '../../services/seo';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-contact',
@@ -16,9 +17,11 @@ export class Contact implements OnInit {
   private fb = inject(FormBuilder);
   private projectService = inject(ProjectService);
   private seoService = inject(SeoService);
+  private analyticsService = inject(AnalyticsService);
   contactForm: FormGroup;
   submitted = false;
   success = false;
+  formStarted = false;
 
   constructor() {
     this.contactForm = this.fb.group({
@@ -37,17 +40,28 @@ export class Contact implements OnInit {
     });
   }
 
+  onFieldFocus(): void {
+    if (!this.formStarted) {
+      this.formStarted = true;
+      this.analyticsService.trackClick('contact_form_start');
+    }
+  }
+
   onSubmit(): void {
     this.submitted = true;
     if (this.contactForm.valid) {
+      this.analyticsService.trackClick('contact_form_submit');
       this.projectService.sendContactForm(this.contactForm.value).subscribe({
         next: () => {
           this.success = true;
+          this.analyticsService.trackClick('contact_form_success');
           this.contactForm.reset();
           this.submitted = false;
+          this.formStarted = false;
         },
         error: (err) => {
           console.error('Submission error:', err);
+          this.analyticsService.trackClick('contact_form_error');
           alert('Failed to send message. Please try again later.');
         }
       });
