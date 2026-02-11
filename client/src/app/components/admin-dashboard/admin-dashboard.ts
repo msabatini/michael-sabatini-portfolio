@@ -368,6 +368,13 @@ export class AdminDashboard implements OnInit {
     return Math.max(...activity.map((a: any) => a.count), 1);
   }
 
+  getScoreColor(score: any): string {
+    const val = parseFloat(score);
+    if (val >= 80) return '#22c55e'; // Green
+    if (val >= 50) return '#eab308'; // Yellow
+    return '#ef4444'; // Red
+  }
+
   logout() {
     this.authService.logout();
   }

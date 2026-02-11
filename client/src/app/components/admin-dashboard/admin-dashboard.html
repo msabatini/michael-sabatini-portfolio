@@ -606,6 +606,67 @@
             <div class="empty-state">No interactions yet</div>
           }
         </div>
+
+        <div class="data-table-card full-width">
+          <h2>Business Intelligence & Advanced Analytics</h2>
+          <div class="advanced-grid">
+            <div class="advanced-card">
+              <h3>Weekly Retention (Cohorts)</h3>
+              <div class="cohort-table">
+                <div class="cohort-header">
+                  <span>Cohort</span>
+                  <span>Size</span>
+                  <span>Retention (Wk 1)</span>
+                </div>
+                @for (cohort of stats()?.advancedMetrics?.cohorts; track cohort.week) {
+                  <div class="cohort-row">
+                    <span>{{ cohort.week }}</span>
+                    <span>{{ cohort.size }}</span>
+                    <div class="retention-container">
+                      <div class="retention-bar" [style.width.%]="cohort.retention"></div>
+                      <span class="retention-val">{{ cohort.retention }}%</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <div class="advanced-card">
+              <h3>User Personas</h3>
+              <div class="persona-list">
+                @for (segment of stats()?.advancedMetrics?.segments; track segment.name) {
+                  <div class="persona-item">
+                    <div class="persona-info">
+                      <span class="persona-name">{{ segment.name }}</span>
+                      <span class="persona-count">{{ segment.count }} Users</span>
+                    </div>
+                    <div class="progress-bar mini">
+                      <div class="progress-fill" [style.width.%]="(segment.count / stats()?.uniqueVisitors) * 100"></div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <div class="advanced-card">
+              <h3>Predictive Insights</h3>
+              <div class="predictive-stats">
+                <div class="predict-item">
+                  <span class="label">Next Day Forecast</span>
+                  <span class="value">{{ stats()?.advancedMetrics?.predictive?.nextDayForecast }}</span>
+                  <span class="sub">Est. Pageviews</span>
+                </div>
+                <div class="predict-item">
+                  <span class="label">Lead Quality Score</span>
+                  <span class="value">{{ stats()?.advancedMetrics?.predictive?.avgLeadQuality }}/100</span>
+                  <div class="score-bar">
+                    <div class="score-fill" [style.width.%]="stats()?.advancedMetrics?.predictive?.avgLeadQuality" [style.background]="getScoreColor(stats()?.advancedMetrics?.predictive?.avgLeadQuality)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     } @else if (activeTab() === 'projects') {
       @if (isFormOpen()) {
