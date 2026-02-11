@@ -40,6 +40,7 @@ export class AdminDashboard implements OnInit {
       imageUrl: [''],
       companyLogo: [''],
       mockupUrl: [''],
+      gallery: [''],
       content: ['', Validators.required]
     });
   }
@@ -77,7 +78,8 @@ export class AdminDashboard implements OnInit {
       this.editingId.set(project.id);
       this.projectForm.patchValue({
         ...project,
-        tags: project.tags?.join(', ') || ''
+        tags: project.tags?.join(', ') || '',
+        gallery: project.gallery?.join(', ') || ''
       });
     } else {
       this.editingId.set(null);
@@ -98,7 +100,8 @@ export class AdminDashboard implements OnInit {
     const formValue = this.projectForm.value;
     const projectData = {
       ...formValue,
-      tags: formValue.tags ? formValue.tags.split(',').map((t: string) => t.trim()) : []
+      tags: formValue.tags ? formValue.tags.split(',').map((t: string) => t.trim()) : [],
+      gallery: formValue.gallery ? formValue.gallery.split(',').map((g: string) => g.trim()) : []
     };
 
     const request = this.editingId() 

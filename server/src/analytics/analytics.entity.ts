@@ -23,6 +23,9 @@ export class Analytics {
   @Column({ nullable: true })
   referrer: string;
 
+  @Column({ nullable: true })
+  deviceType: string;
+
   @CreateDateColumn()
   timestamp: Date;
 }

@@ -18,6 +18,7 @@ export class AnalyticsService {
     eventType: string = 'page_view',
     eventData?: string,
   ): Promise<Analytics> {
+    const deviceType = this.parseDeviceType(userAgent);
     const event = this.analyticsRepository.create({
       path,
       userAgent,
@@ -25,8 +26,20 @@ export class AnalyticsService {
       referrer,
       eventType,
       eventData,
+      deviceType,
     });
     return this.analyticsRepository.save(event);
+  }
+
+  private parseDeviceType(ua: string): string {
+    const userAgent = ua.toLowerCase();
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent)) {
+      return 'Tablet';
+    }
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(userAgent)) {
+      return 'Mobile';
+    }
+    return 'Desktop';
   }
 
   async getStats() {
@@ -90,6 +103,13 @@ export class AnalyticsService {
     const dailyActivity = await this.getDailyActivity(7);
     const avgSessionDuration = await this.getAverageSessionDuration();
 
+    const deviceStats = await this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .select('analytics.deviceType', 'name')
+      .addSelect('COUNT(*)', 'count')
+      .groupBy('analytics.deviceType')
+      .getRawMany();
+
     return {
       totalViews,
       recentViews,
@@ -98,6 +118,7 @@ export class AnalyticsService {
       topPages,
       topReferrers,
       browsers,
+      deviceStats,
       interactions,
       dailyActivity
     };

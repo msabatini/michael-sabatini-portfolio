@@ -148,6 +148,30 @@
         </div>
 
         <div class="data-table-card">
+          <h2>Device Usage</h2>
+          @if (stats()?.deviceStats?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Device</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (device of stats()?.deviceStats; track device.name) {
+                  <tr>
+                    <td>{{ device.name || 'Desktop' }}</td>
+                    <td>{{ device.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No device data yet</div>
+          }
+        </div>
+
+        <div class="data-table-card">
           <h2>Key Interactions</h2>
           @if (stats()?.interactions?.length > 0) {
             <table class="data-table">
@@ -200,6 +224,10 @@
               <div class="form-group">
                 <label>Mockup URL</label>
                 <input formControlName="mockupUrl" placeholder="assets/images/...">
+              </div>
+              <div class="form-group">
+                <label>Gallery (comma separated URLs)</label>
+                <input formControlName="gallery" placeholder="url1, url2, url3">
               </div>
             </div>
 
