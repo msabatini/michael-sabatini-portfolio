@@ -6,7 +6,7 @@
         @if (featuredProjects.length > 0) {
           <div class="hero-badge">Featured Project</div>
           <p class="hero-featured">{{ featuredProjects[0].title }} - {{ featuredProjects[0].completedDate }}</p>
-          <div class="featured-name">{{ settings()?.siteTitle?.split('|')[0]?.trim() || 'Michael Sabatini' }}</div>
+          <div class="featured-name">{{ displayName() }}</div>
         }
         <h1>
           {{ settings()?.heroTitle || 'Front End Engineer & Designer' }}

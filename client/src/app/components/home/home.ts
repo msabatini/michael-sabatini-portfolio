@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
@@ -21,6 +21,12 @@ export class Home implements OnInit {
   
   featuredProjects: Project[] = [];
   settings = signal<AppSettings | null>(null);
+
+  displayName = computed(() => {
+    const title = this.settings()?.siteTitle;
+    if (!title) return 'Michael Sabatini';
+    return title.split('|')[0].trim();
+  });
 
   ngOnInit(): void {
     this.settingsService.getSettings().subscribe({
