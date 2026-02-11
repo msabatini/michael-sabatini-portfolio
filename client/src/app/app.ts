@@ -4,10 +4,11 @@ import { filter } from 'rxjs';
 import { ThemeService } from './services/theme';
 import { Icon } from './components/icon/icon';
 import { BackToTop } from './components/back-to-top/back-to-top';
+import { AdminAccess } from './components/admin-access/admin-access';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, Icon, BackToTop],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, Icon, BackToTop, AdminAccess],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

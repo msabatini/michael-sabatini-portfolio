@@ -7,6 +7,8 @@ import { QuickEstimate } from './components/quick-estimate/quick-estimate';
 import { Resume } from './components/resume/resume';
 import { ProjectDetail } from './components/project-detail/project-detail';
 import { NotFound } from './components/not-found/not-found';
+import { AdminLogin } from './components/admin-login/admin-login';
+import { AdminDashboard } from './components/admin-dashboard/admin-dashboard';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -16,6 +18,8 @@ export const routes: Routes = [
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
   { path: 'quick-estimate', component: QuickEstimate },
+  { path: 'admin/login', component: AdminLogin },
+  { path: 'admin/dashboard', component: AdminDashboard },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' }
 ];
