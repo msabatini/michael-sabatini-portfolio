@@ -10,12 +10,21 @@ export class AnalyticsService {
     private analyticsRepository: Repository<Analytics>,
   ) {}
 
-  async trackEvent(path: string, userAgent: string, sessionId: string, referrer?: string): Promise<Analytics> {
+  async trackEvent(
+    path: string,
+    userAgent: string,
+    sessionId: string,
+    referrer?: string,
+    eventType: string = 'page_view',
+    eventData?: string,
+  ): Promise<Analytics> {
     const event = this.analyticsRepository.create({
       path,
       userAgent,
       sessionId,
       referrer,
+      eventType,
+      eventData,
     });
     return this.analyticsRepository.save(event);
   }
@@ -23,10 +32,15 @@ export class AnalyticsService {
   async getStats() {
     const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
 
-    const totalViews = await this.analyticsRepository.count();
+    const totalViews = await this.analyticsRepository.count({
+      where: { eventType: 'page_view' }
+    });
     
     const recentViews = await this.analyticsRepository.count({
-      where: { timestamp: MoreThan(twentyFourHoursAgo) }
+      where: { 
+        timestamp: MoreThan(twentyFourHoursAgo),
+        eventType: 'page_view'
+      }
     });
 
     const uniqueVisitors = await this.analyticsRepository
@@ -38,9 +52,19 @@ export class AnalyticsService {
       .createQueryBuilder('analytics')
       .select('analytics.path', 'path')
       .addSelect('COUNT(*)', 'count')
+      .where('analytics.eventType = :type', { type: 'page_view' })
       .groupBy('analytics.path')
       .orderBy('count', 'DESC')
       .limit(5)
+      .getRawMany();
+
+    const interactions = await this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .select('analytics.eventData', 'name')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.eventType = :type', { type: 'click' })
+      .groupBy('analytics.eventData')
+      .orderBy('count', 'DESC')
       .getRawMany();
 
     const topReferrers = await this.analyticsRepository
@@ -69,7 +93,8 @@ export class AnalyticsService {
       uniqueVisitors: parseInt(uniqueVisitors.count, 10),
       topPages,
       topReferrers,
-      browsers
+      browsers,
+      interactions
     };
   }
 

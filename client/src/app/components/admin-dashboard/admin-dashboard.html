@@ -100,6 +100,30 @@
           <div class="empty-state">No browser data yet</div>
         }
       </div>
+
+      <div class="data-table-card">
+        <h2>Key Interactions</h2>
+        @if (stats()?.interactions?.length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of stats()?.interactions; track item.name) {
+                <tr>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.count }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No interactions yet</div>
+        }
+      </div>
     </div>
   </div>
 </div>

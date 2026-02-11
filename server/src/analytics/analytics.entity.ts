@@ -8,6 +8,12 @@ export class Analytics {
   @Column()
   path: string;
 
+  @Column({ default: 'page_view' })
+  eventType: string;
+
+  @Column({ nullable: true })
+  eventData: string;
+
   @Column({ nullable: true })
   userAgent: string;
 

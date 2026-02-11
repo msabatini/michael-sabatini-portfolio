@@ -36,4 +36,8 @@ export class App {
   closeMenu() {
     this.isMenuOpen.set(false);
   }
+
+  trackClick(name: string) {
+    this.analyticsService.trackClick(name);
+  }
 }

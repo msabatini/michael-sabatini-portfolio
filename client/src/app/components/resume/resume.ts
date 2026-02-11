@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Icon } from '../icon/icon';
 import { SeoService } from '../../services/seo';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-resume',
@@ -12,6 +13,7 @@ import { SeoService } from '../../services/seo';
 })
 export class Resume implements OnInit {
   private seoService = inject(SeoService);
+  private analyticsService = inject(AnalyticsService);
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
@@ -22,6 +24,7 @@ export class Resume implements OnInit {
   }
 
   downloadResume() {
+    this.analyticsService.trackClick('Download Resume');
     const link = document.createElement('a');
     link.href = '/Michael_Sabatini_Resume.pdf';
     link.download = 'Michael_Sabatini_Resume.pdf';

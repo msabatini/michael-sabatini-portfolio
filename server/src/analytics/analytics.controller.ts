@@ -7,9 +7,19 @@ export class AnalyticsController {
   constructor(private readonly analyticsService: AnalyticsService) {}
 
   @Post('track')
-  async track(@Body() data: { path: string; sessionId: string; referrer?: string }, @Req() req: Request) {
+  async track(
+    @Body() data: { path: string; sessionId: string; referrer?: string; eventType?: string; eventData?: string },
+    @Req() req: Request
+  ) {
     const userAgent = req.headers['user-agent'] || 'unknown';
-    return this.analyticsService.trackEvent(data.path, userAgent, data.sessionId, data.referrer);
+    return this.analyticsService.trackEvent(
+      data.path,
+      userAgent,
+      data.sessionId,
+      data.referrer,
+      data.eventType,
+      data.eventData
+    );
   }
 
   @Get('stats')

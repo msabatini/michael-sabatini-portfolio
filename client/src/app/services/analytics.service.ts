@@ -49,9 +49,21 @@ export class AnalyticsService {
     this.http.post(`${this.apiUrl}/analytics/track`, {
       path,
       sessionId: this.getSessionId(),
-      referrer: document.referrer || null
+      referrer: document.referrer || null,
+      eventType: 'page_view'
     }).subscribe({
       error: (err) => console.error('Analytics tracking failed', err)
+    });
+  }
+
+  trackClick(buttonName: string) {
+    this.http.post(`${this.apiUrl}/analytics/track`, {
+      path: window.location.pathname,
+      sessionId: this.getSessionId(),
+      eventType: 'click',
+      eventData: buttonName
+    }).subscribe({
+      error: (err) => console.error('Click tracking failed', err)
     });
   }
 

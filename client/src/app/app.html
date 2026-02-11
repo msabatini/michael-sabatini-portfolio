@@ -14,7 +14,7 @@
         <a routerLink="/contact" routerLinkActive="active">Contact</a>
       </div>
 
-      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm schedule-btn">
+      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm schedule-btn" (click)="trackClick('Schedule Chat Desktop')">
         <app-icon name="chat" [size]="16"></app-icon>
         Schedule a Chat
       </a>
@@ -45,7 +45,7 @@
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
     
     <div class="mobile-cta">
-      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-block" (click)="closeMenu()">
+      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-block" (click)="closeMenu(); trackClick('Schedule Chat Mobile')">
         <app-icon name="chat" [size]="18"></app-icon>
         Schedule a project chat
       </a>
@@ -71,8 +71,8 @@
         </div>
         <p>Crafting high-performance, accessible, and beautiful web experiences with Angular and NestJS.</p>
         <div class="social-links">
-          <a href="https://github.com/msabatini" target="_blank" aria-label="GitHub"><app-icon name="github" [size]="20"></app-icon></a>
-          <a href="https://linkedin.com/in/michaelsabatini/" target="_blank" aria-label="LinkedIn"><app-icon name="linkedin" [size]="20"></app-icon></a>
+          <a href="https://github.com/msabatini" target="_blank" aria-label="GitHub" (click)="trackClick('GitHub Footer')"><app-icon name="github" [size]="20"></app-icon></a>
+          <a href="https://linkedin.com/in/michaelsabatini/" target="_blank" aria-label="LinkedIn" (click)="trackClick('LinkedIn Footer')"><app-icon name="linkedin" [size]="20"></app-icon></a>
         </div>
       </div>
 
