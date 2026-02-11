@@ -28,9 +28,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
         content: 'Developed a professional digital presence for a premium home concierge service, establishing their brand and laying the groundwork for a comprehensive client portal system.',
         tags: ['HTML5', 'SCSS', 'JavaScript', 'UI/UX Design', 'Mobile First'],
-        challenge: 'Sorella Home Solutions needed a digital presence that reflected their premium service quality across property management, project oversight, and corporate relocation. The site had to be scalable enough to serve as the foundation for a Phase 2 client portal.',
-        solution: 'I created a modern, responsive mobile-first website utilizing advanced SCSS for styling and interactive JavaScript for smooth functionality. The architecture was built with future scalability in mind, preparing the system for backend database integration and API gateways.',
-        result: 'Launched within 1 month with 100% client satisfaction, successfully establishing a premium brand position and completing all Phase 2 readiness requirements.',
+        challenge: 'Sorella Home Solutions required a sophisticated digital presence to reflect their premium concierge services while needing a robust platform for content engagement. The primary challenge was building a scalable infrastructure that could support a high-end brand aesthetic while providing powerful, user-friendly tools for long-term content management and SEO growth.',
+        solution: 'I engineered a high-performance, mobile-first website integrated with a bespoke blog and a comprehensive CMS management dashboard. This custom backend allows the team to post and delete content, mediate community comments, and manage granular SEO settings. To ensure seamless adoption, I also developed a full Help Guide documentation system within the dashboard for the Sorella team.',
+        result: 'Successfully launched a complete digital ecosystem including the primary brand site, blog, and custom management backend. The project achieved 100% client satisfaction, empowering the Sorella team to independently manage their digital growth, SEO strategy, and community engagement through a purpose-built administrative dashboard.',
         completedDate: 'September 2025',
       },
       {
