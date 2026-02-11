@@ -38,6 +38,8 @@ export class AdminDashboard implements OnInit {
   unreadCount = computed(() => this.messages().filter(m => !m.isRead).length);
   
   isFormOpen = signal(false);
+  isMediaPickerOpen = signal(false);
+  activePickerField = signal<string | null>(null);
   editingId = signal<number | null>(null);
   projectForm: FormGroup;
   settingsForm: FormGroup;
@@ -155,6 +157,31 @@ export class AdminDashboard implements OnInit {
         error: (err) => console.error('Delete failed', err)
       });
     }
+  }
+
+  openMediaPicker(field: string) {
+    this.activePickerField.set(field);
+    this.isMediaPickerOpen.set(true);
+  }
+
+  closeMediaPicker() {
+    this.isMediaPickerOpen.set(false);
+    this.activePickerField.set(null);
+  }
+
+  selectMediaForProject(url: string) {
+    const field = this.activePickerField();
+    if (!field) return;
+
+    if (field === 'gallery') {
+      const current = this.projectForm.get('gallery')?.value || '';
+      const fullUrl = `http://localhost:3000${url}`;
+      const newVal = current ? `${current}, ${fullUrl}` : fullUrl;
+      this.projectForm.patchValue({ gallery: newVal });
+    } else {
+      this.projectForm.patchValue({ [field]: `http://localhost:3000${url}` });
+    }
+    this.closeMediaPicker();
   }
 
   saveSettings() {
