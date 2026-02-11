@@ -8,9 +8,11 @@ import { Project } from './projects/project.entity';
 import { Analytics } from './analytics/analytics.entity';
 import { Message } from './contact/message.entity';
 import { AppSettings } from './app-settings.entity';
+import { User } from './auth/user.entity';
 import { MailModule } from './mail/mail.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { ContactModule } from './contact/contact.module';
+import { AuthModule } from './auth/auth.module';
 import { SettingsService } from './settings.service';
 import { SettingsController } from './settings.controller';
 
@@ -23,7 +25,7 @@ import { SettingsController } from './settings.controller';
       useFactory: () => ({
         type: 'sqlite',
         database: process.env.DATABASE_PATH || 'database.sqlite',
-        entities: [Project, Analytics, Message, AppSettings],
+        entities: [Project, Analytics, Message, AppSettings, User],
         synchronize: true, // Set to false in a real production app with migrations
       }),
     }),
@@ -31,6 +33,7 @@ import { SettingsController } from './settings.controller';
     MailModule,
     AnalyticsModule,
     ContactModule,
+    AuthModule,
     TypeOrmModule.forFeature([AppSettings]),
   ],
   controllers: [AppController, SettingsController],

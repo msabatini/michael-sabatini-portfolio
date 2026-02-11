@@ -6,6 +6,7 @@ import { AnalyticsService } from '../../services/analytics.service';
 import { ProjectService } from '../../services/project.service';
 import { ContactService, Message } from '../../services/contact.service';
 import { SettingsService, AppSettings } from '../../services/settings.service';
+import { AuthService } from '../../services/auth.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 
@@ -22,6 +23,7 @@ export class AdminDashboard implements OnInit {
   private projectService = inject(ProjectService);
   private contactService = inject(ContactService);
   private settingsService = inject(SettingsService);
+  private authService = inject(AuthService);
   private fb = inject(FormBuilder);
 
   activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings'>('analytics');
@@ -71,7 +73,7 @@ export class AdminDashboard implements OnInit {
   }
 
   ngOnInit() {
-    if (!localStorage.getItem('admin_session')) {
+    if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/admin/login']);
       return;
     }
@@ -85,7 +87,10 @@ export class AdminDashboard implements OnInit {
   loadStats() {
     this.analyticsService.getStats().subscribe({
       next: (data) => this.stats.set(data),
-      error: (err) => console.error('Failed to load stats', err)
+      error: (err) => {
+        console.error('Failed to load stats', err);
+        if (err.status === 401) this.authService.logout();
+      }
     });
   }
 
@@ -216,7 +221,6 @@ export class AdminDashboard implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('admin_session');
-    this.router.navigate(['/']);
+    this.authService.logout();
   }
 }

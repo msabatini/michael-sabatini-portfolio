@@ -1,6 +1,7 @@
-import { Controller, Post, Get, Delete, Body, Param, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Get, Delete, Body, Param, HttpException, HttpStatus, UseGuards } from '@nestjs/common';
 import { MailService } from '../mail/mail.service';
 import { MessagesService } from './messages.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('contact')
 export class ContactController {
@@ -25,16 +26,19 @@ export class ContactController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('messages')
   async getAllMessages() {
     return this.messagesService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('messages/:id/read')
   async markAsRead(@Param('id') id: string) {
     return this.messagesService.markAsRead(+id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete('messages/:id')
   async deleteMessage(@Param('id') id: string) {
     return this.messagesService.remove(+id);
