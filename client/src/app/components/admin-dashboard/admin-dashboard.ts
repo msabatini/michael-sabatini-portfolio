@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -29,6 +29,8 @@ export class AdminDashboard implements OnInit {
   projects = signal<Project[]>([]);
   messages = signal<Message[]>([]);
   settings = signal<AppSettings | null>(null);
+  
+  unreadCount = computed(() => this.messages().filter(m => !m.isRead).length);
   
   isFormOpen = signal(false);
   editingId = signal<number | null>(null);

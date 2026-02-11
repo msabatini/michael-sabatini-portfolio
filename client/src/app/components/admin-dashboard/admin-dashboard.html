@@ -21,8 +21,8 @@
             (click)="setTab('messages')">
             <app-icon name="mail" [size]="18"></app-icon>
             Messages
-            @if (messages().length > 0) {
-              <span class="tab-badge">{{ messages().filter(m => !m.isRead).length }}</span>
+            @if (unreadCount() > 0) {
+              <span class="tab-badge">{{ unreadCount() }}</span>
             }
           </button>
           <button 
@@ -241,7 +241,7 @@
           }
         </div>
       </div>
-    } @else {
+    } @else if (activeTab() === 'projects') {
       @if (isFormOpen()) {
         <section class="project-form">
           <h3>{{ editingId() ? 'Edit Project' : 'New Project' }}</h3>
