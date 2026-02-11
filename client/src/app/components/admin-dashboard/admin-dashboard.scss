@@ -240,6 +240,60 @@
       border-bottom-color: var(--accent-color);
     }
   }
+
+  .tab-badge {
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 1.2rem;
+    text-align: center;
+  }
+}
+
+.messages-management {
+  .unread {
+    background: rgba(var(--accent-color-rgb), 0.03);
+    
+    td {
+      font-weight: 500;
+    }
+  }
+
+  .date-cell {
+    white-space: nowrap;
+    color: var(--text-muted);
+  }
+
+  .from-cell {
+    line-height: 1.4;
+    small {
+      color: var(--text-muted);
+    }
+  }
+
+  .message-preview-cell {
+    max-width: 300px;
+    
+    .message-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.icon-btn {
+  &.success {
+    color: #10b981;
+    &:hover { background: rgba(16, 185, 129, 0.1); }
+  }
 }
 
 .projects-section {

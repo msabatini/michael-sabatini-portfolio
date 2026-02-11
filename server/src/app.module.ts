@@ -6,9 +6,10 @@ import { AppService } from './app.service';
 import { ProjectsModule } from './projects/projects.module';
 import { Project } from './projects/project.entity';
 import { Analytics } from './analytics/analytics.entity';
+import { Message } from './contact/message.entity';
 import { MailModule } from './mail/mail.module';
 import { AnalyticsModule } from './analytics/analytics.module';
-import { ContactController } from './contact/contact.controller';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -19,15 +20,16 @@ import { ContactController } from './contact/contact.controller';
       useFactory: () => ({
         type: 'sqlite',
         database: process.env.DATABASE_PATH || 'database.sqlite',
-        entities: [Project, Analytics],
+        entities: [Project, Analytics, Message],
         synchronize: true, // Set to false in a real production app with migrations
       }),
     }),
     ProjectsModule,
     MailModule,
     AnalyticsModule,
+    ContactModule,
   ],
-  controllers: [AppController, ContactController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -16,16 +16,27 @@
             <app-icon name="briefcase" [size]="18"></app-icon>
             Projects
           </button>
+          <button 
+            [class.active]="activeTab() === 'messages'" 
+            (click)="setTab('messages')">
+            <app-icon name="mail" [size]="18"></app-icon>
+            Messages
+            @if (messages().length > 0) {
+              <span class="tab-badge">{{ messages().filter(m => !m.isRead).length }}</span>
+            }
+          </button>
         </nav>
       </div>
       <div class="header-actions">
         @if (activeTab() === 'analytics') {
           <button (click)="loadStats()" class="btn btn-outline btn-sm">Refresh</button>
-        } @else {
+        } @else if (activeTab() === 'projects') {
           <button (click)="openForm()" class="btn btn-primary btn-sm">
             <app-icon name="plus" [size]="16"></app-icon>
             New Project
           </button>
+        } @else {
+          <button (click)="loadMessages()" class="btn btn-outline btn-sm">Refresh</button>
         }
         <button (click)="logout()" class="btn btn-outline btn-sm">Logout</button>
       </div>
@@ -327,7 +338,7 @@
                     <button (click)="openForm(project)" class="icon-btn edit" title="Edit">
                       <app-icon name="edit" [size]="16"></app-icon>
                     </button>
-                    <button (click)="deleteProject(project.id)" class="icon-btn delete" title="Delete">
+                    <button (click)='deleteProject(project.id)' class="icon-btn delete" title="Delete">
                       <app-icon name="trash" [size]="16"></app-icon>
                     </button>
                   </td>
@@ -337,6 +348,51 @@
           </table>
         } @else {
           <div class="empty-state">No projects found</div>
+        }
+      </div>
+    } @else if (activeTab() === 'messages') {
+      <div class="messages-management data-table-card">
+        <h2>Inquiry Messages</h2>
+        @if (messages().length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>From</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th class="actions-cell">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (msg of messages(); track msg.id) {
+                <tr [class.unread]="!msg.isRead">
+                  <td class="date-cell">{{ msg.createdAt | date:'MMM d, y' }}</td>
+                  <td class="from-cell">
+                    <strong>{{ msg.name }}</strong>
+                    <br>
+                    <small>{{ msg.email }}</small>
+                  </td>
+                  <td>{{ msg.subject || 'No Subject' }}</td>
+                  <td class="message-preview-cell">
+                    <div class="message-text">{{ msg.message }}</div>
+                  </td>
+                  <td class="actions-cell">
+                    @if (!msg.isRead) {
+                      <button (click)="markMessageAsRead(msg.id)" class="icon-btn success" title="Mark as read">
+                        <app-icon name="check" [size]="16"></app-icon>
+                      </button>
+                    }
+                    <button (click)="deleteMessage(msg.id)" class="icon-btn delete" title="Delete">
+                      <app-icon name="trash" [size]="16"></app-icon>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No messages received yet</div>
         }
       </div>
     }
