@@ -25,6 +25,12 @@
               <span class="tab-badge">{{ messages().filter(m => !m.isRead).length }}</span>
             }
           </button>
+          <button 
+            [class.active]="activeTab() === 'settings'" 
+            (click)="setTab('settings')">
+            <app-icon name="settings" [size]="18"></app-icon>
+            Settings
+          </button>
         </nav>
       </div>
       <div class="header-actions">
@@ -35,8 +41,13 @@
             <app-icon name="plus" [size]="16"></app-icon>
             New Project
           </button>
-        } @else {
+        } @else if (activeTab() === 'messages') {
           <button (click)="loadMessages()" class="btn btn-outline btn-sm">Refresh</button>
+        } @else {
+          <button (click)="saveSettings()" class="btn btn-primary btn-sm">
+            <app-icon name="save" [size]="16"></app-icon>
+            Save Settings
+          </button>
         }
         <button (click)="logout()" class="btn btn-outline btn-sm">Logout</button>
       </div>
@@ -394,6 +405,81 @@
         } @else {
           <div class="empty-state">No messages received yet</div>
         }
+      </div>
+    } @else if (activeTab() === 'settings') {
+      <div class="settings-management data-table-card">
+        <h2>Global Site Settings</h2>
+        <form [formGroup]="settingsForm" (ngSubmit)="saveSettings()">
+          <div class="form-section">
+            <h3>Hero Section</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Site Title</label>
+                <input formControlName="siteTitle">
+              </div>
+              <div class="form-group">
+                <label>Hero Title</label>
+                <input formControlName="heroTitle">
+              </div>
+              <div class="form-group">
+                <label>Hero Subtitle</label>
+                <input formControlName="heroSubtitle">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>About & Bio</h3>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label>Bio Lead Paragraph</label>
+              <textarea formControlName="bioLead"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Full Bio Content</label>
+              <textarea formControlName="bioFull" style="min-height: 150px;"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Technical Skills (comma separated)</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Frontend Skills</label>
+                <input formControlName="frontendSkills">
+              </div>
+              <div class="form-group">
+                <label>Backend Skills</label>
+                <input formControlName="backendSkills">
+              </div>
+              <div class="form-group">
+                <label>Tools & DevOps</label>
+                <input formControlName="toolSkills">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Social & Contact</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>GitHub URL</label>
+                <input formControlName="githubUrl">
+              </div>
+              <div class="form-group">
+                <label>LinkedIn URL</label>
+                <input formControlName="linkedinUrl">
+              </div>
+              <div class="form-group">
+                <label>Public Email</label>
+                <input formControlName="email">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions" style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">Save All Settings</button>
+          </div>
+        </form>
       </div>
     }
   </div>

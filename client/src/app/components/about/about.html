@@ -9,11 +9,17 @@
           <img src="/main-logo.svg" alt="Portfolio Logo" class="nav-logo">
           <h1 class="title">Hi, I'm Michael.</h1>
         </div>
-        <p class="lead">A passionate Front End Engineer with over 10 years of experience building modern web applications.</p>
+        <p class="lead">{{ settings()?.bioLead || 'A passionate Front End Engineer with over 10 years of experience building modern web applications.' }}</p>
         
         <div class="bio">
-          <p>I specialize in building scalable, high-performance applications using Angular and NestJS. My focus is on creating intuitive user experiences that are both beautiful and accessible.</p>
-          <p>When I'm not building, creating or envisioning, you can find me exploring new technologies, thinking about how we can make this world a better place, or enjoying a good cup of coffee after a long bike ride.</p>
+          @if (settings()?.bioFull) {
+            @for (paragraph of settings()?.bioFull?.split('\n\n'); track paragraph) {
+              <p>{{ paragraph }}</p>
+            }
+          } @else {
+            <p>I specialize in building scalable, high-performance applications using Angular and NestJS. My focus is on creating intuitive user experiences that are both beautiful and accessible.</p>
+            <p>When I'm not building, creating or envisioning, you can find me exploring new technologies, thinking about how we can make this world a better place, or enjoying a good cup of coffee after a long bike ride.</p>
+          }
         </div>
 
         <div class="skills-area">
@@ -25,28 +31,40 @@
             <div class="skill-category">
               <h3>Frontend</h3>
               <ul>
-                <li>Angular</li>
-                <li>TypeScript</li>
-                <li>SCSS / Tailwind</li>
-                <li>RxJS</li>
+                @for (skill of settings()?.frontendSkills; track skill) {
+                  <li>{{ skill }}</li>
+                } @empty {
+                  <li>Angular</li>
+                  <li>TypeScript</li>
+                  <li>SCSS / Tailwind</li>
+                  <li>RxJS</li>
+                }
               </ul>
             </div>
             <div class="skill-category">
               <h3>Backend</h3>
               <ul>
-                <li>NestJS</li>
-                <li>Node.js</li>
-                <li>PostgreSQL / SQLite</li>
-                <li>RESTful APIs</li>
+                @for (skill of settings()?.backendSkills; track skill) {
+                  <li>{{ skill }}</li>
+                } @empty {
+                  <li>NestJS</li>
+                  <li>Node.js</li>
+                  <li>PostgreSQL / SQLite</li>
+                  <li>RESTful APIs</li>
+                }
               </ul>
             </div>
             <div class="skill-category">
               <h3>Tools</h3>
               <ul>
-                <li>Git / GitHub</li>
-                <li>Docker</li>
-                <li>CI/CD Pipelines</li>
-                <li>VS Code</li>
+                @for (skill of settings()?.toolSkills; track skill) {
+                  <li>{{ skill }}</li>
+                } @empty {
+                  <li>Git / GitHub</li>
+                  <li>Docker</li>
+                  <li>CI/CD Pipelines</li>
+                  <li>VS Code</li>
+                }
               </ul>
             </div>
           </div>

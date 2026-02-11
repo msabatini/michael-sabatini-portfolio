@@ -9,9 +9,9 @@
           <div class="featured-name">Michael Sabatini</div>
         }
         <h1>
-          Front End Engineer & Designer
+          {{ settings()?.heroTitle || 'Front End Engineer & Designer' }}
         </h1>
-        <p class="subtitle">Designing & building high-performance, accessible, and beautiful web experiences.</p>
+        <p class="subtitle">{{ settings()?.heroSubtitle || 'Designing & building high-performance, accessible, and beautiful web experiences.' }}</p>
         <div class="cta-group">
           <a routerLink="/projects" class="btn btn-primary">
             View Projects

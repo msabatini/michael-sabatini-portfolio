@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 import { AnalyticsService } from '../../services/analytics.service';
 import { ProjectService } from '../../services/project.service';
 import { ContactService, Message } from '../../services/contact.service';
+import { SettingsService, AppSettings } from '../../services/settings.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 
@@ -20,16 +21,19 @@ export class AdminDashboard implements OnInit {
   private analyticsService = inject(AnalyticsService);
   private projectService = inject(ProjectService);
   private contactService = inject(ContactService);
+  private settingsService = inject(SettingsService);
   private fb = inject(FormBuilder);
 
-  activeTab = signal<'analytics' | 'projects' | 'messages'>('analytics');
+  activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings'>('analytics');
   stats = signal<any>(null);
   projects = signal<Project[]>([]);
   messages = signal<Message[]>([]);
+  settings = signal<AppSettings | null>(null);
   
   isFormOpen = signal(false);
   editingId = signal<number | null>(null);
   projectForm: FormGroup;
+  settingsForm: FormGroup;
 
   constructor() {
     this.projectForm = this.fb.group({
@@ -46,6 +50,20 @@ export class AdminDashboard implements OnInit {
       gallery: [''],
       content: ['', Validators.required]
     });
+
+    this.settingsForm = this.fb.group({
+      siteTitle: [''],
+      heroTitle: [''],
+      heroSubtitle: [''],
+      bioLead: [''],
+      bioFull: [''],
+      frontendSkills: [''],
+      backendSkills: [''],
+      toolSkills: [''],
+      githubUrl: [''],
+      linkedinUrl: [''],
+      email: ['']
+    });
   }
 
   ngOnInit() {
@@ -57,6 +75,7 @@ export class AdminDashboard implements OnInit {
     this.loadStats();
     this.loadProjects();
     this.loadMessages();
+    this.loadSettings();
   }
 
   loadStats() {
@@ -80,8 +99,41 @@ export class AdminDashboard implements OnInit {
     });
   }
 
-  setTab(tab: 'analytics' | 'projects' | 'messages') {
+  loadSettings() {
+    this.settingsService.getSettings().subscribe({
+      next: (data) => {
+        this.settings.set(data);
+        this.settingsForm.patchValue({
+          ...data,
+          frontendSkills: data.frontendSkills?.join(', ') || '',
+          backendSkills: data.backendSkills?.join(', ') || '',
+          toolSkills: data.toolSkills?.join(', ') || ''
+        });
+      },
+      error: (err) => console.error('Failed to load settings', err)
+    });
+  }
+
+  setTab(tab: 'analytics' | 'projects' | 'messages' | 'settings') {
     this.activeTab.set(tab);
+  }
+
+  saveSettings() {
+    const formValue = this.settingsForm.value;
+    const settingsData = {
+      ...formValue,
+      frontendSkills: formValue.frontendSkills ? formValue.frontendSkills.split(',').map((s: string) => s.trim()) : [],
+      backendSkills: formValue.backendSkills ? formValue.backendSkills.split(',').map((s: string) => s.trim()) : [],
+      toolSkills: formValue.toolSkills ? formValue.toolSkills.split(',').map((s: string) => s.trim()) : []
+    };
+
+    this.settingsService.updateSettings(settingsData).subscribe({
+      next: (data) => {
+        this.settings.set(data);
+        alert('Settings updated successfully!');
+      },
+      error: (err) => console.error('Failed to update settings', err)
+    });
   }
 
   openForm(project?: Project) {

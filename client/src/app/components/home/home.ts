@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
+import { SettingsService, AppSettings } from '../../services/settings.service';
 import { SeoService } from '../../services/seo';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
@@ -15,13 +16,22 @@ import { Icon } from '../icon/icon';
 })
 export class Home implements OnInit {
   private projectService = inject(ProjectService);
+  private settingsService = inject(SettingsService);
   private seoService = inject(SeoService);
+  
   featuredProjects: Project[] = [];
+  settings = signal<AppSettings | null>(null);
 
   ngOnInit(): void {
-    this.seoService.updateMetaTags({
-      url: '',
-      description: 'Portfolio of Michael Sabatini, a Full Stack Developer & Designer specializing in high-performance, accessible, and beautiful web experiences.'
+    this.settingsService.getSettings().subscribe({
+      next: (data) => {
+        this.settings.set(data);
+        this.seoService.updateMetaTags({
+          title: data.siteTitle,
+          url: '',
+          description: data.heroSubtitle
+        });
+      }
     });
 
     this.projectService.getProjects().subscribe({

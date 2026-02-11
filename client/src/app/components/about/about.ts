@@ -1,22 +1,32 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Icon } from '../icon/icon';
 import { SeoService } from '../../services/seo';
+import { SettingsService, AppSettings } from '../../services/settings.service';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [Icon],
+  imports: [CommonModule, Icon],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
 export class About implements OnInit {
   private seoService = inject(SeoService);
+  private settingsService = inject(SettingsService);
+  
+  settings = signal<AppSettings | null>(null);
 
   ngOnInit(): void {
-    this.seoService.updateMetaTags({
-      title: 'About',
-      description: 'Learn more about Michael Sabatini, a Full Stack Developer & Designer. Discover my journey, skills, and the philosophy behind my work.',
-      url: 'about'
+    this.settingsService.getSettings().subscribe({
+      next: (data) => {
+        this.settings.set(data);
+        this.seoService.updateMetaTags({
+          title: 'About | ' + data.siteTitle,
+          description: data.bioLead,
+          url: 'about'
+        });
+      }
     });
   }
 }
