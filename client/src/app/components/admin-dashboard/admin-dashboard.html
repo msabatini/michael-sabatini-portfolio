@@ -1,151 +1,292 @@
 <div class="dashboard-container fade-in-animation">
   <header class="dashboard-header">
     <div class="header-content">
-      <h1>Analytics Dashboard</h1>
+      <div class="header-left">
+        <h1>Admin Dashboard</h1>
+        <nav class="dashboard-tabs">
+          <button 
+            [class.active]="activeTab() === 'analytics'" 
+            (click)="setTab('analytics')">
+            <app-icon name="chart" [size]="18"></app-icon>
+            Analytics
+          </button>
+          <button 
+            [class.active]="activeTab() === 'projects'" 
+            (click)="setTab('projects')">
+            <app-icon name="briefcase" [size]="18"></app-icon>
+            Projects
+          </button>
+        </nav>
+      </div>
       <div class="header-actions">
-        <button (click)="loadStats()" class="btn btn-outline btn-sm">Refresh</button>
+        @if (activeTab() === 'analytics') {
+          <button (click)="loadStats()" class="btn btn-outline btn-sm">Refresh</button>
+        } @else {
+          <button (click)="openForm()" class="btn btn-primary btn-sm">
+            <app-icon name="plus" [size]="16"></app-icon>
+            New Project
+          </button>
+        }
         <button (click)="logout()" class="btn btn-outline btn-sm">Logout</button>
       </div>
     </div>
   </header>
 
   <div class="dashboard-content">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <h3>Total Views</h3>
-        <p class="stat-value">{{ stats()?.totalViews || 0 }}</p>
-        <span class="stat-label">All time</span>
+    @if (activeTab() === 'analytics') {
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Views</h3>
+          <p class="stat-value">{{ stats()?.totalViews || 0 }}</p>
+          <span class="stat-label">All time</span>
+        </div>
+        <div class="stat-card">
+          <h3>Unique Visitors</h3>
+          <p class="stat-value">{{ stats()?.uniqueVisitors || 0 }}</p>
+          <span class="stat-label">All time</span>
+        </div>
+        <div class="stat-card">
+          <h3>Avg. Session</h3>
+          <p class="stat-value">{{ stats()?.avgSessionDuration || '0:00' }}</p>
+          <span class="stat-label">Minutes</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <h3>Unique Visitors</h3>
-        <p class="stat-value">{{ stats()?.uniqueVisitors || 0 }}</p>
-        <span class="stat-label">All time</span>
-      </div>
-      <div class="stat-card">
-        <h3>Avg. Session</h3>
-        <p class="stat-value">{{ stats()?.avgSessionDuration || '0:00' }}</p>
-        <span class="stat-label">Minutes</span>
-      </div>
-    </div>
 
-    <div class="chart-section data-table-card">
-      <h2>7-Day Activity</h2>
-      @if (stats()?.dailyActivity?.length > 0) {
-        <div class="bar-chart">
-          @for (day of stats()?.dailyActivity; track day.date) {
-            <div class="bar-group">
-              <div class="bar-container">
-                <div class="bar" 
-                  [style.height.%]="(day.count / getMaxActivity()) * 100"
-                  [attr.title]="day.count + ' views'">
-                  <span class="bar-tooltip">{{ day.count }}</span>
+      <div class="chart-section data-table-card">
+        <h2>7-Day Activity</h2>
+        @if (stats()?.dailyActivity?.length > 0) {
+          <div class="bar-chart">
+            @for (day of stats()?.dailyActivity; track day.date) {
+              <div class="bar-group">
+                <div class="bar-container">
+                  <div class="bar" 
+                    [style.height.%]="(day.count / getMaxActivity()) * 100"
+                    [attr.title]="day.count + ' views'">
+                    <span class="bar-tooltip">{{ day.count }}</span>
+                  </div>
                 </div>
+                <span class="bar-label">{{ day.date }}</span>
               </div>
-              <span class="bar-label">{{ day.date }}</span>
-            </div>
+            }
+          </div>
+        } @else {
+          <div class="empty-state">No activity data yet</div>
+        }
+      </div>
+
+      <div class="stats-sections">
+        <div class="data-table-card">
+          <h2>Top Pages</h2>
+          @if (stats()?.topPages?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Page Path</th>
+                  <th>Views</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (page of stats()?.topPages; track page.path) {
+                  <tr>
+                    <td>{{ page.path }}</td>
+                    <td>{{ page.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No page data yet</div>
           }
         </div>
-      } @else {
-        <div class="empty-state">No activity data yet</div>
+
+        <div class="data-table-card">
+          <h2>Top Referrers</h2>
+          @if (stats()?.topReferrers?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Views</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (ref of stats()?.topReferrers; track ref.referrer) {
+                  <tr>
+                    <td>{{ ref.referrer }}</td>
+                    <td>{{ ref.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No referrer data yet</div>
+          }
+        </div>
+
+        <div class="data-table-card">
+          <h2>Browser Usage</h2>
+          @if (stats()?.browsers?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Browser</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (browser of stats()?.browsers; track browser.name) {
+                  <tr>
+                    <td>{{ browser.name }}</td>
+                    <td>{{ browser.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No browser data yet</div>
+          }
+        </div>
+
+        <div class="data-table-card">
+          <h2>Key Interactions</h2>
+          @if (stats()?.interactions?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of stats()?.interactions; track item.name) {
+                  <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No interactions yet</div>
+          }
+        </div>
+      </div>
+    } @else {
+      @if (isFormOpen()) {
+        <section class="project-form">
+          <h3>{{ editingId() ? 'Edit Project' : 'New Project' }}</h3>
+          <form [formGroup]="projectForm" (ngSubmit)="saveProject()">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Title</label>
+                <input formControlName="title" placeholder="Project title">
+              </div>
+              <div class="form-group">
+                <label>Completed Date</label>
+                <input formControlName="completedDate" placeholder="e.g. June 2024">
+              </div>
+              <div class="form-group">
+                <label>Tags (comma separated)</label>
+                <input formControlName="tags" placeholder="UI/UX, Angular, NestJS">
+              </div>
+              <div class="form-group">
+                <label>Main Image URL</label>
+                <input formControlName="imageUrl" placeholder="assets/images/...">
+              </div>
+              <div class="form-group">
+                <label>Company Logo URL</label>
+                <input formControlName="companyLogo" placeholder="assets/images/...">
+              </div>
+              <div class="form-group">
+                <label>Mockup URL</label>
+                <input formControlName="mockupUrl" placeholder="assets/images/...">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>Brief Description</label>
+              <textarea formControlName="description" placeholder="A short summary of the project"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>Challenge</label>
+              <textarea formControlName="challenge"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>Solution</label>
+              <textarea formControlName="solution"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>Result</label>
+              <textarea formControlName="result"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label>Full Content (Markdown/HTML supported)</label>
+              <textarea formControlName="content" style="min-height: 200px;"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" (click)="closeForm()" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">
+                {{ editingId() ? 'Update Project' : 'Create Project' }}
+              </button>
+            </div>
+          </form>
+        </section>
       }
-    </div>
 
-    <div class="stats-sections">
-      <div class="data-table-card">
-        <h2>Top Pages</h2>
-        @if (stats()?.topPages?.length > 0) {
+      <div class="projects-management data-table-card">
+        <h2>Manage Projects</h2>
+        @if (projects().length > 0) {
           <table class="data-table">
             <thead>
               <tr>
-                <th>Page Path</th>
-                <th>Views</th>
+                <th>Project Title</th>
+                <th>Completed</th>
+                <th>Tags</th>
+                <th class="actions-cell">Actions</th>
               </tr>
             </thead>
             <tbody>
-              @for (page of stats()?.topPages; track page.path) {
+              @for (project of projects(); track project.id) {
                 <tr>
-                  <td>{{ page.path }}</td>
-                  <td>{{ page.count }}</td>
+                  <td class="title-cell">
+                    <strong>{{ project.title }}</strong>
+                  </td>
+                  <td>{{ project.completedDate || 'N/A' }}</td>
+                  <td>
+                    <div class="mini-tags">
+                      @if (project.tags) {
+                        @for (tag of project.tags.slice(0, 2); track tag) {
+                          <span class="mini-tag">{{ tag }}</span>
+                        }
+                        @if (project.tags.length > 2) {
+                          <span class="mini-tag">+{{ project.tags.length - 2 }}</span>
+                        }
+                      } @else {
+                        <span class="no-tags">No tags</span>
+                      }
+                    </div>
+                  </td>
+                  <td class="actions-cell">
+                    <button (click)="openForm(project)" class="icon-btn edit" title="Edit">
+                      <app-icon name="edit" [size]="16"></app-icon>
+                    </button>
+                    <button (click)="deleteProject(project.id)" class="icon-btn delete" title="Delete">
+                      <app-icon name="trash" [size]="16"></app-icon>
+                    </button>
+                  </td>
                 </tr>
               }
             </tbody>
           </table>
         } @else {
-          <div class="empty-state">No page data yet</div>
+          <div class="empty-state">No projects found</div>
         }
       </div>
-
-      <div class="data-table-card">
-        <h2>Top Referrers</h2>
-        @if (stats()?.topReferrers?.length > 0) {
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Source</th>
-                <th>Views</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (ref of stats()?.topReferrers; track ref.referrer) {
-                <tr>
-                  <td>{{ ref.referrer }}</td>
-                  <td>{{ ref.count }}</td>
-                </tr>
-              }
-            </tbody>
-          </table>
-        } @else {
-          <div class="empty-state">No referrer data yet</div>
-        }
-      </div>
-
-      <div class="data-table-card">
-        <h2>Browser Usage</h2>
-        @if (stats()?.browsers?.length > 0) {
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Browser</th>
-                <th>Count</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (browser of stats()?.browsers; track browser.name) {
-                <tr>
-                  <td>{{ browser.name }}</td>
-                  <td>{{ browser.count }}</td>
-                </tr>
-              }
-            </tbody>
-          </table>
-        } @else {
-          <div class="empty-state">No browser data yet</div>
-        }
-      </div>
-
-      <div class="data-table-card">
-        <h2>Key Interactions</h2>
-        @if (stats()?.interactions?.length > 0) {
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Action</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (item of stats()?.interactions; track item.name) {
-                <tr>
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.count }}</td>
-                </tr>
-              }
-            </tbody>
-          </table>
-        } @else {
-          <div class="empty-state">No interactions yet</div>
-        }
-      </div>
-    </div>
+    }
   </div>
 </div>

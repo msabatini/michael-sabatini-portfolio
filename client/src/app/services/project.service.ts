@@ -43,6 +43,18 @@ export class ProjectService {
     );
   }
 
+  createProject(project: Partial<Project>): Observable<Project> {
+    return this.http.post<Project>(`${this.baseApiUrl}/projects`, project);
+  }
+
+  updateProject(id: number, project: Partial<Project>): Observable<Project> {
+    return this.http.patch<Project>(`${this.baseApiUrl}/projects/${id}`, project);
+  }
+
+  deleteProject(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseApiUrl}/projects/${id}`);
+  }
+
   sendContactForm(data: any): Observable<any> {
     return this.http.post(`${this.baseApiUrl}/contact`, data);
   }

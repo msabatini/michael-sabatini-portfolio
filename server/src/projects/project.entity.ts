@@ -14,6 +14,9 @@ export class Project {
   @Column({ nullable: true })
   imageUrl: string;
 
+  @Column({ nullable: true })
+  companyLogo: string;
+
   @Column('simple-array', { nullable: true })
   gallery: string[];
 

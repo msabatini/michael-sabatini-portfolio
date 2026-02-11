@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Body, Param, Delete } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 import { Project } from './project.entity';
 
@@ -19,6 +19,11 @@ export class ProjectsController {
   @Post()
   create(@Body() project: Partial<Project>): Promise<Project> {
     return this.projectsService.create(project);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() project: Partial<Project>): Promise<Project | null> {
+    return this.projectsService.update(+id, project);
   }
 
   @Delete(':id')
