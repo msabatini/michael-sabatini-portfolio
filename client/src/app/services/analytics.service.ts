@@ -13,6 +13,7 @@ export class AnalyticsService {
   private apiUrl = environment.apiUrl;
   private sessionIdKey = 'portfolio_session_id';
   private trackedScrollDepths = new Set<number>();
+  private clickHistory: { time: number, x: number, y: number, target: HTMLElement }[] = [];
 
   constructor() {
     this.initSession();
@@ -22,8 +23,27 @@ export class AnalyticsService {
     this.initDownloadTracking();
     this.initPerformanceTracking();
     this.initErrorTracking();
+    this.initUXTracking();
     // Track initial load
     this.track(window.location.pathname);
+  }
+
+  private initUXTracking() {
+    document.addEventListener('click', (e) => {
+      const x = Math.round(e.pageX);
+      const y = Math.round(e.pageY);
+      const now = Date.now();
+      const target = e.target as HTMLElement;
+
+      // Detect Rage Clicks (3+ clicks within 500ms on same element)
+      this.clickHistory.push({ time: now, x, y, target });
+      this.clickHistory = this.clickHistory.filter(c => now - c.time < 500);
+
+      const isRage = this.clickHistory.length >= 3;
+
+      // Track 'ux_click' for the heatmap
+      this.track(window.location.pathname, 'ux_click', target.tagName, x, y, isRage);
+    });
   }
 
   private initPerformanceTracking() {
@@ -148,7 +168,14 @@ export class AnalyticsService {
     return 'Other';
   }
 
-  private track(path: string, eventType: string = 'page_view', eventData?: string) {
+  private track(
+    path: string, 
+    eventType: string = 'page_view', 
+    eventData?: string, 
+    clickX?: number, 
+    clickY?: number, 
+    isRage?: boolean
+  ) {
     // Don't track admin pages to keep analytics clean
     if (path.startsWith('/admin')) {
       return;
@@ -167,7 +194,10 @@ export class AnalyticsService {
       utmMedium: params.get('utm_medium'),
       utmCampaign: params.get('utm_campaign'),
       os: this.getOS(),
-      screenResolution: screenRes
+      screenResolution: screenRes,
+      clickX,
+      clickY,
+      isRageClick: isRage
     }).subscribe({
       error: (err) => console.error('Analytics tracking failed', err)
     });

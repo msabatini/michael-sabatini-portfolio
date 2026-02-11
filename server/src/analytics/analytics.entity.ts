@@ -47,6 +47,15 @@ export class Analytics {
   @Column({ nullable: true })
   screenResolution: string;
 
+  @Column({ nullable: true })
+  clickX: number;
+
+  @Column({ nullable: true })
+  clickY: number;
+
+  @Column({ default: false })
+  isRageClick: boolean;
+
   @CreateDateColumn()
   timestamp: Date;
 }

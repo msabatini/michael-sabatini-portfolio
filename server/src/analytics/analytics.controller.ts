@@ -20,6 +20,9 @@ export class AnalyticsController {
       utmCampaign?: string;
       os?: string;
       screenResolution?: string;
+      clickX?: number;
+      clickY?: number;
+      isRageClick?: boolean;
     },
     @Req() req: Request
   ) {
@@ -37,7 +40,10 @@ export class AnalyticsController {
       data.utmMedium,
       data.utmCampaign,
       data.os,
-      data.screenResolution
+      data.screenResolution,
+      data.clickX,
+      data.clickY,
+      data.isRageClick
     );
   }
 

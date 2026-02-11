@@ -228,6 +228,46 @@
         </div>
       </div>
 
+      <div class="stats-sections secondary-stats">
+        <div class="data-table-card">
+          <h2>User Flows (Top Sequences)</h2>
+          <div class="flow-list">
+            @for (flow of stats()?.uxMetrics?.topFlows; track flow.flow) {
+              <div class="flow-item">
+                <div class="flow-path">{{ flow.flow }}</div>
+                <div class="flow-count">{{ flow.count }} sessions</div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <h2>UX Frustration (Rage Clicks)</h2>
+          @if (stats()?.uxMetrics?.rageClicks?.length > 0) {
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Element</th>
+                  <th>Page</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (rage of stats()?.uxMetrics?.rageClicks; track rage.element) {
+                  <tr>
+                    <td><span class="status-badge error">{{ rage.element }}</span></td>
+                    <td>{{ rage.path }}</td>
+                    <td>{{ rage.count }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          } @else {
+            <div class="empty-state">No rage clicks detected</div>
+          }
+        </div>
+      </div>
+
       @if (stats()?.errorMetrics?.length > 0) {
         <div class="data-table-card error-log">
           <h2>Error Log (Recent)</h2>

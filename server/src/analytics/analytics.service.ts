@@ -23,6 +23,9 @@ export class AnalyticsService {
     utmCampaign?: string,
     os?: string,
     screenResolution?: string,
+    clickX?: number,
+    clickY?: number,
+    isRageClick?: boolean,
   ): Promise<Analytics> {
     const deviceType = this.parseDeviceType(userAgent);
     
@@ -41,6 +44,9 @@ export class AnalyticsService {
       utmCampaign,
       os,
       screenResolution,
+      clickX,
+      clickY,
+      isRageClick,
     });
 
     // Save initially
@@ -162,6 +168,7 @@ export class AnalyticsService {
     const performanceMetrics = await this.getPerformanceMetrics(query.clone());
     const errorMetrics = await this.getErrorMetrics(query.clone());
     const techBreakdown = await this.getTechBreakdown(query.clone());
+    const uxMetrics = await this.getUXMetrics(query.clone());
 
     return {
       totalViews,
@@ -179,7 +186,61 @@ export class AnalyticsService {
       engagementMetrics,
       performanceMetrics,
       errorMetrics,
-      techBreakdown
+      techBreakdown,
+      uxMetrics
+    };
+  }
+
+  private async getUXMetrics(query: any) {
+    const rageClicks = await query.clone()
+      .select('analytics.path', 'path')
+      .addSelect('analytics.eventData', 'element')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.isRageClick = :val', { val: true })
+      .groupBy('analytics.path, analytics.eventData')
+      .getRawMany();
+
+    const clickMap = await query.clone()
+      .select('analytics.clickX', 'x')
+      .addSelect('analytics.clickY', 'y')
+      .addSelect('analytics.path', 'path')
+      .where('analytics.eventType = "ux_click" AND analytics.clickX IS NOT NULL')
+      .limit(1000)
+      .getRawMany();
+
+    // User Flows: Get sequences of pages per session
+    const rawFlows = await query.clone()
+      .select('analytics.sessionId', 'sessionId')
+      .addSelect('analytics.path', 'path')
+      .addSelect('analytics.timestamp', 'time')
+      .where('analytics.eventType = "page_view"')
+      .orderBy('analytics.sessionId, analytics.timestamp', 'ASC')
+      .getRawMany();
+
+    const flows: any = {};
+    rawFlows.forEach(row => {
+      if (!flows[row.sessionId]) flows[row.sessionId] = [];
+      if (flows[row.sessionId][flows[row.sessionId].length - 1] !== row.path) {
+        flows[row.sessionId].push(row.path);
+      }
+    });
+
+    // Aggregate common paths
+    const flowStats: any = {};
+    Object.values(flows).forEach((pathSeq: any) => {
+      const flowStr = pathSeq.join(' → ');
+      flowStats[flowStr] = (flowStats[flowStr] || 0) + 1;
+    });
+
+    const topFlows = Object.entries(flowStats)
+      .map(([flow, count]) => ({ flow, count }))
+      .sort((a: any, b: any) => b.count - a.count)
+      .slice(0, 5);
+
+    return { 
+      rageClicks, 
+      clickMap, 
+      topFlows
     };
   }
 
