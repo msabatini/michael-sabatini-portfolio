@@ -7,6 +7,7 @@ import { ProjectService } from '../../services/project.service';
 import { ContactService, Message } from '../../services/contact.service';
 import { SettingsService, AppSettings } from '../../services/settings.service';
 import { AuthService } from '../../services/auth.service';
+import { MediaService, Media } from '../../services/media.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 
@@ -23,14 +24,16 @@ export class AdminDashboard implements OnInit {
   private projectService = inject(ProjectService);
   private contactService = inject(ContactService);
   private settingsService = inject(SettingsService);
+  private mediaService = inject(MediaService);
   private authService = inject(AuthService);
   private fb = inject(FormBuilder);
 
-  activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings'>('analytics');
+  activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings' | 'media'>('analytics');
   stats = signal<any>(null);
   projects = signal<Project[]>([]);
   messages = signal<Message[]>([]);
   settings = signal<AppSettings | null>(null);
+  mediaList = signal<Media[]>([]);
   
   unreadCount = computed(() => this.messages().filter(m => !m.isRead).length);
   
@@ -82,6 +85,7 @@ export class AdminDashboard implements OnInit {
     this.loadProjects();
     this.loadMessages();
     this.loadSettings();
+    this.loadMedia();
   }
 
   loadStats() {
@@ -123,8 +127,34 @@ export class AdminDashboard implements OnInit {
     });
   }
 
-  setTab(tab: 'analytics' | 'projects' | 'messages' | 'settings') {
+  loadMedia() {
+    this.mediaService.getMedia().subscribe({
+      next: (data) => this.mediaList.set(data),
+      error: (err) => console.error('Failed to load media', err)
+    });
+  }
+
+  setTab(tab: 'analytics' | 'projects' | 'messages' | 'settings' | 'media') {
     this.activeTab.set(tab);
+  }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.mediaService.upload(file).subscribe({
+        next: () => this.loadMedia(),
+        error: (err) => console.error('Upload failed', err)
+      });
+    }
+  }
+
+  deleteMediaAsset(id: number) {
+    if (confirm('Delete this asset?')) {
+      this.mediaService.deleteMedia(id).subscribe({
+        next: () => this.loadMedia(),
+        error: (err) => console.error('Delete failed', err)
+      });
+    }
   }
 
   saveSettings() {

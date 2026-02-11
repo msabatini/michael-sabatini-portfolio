@@ -31,6 +31,12 @@
             <app-icon name="settings" [size]="18"></app-icon>
             Settings
           </button>
+          <button 
+            [class.active]="activeTab() === 'media'" 
+            (click)="setTab('media')">
+            <app-icon name="image" [size]="18"></app-icon>
+            Media
+          </button>
         </nav>
       </div>
       <div class="header-actions">
@@ -43,6 +49,12 @@
           </button>
         } @else if (activeTab() === 'messages') {
           <button (click)="loadMessages()" class="btn btn-outline btn-sm">Refresh</button>
+        } @else if (activeTab() === 'media') {
+          <label class="btn btn-primary btn-sm" style="cursor: pointer;">
+            <app-icon name="upload" [size]="16"></app-icon>
+            Upload Media
+            <input type="file" (change)="onFileUpload($event)" style="display: none;" accept="image/*">
+          </label>
         } @else {
           <button (click)="saveSettings()" class="btn btn-primary btn-sm">
             <app-icon name="save" [size]="16"></app-icon>
@@ -496,6 +508,32 @@
             <button type="submit" class="btn btn-primary">Save All Settings</button>
           </div>
         </form>
+      </div>
+    } @else if (activeTab() === 'media') {
+      <div class="media-management data-table-card">
+        <h2>Asset Library</h2>
+        @if (mediaList().length > 0) {
+          <div class="media-grid">
+            @for (item of mediaList(); track item.id) {
+              <div class="media-item">
+                <div class="media-preview">
+                  <img [src]="'http://localhost:3000' + item.url" [alt]="item.originalName">
+                  <div class="media-overlay">
+                    <button (click)="deleteMediaAsset(item.id)" class="icon-btn delete" title="Delete">
+                      <app-icon name="trash" [size]="16"></app-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="media-info">
+                  <span class="media-name">{{ item.originalName }}</span>
+                  <span class="media-meta">{{ (item.size / 1024).toFixed(1) }} KB</span>
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <div class="empty-state">No media assets uploaded yet</div>
+        }
       </div>
     }
   </div>
