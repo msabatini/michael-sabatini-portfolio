@@ -21,6 +21,8 @@ export class AnalyticsService {
     utmSource?: string,
     utmMedium?: string,
     utmCampaign?: string,
+    os?: string,
+    screenResolution?: string,
   ): Promise<Analytics> {
     const deviceType = this.parseDeviceType(userAgent);
     
@@ -37,6 +39,8 @@ export class AnalyticsService {
       utmSource,
       utmMedium,
       utmCampaign,
+      os,
+      screenResolution,
     });
 
     // Save initially
@@ -155,6 +159,9 @@ export class AnalyticsService {
     const acquisitionSources = await this.getAcquisitionSources(query.clone());
     const trafficMetrics = await this.getTrafficMetrics(query.clone(), uniqueVisitors, totalViews);
     const engagementMetrics = await this.getEngagementMetrics(query.clone(), totalViews);
+    const performanceMetrics = await this.getPerformanceMetrics(query.clone());
+    const errorMetrics = await this.getErrorMetrics(query.clone());
+    const techBreakdown = await this.getTechBreakdown(query.clone());
 
     return {
       totalViews,
@@ -169,8 +176,60 @@ export class AnalyticsService {
       dailyActivity,
       acquisitionSources,
       trafficMetrics,
-      engagementMetrics
+      engagementMetrics,
+      performanceMetrics,
+      errorMetrics,
+      techBreakdown
     };
+  }
+
+  private async getPerformanceMetrics(query: any) {
+    const metrics = ['perf_ttfb', 'perf_lcp', 'perf_fid', 'perf_cls', 'perf_load_time'];
+    const results: any = {};
+
+    for (const metric of metrics) {
+      const data = await query.clone()
+        .select('AVG(CAST(analytics.eventData AS FLOAT))', 'avg')
+        .where('analytics.eventType = :metric', { metric })
+        .getRawOne();
+      results[metric.replace('perf_', '')] = parseFloat(data.avg || 0).toFixed(metric === 'perf_cls' ? 4 : 0);
+    }
+
+    return results;
+  }
+
+  private async getErrorMetrics(query: any) {
+    const errors = await query.clone()
+      .select('analytics.eventType', 'type')
+      .addSelect('analytics.eventData', 'message')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.eventType LIKE "error_%"')
+      .groupBy('analytics.eventType, analytics.eventData')
+      .orderBy('count', 'DESC')
+      .limit(10)
+      .getRawMany();
+
+    return errors;
+  }
+
+  private async getTechBreakdown(query: any) {
+    const os = await query.clone()
+      .select('analytics.os', 'name')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.os IS NOT NULL')
+      .groupBy('analytics.os')
+      .getRawMany();
+
+    const resolution = await query.clone()
+      .select('analytics.screenResolution', 'name')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.screenResolution IS NOT NULL')
+      .groupBy('analytics.screenResolution')
+      .orderBy('count', 'DESC')
+      .limit(5)
+      .getRawMany();
+
+    return { os, resolution };
   }
 
   private async getEngagementMetrics(query: any, totalViews: number) {

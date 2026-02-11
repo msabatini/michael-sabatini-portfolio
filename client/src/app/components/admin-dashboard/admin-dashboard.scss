@@ -97,6 +97,74 @@
   }
 }
 
+.vitals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .vital-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: rgba(var(--text-color-rgb), 0.03);
+    border-left: 4px solid var(--border-color);
+
+    .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .value {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    &.good { border-left-color: #10b981; }
+    &.needs-improvement { border-left-color: #f59e0b; }
+    &.poor { border-left-color: #ef4444; }
+  }
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  .tech-section {
+    h3 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .tech-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+
+      &:last-child { border-bottom: none; }
+    }
+  }
+}
+
+.error-log {
+  border-color: rgba(239, 68, 68, 0.3);
+  
+  .error-msg-cell {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #ef4444;
+    max-width: 400px;
+    word-break: break-all;
+  }
+}
+
 .stat-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);

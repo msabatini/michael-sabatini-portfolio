@@ -20,8 +20,64 @@ export class AnalyticsService {
     this.initExitTracking();
     this.initScrollTracking();
     this.initDownloadTracking();
+    this.initPerformanceTracking();
+    this.initErrorTracking();
     // Track initial load
     this.track(window.location.pathname);
+  }
+
+  private initPerformanceTracking() {
+    if ('PerformanceObserver' in window) {
+      // TTFB & Load Time via Navigation Timing
+      const navEntries = performance.getEntriesByType('navigation');
+      if (navEntries.length > 0) {
+        const navEntry = navEntries[0] as any;
+        this.track(window.location.pathname, 'perf_ttfb', navEntry.responseStart.toFixed(0));
+        this.track(window.location.pathname, 'perf_load_time', navEntry.loadEventEnd.toFixed(0));
+      }
+
+      // LCP
+      try {
+        new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          this.track(window.location.pathname, 'perf_lcp', lastEntry.startTime.toFixed(0));
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch (e) {}
+
+      // CLS
+      try {
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            if (!(entry as any).hadRecentInput) {
+              clsValue += (entry as any).value;
+            }
+          }
+          this.track(window.location.pathname, 'perf_cls', clsValue.toFixed(4));
+        }).observe({ type: 'layout-shift', buffered: true });
+      } catch (e) {}
+
+      // FID
+      try {
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            const fid = entry.duration;
+            this.track(window.location.pathname, 'perf_fid', fid.toFixed(0));
+          }
+        }).observe({ type: 'first-input', buffered: true });
+      } catch (e) {}
+    }
+  }
+
+  private initErrorTracking() {
+    window.addEventListener('error', (event) => {
+      this.track(window.location.pathname, 'error_js', event.message);
+    });
+
+    window.addEventListener('unhandledrejection', (event) => {
+      this.track(window.location.pathname, 'error_api', event.reason?.message || 'Promise rejection');
+    });
   }
 
   private initScrollTracking() {
@@ -82,6 +138,16 @@ export class AnalyticsService {
     });
   }
 
+  private getOS(): string {
+    const ua = window.navigator.userAgent;
+    if (ua.indexOf('Win') !== -1) return 'Windows';
+    if (ua.indexOf('Mac') !== -1) return 'MacOS';
+    if (ua.indexOf('Linux') !== -1) return 'Linux';
+    if (ua.indexOf('Android') !== -1) return 'Android';
+    if (ua.indexOf('like Mac') !== -1) return 'iOS';
+    return 'Other';
+  }
+
   private track(path: string, eventType: string = 'page_view', eventData?: string) {
     // Don't track admin pages to keep analytics clean
     if (path.startsWith('/admin')) {
@@ -89,6 +155,7 @@ export class AnalyticsService {
     }
 
     const params = new URLSearchParams(window.location.search);
+    const screenRes = `${window.screen.width}x${window.screen.height}`;
 
     this.http.post(`${this.apiUrl}/analytics/track`, {
       path,
@@ -98,7 +165,9 @@ export class AnalyticsService {
       eventData: eventData,
       utmSource: params.get('utm_source'),
       utmMedium: params.get('utm_medium'),
-      utmCampaign: params.get('utm_campaign')
+      utmCampaign: params.get('utm_campaign'),
+      os: this.getOS(),
+      screenResolution: screenRes
     }).subscribe({
       error: (err) => console.error('Analytics tracking failed', err)
     });

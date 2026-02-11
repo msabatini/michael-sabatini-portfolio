@@ -18,6 +18,8 @@ export class AnalyticsController {
       utmSource?: string;
       utmMedium?: string;
       utmCampaign?: string;
+      os?: string;
+      screenResolution?: string;
     },
     @Req() req: Request
   ) {
@@ -33,7 +35,9 @@ export class AnalyticsController {
       data.eventData,
       data.utmSource,
       data.utmMedium,
-      data.utmCampaign
+      data.utmCampaign,
+      data.os,
+      data.screenResolution
     );
   }
 

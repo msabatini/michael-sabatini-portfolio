@@ -139,6 +139,28 @@ export class AdminDashboard implements OnInit {
     return (parseInt(depthStat.count) / stats.totalViews) * 100;
   }
 
+  getVitalsScore(metric: string, value: any): string {
+    if (!value) return '';
+    const val = parseFloat(value);
+    
+    if (metric === 'lcp') {
+      if (val <= 2500) return 'good';
+      if (val <= 4000) return 'needs-improvement';
+      return 'poor';
+    }
+    if (metric === 'fid') {
+      if (val <= 100) return 'good';
+      if (val <= 300) return 'needs-improvement';
+      return 'poor';
+    }
+    if (metric === 'cls') {
+      if (val <= 0.1) return 'good';
+      if (val <= 0.25) return 'needs-improvement';
+      return 'poor';
+    }
+    return '';
+  }
+
   downloadCSV(type: string) {
     const stats = this.stats();
     if (!stats) return;

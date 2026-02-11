@@ -41,6 +41,12 @@ export class Analytics {
   @Column({ nullable: true })
   utmCampaign: string;
 
+  @Column({ nullable: true })
+  os: string;
+
+  @Column({ nullable: true })
+  screenResolution: string;
+
   @CreateDateColumn()
   timestamp: Date;
 }

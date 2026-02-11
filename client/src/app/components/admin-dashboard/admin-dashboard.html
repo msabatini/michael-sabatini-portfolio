@@ -178,6 +178,82 @@
 
       <div class="stats-sections secondary-stats">
         <div class="data-table-card">
+          <h2>Core Web Vitals</h2>
+          <div class="vitals-grid">
+            <div class="vital-item" [class]="getVitalsScore('lcp', stats()?.performanceMetrics?.lcp)">
+              <span class="label">LCP</span>
+              <span class="value">{{ stats()?.performanceMetrics?.lcp || 0 }}ms</span>
+            </div>
+            <div class="vital-item" [class]="getVitalsScore('fid', stats()?.performanceMetrics?.fid)">
+              <span class="label">FID</span>
+              <span class="value">{{ stats()?.performanceMetrics?.fid || 0 }}ms</span>
+            </div>
+            <div class="vital-item" [class]="getVitalsScore('cls', stats()?.performanceMetrics?.cls)">
+              <span class="label">CLS</span>
+              <span class="value">{{ stats()?.performanceMetrics?.cls || 0 }}</span>
+            </div>
+            <div class="vital-item">
+              <span class="label">TTFB</span>
+              <span class="value">{{ stats()?.performanceMetrics?.ttfb || 0 }}ms</span>
+            </div>
+          </div>
+          <div class="stat-card mini" style="margin-top: 1rem; box-shadow: none;">
+            <h3>Avg. Load Time</h3>
+            <p class="stat-value" style="font-size: 1.5rem;">{{ (stats()?.performanceMetrics?.load_time / 1000).toFixed(2) }}s</p>
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <h2>Tech Breakdown</h2>
+          <div class="tech-grid">
+            <div class="tech-section">
+              <h3>Operating System</h3>
+              @for (os of stats()?.techBreakdown?.os; track os.name) {
+                <div class="tech-item">
+                  <span>{{ os.name }}</span>
+                  <span>{{ os.count }}</span>
+                </div>
+              }
+            </div>
+            <div class="tech-section">
+              <h3>Resolution</h3>
+              @for (res of stats()?.techBreakdown?.resolution; track res.name) {
+                <div class="tech-item">
+                  <span>{{ res.name }}</span>
+                  <span>{{ res.count }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @if (stats()?.errorMetrics?.length > 0) {
+        <div class="data-table-card error-log">
+          <h2>Error Log (Recent)</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Message</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (error of stats()?.errorMetrics; track error.message) {
+                <tr>
+                  <td><span class="status-badge error">{{ error.type.replace('error_', '') }}</span></td>
+                  <td class="error-msg-cell">{{ error.message }}</td>
+                  <td>{{ error.count }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      <div class="stats-sections secondary-stats">
+        <div class="data-table-card">
           <h2>Acquisition Channels</h2>
           <div class="channel-stats">
             @for (source of stats()?.acquisitionSources; track source.name) {
