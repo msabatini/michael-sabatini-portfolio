@@ -112,8 +112,14 @@
           </select>
         </div>
         <div class="control-actions">
+          <button (click)="toggleCompare()" class="btn btn-sm" [class.btn-primary]="compareEnabled()" [class.btn-outline]="!compareEnabled()">
+            <app-icon name="copy" [size]="14"></app-icon> Compare
+          </button>
+          <button (click)="toggleLiveMode()" class="btn btn-sm" [class.btn-primary]="isLiveMode()" [class.btn-outline]="!isLiveMode()">
+            <app-icon name="activity" [size]="14"></app-icon> Live
+          </button>
           <button (click)="exportPDF()" class="btn btn-outline btn-sm">
-            <app-icon name="file-text" [size]="14"></app-icon> PDF Report
+            <app-icon name="file-text" [size]="14"></app-icon> PDF
           </button>
           <button (click)="downloadCSV('pages')" class="btn btn-outline btn-sm">
             <app-icon name="download" [size]="14"></app-icon> Export CSV
@@ -134,22 +140,54 @@
         <div class="stat-card">
           <h3>Total Views</h3>
           <p class="stat-value">{{ stats()?.totalViews || 0 }}</p>
-          <span class="stat-label">Pageviews</span>
+          <div class="stat-meta">
+            <span class="stat-label">Pageviews</span>
+            @if (compareEnabled() && stats()?.comparison?.totalViews) {
+              <span class="comparison" [class]="getChangeClass(stats()?.comparison?.totalViews)">
+                <app-icon [name]="getChangeIcon(stats()?.comparison?.totalViews)" [size]="12"></app-icon>
+                {{ stats()?.comparison?.totalViews }}%
+              </span>
+            }
+          </div>
         </div>
         <div class="stat-card">
           <h3>Unique Visitors</h3>
           <p class="stat-value">{{ stats()?.uniqueVisitors || 0 }}</p>
-          <span class="stat-label">Visitors</span>
+          <div class="stat-meta">
+            <span class="stat-label">Visitors</span>
+            @if (compareEnabled() && stats()?.comparison?.uniqueVisitors) {
+              <span class="comparison" [class]="getChangeClass(stats()?.comparison?.uniqueVisitors)">
+                <app-icon [name]="getChangeIcon(stats()?.comparison?.uniqueVisitors)" [size]="12"></app-icon>
+                {{ stats()?.comparison?.uniqueVisitors }}%
+              </span>
+            }
+          </div>
         </div>
         <div class="stat-card">
           <h3>Bounce Rate</h3>
           <p class="stat-value">{{ stats()?.engagementMetrics?.bounceRate || 0 }}%</p>
-          <span class="stat-label">Single page sessions</span>
+          <div class="stat-meta">
+            <span class="stat-label">Single page sessions</span>
+            @if (compareEnabled() && stats()?.comparison?.bounceRate) {
+              <span class="comparison invert" [class]="getChangeClass(stats()?.comparison?.bounceRate)">
+                <app-icon [name]="getChangeIcon(stats()?.comparison?.bounceRate)" [size]="12"></app-icon>
+                {{ stats()?.comparison?.bounceRate }}%
+              </span>
+            }
+          </div>
         </div>
         <div class="stat-card">
           <h3>Engagement</h3>
           <p class="stat-value">{{ stats()?.engagementMetrics?.engagementRate || 0 }}%</p>
-          <span class="stat-label">Engaged sessions</span>
+          <div class="stat-meta">
+            <span class="stat-label">Engaged sessions</span>
+            @if (compareEnabled() && stats()?.comparison?.engagementRate) {
+              <span class="comparison" [class]="getChangeClass(stats()?.comparison?.engagementRate)">
+                <app-icon [name]="getChangeIcon(stats()?.comparison?.engagementRate)" [size]="12"></app-icon>
+                {{ stats()?.comparison?.engagementRate }}%
+              </span>
+            }
+          </div>
         </div>
       </div>
 
@@ -374,14 +412,24 @@
       </div>
 
       <div class="chart-section data-table-card">
-        <h2>7-Day Activity</h2>
+        <div class="chart-header">
+          <h2>Activity Timeline</h2>
+          <button (click)="addNote()" class="btn btn-xs btn-outline">
+            <app-icon name="plus" [size]="12"></app-icon> Add Note
+          </button>
+        </div>
         @if (stats()?.dailyActivity?.length > 0) {
           <div class="bar-chart">
             @for (day of stats()?.dailyActivity; track day.date) {
               <div class="bar-group">
                 <div class="bar-container">
+                  @if (getNoteForDate(day.date); as note) {
+                    <div class="chart-annotation" [attr.title]="note.content" (click)="deleteNote(note.id)">
+                      <app-icon name="info" [size]="14"></app-icon>
+                    </div>
+                  }
                   <div class="bar" 
-                    [style.height.%]="(day.count / getMaxActivity()) * 100"
+                    [style.height]="((day.count / getMaxActivity()) * 100) + '%'"
                     [attr.title]="day.count + ' views'">
                     <span class="bar-tooltip">{{ day.count }}</span>
                   </div>
@@ -392,6 +440,86 @@
           </div>
         } @else {
           <div class="empty-state">No activity data yet</div>
+        }
+      </div>
+
+      <div class="data-table-card share-management">
+        <div class="card-header">
+          <h2>Dashboard Sharing Links</h2>
+          <button (click)="createShareLink()" class="btn btn-primary btn-sm">
+            <app-icon name="share" [size]="16"></app-icon> Create New Link
+          </button>
+        </div>
+        @if (shareLinks().length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Created</th>
+                <th>Expires</th>
+                <th class="actions-cell">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (share of shareLinks(); track share.id) {
+                <tr>
+                  <td><strong>{{ share.label || 'Unnamed Share' }}</strong></td>
+                  <td>{{ share.createdAt | date:'shortDate' }}</td>
+                  <td>{{ share.expiresAt ? (share.expiresAt | date:'shortDate') : 'Never' }}</td>
+                  <td class="actions-cell">
+                    <button (click)="copyShareLink(share.token)" class="btn btn-xs btn-outline" style="margin-right: 0.5rem;">
+                      <app-icon name="copy" [size]="14"></app-icon> Copy Link
+                    </button>
+                    <button (click)="deleteShareLink(share.id)" class="icon-btn delete">
+                      <app-icon name="trash" [size]="16"></app-icon>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No sharing links created yet</div>
+        }
+      </div>
+
+      <div class="data-table-card api-key-management">
+        <div class="card-header">
+          <h2>API Access Keys</h2>
+          <button (click)="createApiKey()" class="btn btn-primary btn-sm">
+            <app-icon name="plus" [size]="16"></app-icon> Generate Key
+          </button>
+        </div>
+        @if (apiKeys().length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>API Key</th>
+                <th>Last Used</th>
+                <th class="actions-cell">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (key of apiKeys(); track key.id) {
+                <tr>
+                  <td><strong>{{ key.label }}</strong></td>
+                  <td><code>{{ key.key.substring(0, 8) }}...</code></td>
+                  <td>{{ key.lastUsedAt ? (key.lastUsedAt | date:'short') : 'Never' }}</td>
+                  <td class="actions-cell">
+                    <button (click)="copyApiKey(key.key)" class="btn btn-xs btn-outline" style="margin-right: 0.5rem;">
+                      <app-icon name="copy" [size]="14"></app-icon> Copy
+                    </button>
+                    <button (click)="deleteApiKey(key.id)" class="icon-btn delete">
+                      <app-icon name="trash" [size]="16"></app-icon>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No API keys generated yet</div>
         }
       </div>
 
@@ -826,6 +954,7 @@
                 <th>Date</th>
                 <th>From</th>
                 <th>Subject</th>
+                <th>Status</th>
                 <th>Message</th>
                 <th class="actions-cell">Actions</th>
               </tr>
@@ -840,6 +969,14 @@
                     <small>{{ msg.email }}</small>
                   </td>
                   <td>{{ msg.subject || 'No Subject' }}</td>
+                  <td>
+                    <select [value]="msg.status || 'new'" (change)="updateMessageStatus(msg.id, $any($event.target).value)" class="status-select" [attr.data-status]="msg.status">
+                      <option value="new">New</option>
+                      <option value="contacted">Contacted</option>
+                      <option value="hired">Hired</option>
+                      <option value="junk">Junk</option>
+                    </select>
+                  </td>
                   <td class="message-preview-cell">
                     <div class="message-text">{{ msg.message }}</div>
                   </td>

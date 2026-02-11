@@ -20,6 +20,9 @@ export class Message {
   @Column({ default: false })
   isRead: boolean;
 
+  @Column({ default: 'new' })
+  status: string; // new, contacted, hired, junk
+
   @CreateDateColumn()
   createdAt: Date;
 }

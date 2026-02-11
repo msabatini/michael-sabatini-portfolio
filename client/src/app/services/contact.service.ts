@@ -10,6 +10,7 @@ export interface Message {
   subject: string;
   message: string;
   isRead: boolean;
+  status: string;
   createdAt: string;
 }
 
@@ -28,6 +29,10 @@ export class ContactService {
 
   markAsRead(id: number): Observable<void> {
     return this.http.post<void>(`${this.baseApiUrl}/contact/messages/${id}/read`, {});
+  }
+
+  updateStatus(id: number, status: string): Observable<void> {
+    return this.http.post<void>(`${this.baseApiUrl}/contact/messages/${id}/status`, { status });
   }
 
   deleteMessage(id: number): Observable<void> {

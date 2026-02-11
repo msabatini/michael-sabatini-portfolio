@@ -8,6 +8,9 @@ import { AppService } from './app.service';
 import { ProjectsModule } from './projects/projects.module';
 import { Project } from './projects/project.entity';
 import { Analytics } from './analytics/analytics.entity';
+import { DashboardNote } from './analytics/dashboard-note.entity';
+import { DashboardShare } from './analytics/dashboard-share.entity';
+import { ApiKey } from './analytics/api-key.entity';
 import { Message } from './contact/message.entity';
 import { AppSettings } from './app-settings.entity';
 import { User } from './auth/user.entity';
@@ -33,7 +36,7 @@ import { SettingsController } from './settings.controller';
       useFactory: () => ({
         type: 'sqlite',
         database: process.env.DATABASE_PATH || 'database.sqlite',
-        entities: [Project, Analytics, Message, AppSettings, User, Media],
+        entities: [Project, Analytics, DashboardNote, DashboardShare, ApiKey, Message, AppSettings, User, Media],
         synchronize: true, // Set to false in a real production app with migrations
       }),
     }),

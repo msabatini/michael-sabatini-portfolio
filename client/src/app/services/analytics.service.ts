@@ -221,7 +221,49 @@ export class AnalyticsService {
     if (filters.device) url += `device=${filters.device}&`;
     if (filters.campaign) url += `campaign=${filters.campaign}&`;
     if (filters.path) url += `path=${filters.path}&`;
+    if (filters.location) url += `location=${filters.location}&`;
+    if (filters.compare) url += `compare=true&`;
     
     return this.http.get(url);
+  }
+
+  getNotes() {
+    return this.http.get(`${this.apiUrl}/analytics/notes`);
+  }
+
+  addNote(note: { content: string, date: string, type: string }) {
+    return this.http.post(`${this.apiUrl}/analytics/notes`, note);
+  }
+
+  deleteNote(id: number) {
+    return this.http.post(`${this.apiUrl}/analytics/notes/delete`, { id });
+  }
+
+  getShares() {
+    return this.http.get(`${this.apiUrl}/analytics/shares`);
+  }
+
+  createShare(label?: string, expiresDays?: number) {
+    return this.http.post(`${this.apiUrl}/analytics/shares`, { label, expiresDays });
+  }
+
+  deleteShare(id: number) {
+    return this.http.delete(`${this.apiUrl}/analytics/shares/${id}`);
+  }
+
+  getSharedStats(token: string) {
+    return this.http.get(`${this.apiUrl}/analytics/shared/${token}`);
+  }
+
+  getApiKeys() {
+    return this.http.get(`${this.apiUrl}/analytics/keys`);
+  }
+
+  createApiKey(label: string) {
+    return this.http.post(`${this.apiUrl}/analytics/keys`, { label });
+  }
+
+  deleteApiKey(id: number) {
+    return this.http.delete(`${this.apiUrl}/analytics/keys/${id}`);
   }
 }

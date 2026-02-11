@@ -25,6 +25,10 @@ export class MessagesService {
     await this.messagesRepository.update(id, { isRead: true });
   }
 
+  async updateStatus(id: number, status: string): Promise<void> {
+    await this.messagesRepository.update(id, { status });
+  }
+
   async remove(id: number): Promise<void> {
     await this.messagesRepository.delete(id);
   }

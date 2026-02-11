@@ -30,6 +30,13 @@ export class AdminDashboard implements OnInit {
 
   activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings' | 'media'>('analytics');
   stats = signal<any>(null);
+  notes = signal<any[]>([]);
+  compareEnabled = signal(false);
+  isLiveMode = signal(false);
+  shareLinks = signal<any[]>([]);
+  apiKeys = signal<any[]>([]);
+  liveTimer: any;
+
   projects = signal<Project[]>([]);
   messages = signal<Message[]>([]);
   settings = signal<AppSettings | null>(null);
@@ -94,16 +101,164 @@ export class AdminDashboard implements OnInit {
     this.loadMessages();
     this.loadSettings();
     this.loadMedia();
+    this.loadShares();
+    this.loadApiKeys();
   }
 
   loadStats() {
     const range = this.dateRange();
-    this.analyticsService.getStats(range.start, range.end, this.analyticsFilters()).subscribe({
-      next: (data) => this.stats.set(data),
+    const filters = {
+      ...this.analyticsFilters(),
+      compare: this.compareEnabled()
+    };
+    
+    this.analyticsService.getStats(range.start, range.end, filters).subscribe({
+      next: (data: any) => {
+        this.stats.set(data);
+        if (data.notes) this.notes.set(data.notes);
+      },
       error: (err) => {
         console.error('Failed to load stats', err);
         if (err.status === 401) this.authService.logout();
       }
+    });
+  }
+
+  toggleCompare() {
+    this.compareEnabled.set(!this.compareEnabled());
+    this.loadStats();
+  }
+
+  toggleLiveMode() {
+    this.isLiveMode.set(!this.isLiveMode());
+    if (this.isLiveMode()) {
+      this.startLivePolling();
+    } else {
+      this.stopLivePolling();
+    }
+  }
+
+  startLivePolling() {
+    this.loadLiveStats();
+    this.liveTimer = setInterval(() => this.loadLiveStats(), 5000);
+  }
+
+  stopLivePolling() {
+    if (this.liveTimer) clearInterval(this.liveTimer);
+    this.loadStats();
+  }
+
+  loadLiveStats() {
+    // Last 5 minutes for "Live"
+    const now = new Date();
+    const fiveMinsAgo = new Date(now.getTime() - 5 * 60 * 1000).toISOString();
+    const end = now.toISOString();
+    
+    this.analyticsService.getStats(fiveMinsAgo, end).subscribe({
+      next: (data) => this.stats.set(data),
+      error: (err) => console.error('Live poll failed', err)
+    });
+  }
+
+  getChangeClass(val: number): string {
+    if (!val) return 'neutral';
+    return val > 0 ? 'positive' : 'negative';
+  }
+
+  getChangeIcon(val: number): string {
+    if (!val) return 'minus';
+    return val > 0 ? 'trending-up' : 'trending-down';
+  }
+
+  addNote() {
+    const content = prompt('Enter note content:');
+    if (!content) return;
+    
+    const date = this.dateRange().end; // Add to end of current range by default
+    this.analyticsService.addNote({ content, date, type: 'info' }).subscribe({
+      next: () => this.loadStats(),
+      error: (err) => console.error('Failed to add note', err)
+    });
+  }
+
+  deleteNote(id: number) {
+    if (confirm('Delete this note?')) {
+      this.analyticsService.deleteNote(id).subscribe({
+        next: () => this.loadStats(),
+        error: (err) => console.error('Failed to delete note', err)
+      });
+    }
+  }
+
+  getNoteForDate(date: string) {
+    return this.notes().find(n => {
+      const noteDate = new Date(n.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      return noteDate === date;
+    });
+  }
+
+  loadShares() {
+    this.analyticsService.getShares().subscribe({
+      next: (data: any) => this.shareLinks.set(data),
+      error: (err) => console.error('Failed to load share links', err)
+    });
+  }
+
+  createShareLink() {
+    const label = prompt('Enter a label for this share link (e.g., "Marketing Team"):');
+    if (label === null) return;
+    
+    this.analyticsService.createShare(label, 30).subscribe({
+      next: () => this.loadShares(),
+      error: (err) => console.error('Failed to create share link', err)
+    });
+  }
+
+  deleteShareLink(id: number) {
+    if (confirm('Delete this share link?')) {
+      this.analyticsService.deleteShare(id).subscribe({
+        next: () => this.loadShares(),
+        error: (err) => console.error('Failed to delete share link', err)
+      });
+    }
+  }
+
+  copyShareLink(token: string) {
+    const url = `${window.location.origin}/dashboard/shared/${token}`;
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  }
+
+  loadApiKeys() {
+    this.analyticsService.getApiKeys().subscribe({
+      next: (data: any) => this.apiKeys.set(data),
+      error: (err) => console.error('Failed to load API keys', err)
+    });
+  }
+
+  createApiKey() {
+    const label = prompt('Enter a label for this API key (e.g., "External App"):');
+    if (!label) return;
+    
+    this.analyticsService.createApiKey(label).subscribe({
+      next: () => this.loadApiKeys(),
+      error: (err) => console.error('Failed to create API key', err)
+    });
+  }
+
+  deleteApiKey(id: number) {
+    if (confirm('Delete this API key?')) {
+      this.analyticsService.deleteApiKey(id).subscribe({
+        next: () => this.loadApiKeys(),
+        error: (err) => console.error('Failed to delete API key', err)
+      });
+    }
+  }
+
+  copyApiKey(key: string) {
+    navigator.clipboard.writeText(key).then(() => {
+      alert('API key copied to clipboard!');
     });
   }
 
@@ -350,6 +505,13 @@ export class AdminDashboard implements OnInit {
     this.contactService.markAsRead(id).subscribe({
       next: () => this.loadMessages(),
       error: (err) => console.error('Failed to mark message as read', err)
+    });
+  }
+
+  updateMessageStatus(id: number, status: string) {
+    this.contactService.updateStatus(id, status).subscribe({
+      next: () => this.loadMessages(),
+      error: (err) => console.error('Failed to update message status', err)
     });
   }
 

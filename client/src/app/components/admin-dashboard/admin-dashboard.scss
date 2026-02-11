@@ -211,9 +211,34 @@
     color: var(--accent-color);
   }
 
+  .stat-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .stat-label {
     font-size: 0.875rem;
     color: var(--text-muted);
+  }
+
+  .comparison {
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+
+    &.positive { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+    &.negative { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+    &.neutral { color: var(--text-muted); background: rgba(var(--text-color-rgb), 0.05); }
+
+    &.invert {
+      &.positive { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+      &.negative { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+    }
   }
 }
 
@@ -348,79 +373,75 @@
 
 .chart-section {
   margin-bottom: 0;
-  
-  .analytics-dashboard {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 
-  .stats-sections {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-  }
-}
-
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background: rgba(var(--accent-color-rgb), 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 0.5rem;
-
-  .progress-fill {
-    height: 100%;
-    background: var(--accent-color);
-    border-radius: 4px;
-    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-}
-
-.device-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem 0;
-
-  .device-item {
+  .chart-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    margin-bottom: 1.5rem;
+    
+    h2 { margin: 0; }
+  }
+}
 
-    app-icon {
-      color: var(--accent-color);
-      opacity: 0.8;
-    }
+.chart-annotation {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-color);
+  cursor: help;
+  z-index: 5;
+  background: var(--card-bg);
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 
-    .device-info {
-      flex: 1;
-      
-      .device-name {
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-        display: block;
-      }
-    }
+  &:hover {
+    color: #ef4444; // Delete indication on hover
+  }
+}
 
-    .device-value {
-      font-weight: 600;
-      font-size: 0.9rem;
-      min-width: 45px;
-      text-align: right;
-    }
+.bar-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.status-select {
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+
+  &[data-status="new"] { color: var(--accent-color); border-color: var(--accent-color); background: rgba(var(--accent-color-rgb), 0.05); }
+  &[data-status="contacted"] { color: #f59e0b; border-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
+  &[data-status="hired"] { color: #10b981; border-color: #10b981; background: rgba(16, 185, 129, 0.05); }
+  &[data-status="junk"] { color: var(--text-muted); border-color: var(--border-color); background: rgba(var(--text-color-rgb), 0.05); }
+}
+
+.share-management, .api-key-management {
+  .actions-cell {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 
 .bar-chart {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    height: 250px;
-    padding: 2rem 1rem 1rem;
-    gap: 1rem;
-  }
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 250px;
+  padding: 2rem 1rem 1rem;
+  gap: 1rem;
 
   .bar-group {
     flex: 1;
@@ -567,9 +588,13 @@
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1px;
 
+  button {
+    color: --card-bg;
+    background-color: --accent-color;
+  }
+
   .tab-btn {
     padding: 0.75rem 1.5rem;
-    background: none;
     border: none;
     border-bottom: 2px solid transparent;
     color: var(--text-muted);

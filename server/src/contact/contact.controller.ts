@@ -39,6 +39,12 @@ export class ContactController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Post('messages/:id/status')
+  async updateStatus(@Param('id') id: string, @Body() data: { status: string }) {
+    return this.messagesService.updateStatus(+id, data.status);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Delete('messages/:id')
   async deleteMessage(@Param('id') id: string) {
     return this.messagesService.remove(+id);

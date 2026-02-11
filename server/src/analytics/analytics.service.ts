@@ -1,13 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, MoreThan } from 'typeorm';
+import { Repository, MoreThan, LessThan } from 'typeorm';
 import { Analytics } from './analytics.entity';
+import { DashboardNote } from './dashboard-note.entity';
+import { DashboardShare } from './dashboard-share.entity';
+import { ApiKey } from './api-key.entity';
 
 @Injectable()
 export class AnalyticsService {
   constructor(
     @InjectRepository(Analytics)
     private analyticsRepository: Repository<Analytics>,
+    @InjectRepository(DashboardNote)
+    private notesRepository: Repository<DashboardNote>,
+    @InjectRepository(DashboardShare)
+    private shareRepository: Repository<DashboardShare>,
+    @InjectRepository(ApiKey)
+    private apiKeyRepository: Repository<ApiKey>,
   ) {}
 
   async trackEvent(
@@ -100,7 +109,46 @@ export class AnalyticsService {
     if (filters.path) {
       query.andWhere('analytics.path = :path', { path: filters.path });
     }
+    if (filters.location) {
+      query.andWhere('analytics.location = :location', { location: filters.location });
+    }
 
+    const stats = await this.getStatsForRange(query.clone(), start, end);
+    
+    // Comparison Logic
+    let comparison: any = null;
+    if (filters.compare) {
+      const rangeMs = end.getTime() - start.getTime();
+      const prevStart = new Date(start.getTime() - rangeMs);
+      const prevEnd = new Date(start.getTime());
+      
+      const prevQuery = this.analyticsRepository.createQueryBuilder('analytics')
+        .where('analytics.timestamp >= :start AND analytics.timestamp < :end', { start: prevStart, end: prevEnd });
+        
+      if (filters.deviceType) prevQuery.andWhere('analytics.deviceType = :deviceType', { deviceType: filters.deviceType });
+      if (filters.utmCampaign) prevQuery.andWhere('analytics.utmCampaign = :utmCampaign', { utmCampaign: filters.utmCampaign });
+      if (filters.path) prevQuery.andWhere('analytics.path = :path', { path: filters.path });
+      if (filters.location) prevQuery.andWhere('analytics.location = :location', { location: filters.location });
+
+      const prevStats = await this.getStatsForRange(prevQuery, prevStart, prevEnd);
+      comparison = this.calculateComparison(stats, prevStats);
+    }
+
+    const notes = await this.notesRepository.find({
+      where: {
+        date: MoreThan(start.toISOString().split('T')[0])
+      },
+      order: { date: 'ASC' }
+    });
+
+    return {
+      ...stats,
+      comparison,
+      notes
+    };
+  }
+
+  private async getStatsForRange(query: any, start: Date, end: Date) {
     const totalViews = await query.clone()
       .andWhere('analytics.eventType = :type', { type: 'page_view' })
       .getCount();
@@ -193,6 +241,87 @@ export class AnalyticsService {
     };
   }
 
+  private calculateComparison(current: any, previous: any) {
+    const calcChange = (cur: number, prev: number) => {
+      if (!prev) return cur > 0 ? 100 : 0;
+      return parseFloat(((cur - prev) / prev * 100).toFixed(1));
+    };
+
+    return {
+      totalViews: calcChange(current.totalViews, previous.totalViews),
+      uniqueVisitors: calcChange(current.uniqueVisitors, previous.uniqueVisitors),
+      bounceRate: calcChange(parseFloat(current.engagementMetrics?.bounceRate || 0), parseFloat(previous.engagementMetrics?.bounceRate || 0)),
+      engagementRate: calcChange(parseFloat(current.engagementMetrics?.engagementRate || 0), parseFloat(previous.engagementMetrics?.engagementRate || 0)),
+    };
+  }
+
+  // Notes CRUD
+  async getNotes() {
+    return this.notesRepository.find({ order: { date: 'DESC' } });
+  }
+
+  async addNote(content: string, date: string, type: string = 'info') {
+    const note = this.notesRepository.create({ content, date, type });
+    return this.notesRepository.save(note);
+  }
+
+  async deleteNote(id: number) {
+    return this.notesRepository.delete(id);
+  }
+
+  // Sharing Links
+  async createShareLink(label?: string, expiresDays?: number) {
+    const token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const expiresAt = expiresDays ? new Date(Date.now() + expiresDays * 24 * 60 * 60 * 1000) : null;
+    
+    const share = this.shareRepository.create({ token, label, expiresAt });
+    return this.shareRepository.save(share);
+  }
+
+  async getShareLinks() {
+    return this.shareRepository.find({ order: { createdAt: 'DESC' } });
+  }
+
+  async deleteShareLink(id: number) {
+    return this.shareRepository.delete(id);
+  }
+
+  async getStatsByToken(token: string) {
+    const share = await this.shareRepository.findOne({ where: { token } });
+    if (!share) return null;
+    
+    if (share.expiresAt && share.expiresAt < new Date()) {
+      return null;
+    }
+
+    // Return default 30d stats for shared view
+    return this.getStats();
+  }
+
+  // API Keys
+  async createApiKey(label: string) {
+    const key = 'ps_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const apiKey = this.apiKeyRepository.create({ key, label });
+    return this.apiKeyRepository.save(apiKey);
+  }
+
+  async getApiKeys() {
+    return this.apiKeyRepository.find({ order: { createdAt: 'DESC' } });
+  }
+
+  async deleteApiKey(id: number) {
+    return this.apiKeyRepository.delete(id);
+  }
+
+  async validateApiKey(key: string) {
+    const apiKey = await this.apiKeyRepository.findOne({ where: { key, isActive: true } });
+    if (apiKey) {
+      await this.apiKeyRepository.update(apiKey.id, { lastUsedAt: new Date() });
+      return true;
+    }
+    return false;
+  }
+
   private async getAdvancedMetrics(query: any) {
     const cohorts = await this.getCohortAnalysis();
     const segments = await this.getUserSegments(query.clone());
@@ -203,7 +332,7 @@ export class AnalyticsService {
 
   private async getCohortAnalysis() {
     // Weekly retention for last 4 weeks
-    const cohorts = [];
+    const cohorts: any[] = [];
     for (let i = 4; i >= 0; i--) {
       const start = new Date();
       start.setDate(start.getDate() - (i * 7 + 7));
