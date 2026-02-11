@@ -110,12 +110,24 @@ export class AnalyticsService {
       .groupBy('analytics.deviceType')
       .getRawMany();
 
+    const topProjects = await this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .select('analytics.path', 'path')
+      .addSelect('COUNT(*)', 'count')
+      .where('analytics.path LIKE :pattern', { pattern: '/projects/%' })
+      .andWhere('analytics.eventType = :type', { type: 'page_view' })
+      .groupBy('analytics.path')
+      .orderBy('count', 'DESC')
+      .limit(5)
+      .getRawMany();
+
     return {
       totalViews,
       recentViews,
       uniqueVisitors: parseInt(uniqueVisitors.count, 10),
       avgSessionDuration,
       topPages,
+      topProjects,
       topReferrers,
       browsers,
       deviceStats,
