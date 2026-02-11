@@ -2,7 +2,10 @@
   <header class="dashboard-header">
     <div class="header-content">
       <h1>Analytics Dashboard</h1>
-      <button (click)="logout()" class="btn btn-outline btn-sm">Logout</button>
+      <div class="header-actions">
+        <button (click)="loadStats()" class="btn btn-outline btn-sm">Refresh</button>
+        <button (click)="logout()" class="btn btn-outline btn-sm">Logout</button>
+      </div>
     </div>
   </header>
 
@@ -10,25 +13,92 @@
     <div class="stats-grid">
       <div class="stat-card">
         <h3>Total Views</h3>
-        <p class="stat-value">0</p>
-        <span class="stat-label">Last 24 hours</span>
+        <p class="stat-value">{{ stats()?.totalViews || 0 }}</p>
+        <span class="stat-label">All time</span>
       </div>
       <div class="stat-card">
         <h3>Unique Visitors</h3>
-        <p class="stat-value">0</p>
-        <span class="stat-label">Last 24 hours</span>
+        <p class="stat-value">{{ stats()?.uniqueVisitors || 0 }}</p>
+        <span class="stat-label">All time</span>
       </div>
       <div class="stat-card">
-        <h3>Avg. Session</h3>
-        <p class="stat-value">0:00</p>
-        <span class="stat-label">Minutes</span>
+        <h3>Recent Views</h3>
+        <p class="stat-value">{{ stats()?.recentViews || 0 }}</p>
+        <span class="stat-label">Last 24 hours</span>
       </div>
     </div>
 
-    <div class="placeholder-chart">
-      <h2>Activity Overview</h2>
-      <div class="chart-box">
-        <p>Analytics tracking implementation in progress...</p>
+    <div class="stats-sections">
+      <div class="data-table-card">
+        <h2>Top Pages</h2>
+        @if (stats()?.topPages?.length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Page Path</th>
+                <th>Views</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (page of stats()?.topPages; track page.path) {
+                <tr>
+                  <td>{{ page.path }}</td>
+                  <td>{{ page.count }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No page data yet</div>
+        }
+      </div>
+
+      <div class="data-table-card">
+        <h2>Top Referrers</h2>
+        @if (stats()?.topReferrers?.length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Views</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (ref of stats()?.topReferrers; track ref.referrer) {
+                <tr>
+                  <td>{{ ref.referrer }}</td>
+                  <td>{{ ref.count }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No referrer data yet</div>
+        }
+      </div>
+
+      <div class="data-table-card">
+        <h2>Browser Usage</h2>
+        @if (stats()?.browsers?.length > 0) {
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (browser of stats()?.browsers; track browser.name) {
+                <tr>
+                  <td>{{ browser.name }}</td>
+                  <td>{{ browser.count }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <div class="empty-state">No browser data yet</div>
+        }
       </div>
     </div>
   </div>

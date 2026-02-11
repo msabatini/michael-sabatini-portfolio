@@ -2,6 +2,7 @@ import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { ThemeService } from './services/theme';
+import { AnalyticsService } from './services/analytics.service';
 import { Icon } from './components/icon/icon';
 import { BackToTop } from './components/back-to-top/back-to-top';
 import { AdminAccess } from './components/admin-access/admin-access';
@@ -15,6 +16,7 @@ import { AdminAccess } from './components/admin-access/admin-access';
 export class App {
   protected readonly title = signal('Portfolio');
   protected readonly themeService = inject(ThemeService);
+  protected readonly analyticsService = inject(AnalyticsService);
   protected readonly router = inject(Router);
   protected readonly isMenuOpen = signal(false);
 
