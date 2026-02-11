@@ -50,6 +50,8 @@ export class AdminDashboard implements OnInit {
       companyLogo: [''],
       mockupUrl: [''],
       gallery: [''],
+      isFeatured: [false],
+      order: [0],
       content: ['', Validators.required]
     });
 

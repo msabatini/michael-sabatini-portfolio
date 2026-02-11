@@ -43,4 +43,10 @@ export class Project {
 
   @Column({ nullable: true })
   completedDate: string;
+
+  @Column({ default: false })
+  isFeatured: boolean;
+
+  @Column({ default: 0 })
+  order: number;
 }

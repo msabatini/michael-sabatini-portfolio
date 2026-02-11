@@ -255,6 +255,18 @@
   }
 }
 
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  font-weight: 600;
+
+  &.featured {
+    background: rgba(var(--accent-color-rgb), 0.1);
+    color: var(--accent-color);
+  }
+}
+
 .messages-management {
   .unread {
     background: rgba(var(--accent-color-rgb), 0.03);

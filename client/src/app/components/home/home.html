@@ -5,8 +5,8 @@
       <div class="hero-content">
         @if (featuredProjects.length > 0) {
           <div class="hero-badge">Featured Project</div>
-          <p class="hero-featured">Sorella Home Solutions - Boston, MA - 2025</p>
-          <div class="featured-name">Michael Sabatini</div>
+          <p class="hero-featured">{{ featuredProjects[0].title }} - {{ featuredProjects[0].completedDate }}</p>
+          <div class="featured-name">{{ settings()?.siteTitle?.split('|')[0]?.trim() || 'Michael Sabatini' }}</div>
         }
         <h1>
           {{ settings()?.heroTitle || 'Front End Engineer & Designer' }}

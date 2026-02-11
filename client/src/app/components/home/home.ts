@@ -36,7 +36,10 @@ export class Home implements OnInit {
 
     this.projectService.getProjects().subscribe({
       next: (data) => {
-        this.featuredProjects = data.slice(0, 2);
+        this.featuredProjects = data.filter(p => p.isFeatured);
+        if (this.featuredProjects.length === 0) {
+          this.featuredProjects = data.slice(0, 2);
+        }
       },
       error: (err) => {
         console.error('Error fetching featured projects', err);

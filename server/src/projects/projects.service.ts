@@ -11,7 +11,12 @@ export class ProjectsService {
   ) {}
 
   findAll(): Promise<Project[]> {
-    return this.projectsRepository.find();
+    return this.projectsRepository.find({
+      order: {
+        order: 'ASC',
+        createdAt: 'DESC'
+      }
+    });
   }
 
   findOne(id: number): Promise<Project | null> {
