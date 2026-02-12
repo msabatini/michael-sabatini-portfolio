@@ -36,7 +36,17 @@ import { SettingsController } from './settings.controller';
       useFactory: () => ({
         type: 'sqlite',
         database: process.env.DATABASE_PATH || 'database.sqlite',
-        entities: [Project, Analytics, DashboardNote, DashboardShare, ApiKey, Message, AppSettings, User, Media],
+        entities: [
+          Project,
+          Analytics,
+          DashboardNote,
+          DashboardShare,
+          ApiKey,
+          Message,
+          AppSettings,
+          User,
+          Media,
+        ],
         synchronize: true, // Set to false in a real production app with migrations
       }),
     }),

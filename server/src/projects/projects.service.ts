@@ -14,8 +14,18 @@ export class ProjectsService {
     return this.projectsRepository.find({
       order: {
         order: 'ASC',
-        createdAt: 'DESC'
-      }
+        createdAt: 'DESC',
+      },
+    });
+  }
+
+  findByType(type: string): Promise<Project[]> {
+    return this.projectsRepository.find({
+      where: { type },
+      order: {
+        order: 'ASC',
+        createdAt: 'DESC',
+      },
     });
   }
 

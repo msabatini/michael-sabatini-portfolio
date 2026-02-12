@@ -15,4 +15,6 @@ export interface Project {
   completedDate?: string;
   isFeatured?: boolean;
   order?: number;
+  type?: string;
+  designSpecs?: { label: string, value: string, type: string }[];
 }

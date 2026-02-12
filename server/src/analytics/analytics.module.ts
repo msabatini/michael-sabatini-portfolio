@@ -8,7 +8,14 @@ import { AnalyticsService } from './analytics.service';
 import { AnalyticsController } from './analytics.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Analytics, DashboardNote, DashboardShare, ApiKey])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Analytics,
+      DashboardNote,
+      DashboardShare,
+      ApiKey,
+    ]),
+  ],
   providers: [AnalyticsService],
   controllers: [AnalyticsController],
   exports: [AnalyticsService],

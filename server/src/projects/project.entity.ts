@@ -49,4 +49,10 @@ export class Project {
 
   @Column({ default: 0 })
   order: number;
+
+  @Column({ default: 'web' })
+  type: string; // 'web' or 'print'
+
+  @Column('simple-json', { nullable: true })
+  designSpecs: { label: string; value: string; type: string }[];
 }

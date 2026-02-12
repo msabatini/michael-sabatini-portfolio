@@ -5,7 +5,12 @@ import { Injectable } from '@nestjs/common';
 export class MailService {
   constructor(private mailerService: MailerService) {}
 
-  async sendContactForm(name: string, email: string, subject: string, message: string) {
+  async sendContactForm(
+    name: string,
+    email: string,
+    subject: string,
+    message: string,
+  ) {
     await this.mailerService.sendMail({
       to: 'michaelsabatinidesign@gmail.com', // destination email
       subject: `New Contact Form Submission: ${subject}`,

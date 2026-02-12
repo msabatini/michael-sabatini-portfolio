@@ -1,0 +1,77 @@
+<article class="print-detail-view fade-in-animation">
+  @if (project(); as p) {
+    <header class="detail-hero" [class.has-background]="p.mockupUrl">
+      @if (p.mockupUrl) {
+        <div class="hero-background-image">
+          <img [src]="p.mockupUrl" alt="">
+        </div>
+        <div class="hero-overlay"></div>
+      }
+      <div class="container">
+        <a routerLink="/print" class="back-btn">
+          <app-icon name="chevron-left" [size]="16"></app-icon> Back to Print
+        </a>
+        <div class="hero-content">
+          <div class="meta">{{ p.tags?.[0] || 'Design' }} &bull; {{ p.completedDate }}</div>
+          <h1 class="title">{{ p.title }}</h1>
+          <p class="lead">{{ p.description }}</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container detail-body">
+      <div class="detail-layout">
+        <main class="visual-storyboard">
+          <!-- Large Format Visuals -->
+          @for (img of p.gallery; track img; let i = $index) {
+            <div class="visual-item">
+              <img [src]="img" [alt]="p.title + ' view ' + (i + 1)">
+            </div>
+          }
+
+          <section class="project-narrative">
+            <h2>The Process</h2>
+            <p>{{ p.content }}</p>
+          </section>
+        </main>
+
+        <aside class="design-specs">
+          <div class="spec-card">
+            <h3>Project Info</h3>
+            <div class="info-row">
+              <span class="label">Client</span>
+              <span class="value">{{ p.title }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Year</span>
+              <span class="value">{{ p.completedDate }}</span>
+            </div>
+          </div>
+
+          @if (p.designSpecs && p.designSpecs.length > 0) {
+            <div class="spec-card">
+              <h3>Design Specs</h3>
+              <div class="specs-list">
+                @for (spec of p.designSpecs; track spec.label) {
+                  <div class="spec-item" [class.color-spec]="spec.type === 'color'">
+                    @if (spec.type === 'color') {
+                      <div class="color-swatch" [style.background-color]="spec.value"></div>
+                    }
+                    <div class="spec-meta">
+                      <span class="spec-label">{{ spec.label }}</span>
+                      <span class="spec-value">{{ spec.value }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </aside>
+      </div>
+    </div>
+  } @else {
+    <div class="loading-container">
+      <div class="spinner"></div>
+    </div>
+  }
+</article>

@@ -25,7 +25,7 @@ export class MediaService {
 
   async findAll(): Promise<Media[]> {
     return this.mediaRepository.find({
-      order: { createdAt: 'DESC' }
+      order: { createdAt: 'DESC' },
     });
   }
 

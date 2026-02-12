@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { Projects } from './components/projects/projects';
+import { Print } from './components/print/print';
+import { PrintDetail } from './components/print-detail/print-detail';
 import { About } from './components/about/about';
 import { Contact } from './components/contact/contact';
 import { QuickEstimate } from './components/quick-estimate/quick-estimate';
@@ -14,6 +16,8 @@ export const routes: Routes = [
   { path: '', component: Home },
   { path: 'resume', component: Resume },
   { path: 'projects', component: Projects },
+  { path: 'print', component: Print },
+  { path: 'print/:id', component: PrintDetail },
   { path: 'projects/:id', component: ProjectDetail },
   { path: 'about', component: About },
   { path: 'contact', component: Contact },

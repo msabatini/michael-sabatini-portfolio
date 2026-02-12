@@ -37,6 +37,12 @@ export class ProjectService {
     );
   }
 
+  getProjectsByType(type: string): Observable<Project[]> {
+    return this.http.get<Project[]>(`${this.baseApiUrl}/projects/type/${type}`).pipe(
+      map(projects => projects.map(p => this.normalizeTags(p)))
+    );
+  }
+
   getProject(id: number): Observable<Project> {
     return this.http.get<Project>(`${this.baseApiUrl}/projects/${id}`).pipe(
       map(project => this.normalizeTags(project))

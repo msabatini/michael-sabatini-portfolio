@@ -6,12 +6,9 @@ import { Message } from './message.entity';
 import { MailModule } from '../mail/mail.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Message]),
-    MailModule
-  ],
+  imports: [TypeOrmModule.forFeature([Message]), MailModule],
   controllers: [ContactController],
   providers: [MessagesService],
-  exports: [MessagesService]
+  exports: [MessagesService],
 })
 export class ContactModule {}

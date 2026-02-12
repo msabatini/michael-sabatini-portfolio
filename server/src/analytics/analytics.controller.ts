@@ -1,4 +1,15 @@
-import { Controller, Post, Get, Body, Req, UseGuards, Param, Delete, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Get,
+  Body,
+  Req,
+  UseGuards,
+  Param,
+  Delete,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import type { Request } from 'express';
@@ -9,11 +20,12 @@ export class AnalyticsController {
 
   @Post('track')
   async track(
-    @Body() data: { 
-      path: string; 
-      sessionId: string; 
-      referrer?: string; 
-      eventType?: string; 
+    @Body()
+    data: {
+      path: string;
+      sessionId: string;
+      referrer?: string;
+      eventType?: string;
       eventData?: string;
       utmSource?: string;
       utmMedium?: string;
@@ -24,10 +36,14 @@ export class AnalyticsController {
       clickY?: number;
       isRageClick?: boolean;
     },
-    @Req() req: Request
+    @Req() req: Request,
   ) {
     const userAgent = req.headers['user-agent'] || 'unknown';
-    const ip = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+    const ip =
+      req.ip ||
+      req.headers['x-forwarded-for'] ||
+      req.socket.remoteAddress ||
+      'unknown';
     return this.analyticsService.trackEvent(
       data.path,
       userAgent,
@@ -43,27 +59,21 @@ export class AnalyticsController {
       data.screenResolution,
       data.clickX,
       data.clickY,
-      data.isRageClick
+      data.isRageClick,
     );
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('stats')
-  async getStats(
-    @Req() req: Request
-  ) {
+  async getStats(@Req() req: Request) {
     const { start, end, device, location, campaign, path, compare } = req.query;
-    return this.analyticsService.getStats(
-      start as string,
-      end as string,
-      {
-        deviceType: device as string,
-        location: location as string,
-        utmCampaign: campaign as string,
-        path: path as string,
-        compare: compare === 'true'
-      }
-    );
+    return this.analyticsService.getStats(start as string, end as string, {
+      deviceType: device as string,
+      location: location as string,
+      utmCampaign: campaign as string,
+      path: path as string,
+      compare: compare === 'true',
+    });
   }
 
   @UseGuards(JwtAuthGuard)
@@ -74,7 +84,9 @@ export class AnalyticsController {
 
   @UseGuards(JwtAuthGuard)
   @Post('notes')
-  async addNote(@Body() data: { content: string; date: string; type?: string }) {
+  async addNote(
+    @Body() data: { content: string; date: string; type?: string },
+  ) {
     return this.analyticsService.addNote(data.content, data.date, data.type);
   }
 
@@ -108,7 +120,10 @@ export class AnalyticsController {
   async getSharedStats(@Param('token') token: string) {
     const stats = await this.analyticsService.getStatsByToken(token);
     if (!stats) {
-      throw new HttpException('Invalid or expired share token', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Invalid or expired share token',
+        HttpStatus.NOT_FOUND,
+      );
     }
     return stats;
   }
@@ -137,7 +152,10 @@ export class AnalyticsController {
   async getRawData(@Req() req: Request) {
     const key = req.headers['x-api-key'] as string;
     if (!key || !(await this.analyticsService.validateApiKey(key))) {
-      throw new HttpException('Invalid or missing API key', HttpStatus.UNAUTHORIZED);
+      throw new HttpException(
+        'Invalid or missing API key',
+        HttpStatus.UNAUTHORIZED,
+      );
     }
     return this.analyticsService.getStats();
   }

@@ -37,7 +37,7 @@ export class AnalyticsService {
     isRageClick?: boolean,
   ): Promise<Analytics> {
     const deviceType = this.parseDeviceType(userAgent);
-    
+
     // Create basic event
     const event = this.analyticsRepository.create({
       path,
@@ -72,7 +72,7 @@ export class AnalyticsService {
 
     try {
       const response = await fetch(`http://ip-api.com/json/${ip}`);
-      const data = await response.json() as any;
+      const data = await response.json();
       if (data.status === 'success') {
         const location = `${data.city}, ${data.country}`;
         await this.analyticsRepository.update(eventId, { location });
@@ -87,78 +87,115 @@ export class AnalyticsService {
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent)) {
       return 'Tablet';
     }
-    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(userAgent)) {
+    if (
+      /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        userAgent,
+      )
+    ) {
       return 'Mobile';
     }
     return 'Desktop';
   }
 
   async getStats(startDate?: string, endDate?: string, filters: any = {}) {
-    const start = startDate ? new Date(startDate) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const start = startDate
+      ? new Date(startDate)
+      : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
     const end = endDate ? new Date(endDate) : new Date();
 
-    const query = this.analyticsRepository.createQueryBuilder('analytics')
-      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end });
+    const query = this.analyticsRepository
+      .createQueryBuilder('analytics')
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', {
+        start,
+        end,
+      });
 
     if (filters.deviceType) {
-      query.andWhere('analytics.deviceType = :deviceType', { deviceType: filters.deviceType });
+      query.andWhere('analytics.deviceType = :deviceType', {
+        deviceType: filters.deviceType,
+      });
     }
     if (filters.utmCampaign) {
-      query.andWhere('analytics.utmCampaign = :utmCampaign', { utmCampaign: filters.utmCampaign });
+      query.andWhere('analytics.utmCampaign = :utmCampaign', {
+        utmCampaign: filters.utmCampaign,
+      });
     }
     if (filters.path) {
       query.andWhere('analytics.path = :path', { path: filters.path });
     }
     if (filters.location) {
-      query.andWhere('analytics.location = :location', { location: filters.location });
+      query.andWhere('analytics.location = :location', {
+        location: filters.location,
+      });
     }
 
     const stats = await this.getStatsForRange(query.clone(), start, end);
-    
+
     // Comparison Logic
     let comparison: any = null;
     if (filters.compare) {
       const rangeMs = end.getTime() - start.getTime();
       const prevStart = new Date(start.getTime() - rangeMs);
       const prevEnd = new Date(start.getTime());
-      
-      const prevQuery = this.analyticsRepository.createQueryBuilder('analytics')
-        .where('analytics.timestamp >= :start AND analytics.timestamp < :end', { start: prevStart, end: prevEnd });
-        
-      if (filters.deviceType) prevQuery.andWhere('analytics.deviceType = :deviceType', { deviceType: filters.deviceType });
-      if (filters.utmCampaign) prevQuery.andWhere('analytics.utmCampaign = :utmCampaign', { utmCampaign: filters.utmCampaign });
-      if (filters.path) prevQuery.andWhere('analytics.path = :path', { path: filters.path });
-      if (filters.location) prevQuery.andWhere('analytics.location = :location', { location: filters.location });
 
-      const prevStats = await this.getStatsForRange(prevQuery, prevStart, prevEnd);
+      const prevQuery = this.analyticsRepository
+        .createQueryBuilder('analytics')
+        .where('analytics.timestamp >= :start AND analytics.timestamp < :end', {
+          start: prevStart,
+          end: prevEnd,
+        });
+
+      if (filters.deviceType)
+        prevQuery.andWhere('analytics.deviceType = :deviceType', {
+          deviceType: filters.deviceType,
+        });
+      if (filters.utmCampaign)
+        prevQuery.andWhere('analytics.utmCampaign = :utmCampaign', {
+          utmCampaign: filters.utmCampaign,
+        });
+      if (filters.path)
+        prevQuery.andWhere('analytics.path = :path', { path: filters.path });
+      if (filters.location)
+        prevQuery.andWhere('analytics.location = :location', {
+          location: filters.location,
+        });
+
+      const prevStats = await this.getStatsForRange(
+        prevQuery,
+        prevStart,
+        prevEnd,
+      );
       comparison = this.calculateComparison(stats, prevStats);
     }
 
     const notes = await this.notesRepository.find({
       where: {
-        date: MoreThan(start.toISOString().split('T')[0])
+        date: MoreThan(start.toISOString().split('T')[0]),
       },
-      order: { date: 'ASC' }
+      order: { date: 'ASC' },
     });
 
     return {
       ...stats,
       comparison,
-      notes
+      notes,
     };
   }
 
   private async getStatsForRange(query: any, start: Date, end: Date) {
-    const totalViews = await query.clone()
+    const totalViews = await query
+      .clone()
       .andWhere('analytics.eventType = :type', { type: 'page_view' })
       .getCount();
 
-    const uniqueVisitorsRaw = await query.clone()
+    const uniqueVisitorsRaw = await query
+      .clone()
       .select('COUNT(DISTINCT(analytics.sessionId))', 'count')
       .getRawOne();
     const uniqueVisitors = parseInt(uniqueVisitorsRaw.count, 10);
 
-    const topPages = await query.clone()
+    const topPages = await query
+      .clone()
       .select('analytics.path', 'path')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.eventType = :type', { type: 'page_view' })
@@ -167,7 +204,8 @@ export class AnalyticsService {
       .limit(10)
       .getRawMany();
 
-    const topReferrers = await query.clone()
+    const topReferrers = await query
+      .clone()
       .select('analytics.referrer', 'referrer')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.referrer IS NOT NULL AND analytics.referrer != ""')
@@ -176,16 +214,20 @@ export class AnalyticsService {
       .limit(10)
       .getRawMany();
 
-    const utmStats = await query.clone()
+    const utmStats = await query
+      .clone()
       .select('analytics.utmSource', 'source')
       .addSelect('analytics.utmMedium', 'medium')
       .addSelect('analytics.utmCampaign', 'campaign')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.utmSource IS NOT NULL')
-      .groupBy('analytics.utmSource, analytics.utmMedium, analytics.utmCampaign')
+      .groupBy(
+        'analytics.utmSource, analytics.utmMedium, analytics.utmCampaign',
+      )
       .getRawMany();
 
-    const locationStats = await query.clone()
+    const locationStats = await query
+      .clone()
       .select('analytics.location', 'name')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.location IS NOT NULL')
@@ -194,13 +236,15 @@ export class AnalyticsService {
       .limit(10)
       .getRawMany();
 
-    const deviceStats = await query.clone()
+    const deviceStats = await query
+      .clone()
       .select('analytics.deviceType', 'name')
       .addSelect('COUNT(*)', 'count')
       .groupBy('analytics.deviceType')
       .getRawMany();
 
-    const browserStatsRaw = await query.clone()
+    const browserStatsRaw = await query
+      .clone()
       .select('analytics.userAgent', 'userAgent')
       .addSelect('COUNT(*)', 'count')
       .groupBy('analytics.userAgent')
@@ -208,11 +252,21 @@ export class AnalyticsService {
     const browsers = this.parseBrowsers(browserStatsRaw);
 
     const dailyActivity = await this.getDailyActivityInRange(start, end);
-    const avgSessionDuration = await this.getAverageSessionDurationInRange(start, end);
+    const avgSessionDuration = await this.getAverageSessionDurationInRange(
+      start,
+      end,
+    );
 
     const acquisitionSources = await this.getAcquisitionSources(query.clone());
-    const trafficMetrics = await this.getTrafficMetrics(query.clone(), uniqueVisitors, totalViews);
-    const engagementMetrics = await this.getEngagementMetrics(query.clone(), totalViews);
+    const trafficMetrics = await this.getTrafficMetrics(
+      query.clone(),
+      uniqueVisitors,
+      totalViews,
+    );
+    const engagementMetrics = await this.getEngagementMetrics(
+      query.clone(),
+      totalViews,
+    );
     const performanceMetrics = await this.getPerformanceMetrics(query.clone());
     const errorMetrics = await this.getErrorMetrics(query.clone());
     const techBreakdown = await this.getTechBreakdown(query.clone());
@@ -237,21 +291,30 @@ export class AnalyticsService {
       errorMetrics,
       techBreakdown,
       uxMetrics,
-      advancedMetrics
+      advancedMetrics,
     };
   }
 
   private calculateComparison(current: any, previous: any) {
     const calcChange = (cur: number, prev: number) => {
       if (!prev) return cur > 0 ? 100 : 0;
-      return parseFloat(((cur - prev) / prev * 100).toFixed(1));
+      return parseFloat((((cur - prev) / prev) * 100).toFixed(1));
     };
 
     return {
       totalViews: calcChange(current.totalViews, previous.totalViews),
-      uniqueVisitors: calcChange(current.uniqueVisitors, previous.uniqueVisitors),
-      bounceRate: calcChange(parseFloat(current.engagementMetrics?.bounceRate || 0), parseFloat(previous.engagementMetrics?.bounceRate || 0)),
-      engagementRate: calcChange(parseFloat(current.engagementMetrics?.engagementRate || 0), parseFloat(previous.engagementMetrics?.engagementRate || 0)),
+      uniqueVisitors: calcChange(
+        current.uniqueVisitors,
+        previous.uniqueVisitors,
+      ),
+      bounceRate: calcChange(
+        parseFloat(current.engagementMetrics?.bounceRate || 0),
+        parseFloat(previous.engagementMetrics?.bounceRate || 0),
+      ),
+      engagementRate: calcChange(
+        parseFloat(current.engagementMetrics?.engagementRate || 0),
+        parseFloat(previous.engagementMetrics?.engagementRate || 0),
+      ),
     };
   }
 
@@ -271,9 +334,13 @@ export class AnalyticsService {
 
   // Sharing Links
   async createShareLink(label?: string, expiresDays?: number) {
-    const token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const expiresAt = expiresDays ? new Date(Date.now() + expiresDays * 24 * 60 * 60 * 1000) : null;
-    
+    const token =
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15);
+    const expiresAt = expiresDays
+      ? new Date(Date.now() + expiresDays * 24 * 60 * 60 * 1000)
+      : null;
+
     const share = this.shareRepository.create({ token, label, expiresAt });
     return this.shareRepository.save(share);
   }
@@ -289,7 +356,7 @@ export class AnalyticsService {
   async getStatsByToken(token: string) {
     const share = await this.shareRepository.findOne({ where: { token } });
     if (!share) return null;
-    
+
     if (share.expiresAt && share.expiresAt < new Date()) {
       return null;
     }
@@ -300,7 +367,10 @@ export class AnalyticsService {
 
   // API Keys
   async createApiKey(label: string) {
-    const key = 'ps_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const key =
+      'ps_' +
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15);
     const apiKey = this.apiKeyRepository.create({ key, label });
     return this.apiKeyRepository.save(apiKey);
   }
@@ -314,7 +384,9 @@ export class AnalyticsService {
   }
 
   async validateApiKey(key: string) {
-    const apiKey = await this.apiKeyRepository.findOne({ where: { key, isActive: true } });
+    const apiKey = await this.apiKeyRepository.findOne({
+      where: { key, isActive: true },
+    });
     if (apiKey) {
       await this.apiKeyRepository.update(apiKey.id, { lastUsedAt: new Date() });
       return true;
@@ -348,27 +420,41 @@ export class AnalyticsService {
       const week1Retention = await this.analyticsRepository
         .createQueryBuilder('analytics')
         .select('COUNT(DISTINCT(sessionId))', 'count')
-        .where('timestamp >= :nextStart AND timestamp < :nextEnd', { 
-          nextStart: end, 
-          nextEnd: new Date(end.getTime() + 7 * 24 * 60 * 60 * 1000) 
+        .where('timestamp >= :nextStart AND timestamp < :nextEnd', {
+          nextStart: end,
+          nextEnd: new Date(end.getTime() + 7 * 24 * 60 * 60 * 1000),
         })
-        .andWhere('sessionId IN (SELECT DISTINCT(sessionId) FROM analytics WHERE timestamp >= :start AND timestamp < :end)', { start, end })
+        .andWhere(
+          'sessionId IN (SELECT DISTINCT(sessionId) FROM analytics WHERE timestamp >= :start AND timestamp < :end)',
+          { start, end },
+        )
         .getRawOne();
 
       cohorts.push({
         week: `Week of ${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`,
         size: parseInt(cohortSize.count, 10),
-        retention: cohortSize.count > 0 ? ((parseInt(week1Retention.count, 10) / parseInt(cohortSize.count, 10)) * 100).toFixed(1) : 0
+        retention:
+          cohortSize.count > 0
+            ? (
+                (parseInt(week1Retention.count, 10) /
+                  parseInt(cohortSize.count, 10)) *
+                100
+              ).toFixed(1)
+            : 0,
       });
     }
     return cohorts;
   }
 
   private async getUserSegments(query: any) {
-    const sessions = await query.clone()
+    const sessions = await query
+      .clone()
       .select('analytics.sessionId', 'id')
       .addSelect('COUNT(*)', 'count')
-      .addSelect('COUNT(CASE WHEN analytics.eventType = "click" THEN 1 END)', 'clicks')
+      .addSelect(
+        'COUNT(CASE WHEN analytics.eventType = "click" THEN 1 END)',
+        'clicks',
+      )
       .addSelect('COUNT(DISTINCT(analytics.path))', 'uniquePages')
       .groupBy('analytics.sessionId')
       .getRawMany();
@@ -376,11 +462,12 @@ export class AnalyticsService {
     const segments = {
       'Casual Browser': 0, // < 3 events
       'Deep Explorer': 0, // > 10 events OR > 3 pages
-      'High Intent': 0,   // Clicked "Hire Me" or started form
+      'High Intent': 0, // Clicked "Hire Me" or started form
     };
 
-    sessions.forEach(s => {
-      if (parseInt(s.count, 10) > 10 || parseInt(s.uniquePages, 10) > 3) segments['Deep Explorer']++;
+    sessions.forEach((s) => {
+      if (parseInt(s.count, 10) > 10 || parseInt(s.uniquePages, 10) > 3)
+        segments['Deep Explorer']++;
       else if (parseInt(s.count, 10) < 3) segments['Casual Browser']++;
       else segments['High Intent']++; // Simplified for demo
     });
@@ -390,7 +477,8 @@ export class AnalyticsService {
 
   private async getPredictiveMetrics(query: any) {
     // Traffic Forecasting (Simple 7-day projection based on avg growth)
-    const activity = await query.clone()
+    const activity = await query
+      .clone()
       .select('DATE(analytics.timestamp)', 'date')
       .addSelect('COUNT(*)', 'count')
       .groupBy('DATE(analytics.timestamp)')
@@ -406,23 +494,28 @@ export class AnalyticsService {
     }
 
     // Lead Quality Scoring
-    const leadScore = await query.clone()
-      .select('AVG(CASE ' +
-        'WHEN eventData = "contact_form_success" THEN 100 ' +
-        'WHEN eventData = "contact_form_start" THEN 30 ' +
-        'WHEN eventType = "download" THEN 20 ' +
-        'WHEN eventType = "scroll_depth" AND eventData = "100" THEN 15 ' +
-        'ELSE 0 END)', 'score')
+    const leadScore = await query
+      .clone()
+      .select(
+        'AVG(CASE ' +
+          'WHEN eventData = "contact_form_success" THEN 100 ' +
+          'WHEN eventData = "contact_form_start" THEN 30 ' +
+          'WHEN eventType = "download" THEN 20 ' +
+          'WHEN eventType = "scroll_depth" AND eventData = "100" THEN 15 ' +
+          'ELSE 0 END)',
+        'score',
+      )
       .getRawOne();
 
     return {
       nextDayForecast: forecast,
-      avgLeadQuality: parseFloat(leadScore.score || 0).toFixed(1)
+      avgLeadQuality: parseFloat(leadScore.score || 0).toFixed(1),
     };
   }
 
   private async getUXMetrics(query: any) {
-    const rageClicks = await query.clone()
+    const rageClicks = await query
+      .clone()
       .select('analytics.path', 'path')
       .addSelect('analytics.eventData', 'element')
       .addSelect('COUNT(*)', 'count')
@@ -430,16 +523,20 @@ export class AnalyticsService {
       .groupBy('analytics.path, analytics.eventData')
       .getRawMany();
 
-    const clickMap = await query.clone()
+    const clickMap = await query
+      .clone()
       .select('analytics.clickX', 'x')
       .addSelect('analytics.clickY', 'y')
       .addSelect('analytics.path', 'path')
-      .where('analytics.eventType = "ux_click" AND analytics.clickX IS NOT NULL')
+      .where(
+        'analytics.eventType = "ux_click" AND analytics.clickX IS NOT NULL',
+      )
       .limit(1000)
       .getRawMany();
 
     // User Flows: Get sequences of pages per session
-    const rawFlows = await query.clone()
+    const rawFlows = await query
+      .clone()
       .select('analytics.sessionId', 'sessionId')
       .addSelect('analytics.path', 'path')
       .addSelect('analytics.timestamp', 'time')
@@ -448,7 +545,7 @@ export class AnalyticsService {
       .getRawMany();
 
     const flows: any = {};
-    rawFlows.forEach(row => {
+    rawFlows.forEach((row) => {
       if (!flows[row.sessionId]) flows[row.sessionId] = [];
       if (flows[row.sessionId][flows[row.sessionId].length - 1] !== row.path) {
         flows[row.sessionId].push(row.path);
@@ -467,30 +564,40 @@ export class AnalyticsService {
       .sort((a: any, b: any) => b.count - a.count)
       .slice(0, 5);
 
-    return { 
-      rageClicks, 
-      clickMap, 
-      topFlows
+    return {
+      rageClicks,
+      clickMap,
+      topFlows,
     };
   }
 
   private async getPerformanceMetrics(query: any) {
-    const metrics = ['perf_ttfb', 'perf_lcp', 'perf_fid', 'perf_cls', 'perf_load_time'];
+    const metrics = [
+      'perf_ttfb',
+      'perf_lcp',
+      'perf_fid',
+      'perf_cls',
+      'perf_load_time',
+    ];
     const results: any = {};
 
     for (const metric of metrics) {
-      const data = await query.clone()
+      const data = await query
+        .clone()
         .select('AVG(CAST(analytics.eventData AS FLOAT))', 'avg')
         .where('analytics.eventType = :metric', { metric })
         .getRawOne();
-      results[metric.replace('perf_', '')] = parseFloat(data.avg || 0).toFixed(metric === 'perf_cls' ? 4 : 0);
+      results[metric.replace('perf_', '')] = parseFloat(data.avg || 0).toFixed(
+        metric === 'perf_cls' ? 4 : 0,
+      );
     }
 
     return results;
   }
 
   private async getErrorMetrics(query: any) {
-    const errors = await query.clone()
+    const errors = await query
+      .clone()
       .select('analytics.eventType', 'type')
       .addSelect('analytics.eventData', 'message')
       .addSelect('COUNT(*)', 'count')
@@ -504,14 +611,16 @@ export class AnalyticsService {
   }
 
   private async getTechBreakdown(query: any) {
-    const os = await query.clone()
+    const os = await query
+      .clone()
       .select('analytics.os', 'name')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.os IS NOT NULL')
       .groupBy('analytics.os')
       .getRawMany();
 
-    const resolution = await query.clone()
+    const resolution = await query
+      .clone()
       .select('analytics.screenResolution', 'name')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.screenResolution IS NOT NULL')
@@ -524,7 +633,8 @@ export class AnalyticsService {
   }
 
   private async getEngagementMetrics(query: any, totalViews: number) {
-    const sessions = await query.clone()
+    const sessions = await query
+      .clone()
       .select('analytics.sessionId', 'id')
       .addSelect('COUNT(*)', 'eventCount')
       .addSelect('MIN(analytics.timestamp)', 'start')
@@ -539,26 +649,31 @@ export class AnalyticsService {
     let engagedSessions = 0;
     let totalDurationMs = 0;
 
-    sessions.forEach(s => {
+    sessions.forEach((s) => {
       const duration = new Date(s.end).getTime() - new Date(s.start).getTime();
       const events = parseInt(s.eventCount, 10);
-      
+
       if (events === 1) bounces++;
       if (events > 1 || duration > 10000) engagedSessions++;
       totalDurationMs += duration;
     });
 
     const bounceRate = ((bounces / totalSessionsCount) * 100).toFixed(1);
-    const engagementRate = ((engagedSessions / totalSessionsCount) * 100).toFixed(1);
+    const engagementRate = (
+      (engagedSessions / totalSessionsCount) *
+      100
+    ).toFixed(1);
 
-    const scrollStats = await query.clone()
+    const scrollStats = await query
+      .clone()
       .select('analytics.eventData', 'depth')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.eventType = :type', { type: 'scroll_depth' })
       .groupBy('analytics.eventData')
       .getRawMany();
 
-    const exitStats = await query.clone()
+    const exitStats = await query
+      .clone()
       .select('analytics.path', 'path')
       .addSelect('COUNT(*)', 'count')
       .where('analytics.eventType = :type', { type: 'page_exit' })
@@ -569,39 +684,45 @@ export class AnalyticsService {
       bounceRate,
       engagementRate,
       scrollStats,
-      exitStats: exitStats.map(e => ({
+      exitStats: exitStats.map((e) => ({
         path: e.path,
         count: parseInt(e.count, 10),
-        rate: ((parseInt(e.count, 10) / totalViews) * 100).toFixed(1)
-      }))
+        rate: ((parseInt(e.count, 10) / totalViews) * 100).toFixed(1),
+      })),
     };
   }
 
-  private async getTrafficMetrics(query: any, uniqueVisitors: number, totalViews: number) {
-    const sessionsRaw = await query.clone()
+  private async getTrafficMetrics(
+    query: any,
+    uniqueVisitors: number,
+    totalViews: number,
+  ) {
+    const sessionsRaw = await query
+      .clone()
       .select('COUNT(DISTINCT(analytics.sessionId))', 'count')
       .getRawOne();
     const totalSessions = parseInt(sessionsRaw.count, 10) || 1;
 
     // New vs Returning logic: A user is returning if their sessionId appeared BEFORE the current range
-    // For simplicity in this local implementation, we'll check if we have any record for that sessionId 
+    // For simplicity in this local implementation, we'll check if we have any record for that sessionId
     // outside the current query range.
-    const sessions = await query.clone()
+    const sessions = await query
+      .clone()
       .select('DISTINCT(analytics.sessionId)', 'id')
       .getRawMany();
-    
-    let returningCount = 0;
+
+    const returningCount = 0;
     // This is expensive for huge data, but fine for a portfolio
     // Optimization: In a real app, you'd have a 'Users' table with 'firstSeen'
     for (const session of sessions) {
       const existsBefore = await this.analyticsRepository.findOne({
         where: {
           sessionId: session.id,
-          timestamp: MoreThan(new Date(0)) // Placeholder for "any time before"
+          timestamp: MoreThan(new Date(0)), // Placeholder for "any time before"
           // In actual logic, we'd check if timestamp < start
-        }
+        },
       });
-      // Mocking returning logic for now based on session counts if needed, 
+      // Mocking returning logic for now based on session counts if needed,
       // but let's do a better estimate:
       // if (existsBefore && existsBefore.timestamp < start) returningCount++;
     }
@@ -620,7 +741,8 @@ export class AnalyticsService {
   }
 
   private async getAcquisitionSources(query: any) {
-    const data = await query.clone()
+    const data = await query
+      .clone()
       .select('analytics.referrer', 'referrer')
       .addSelect('analytics.utmMedium', 'medium')
       .addSelect('COUNT(*)', 'count')
@@ -633,23 +755,39 @@ export class AnalyticsService {
       Social: 0,
       Referral: 0,
       Email: 0,
-      Paid: 0
+      Paid: 0,
     };
 
-    data.forEach(item => {
+    data.forEach((item) => {
       const ref = (item.referrer || '').toLowerCase();
       const med = (item.medium || '').toLowerCase();
       const count = parseInt(item.count, 10);
 
-      if (med === 'cpc' || med === 'ppc' || med === 'paid') sources.Paid += count;
+      if (med === 'cpc' || med === 'ppc' || med === 'paid')
+        sources.Paid += count;
       else if (med === 'email') sources.Email += count;
-      else if (med === 'social' || ref.includes('t.co') || ref.includes('facebook') || ref.includes('instagram') || ref.includes('linkedin')) sources.Social += count;
-      else if (ref.includes('google') || ref.includes('bing') || ref.includes('yahoo') || ref.includes('duckduckgo')) sources['Organic Search'] += count;
+      else if (
+        med === 'social' ||
+        ref.includes('t.co') ||
+        ref.includes('facebook') ||
+        ref.includes('instagram') ||
+        ref.includes('linkedin')
+      )
+        sources.Social += count;
+      else if (
+        ref.includes('google') ||
+        ref.includes('bing') ||
+        ref.includes('yahoo') ||
+        ref.includes('duckduckgo')
+      )
+        sources['Organic Search'] += count;
       else if (!ref || ref === '') sources.Direct += count;
       else sources.Referral += count;
     });
 
-    return Object.entries(sources).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count);
+    return Object.entries(sources)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count);
   }
 
   private async getAverageSessionDurationInRange(start: Date, end: Date) {
@@ -658,7 +796,10 @@ export class AnalyticsService {
       .select('analytics.sessionId', 'sessionId')
       .addSelect('MIN(analytics.timestamp)', 'start')
       .addSelect('MAX(analytics.timestamp)', 'end')
-      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end })
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', {
+        start,
+        end,
+      })
       .groupBy('analytics.sessionId')
       .getRawMany();
 
@@ -667,7 +808,7 @@ export class AnalyticsService {
     let totalDurationMs = 0;
     let countedSessions = 0;
 
-    sessions.forEach(session => {
+    sessions.forEach((session) => {
       const sStart = new Date(session.start).getTime();
       const sEnd = new Date(session.end).getTime();
       const duration = sEnd - sStart;
@@ -678,7 +819,7 @@ export class AnalyticsService {
     });
 
     if (countedSessions === 0) return '0:00';
-    const avgSeconds = Math.floor((totalDurationMs / countedSessions) / 1000);
+    const avgSeconds = Math.floor(totalDurationMs / countedSessions / 1000);
     const mins = Math.floor(avgSeconds / 60);
     const secs = avgSeconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
@@ -689,15 +830,21 @@ export class AnalyticsService {
       .createQueryBuilder('analytics')
       .select('DATE(analytics.timestamp)', 'date')
       .addSelect('COUNT(*)', 'count')
-      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', { start, end })
+      .where('analytics.timestamp >= :start AND analytics.timestamp <= :end', {
+        start,
+        end,
+      })
       .andWhere('analytics.eventType = :type', { type: 'page_view' })
       .groupBy('DATE(analytics.timestamp)')
       .orderBy('date', 'ASC')
       .getRawMany();
 
-    return activity.map(a => ({
-      date: new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-      count: parseInt(a.count, 10)
+    return activity.map((a) => ({
+      date: new Date(a.date).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+      }),
+      count: parseInt(a.count, 10),
     }));
   }
 
@@ -707,14 +854,15 @@ export class AnalyticsService {
       Safari: 0,
       Firefox: 0,
       Edge: 0,
-      Other: 0
+      Other: 0,
     };
 
-    rawStats.forEach(stat => {
+    rawStats.forEach((stat) => {
       const ua = stat.userAgent.toLowerCase();
       const count = parseInt(stat.count, 10);
       if (ua.includes('chrome') && !ua.includes('edg')) summary.Chrome += count;
-      else if (ua.includes('safari') && !ua.includes('chrome')) summary.Safari += count;
+      else if (ua.includes('safari') && !ua.includes('chrome'))
+        summary.Safari += count;
       else if (ua.includes('firefox')) summary.Firefox += count;
       else if (ua.includes('edg')) summary.Edge += count;
       else summary.Other += count;
@@ -722,7 +870,7 @@ export class AnalyticsService {
 
     return Object.entries(summary)
       .map(([name, count]) => ({ name, count }))
-      .filter(b => b.count > 0)
+      .filter((b) => b.count > 0)
       .sort((a, b) => b.count - a.count);
   }
 }

@@ -17,7 +17,7 @@ export class MessagesService {
 
   async findAll(): Promise<Message[]> {
     return this.messagesRepository.find({
-      order: { createdAt: 'DESC' }
+      order: { createdAt: 'DESC' },
     });
   }
 

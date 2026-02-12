@@ -1,4 +1,14 @@
-import { Controller, Post, Get, Delete, Body, Param, HttpException, HttpStatus, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Get,
+  Delete,
+  Body,
+  Param,
+  HttpException,
+  HttpStatus,
+  UseGuards,
+} from '@nestjs/common';
 import { MailService } from '../mail/mail.service';
 import { MessagesService } from './messages.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -7,22 +17,38 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class ContactController {
   constructor(
     private mailService: MailService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
   ) {}
 
   @Post()
-  async submitContactForm(@Body() body: { name: string; email: string; subject: string; message: string }) {
+  async submitContactForm(
+    @Body()
+    body: {
+      name: string;
+      email: string;
+      subject: string;
+      message: string;
+    },
+  ) {
     try {
       // Save to database
       await this.messagesService.create(body);
-      
+
       // Send email
-      await this.mailService.sendContactForm(body.name, body.email, body.subject, body.message);
-      
+      await this.mailService.sendContactForm(
+        body.name,
+        body.email,
+        body.subject,
+        body.message,
+      );
+
       return { message: 'Email sent and message saved successfully' };
     } catch (error) {
       console.error('Failed to process contact form:', error);
-      throw new HttpException(`Failed to send message: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(
+        `Failed to send message: ${error.message}`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 
@@ -40,7 +66,10 @@ export class ContactController {
 
   @UseGuards(JwtAuthGuard)
   @Post('messages/:id/status')
-  async updateStatus(@Param('id') id: string, @Body() data: { status: string }) {
+  async updateStatus(
+    @Param('id') id: string,
+    @Body() data: { status: string },
+  ) {
     return this.messagesService.updateStatus(+id, data.status);
   }
 

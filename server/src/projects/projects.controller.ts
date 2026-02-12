@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Patch, Body, Param, Delete, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Patch,
+  Body,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 import { Project } from './project.entity';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -10,6 +19,11 @@ export class ProjectsController {
   @Get()
   findAll(): Promise<Project[]> {
     return this.projectsService.findAll();
+  }
+
+  @Get('type/:type')
+  findByType(@Param('type') type: string): Promise<Project[]> {
+    return this.projectsService.findByType(type);
   }
 
   @Get(':id')
@@ -25,7 +39,10 @@ export class ProjectsController {
 
   @UseGuards(JwtAuthGuard)
   @Patch(':id')
-  update(@Param('id') id: string, @Body() project: Partial<Project>): Promise<Project | null> {
+  update(
+    @Param('id') id: string,
+    @Body() project: Partial<Project>,
+  ): Promise<Project | null> {
     return this.projectsService.update(+id, project);
   }
 

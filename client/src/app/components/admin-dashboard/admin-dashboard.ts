@@ -72,7 +72,9 @@ export class AdminDashboard implements OnInit {
       gallery: [''],
       isFeatured: [false],
       order: [0],
-      content: ['', Validators.required]
+      content: ['', Validators.required],
+      type: ['web'],
+      designSpecs: [[]]
     });
 
     this.settingsForm = this.fb.group({

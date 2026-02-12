@@ -29,7 +29,7 @@ export class Projects implements OnInit {
       url: 'projects'
     });
 
-    this.projectService.getProjects().subscribe({
+    this.projectService.getProjectsByType('web').subscribe({
       next: (data) => {
         this.projects = data;
         this.errorMessage = null;
