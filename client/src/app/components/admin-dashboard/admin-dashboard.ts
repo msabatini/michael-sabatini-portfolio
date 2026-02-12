@@ -28,7 +28,7 @@ export class AdminDashboard implements OnInit {
   private authService = inject(AuthService);
   private fb = inject(FormBuilder);
 
-  activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings' | 'media'>('analytics');
+  activeTab = signal<'analytics' | 'projects' | 'messages' | 'settings' | 'media' | 'help'>('analytics');
   stats = signal<any>(null);
   notes = signal<any[]>([]);
   compareEnabled = signal(false);
@@ -382,7 +382,7 @@ export class AdminDashboard implements OnInit {
     });
   }
 
-  setTab(tab: 'analytics' | 'projects' | 'messages' | 'settings' | 'media') {
+  setTab(tab: 'analytics' | 'projects' | 'messages' | 'settings' | 'media' | 'help') {
     this.activeTab.set(tab);
   }
 

@@ -37,6 +37,12 @@
             <app-icon name="image" [size]="18"></app-icon>
             Media
           </button>
+          <button 
+            [class.active]="activeTab() === 'help'" 
+            (click)="setTab('help')">
+            <app-icon name="help" [size]="18"></app-icon>
+            Help
+          </button>
         </nav>
       </div>
       <div class="header-actions">
@@ -1098,6 +1104,59 @@
         } @else {
           <div class="empty-state">No media assets uploaded yet</div>
         }
+      </div>
+    } @else if (activeTab() === 'help') {
+      <div class="help-guide-section">
+        <div class="help-hero data-table-card">
+          <h1>Dashboard Help Guide</h1>
+          <p>Welcome to your personal command center. This guide explains how to use the analytics, content management, and lead tracking features of your portfolio dashboard.</p>
+        </div>
+
+        <div class="help-grid">
+          <div class="help-card data-table-card">
+            <div class="help-icon"><app-icon name="chart" [size]="24"></app-icon></div>
+            <h3>Analytics Deep-Dive</h3>
+            <ul>
+              <li><strong>Live Mode:</strong> Real-time traffic polling (updates every 5s). Ideal for monitoring active campaigns.</li>
+              <li><strong>Comparison:</strong> Toggle to see percentage changes (delta) against the previous period.</li>
+              <li><strong>Acquisition:</strong> Understand where your traffic comes from (Direct, Social, Organic, etc.).</li>
+              <li><strong>UX Tracking:</strong> <em>Rage Clicks</em> highlight elements where users clicked rapidly (frustration points). <em>Scroll Depth</em> shows how far users read.</li>
+              <li><strong>Performance:</strong> Monitor Core Web Vitals (LCP, FID, CLS) to ensure your site is fast and stable.</li>
+            </ul>
+          </div>
+
+          <div class="help-card data-table-card">
+            <div class="help-icon"><app-icon name="briefcase" [size]="24"></app-icon></div>
+            <h3>Project Management</h3>
+            <ul>
+              <li><strong>Dynamic Content:</strong> Add or edit case studies with rich text support.</li>
+              <li><strong>Featured Status:</strong> Toggling "Featured" puts the project in the homepage spotlight.</li>
+              <li><strong>Visuals:</strong> Use the <em>Media Library</em> to pick images for hero sections and galleries.</li>
+              <li><strong>Challenge/Solution:</strong> Structured fields to ensure consistent case study storytelling.</li>
+            </ul>
+          </div>
+
+          <div class="help-card data-table-card">
+            <div class="help-icon"><app-icon name="mail" [size]="24"></app-icon></div>
+            <h3>Lead Lifecycle</h3>
+            <ul>
+              <li><strong>Message Tracking:</strong> New submissions appear with a notification badge.</li>
+              <li><strong>Status Workflow:</strong> Track leads from <em>New</em> → <em>Contacted</em> → <em>Hired</em>. Use <em>Junk</em> to filter noise.</li>
+              <li><strong>Retention:</strong> Use the <em>Cohort Analysis</em> in Analytics to see how often leads return to the site.</li>
+            </ul>
+          </div>
+
+          <div class="help-card data-table-card">
+            <div class="help-icon"><app-icon name="settings" [size]="24"></app-icon></div>
+            <h3>Advanced Tools</h3>
+            <ul>
+              <li><strong>Timeline Notes:</strong> Click the "Plus" on the Activity Chart to add annotations (e.g., "Launched Blog").</li>
+              <li><strong>Sharing:</strong> Generate secure, read-only links to share these analytics with others without giving them your password.</li>
+              <li><strong>API Keys:</strong> Generate tokens for external integrations or custom reporting tools.</li>
+              <li><strong>Site Settings:</strong> Instantly update your bio, skills, and social links across the entire site.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     }
   </div>
