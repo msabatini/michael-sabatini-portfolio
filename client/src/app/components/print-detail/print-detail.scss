@@ -124,7 +124,7 @@
     flex-direction: column;
     gap: 3rem;
 
-    &.grid-layout {
+    &.grid, &.grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
@@ -137,9 +137,16 @@
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
       }
+    }
 
-      .visual-item {
-        margin-bottom: 0;
+    &.grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      align-items: start;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
       }
     }
 

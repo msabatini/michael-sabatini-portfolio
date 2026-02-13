@@ -42,7 +42,11 @@ export class SeedService implements OnModuleInit {
           { label: 'Primary Color', value: '#FF5733', type: 'color' },
           { label: 'Secondary Color', value: '#333333', type: 'color' },
           { label: 'Typography', value: 'Industrial Sans-Serif', type: 'text' },
-          { label: 'Signage Material', value: 'Powder-Coated Steel', type: 'text' },
+          {
+            label: 'Signage Material',
+            value: 'Powder-Coated Steel',
+            type: 'text',
+          },
         ],
         completedDate: 'February 2026',
       },
@@ -50,7 +54,8 @@ export class SeedService implements OnModuleInit {
         title: 'Farmland Consulting',
         description:
           'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
-        imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        imageUrl:
+          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         gallery: [
           '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
           '/assets/projects/farmland/Farmland_Letterhead_folder.png',
@@ -61,7 +66,8 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/farmland/business_card_mockup.jpg',
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
         ],
-        mockupUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        mockupUrl:
+          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         content:
           'Farmland Consulting provides expert advisory services to the agricultural sector. The branding project focused on creating a professional, trustworthy, and modern identity that resonates with both traditional farmers and corporate agribusiness stakeholders.',
         tags: ['Branding', 'Print', 'Identity'],
@@ -92,7 +98,8 @@ export class SeedService implements OnModuleInit {
         title: 'Pinnacle Solutions',
         description:
           'High-end corporate branding and digital presence for a global technology solutions provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
+        imageUrl:
+          '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
         gallery: [
           '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
@@ -102,7 +109,8 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
         ],
-        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        mockupUrl:
+          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
         content:
           'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services. This project involved a complete brand overhaul, focusing on a clean, powerful aesthetic that reflects their commitment to innovation and peak performance.',
         tags: ['Branding', 'Print', 'Graphic Design'],
@@ -117,7 +125,11 @@ export class SeedService implements OnModuleInit {
           { label: 'Primary Color', value: '#003366', type: 'color' },
           { label: 'Secondary Color', value: '#C0C0C0', type: 'color' },
           { label: 'Typography', value: 'Modern Geometric Sans', type: 'text' },
-          { label: 'Print Detail', value: 'Spot UV & Matte Laminate', type: 'text' },
+          {
+            label: 'Print Detail',
+            value: 'Spot UV & Matte Laminate',
+            type: 'text',
+          },
         ],
         completedDate: 'March 2026',
       },
@@ -125,7 +137,8 @@ export class SeedService implements OnModuleInit {
         title: 'Apparent Insurance',
         description:
           'Modern digital experience and brand system for a customer-centric insurance provider.',
-        imageUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        imageUrl:
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
         gallery: [
           '/assets/projects/apparent-insurance/apparent-logo.jpg',
           '/assets/projects/apparent-insurance/apparent-web-mockup.jpg',
@@ -138,7 +151,8 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ThankYou.jpg',
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ssn.jpg',
         ],
-        mockupUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        mockupUrl:
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
         content:
           'Apparent Insurance focuses on providing clear, transparent, and family-oriented insurance solutions. The project involved creating a cohesive visual language that simplifies complex insurance information and builds user trust through a clean, modern aesthetic.',
         tags: ['Branding', 'UI/UX', 'Digital Identity'],
@@ -153,7 +167,11 @@ export class SeedService implements OnModuleInit {
           { label: 'Primary Color', value: '#2C3E50', type: 'color' },
           { label: 'Secondary Color', value: '#E74C3C', type: 'color' },
           { label: 'Typography', value: 'Clean Humanist Sans', type: 'text' },
-          { label: 'Key Feature', value: 'High-Contrast Clarity', type: 'text' },
+          {
+            label: 'Key Feature',
+            value: 'High-Contrast Clarity',
+            type: 'text',
+          },
         ],
         completedDate: 'April 2026',
       },
@@ -294,7 +312,11 @@ export class SeedService implements OnModuleInit {
           { label: 'Primary Color', value: '#F1C40F', type: 'color' },
           { label: 'Secondary Color', value: '#2C3E50', type: 'color' },
           { label: 'Typography', value: 'Geometric Sans-Serif', type: 'text' },
-          { label: 'Key Attribute', value: 'High-Performance UI', type: 'text' },
+          {
+            label: 'Key Attribute',
+            value: 'High-Performance UI',
+            type: 'text',
+          },
         ],
         completedDate: 'August 2026',
       },
@@ -539,8 +561,7 @@ export class SeedService implements OnModuleInit {
         title: 'Tour de France Mountain Climb Series',
         description:
           'A stunning poster series celebrating the legendary mountain climbs of the Tour de France.',
-        imageUrl:
-          '/assets/projects/tour-de-france/tourmalet.jpg',
+        imageUrl: '/assets/projects/tour-de-france/tourmalet.jpg',
         gallery: [
           '/assets/projects/tour-de-france/tourmalet.jpg',
           '/assets/projects/tour-de-france/stelvio.jpg',
@@ -552,16 +573,13 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/tour-de-france/galibier.jpg',
           '/assets/projects/tour-de-france/gavia.jpg',
           '/assets/projects/tour-de-france/parisroubaix.jpg',
-          
-          
         ],
-        mockupUrl:
-          '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
+        mockupUrl: '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
         content:
           'This series of limited-edition posters captures the raw beauty and grueling challenge of the most iconic mountain passes in professional cycling. Each poster features a minimalist, high-impact design that emphasizes the unique profile and character of climbs like Alpe d’Huez, Mont Ventoux, and the Col du Tourmalet.',
         tags: ['Print', 'Poster Series', 'Cycling'],
         type: 'print',
-        layout: 'grid',
+        layout: 'grid-3',
         challenge:
           'The goal was to create a cohesive set of visuals that would appeal to cycling enthusiasts and interior design lovers alike. The challenge lay in distilling the complex topography and history of each climb into a clean, modern aesthetic that works across the entire series.',
         solution:
@@ -569,9 +587,21 @@ export class SeedService implements OnModuleInit {
         result:
           'The Tour de France Mountain Climb Series has been widely acclaimed by the cycling community and has seen strong sales as a boutique print collection. The cohesive design has made it a popular choice for both individual collectors and cycling-themed commercial spaces.',
         designSpecs: [
-          { label: 'Paper Stock', value: '200gsm Archival Matte', type: 'text' },
-          { label: 'Print Method', value: 'Giclée Fine Art Print', type: 'text' },
-          { label: 'Primary Typography', value: 'Modern Sans-Serif', type: 'text' },
+          {
+            label: 'Paper Stock',
+            value: '200gsm Archival Matte',
+            type: 'text',
+          },
+          {
+            label: 'Print Method',
+            value: 'Giclée Fine Art Print',
+            type: 'text',
+          },
+          {
+            label: 'Primary Typography',
+            value: 'Modern Sans-Serif',
+            type: 'text',
+          },
           { label: 'Series Count', value: '10 Unique Posters', type: 'text' },
         ],
         completedDate: 'March 2026',
@@ -580,8 +610,7 @@ export class SeedService implements OnModuleInit {
         title: "Martha's Vineyard Poster Series",
         description:
           "A nostalgic and vibrant poster collection celebrating the unique landmarks of Martha's Vineyard.",
-        imageUrl:
-          '/assets/projects/marthas-vineyard/state-beach.jpg',
+        imageUrl: '/assets/projects/marthas-vineyard/state-beach.jpg',
         gallery: [
           '/assets/projects/marthas-vineyard/state-beach.jpg',
           '/assets/projects/marthas-vineyard/aquinnah.jpg',
@@ -590,21 +619,24 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/marthas-vineyard/flying-horses.jpg',
           '/assets/projects/marthas-vineyard/Katama-Airpark.jpg',
         ],
-        mockupUrl:
-          '/assets/projects/marthas-vineyard/state-beach.jpg',
+        mockupUrl: '/assets/projects/marthas-vineyard/state-beach.jpg',
         content:
           "This poster series is a visual tribute to the timeless charm of Martha's Vineyard. From the iconic red cliffs of Aquinnah to the historic Flying Horses Carousel, each piece uses a rich, saturated color palette and vintage-inspired typography to capture the island's unique spirit and coastal heritage.",
         tags: ['Print', 'Poster Series', 'Travel'],
         type: 'print',
-        layout: 'grid',
+        layout: 'grid-3',
         challenge:
-          "The challenge was to create a series that felt cohesive yet distinct, representing the various towns and landmarks of the island. Each poster needed to stand alone as a piece of art while contributing to the overall narrative of a classic Vineyard summer.",
+          'The challenge was to create a series that felt cohesive yet distinct, representing the various towns and landmarks of the island. Each poster needed to stand alone as a piece of art while contributing to the overall narrative of a classic Vineyard summer.',
         solution:
-          "I designed a unified visual language using textured gradients, bold illustrations, and a consistent typographic system. By selecting iconic vistas and local landmarks, I created a collection that resonates with both year-round residents and seasonal visitors, evocative of classic travel posters from the mid-20th century.",
+          'I designed a unified visual language using textured gradients, bold illustrations, and a consistent typographic system. By selecting iconic vistas and local landmarks, I created a collection that resonates with both year-round residents and seasonal visitors, evocative of classic travel posters from the mid-20th century.',
         result:
           "The series has been extremely well-received, becoming a staple in local galleries and boutiques across the island. The high-quality prints have become sought-after souvenirs and home decor pieces, successfully celebrating the enduring beauty of Martha's Vineyard.",
         designSpecs: [
-          { label: 'Paper Stock', value: '250gsm Heavyweight Silk', type: 'text' },
+          {
+            label: 'Paper Stock',
+            value: '250gsm Heavyweight Silk',
+            type: 'text',
+          },
           { label: 'Print Method', value: 'Offset Lithography', type: 'text' },
           { label: 'Typography', value: 'Custom Vintage Serif', type: 'text' },
           { label: 'Dimensions', value: '18" x 24"', type: 'text' },
@@ -649,7 +681,7 @@ export class SeedService implements OnModuleInit {
           'This extensive series of artistic trail maps reimagines the New England ski experience through a clean, modern design lens. Each poster features a meticulously crafted representation of a resort’s unique terrain, peaks, and trail networks, capturing the essence of the region’s diverse skiing heritage.',
         tags: ['Print', 'Poster Series', 'Sports'],
         type: 'print',
-        layout: 'grid',
+        layout: 'grid-2',
         challenge:
           'The primary challenge was to maintain visual consistency across 26 different resorts with varying topography and trail complexities. Each map needed to be both geographically recognizable and aesthetically pleasing as a piece of wall art.',
         solution:
@@ -657,12 +689,167 @@ export class SeedService implements OnModuleInit {
         result:
           'The collection has become a must-have for New England skiers and outdoor enthusiasts. It successfully bridges the gap between technical trail maps and decorative fine art, creating a lasting visual record of the region’s most beloved mountain destinations.',
         designSpecs: [
-          { label: 'Paper Stock', value: '180gsm Archival Matte', type: 'text' },
-          { label: 'Print Method', value: 'High-Fidelity Inkjet', type: 'text' },
+          {
+            label: 'Paper Stock',
+            value: '180gsm Archival Matte',
+            type: 'text',
+          },
+          {
+            label: 'Print Method',
+            value: 'High-Fidelity Inkjet',
+            type: 'text',
+          },
           { label: 'Typography', value: 'Modern Geometric Sans', type: 'text' },
           { label: 'Series Count', value: '26 Unique Maps', type: 'text' },
         ],
         completedDate: 'May 2026',
+      },
+      {
+        title: 'Rasputitsa Gravel Race Poster Series',
+        description:
+          'A series of grit-filled, high-impact posters for the legendary Rasputitsa spring classic gravel race.',
+        imageUrl: '/assets/projects/rasputitsa/2019rasputitsa.jpg',
+        gallery: [
+          '/assets/projects/rasputitsa/2017RASP_Framed_Mockup.jpg',
+          '/assets/projects/rasputitsa/2018rasputitsa.jpg',
+          '/assets/projects/rasputitsa/2019rasputitsa.jpg',
+        ],
+        mockupUrl: '/assets/projects/rasputitsa/2019rasputitsa.jpg',
+        content:
+          'Rasputitsa is known as the "spring classic" of Vermont gravel racing, characterized by mud, ice, and brutal climbs. This poster series captures the raw, unforgiving nature of the race through aggressive typography, high-contrast photography, and a rugged aesthetic that reflects the spirit of the riders who tackle the "Cyberia" section.',
+        tags: ['Print', 'Poster Design', 'Cycling'],
+        type: 'print',
+        layout: 'grid-3',
+        challenge:
+          'The challenge was to translate the visceral, muddy experience of the race into a static visual format. Each year’s poster needed to maintain the brand’s core "toughness" while offering a unique artistic direction that evolved with the race’s growing legend.',
+        solution:
+          'I utilized distressed textures, bold block lettering, and iconic imagery from the Vermont backcountry. By layering elements of topographic maps with action-oriented graphics, I created a series that serves as both a commemorative piece for participants and a powerful stand-alone work of sports art.',
+        result:
+          'The posters have become iconic within the gravel cycling community, often selling out at the event. They have successfully helped build the Rasputitsa brand into one of the most recognized and respected gravel races in North America.',
+        designSpecs: [
+          {
+            label: 'Paper Stock',
+            value: '220gsm Textured Cardstock',
+            type: 'text',
+          },
+          {
+            label: 'Print Method',
+            value: 'Screen Printed Aesthetic',
+            type: 'text',
+          },
+          {
+            label: 'Typography',
+            value: 'Aggressive Industrial Bold',
+            type: 'text',
+          },
+          { label: 'Key Feature', value: 'Distressed Textures', type: 'text' },
+        ],
+        completedDate: 'April 2026',
+      },
+      {
+        title: 'The Hellhole Gravel Grind',
+        description:
+          'Aggressive and iconic brand identity and apparel design for a premiere South Carolina gravel event.',
+        imageUrl: '/assets/projects/hellhole/HellHole.jpg',
+        gallery: [
+          '/assets/projects/hellhole/HellHole.jpg',
+          '/assets/projects/hellhole/Hellhole5_T-Shirt_Mockup_Front.jpg',
+          '/assets/projects/hellhole/Number6-Tshirt-MockUp.jpg',
+          '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Front%20copy.png',
+          '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Back.png',
+          '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic.jpg',
+          '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic_Back.jpg',
+          '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Front.jpg',
+          '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Back.jpg',
+          '/assets/projects/hellhole/ccap_insta4.jpg',
+        ],
+        mockupUrl: '/assets/projects/hellhole/HellHole.jpg',
+        content:
+          'The Hellhole Gravel Grind is a grueling race through the Francis Marion National Forest. The branding project focused on creating a "devilish" and high-impact visual identity that reflects the heat, humidity, and difficulty of the race. This included a full suite of event posters, social media graphics, and technical apparel designs that have become highly collectible within the regional cycling scene.',
+        tags: ['Print', 'Apparel Design', 'Branding'],
+        type: 'print',
+        layout: 'stack',
+        challenge:
+          'The race takes place in extreme conditions, and the brand needed to lean into that "suffer-fest" reputation. The challenge was to create a visual system that was both intimidating and professional, working across everything from high-resolution print posters to screen-printed cycling jerseys.',
+        solution:
+          'I developed a bold, high-contrast visual language using custom illustrations and aggressive typography. The "6" series of graphics utilized a striking red, black, and white palette, incorporating elements of the low-country landscape with a modern, industrial edge. The apparel designs were engineered for high visibility and impact, using modular graphic systems that work across various garment types.',
+        result:
+          'The Hellhole branding has become a hallmark of the event, significantly contributing to its growth and cult-like following. The custom t-shirts and posters consistently sell out, and the cohesive identity has helped secure major sponsorships by providing a professional and memorable brand experience.',
+        designSpecs: [
+          {
+            label: 'Primary Typography',
+            value: 'Custom Distressed Sans',
+            type: 'text',
+          },
+          {
+            label: 'Apparel Material',
+            value: 'High-Performance Moisture-Wicking',
+            type: 'text',
+          },
+          {
+            label: 'Print Detail',
+            value: 'Saturated High-Contrast Giclée',
+            type: 'text',
+          },
+          {
+            label: 'Color Palette',
+            value: 'Hellfire Red & Carbon Black',
+            type: 'text',
+          },
+        ],
+        completedDate: 'May 2026',
+      },
+      {
+        title: 'Keep It Tight Cycling Team Apparel',
+        description:
+          'High-performance technical apparel design for an elite regional cycling team.',
+        imageUrl: '/assets/projects/kit/KIT-logo-seal.jpg',
+        gallery: [
+          '/assets/projects/kit/KIT-logo-seal.jpg',
+          '/assets/projects/kit/KIT-2025-Jersey-Final.png',
+          '/assets/projects/kit/Scene-01.jpg',
+          '/assets/projects/kit/Scene-03.jpg',
+          '/assets/projects/kit/JKIT-2025-Jersey1.png',
+          '/assets/projects/kit/JKIT-2025-Jersey2.png',
+          '/assets/projects/kit/JKIT-2025-Jersey3.png',
+          '/assets/projects/kit/JKIT-2025-Jersey4.png',
+          '/assets/projects/kit/JKIT-2025-Jersey5.png',
+          '/assets/projects/kit/JKIT-2025-Jersey6.png',
+          '/assets/projects/kit/JKIT-2025-Jersey7.png',
+          '/assets/projects/kit/JKIT-2025-Jersey8.png',
+          '/assets/projects/kit/JKIT-2025-Jersey9.png',
+          '/assets/projects/kit/JKIT-2025-Jersey11.jpg',
+          '/assets/projects/kit/JKIT-2025-Jersey12.jpg',
+          '/assets/projects/kit/JKIT-2025-Jersey13.jpg',
+          '/assets/projects/kit/JKIT-2025-Jersey14.jpg',
+        ],
+        mockupUrl: '/assets/projects/kit/Scene-01.jpg',
+        content:
+          'Keep It Tight (KIT) is an elite cycling team known for their strong presence in the New England racing circuit. The 2025 apparel project involved designing a comprehensive kit that balances aerodynamic performance with a bold, modern aesthetic. The design features a signature topographic motif and a high-visibility color palette engineered for both professional racing and club rides.',
+        tags: ['Apparel Design', 'Branding', 'Print'],
+        type: 'print',
+        layout: 'grid-2',
+        challenge:
+          'Designing for professional-grade technical apparel requires extreme precision. The graphics must remain legible and impactful when stretched across various body types and fabric textures. The challenge was to create a design that felt fast and aggressive while maintaining the clean, minimalist brand identity that KIT is known for.',
+        solution:
+          'I developed a modular graphic system that integrates seamlessly across jerseys, bib shorts, and accessories. By utilizing sublimation-ready vector patterns and a refined typography suite, I created a kit that looks as good in the peloton as it does on a podium. The final product utilizes high-end Italian fabrics and laser-cut finishing, reflecting the team’s commitment to excellence.',
+        result:
+          'The 2025 KIT collection has been widely praised for its striking visual impact and superior technical performance. It has become a highly recognizable presence in regional races and has helped strengthen the team’s identity and community engagement through a cohesive, professional appearance.',
+        designSpecs: [
+          { label: 'Fabric', value: 'Pro-Level Italian Lycra', type: 'text' },
+          { label: 'Printing', value: 'Full Dye Sublimation', type: 'text' },
+          {
+            label: 'Typography',
+            value: 'High-Impact Sport Sans',
+            type: 'text',
+          },
+          {
+            label: 'Color System',
+            value: 'High-Vis Safety & Stealth Slate',
+            type: 'text',
+          },
+        ],
+        completedDate: 'June 2026',
       },
     ];
 

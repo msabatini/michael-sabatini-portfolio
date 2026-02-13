@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, MoreThan, LessThan } from 'typeorm';
+import { Repository, MoreThan } from 'typeorm';
 import { Analytics } from './analytics.entity';
 import { DashboardNote } from './dashboard-note.entity';
 import { DashboardShare } from './dashboard-share.entity';
