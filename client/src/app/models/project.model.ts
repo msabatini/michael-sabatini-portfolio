@@ -16,5 +16,6 @@ export interface Project {
   isFeatured?: boolean;
   order?: number;
   type?: string;
+  layout?: string;
   designSpecs?: { label: string, value: string, type: string }[];
 }

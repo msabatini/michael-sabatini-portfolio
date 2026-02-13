@@ -21,7 +21,7 @@
 
     <div class="container detail-body">
       <div class="detail-layout">
-        <main class="visual-storyboard">
+        <main class="visual-storyboard" [class.grid-layout]="p.layout === 'grid'">
           <!-- Large Format Visuals -->
           @for (img of p.gallery; track img; let i = $index) {
             <div class="visual-item">

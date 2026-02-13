@@ -92,7 +92,7 @@ export class SeedService implements OnModuleInit {
         title: 'Pinnacle Solutions',
         description:
           'High-end corporate branding and digital presence for a global technology solutions provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
         gallery: [
           '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
@@ -265,6 +265,38 @@ export class SeedService implements OnModuleInit {
           { label: 'Focus', value: 'User Trust & Simplicity', type: 'text' },
         ],
         completedDate: 'July 2026',
+      },
+      {
+        title: 'Electric Insurance',
+        description:
+          'Modern brand system and digital interface for a premier personal and commercial insurer.',
+        imageUrl: '/assets/projects/electric-insurance/1.jpg',
+        gallery: [
+          '/assets/projects/electric-insurance/1.jpg',
+          '/assets/projects/electric-insurance/Electric-About-Desktop_copy.jpg',
+          '/assets/projects/electric-insurance/Electric-AddInfo-Desktop_copy.jpg',
+          '/assets/projects/electric-insurance/Electric-Coverage-Desktop_copy.jpg',
+          '/assets/projects/electric-insurance/Electric-Exterior-Desktop_copy.jpg',
+          '/assets/projects/electric-insurance/Electric-Interior-Desktop_copy.jpg',
+        ],
+        mockupUrl: '/assets/projects/electric-insurance/1.jpg',
+        content:
+          'Electric Insurance provides specialized personal and commercial insurance solutions. This project involved a comprehensive visual overhaul of their digital quote-to-bind experience, focusing on high-end performance, clarity, and brand consistency across complex user journeys.',
+        tags: ['UI/UX Design', 'Branding', 'Digital Identity'],
+        type: 'print',
+        challenge:
+          'The existing digital experience felt fragmented and lacked the premium feel required for their high-net-worth client base. The challenge was to create a unified design system that could handle intricate commercial data while remaining approachable for individual policyholders.',
+        solution:
+          'I developed a sophisticated visual identity centered on a refined color palette and professional typography. The digital mockups showcase a high-performance quoting engine with an emphasis on mobile responsiveness and clean data visualization. The final assets deliver a premium, seamless experience that elevates the brand above traditional competitors.',
+        result:
+          'The new design system established Electric Insurance as a digital leader in their niche. The cohesive mockups have been instrumental in internal stakeholder buy-in for a full platform rebuild and have successfully unified their brand presence across multiple digital channels.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#F1C40F', type: 'color' },
+          { label: 'Secondary Color', value: '#2C3E50', type: 'color' },
+          { label: 'Typography', value: 'Geometric Sans-Serif', type: 'text' },
+          { label: 'Key Attribute', value: 'High-Performance UI', type: 'text' },
+        ],
+        completedDate: 'August 2026',
       },
       {
         title: 'Sorella Home Solutions',
@@ -502,6 +534,82 @@ export class SeedService implements OnModuleInit {
         result:
           'The final platform serves as a dynamic, living archive that Harrison manages entirely on his own. By eliminating the technical barrier of manual updates, the custom CMS has empowered the artist to maintain an up-to-the-minute showcase of his career, bridging his Paraguayan roots with his formal training from SCAD and the School of the Art Institute of Chicago.',
         completedDate: 'February 2026',
+      },
+      {
+        title: 'Tour de France Mountain Climb Series',
+        description:
+          'A stunning poster series celebrating the legendary mountain climbs of the Tour de France.',
+        imageUrl:
+          '/assets/projects/tour-de-france/tourmalet.jpg',
+        gallery: [
+          '/assets/projects/tour-de-france/tourmalet.jpg',
+          '/assets/projects/tour-de-france/stelvio.jpg',
+          '/assets/projects/tour-de-france/montventoux.jpg',
+          '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
+          '/assets/projects/tour-de-france/aubisque.jpg',
+          '/assets/projects/tour-de-france/madeleine.jpg',
+          '/assets/projects/tour-de-france/flandeers.jpg',
+          '/assets/projects/tour-de-france/galibier.jpg',
+          '/assets/projects/tour-de-france/gavia.jpg',
+          '/assets/projects/tour-de-france/parisroubaix.jpg',
+          
+          
+        ],
+        mockupUrl:
+          '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
+        content:
+          'This series of limited-edition posters captures the raw beauty and grueling challenge of the most iconic mountain passes in professional cycling. Each poster features a minimalist, high-impact design that emphasizes the unique profile and character of climbs like Alpe d’Huez, Mont Ventoux, and the Col du Tourmalet.',
+        tags: ['Print', 'Poster Series', 'Cycling'],
+        type: 'print',
+        layout: 'grid',
+        challenge:
+          'The goal was to create a cohesive set of visuals that would appeal to cycling enthusiasts and interior design lovers alike. The challenge lay in distilling the complex topography and history of each climb into a clean, modern aesthetic that works across the entire series.',
+        solution:
+          'I developed a consistent visual framework using bold typography, a refined color palette, and stylized elevation profiles. By focusing on the essential elements of each climb, I created a series that is both informative and artistically compelling, suitable for high-quality framed display.',
+        result:
+          'The Tour de France Mountain Climb Series has been widely acclaimed by the cycling community and has seen strong sales as a boutique print collection. The cohesive design has made it a popular choice for both individual collectors and cycling-themed commercial spaces.',
+        designSpecs: [
+          { label: 'Paper Stock', value: '200gsm Archival Matte', type: 'text' },
+          { label: 'Print Method', value: 'Giclée Fine Art Print', type: 'text' },
+          { label: 'Primary Typography', value: 'Modern Sans-Serif', type: 'text' },
+          { label: 'Series Count', value: '10 Unique Posters', type: 'text' },
+        ],
+        completedDate: 'March 2026',
+      },
+      {
+        title: "Martha's Vineyard Poster Series",
+        description:
+          "A nostalgic and vibrant poster collection celebrating the unique landmarks of Martha's Vineyard.",
+        imageUrl:
+          '/assets/projects/marthas-vineyard/state-beach.jpg',
+        gallery: [
+          '/assets/projects/marthas-vineyard/state-beach.jpg',
+          '/assets/projects/marthas-vineyard/aquinnah.jpg',
+          '/assets/projects/marthas-vineyard/cape-poge.jpg',
+          '/assets/projects/marthas-vineyard/corbin-norton.jpg',
+          '/assets/projects/marthas-vineyard/flying-horses.jpg',
+          '/assets/projects/marthas-vineyard/Katama-Airpark.jpg',
+        ],
+        mockupUrl:
+          '/assets/projects/marthas-vineyard/state-beach.jpg',
+        content:
+          "This poster series is a visual tribute to the timeless charm of Martha's Vineyard. From the iconic red cliffs of Aquinnah to the historic Flying Horses Carousel, each piece uses a rich, saturated color palette and vintage-inspired typography to capture the island's unique spirit and coastal heritage.",
+        tags: ['Print', 'Poster Series', 'Travel'],
+        type: 'print',
+        layout: 'grid',
+        challenge:
+          "The challenge was to create a series that felt cohesive yet distinct, representing the various towns and landmarks of the island. Each poster needed to stand alone as a piece of art while contributing to the overall narrative of a classic Vineyard summer.",
+        solution:
+          "I designed a unified visual language using textured gradients, bold illustrations, and a consistent typographic system. By selecting iconic vistas and local landmarks, I created a collection that resonates with both year-round residents and seasonal visitors, evocative of classic travel posters from the mid-20th century.",
+        result:
+          "The series has been extremely well-received, becoming a staple in local galleries and boutiques across the island. The high-quality prints have become sought-after souvenirs and home decor pieces, successfully celebrating the enduring beauty of Martha's Vineyard.",
+        designSpecs: [
+          { label: 'Paper Stock', value: '250gsm Heavyweight Silk', type: 'text' },
+          { label: 'Print Method', value: 'Offset Lithography', type: 'text' },
+          { label: 'Typography', value: 'Custom Vintage Serif', type: 'text' },
+          { label: 'Dimensions', value: '18" x 24"', type: 'text' },
+        ],
+        completedDate: 'April 2026',
       },
     ];
 

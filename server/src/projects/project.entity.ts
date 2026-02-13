@@ -53,6 +53,9 @@ export class Project {
   @Column({ default: 'web' })
   type: string; // 'web' or 'print'
 
+  @Column({ default: 'stack' })
+  layout: string; // 'stack' or 'grid'
+
   @Column('simple-json', { nullable: true })
   designSpecs: { label: string; value: string; type: string }[];
 }
