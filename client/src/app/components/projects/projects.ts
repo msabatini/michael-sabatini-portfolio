@@ -20,6 +20,7 @@ export class Projects implements OnInit {
   private seoService = inject(SeoService);
   projects: Project[] = [];
   errorMessage: string | null = null;
+  isLoading = true;
   apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
@@ -29,14 +30,17 @@ export class Projects implements OnInit {
       url: 'projects'
     });
 
+    this.isLoading = true;
     this.projectService.getProjectsByType('web').subscribe({
       next: (data) => {
         this.projects = data;
         this.errorMessage = null;
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Error fetching projects', err);
         this.errorMessage = `Failed to load projects. Please try again later.`;
+        this.isLoading = false;
       }
     });
   }

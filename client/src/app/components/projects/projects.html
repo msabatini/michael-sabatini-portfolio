@@ -10,7 +10,12 @@
 <section class="projects-list-section">
   <div class="container">
     <div class="projects-grid">
-      @if (errorMessage) {
+      @if (isLoading) {
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading projects...</p>
+        </div>
+      } @else if (errorMessage) {
         <div class="error-state">
           <p>{{ errorMessage }}</p>
         </div>
