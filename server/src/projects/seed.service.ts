@@ -265,7 +265,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/clinical/clinical-case-study13.jpg',
           '/assets/projects/clinical/clinical-case-study14.jpg',
           '/assets/projects/clinical/clinical-case-study15.jpg'
-
         ],
         mockupUrl: '/assets/projects/clinical/clinical-mockup.jpg',
         content: 'An evidence-based platform designed to empower pathologists with digital tools.',
@@ -290,6 +289,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra/climb-atlas-climb-page-top-perspective.png',
           '/assets/projects/soffra/climb-atlas-climb-page-top.png',
           '/assets/projects/soffra/climb-atlas-climb-page.png',
+          '/assets/projects/soffra/soffra-mockup.jpg',
           '/assets/projects/soffra/climb-atlas-country-list.png',
           '/assets/projects/soffra/climb-atlas-country.png',
           '/assets/projects/soffra/climb-atlas-leader-board-perspective.png',
