@@ -121,9 +121,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
         content: 'Apparent Insurance focuses on providing clear, transparent, and family-oriented insurance solutions.',
         tags: ['Branding', 'UI/UX', 'Digital Identity', 'Print'],
-        type: 'print',
+        type: 'web,print',
         isFeatured: false,
-        order: 4,
+        order: 10,
         completedDate: 'April 2026',
       },
       {
@@ -144,9 +144,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/progressive-insurance/1.jpg',
         content: 'Progressive Insurance required a modern, user-centric approach to their digital platforms.',
         tags: ['UI/UX Design', 'Branding', 'Digital Strategy', 'Print'],
-        type: 'print',
+        type: 'web,print',
         isFeatured: false,
-        order: 5,
+        order: 11,
         completedDate: 'May 2026',
       },
       {
@@ -169,9 +169,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/movement-insurance/1.jpg',
         content: 'Movement Insurance is built on the philosophy of constant evolution and user-centricity.',
         tags: ['Branding', 'UI/UX Design', 'Digital Identity', 'Print'],
-        type: 'print',
+        type: 'web,print',
         isFeatured: false,
-        order: 6,
+        order: 12,
         completedDate: 'June 2026',
       },
       {
@@ -194,9 +194,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/homesite/1.jpg',
         content: 'Homesite Home Insurance required a modern visual identity that emphasizes reliability and trust.',
         tags: ['Branding', 'UI/UX Design', 'Print Design'],
-        type: 'print',
+        type: 'web,print',
         isFeatured: false,
-        order: 7,
+        order: 13,
         completedDate: 'July 2026',
       },
       {
@@ -214,9 +214,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/electric/1.jpg',
         content: 'Electric Insurance provides specialized personal and commercial insurance solutions.',
         tags: ['UI/UX Design', 'Branding', 'Digital Identity', 'Print'],
-        type: 'print',
+        type: 'web,print',
         isFeatured: false,
-        order: 8,
+        order: 14,
         completedDate: 'August 2026',
       },
       {
@@ -232,7 +232,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Web', 'UI/UX Design'],
         type: 'web',
         isFeatured: true,
-        order: 9,
+        order: 4,
         completedDate: 'September 2025',
       },
       {
@@ -248,7 +248,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Angular', 'Clinical Tech'],
         type: 'web',
         isFeatured: true,
-        order: 10,
+        order: 5,
         completedDate: 'August 2025',
       },
       {
@@ -263,7 +263,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Angular', 'Node.js'],
         type: 'web',
         isFeatured: true,
-        order: 11,
+        order: 6,
         completedDate: 'June 2022',
       },
       {
@@ -277,7 +277,7 @@ export class SeedService implements OnModuleInit {
         content: 'Flourrish is a revolutionary environmental fintech platform.',
         tags: ['Angular', 'FinTech'],
         type: 'web',
-        order: 12,
+        order: 7,
         completedDate: 'October 2025',
       },
       {
@@ -291,7 +291,7 @@ export class SeedService implements OnModuleInit {
         content: 'Pixlhaus is a comprehensive digital agency delivering pixel-perfect websites.',
         tags: ['React', 'Angular'],
         type: 'web',
-        order: 13,
+        order: 8,
         completedDate: 'July 2025',
       },
       {
@@ -305,7 +305,7 @@ export class SeedService implements OnModuleInit {
         content: 'Harrison Deller is a prolific Paraguayan artist and musician.',
         tags: ['Fine Art', 'Custom CMS'],
         type: 'web',
-        order: 14,
+        order: 9,
         completedDate: 'February 2026',
       },
       {
