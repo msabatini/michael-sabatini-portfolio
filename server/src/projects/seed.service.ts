@@ -230,6 +230,43 @@ export class SeedService implements OnModuleInit {
         completedDate: 'June 2026',
       },
       {
+        title: 'Homesite Home Insurance',
+        description:
+          'Comprehensive digital insurance platform redesign focusing on user-centric home protection.',
+        imageUrl: '/assets/projects/homesite-insurance/1.jpg',
+        gallery: [
+          '/assets/projects/homesite-insurance/1.jpg',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_1.56.03_PM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_10.53.55_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_10.54.50_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_10.56.14_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_10.58.39_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_10.59.53_AM.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_11.00.41_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_11.01.47_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_11.02.58_AM_copy.png',
+          '/assets/projects/homesite-insurance/Screen_Shot_2018-09-14_at_11.05.23_AM_copy.png',
+        ],
+        mockupUrl: '/assets/projects/homesite-insurance/1.jpg',
+        content:
+          'Homesite Insurance required a complete digital transformation of their home insurance quoting engine. The goal was to simplify the complex data requirements of home insurance into a manageable, intuitive, and trustworthy digital experience.',
+        tags: ['UI/UX Design', 'Digital Product', 'Insurance Tech'],
+        type: 'print',
+        challenge:
+          'Home insurance quotes involve deep data points ranging from roof age to plumbing materials. The challenge was to keep the user engaged throughout a lengthy form while maintaining a clean, professional aesthetic that projects stability and reliability.',
+        solution:
+          'I designed a multi-step journey that breaks down complex questions into logical clusters. By using progressive disclosure and helpful visual tooltips, I made the process feel less overwhelming. The visual language uses a calm, trustworthy blue and green palette, with high-quality mockups that demonstrate a premium digital experience across all devices.',
+        result:
+          'The redesigned flow significantly reduced drop-off rates and improved user completion speed. The project established a new benchmark for Homesite’s digital offerings, unifying their brand across the web and high-end marketing presentations.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#1A5276', type: 'color' },
+          { label: 'Secondary Color', value: '#D4E6F1', type: 'color' },
+          { label: 'Typography', value: 'Roboto & Open Sans', type: 'text' },
+          { label: 'Focus', value: 'User Trust & Simplicity', type: 'text' },
+        ],
+        completedDate: 'July 2026',
+      },
+      {
         title: 'Sorella Home Solutions',
         description:
           'Sophisticated corporate website for a premium home concierge service company.',
