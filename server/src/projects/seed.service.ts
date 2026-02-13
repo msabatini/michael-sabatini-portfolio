@@ -31,6 +31,7 @@ export class SeedService implements OnModuleInit {
         content: 'Hub Bicycle is a community-focused bike shop specializing in urban commuting and custom builds.',
         tags: ['Branding', 'Print', 'Signage', 'Web Design'],
         type: 'web,print',
+        isFeatured: true,
         order: 0,
         completedDate: 'February 2026',
       },
