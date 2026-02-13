@@ -1094,7 +1094,7 @@
             @for (item of mediaList(); track item.id) {
               <div class="media-item">
                 <div class="media-preview">
-                  <img [src]="'http://localhost:3000' + item.url" [alt]="item.originalName">
+                  <img [src]="item.url" [alt]="item.originalName">
                   <div class="media-overlay">
                     <button (click)="deleteMediaAsset(item.id)" class="icon-btn delete" title="Delete">
                       <app-icon name="trash" [size]="16"></app-icon>
@@ -1183,7 +1183,7 @@
               @for (item of mediaList(); track item.id) {
                 <div class="media-item" (click)="selectMediaForProject(item.url)">
                   <div class="media-preview">
-                    <img [src]="'http://localhost:3000' + item.url" [alt]="item.originalName">
+                    <img [src]="item.url" [alt]="item.originalName">
                   </div>
                   <div class="media-info">
                     <span class="media-name">{{ item.originalName }}</span>

@@ -421,13 +421,17 @@ export class AdminDashboard implements OnInit {
     const field = this.activePickerField();
     if (!field) return;
 
+    const baseApiUrl = environment.apiUrl.endsWith('/') 
+      ? environment.apiUrl.slice(0, -1) 
+      : environment.apiUrl;
+
     if (field === 'gallery') {
       const current = this.projectForm.get('gallery')?.value || '';
-      const fullUrl = `http://localhost:3000${url}`;
+      const fullUrl = `${baseApiUrl}${url}`;
       const newVal = current ? `${current}, ${fullUrl}` : fullUrl;
       this.projectForm.patchValue({ gallery: newVal });
     } else {
-      this.projectForm.patchValue({ [field]: `http://localhost:3000${url}` });
+      this.projectForm.patchValue({ [field]: `${baseApiUrl}${url}` });
     }
     this.closeMediaPicker();
   }
