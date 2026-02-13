@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Hub Bicycle',
         description: 'Modern brand identity and signage for an urban bicycle boutique.',
-        imageUrl: '/assets/projects/hub-bicycle/hub-mockup.jpg',
+        imageUrl: '/assets/projects/hub-bicycle/hub-index.png',
         gallery: [
           '/assets/projects/hub-bicycle/hub-mockup.jpg',
           '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
@@ -27,7 +27,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_front.jpg',
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_back.jpg',
         ],
-        mockupUrl: '/assets/projects/hub-bicycle/hub-mockup.jpg',
+        mockupUrl: '/assets/projects/hub-bicycle/hub-index.png',
         content: 'Hub Bicycle is a community-focused bike shop specializing in urban commuting and custom builds.',
         tags: ['Branding', 'Print', 'Signage', 'Web Design'],
         type: 'web,print',
