@@ -32,8 +32,8 @@ export class Print implements OnInit {
   }
 
   loadProjects() {
-    this.projectService.getProjectsByType('print').subscribe({
-      next: (data) => this.projects.set(data),
+    this.projectService.getProjects().subscribe({
+      next: (data) => this.projects.set(data.filter(p => p.type === 'print')),
       error: (err) => console.error('Error fetching print projects', err)
     });
   }

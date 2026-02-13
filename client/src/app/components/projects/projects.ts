@@ -31,9 +31,9 @@ export class Projects implements OnInit {
     });
 
     this.isLoading = true;
-    this.projectService.getProjectsByType('web').subscribe({
+    this.projectService.getProjects().subscribe({
       next: (data) => {
-        this.projects = data;
+        this.projects = data.filter(p => p.type === 'web');
         this.errorMessage = null;
         this.isLoading = false;
       },
