@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v4]...');
+    this.logger.log('Starting project seeding process [v6]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
