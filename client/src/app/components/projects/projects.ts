@@ -20,7 +20,7 @@ export class Projects implements OnInit {
   private seoService = inject(SeoService);
   projects: Project[] = [];
   errorMessage: string | null = null;
-  apiUrl = 'http://127.0.0.1:3000';
+  apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({

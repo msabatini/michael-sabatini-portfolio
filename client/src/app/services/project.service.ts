@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class ProjectService {
   private http = inject(HttpClient);
-  private baseApiUrl = 'http://127.0.0.1:3000';
+  private baseApiUrl = environment.apiUrl;
 
   private normalizeTags(project: Project): Project {
     if (project.tags) {

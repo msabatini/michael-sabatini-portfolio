@@ -19,7 +19,7 @@ export class Print implements OnInit {
   private projectService = inject(ProjectService);
   
   projects = signal<Project[]>([]);
-  apiUrl = 'http://127.0.0.1:3000';
+  apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
