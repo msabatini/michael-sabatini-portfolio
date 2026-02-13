@@ -35,8 +35,8 @@ export class Print implements OnInit {
     this.projectService.getProjects().subscribe({
       next: (data) => {
         const filtered = data.filter(p => {
-          const type = (p.type || '').toLowerCase().trim();
-          return type.includes('print') || type.includes('print-only');
+          const type = (p.type || '').toLowerCase();
+          return type.includes('print');
         });
         this.projects.set(filtered);
       },

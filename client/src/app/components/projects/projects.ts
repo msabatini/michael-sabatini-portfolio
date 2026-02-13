@@ -33,12 +33,14 @@ export class Projects implements OnInit {
     this.isLoading = true;
     this.projectService.getProjects().subscribe({
       next: (data) => {
-        console.log('Fetched projects:', data.length);
+        console.log('Fetched projects total:', data.length);
         this.projects = data.filter(p => {
-          const type = (p.type || '').toLowerCase().trim();
-          return type.includes('web');
+          const type = (p.type || '').toLowerCase();
+          const isWeb = type.includes('web');
+          console.log(`Project: ${p.title}, Type: ${p.type}, isWeb: ${isWeb}`);
+          return isWeb;
         });
-        console.log('Filtered web projects:', this.projects.length);
+        console.log('Filtered web projects count:', this.projects.length);
         this.errorMessage = null;
         this.isLoading = false;
       },

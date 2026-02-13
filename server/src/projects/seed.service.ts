@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v6]...');
+    this.logger.log('Starting project seeding process [v7]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -382,7 +382,7 @@ export class SeedService implements OnModuleInit {
         completedDate: 'February 2026',
       },
       {
-        title: 'Hub Bicycles Web',
+        title: 'Hub Bicycles',
         description: 'Modern, high-performance web experience for an urban bicycle boutique.',
         imageUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
         gallery: [
@@ -400,7 +400,7 @@ export class SeedService implements OnModuleInit {
         completedDate: 'February 2026',
       },
       {
-        title: 'Pinnacle Solutions Web',
+        title: 'Pinnacle Solutions',
         description: 'Sophisticated enterprise web presence for a global technology provider.',
         imageUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-website-mockup.jpg',
         gallery: [
