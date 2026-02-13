@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process...');
+    this.logger.log('Starting project seeding process [v2]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -105,9 +105,8 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Apparent Insurance',
         description: 'Modern digital experience and brand system for a customer-centric insurance provider.',
-        imageUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        imageUrl: '/assets/projects/apparent-insurance/apparent-web-mockup.jpg',
         gallery: [
-          '/assets/projects/apparent-insurance/apparent-logo.jpg',
           '/assets/projects/apparent-insurance/apparent-web-mockup.jpg',
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_About.jpg',
@@ -118,7 +117,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ThankYou.jpg',
           '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ssn.jpg',
         ],
-        mockupUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        mockupUrl: '/assets/projects/apparent-insurance/apparent-web-mockup.jpg',
         content: 'Apparent Insurance focuses on providing clear, transparent, and family-oriented insurance solutions.',
         tags: ['Branding', 'UI/UX', 'Digital Identity', 'Print'],
         type: 'web,print',
