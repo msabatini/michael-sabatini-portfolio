@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 import { MediaService, Media } from '../../services/media.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-dashboard',

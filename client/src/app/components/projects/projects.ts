@@ -36,7 +36,7 @@ export class Projects implements OnInit {
         console.log('Fetched projects:', data.length);
         this.projects = data.filter(p => {
           const type = (p.type || '').toLowerCase().trim();
-          return type === 'web';
+          return type.includes('web');
         });
         console.log('Filtered web projects:', this.projects.length);
         this.errorMessage = null;

@@ -36,7 +36,7 @@ export class Print implements OnInit {
       next: (data) => {
         const filtered = data.filter(p => {
           const type = (p.type || '').toLowerCase().trim();
-          return type === 'print';
+          return type.includes('print');
         });
         this.projects.set(filtered);
       },
