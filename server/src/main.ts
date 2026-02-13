@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: '*',
+    origin: true, // Allow all origins for now to fix production issues
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, Authorization',
@@ -19,4 +19,4 @@ async function bootstrap() {
   logger.log(`Application is running on port: ${port}`);
 }
 bootstrap();
-// Trigger Deploy: 2026-02-13 18:49:00
+// Trigger Deploy: 2026-02-13 19:04:00

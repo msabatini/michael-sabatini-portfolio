@@ -233,7 +233,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/sorella/sorella-case-study7.jpg',
           '/assets/projects/sorella/sorella-case-study8.jpg',
           '/assets/projects/sorella/sorella-case-study9.jpg',
-          '/assets/projects/sorella/sorella-case-study10.jpg',
         ],
         mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
         content: 'Developed a professional digital presence for a premium home concierge service.',
