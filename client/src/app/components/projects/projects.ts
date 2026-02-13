@@ -34,11 +34,8 @@ export class Projects implements OnInit {
     this.projectService.getProjects().subscribe({
       next: (data) => {
         console.log('Fetched projects:', data.length);
-        this.projects = data.filter(p => {
-          const type = (p.type || '').toLowerCase().trim();
-          return type.includes('web');
-        });
-        console.log('Filtered web projects:', this.projects.length);
+        this.projects = data;
+        console.log('Projects displayed:', this.projects.length);
         this.errorMessage = null;
         this.isLoading = false;
       },
