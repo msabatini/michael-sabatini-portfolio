@@ -10,23 +10,29 @@ export class ProjectsService {
     private projectsRepository: Repository<Project>,
   ) {}
 
-  findAll(): Promise<Project[]> {
-    return this.projectsRepository.find({
+  async findAll(): Promise<Project[]> {
+    console.log('Fetching all projects');
+    const projects = await this.projectsRepository.find({
       order: {
         order: 'ASC',
         createdAt: 'DESC',
       },
     });
+    console.log(`Found ${projects.length} total projects`);
+    return projects;
   }
 
-  findByType(type: string): Promise<Project[]> {
-    return this.projectsRepository.find({
+  async findByType(type: string): Promise<Project[]> {
+    console.log(`Searching for projects with type: "${type}"`);
+    const projects = await this.projectsRepository.find({
       where: { type },
       order: {
         order: 'ASC',
         createdAt: 'DESC',
       },
     });
+    console.log(`Found ${projects.length} projects for type: "${type}"`);
+    return projects;
   }
 
   findOne(id: number): Promise<Project | null> {
