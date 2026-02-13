@@ -14,8 +14,9 @@ async function bootstrap() {
   });
 
   const port = process.env.PORT ?? 3000;
+  logger.log(`Starting application in ${process.env.NODE_ENV || 'development'} mode...`);
   await app.listen(port);
   logger.log(`Application is running on port: ${port}`);
 }
 bootstrap();
-// Trigger Deploy: 2026-02-13 17:50:00
+// Trigger Deploy: 2026-02-13 17:55:00
