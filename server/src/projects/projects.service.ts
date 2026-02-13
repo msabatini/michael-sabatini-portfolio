@@ -56,14 +56,17 @@ export class ProjectsService {
   }
 
   async clearAll(): Promise<void> {
-    console.log('Clearing database...');
-    // Use raw query for SQLite to ensure complete wipe
+    console.log('Clearing project table...');
     await this.projectsRepository.query('DELETE FROM project');
+    const count = await this.projectsRepository.count();
+    console.log(`Project table cleared. Current count: ${count}`);
+    
     // Reset auto-increment for SQLite
     try {
       await this.projectsRepository.query('DELETE FROM sqlite_sequence WHERE name="project"');
+      console.log('Reset sqlite_sequence for project table');
     } catch (e) {
-      console.log('sqlite_sequence table not found, skipping reset');
+      console.log('sqlite_sequence table not found or error resetting, skipping reset');
     }
   }
 }

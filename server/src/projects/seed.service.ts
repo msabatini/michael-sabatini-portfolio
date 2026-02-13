@@ -1,16 +1,18 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 
 @Injectable()
 export class SeedService implements OnModuleInit {
+  private readonly logger = new Logger(SeedService.name);
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    console.log('Seeding projects...');
-    await this.projectsService.clearAll();
-    console.log('Cleared existing projects.');
+    this.logger.log('Starting project seeding process...');
+    try {
+      await this.projectsService.clearAll();
+      this.logger.log('Database cleared successfully.');
 
-    const initialProjects = [
+      const initialProjects = [
       {
         title: 'Hub Bicycle',
         description: 'Modern brand identity and signage for an urban bicycle boutique.',
@@ -462,8 +464,12 @@ export class SeedService implements OnModuleInit {
     ];
 
     for (const projectData of initialProjects) {
-      await this.projectsService.create(projectData);
-      console.log(`Added project: ${projectData.title} at order ${projectData.order}`);
+      const created = await this.projectsService.create(projectData);
+      this.logger.log(`Added project: ${created.title} (ID: ${created.id}, Type: ${created.type}, Order: ${created.order})`);
+    }
+    this.logger.log('Project seeding completed successfully.');
+    } catch (error) {
+      this.logger.error('Failed to seed projects:', error);
     }
   }
 }
