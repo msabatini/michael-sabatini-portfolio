@@ -48,4 +48,8 @@ export class ProjectsService {
   async remove(id: number): Promise<void> {
     await this.projectsRepository.delete(id);
   }
+
+  async clearAll(): Promise<void> {
+    await this.projectsRepository.clear();
+  }
 }

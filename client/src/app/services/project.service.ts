@@ -10,9 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class ProjectService {
   private http = inject(HttpClient);
-  private baseApiUrl = environment.apiUrl.endsWith('/') 
-    ? environment.apiUrl.slice(0, -1) 
-    : environment.apiUrl;
+  private baseApiUrl = 'http://127.0.0.1:3000';
 
   private normalizeTags(project: Project): Project {
     if (project.tags) {

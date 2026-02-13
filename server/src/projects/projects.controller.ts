@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Logger,
 } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 import { Project } from './project.entity';
@@ -14,15 +15,19 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('projects')
 export class ProjectsController {
+  private readonly logger = new Logger(ProjectsController.name);
+
   constructor(private readonly projectsService: ProjectsService) {}
 
   @Get()
   findAll(): Promise<Project[]> {
+    this.logger.log('findAll');
     return this.projectsService.findAll();
   }
 
   @Get('type/:type')
   findByType(@Param('type') type: string): Promise<Project[]> {
+    this.logger.log(`findByType: ${type}`);
     return this.projectsService.findByType(type);
   }
 

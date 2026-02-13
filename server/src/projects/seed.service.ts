@@ -6,8 +6,229 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    const projects = await this.projectsService.findAll();
+    console.log('Seeding projects...');
+    await this.projectsService.clearAll();
+    console.log('Cleared existing projects.');
+
     const initialProjects = [
+      {
+        title: 'Hub Bicycle',
+        description:
+          'Modern brand identity and signage for an urban bicycle boutique.',
+        imageUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
+        gallery: [
+          '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
+          '/assets/projects/hub-bicycle/hub_bizcard.png',
+          '/assets/projects/hub-bicycle/hub-index.png',
+          '/assets/projects/hub-bicycle/hub-about.png',
+          '/assets/projects/hub-bicycle/hub-equipment.png',
+          '/assets/projects/hub-bicycle/hub-service.png',
+          '/assets/projects/hub-bicycle/hub-icons.png',
+          '/assets/projects/hub-bicycle/hubbicycle_hangtag_front.jpg',
+          '/assets/projects/hub-bicycle/hubbicycle_hangtag_back.jpg',
+        ],
+        mockupUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
+        content:
+          'Hub Bicycle is a community-focused bike shop specializing in urban commuting and custom builds. The branding project centered on creating a high-energy, kinetic visual language that reflects the movement and precision of cycling.',
+        tags: ['Branding', 'Print', 'Signage'],
+        type: 'print',
+        challenge:
+          'The brand needed to appeal to both hardcore cycling enthusiasts and casual commuters. The visual identity had to be scalable from small parts packaging to large-scale storefront signage.',
+        solution:
+          'I designed a modular logo system based on the geometry of a bicycle hub. The typography is bold and forward-leaning, paired with a vibrant safety-orange and charcoal palette. This ensures high visibility and immediate brand recognition in an urban environment.',
+        result:
+          'The new identity successfully unified the shop’s physical and digital presence. The custom signage has become a local landmark, significantly increasing foot traffic and establishing Hub Bicycle as a premier destination for city cyclists.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#FF5733', type: 'color' },
+          { label: 'Secondary Color', value: '#333333', type: 'color' },
+          { label: 'Typography', value: 'Industrial Sans-Serif', type: 'text' },
+          { label: 'Signage Material', value: 'Powder-Coated Steel', type: 'text' },
+        ],
+        completedDate: 'February 2026',
+      },
+      {
+        title: 'Farmland Consulting',
+        description:
+          'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
+        imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        gallery: [
+          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+          '/assets/projects/farmland/Farmland_Letterhead_folder.png',
+          '/assets/projects/farmland/Farmland_Letterhead.png',
+          '/assets/projects/farmland/FarmlandConsulting_businesscard-front.png',
+          '/assets/projects/farmland/FarmlandConsulting_businesscard-back.png',
+          '/assets/projects/farmland/FarmlandConsulting_envelope.png',
+          '/assets/projects/farmland/business_card_mockup.jpg',
+          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
+        ],
+        mockupUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        content:
+          'Farmland Consulting provides expert advisory services to the agricultural sector. The branding project focused on creating a professional, trustworthy, and modern identity that resonates with both traditional farmers and corporate agribusiness stakeholders.',
+        tags: ['Branding', 'Print', 'Identity'],
+        type: 'print',
+        challenge:
+          'The challenge was to create a visual identity that felt grounded in agricultural heritage while appearing sophisticated enough for high-level consulting. The brand needed to work across diverse applications, from digital headers to high-quality print stationery.',
+        solution:
+          'I developed a clean, minimalist logo featuring a stylized seal that evokes authority and growth. The color palette uses deep greens and earthy tones, paired with modern typography to balance tradition with innovation. The resulting stationery suite includes business cards, letterheads, and folders that project professional excellence.',
+        result:
+          'The final brand identity successfully positioned Farmland Consulting as a leader in their field. The cohesive stationery suite has been praised for its high-production value and has helped the client secure significant new advisory contracts.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#2D5A27', type: 'color' },
+          { label: 'Secondary Color', value: '#F5F5F0', type: 'color' },
+          {
+            label: 'Typography',
+            value: 'Serif & Sans-Serif Mix',
+            type: 'text',
+          },
+          {
+            label: 'Print Stock',
+            value: '120gsm Uncoated Premium',
+            type: 'text',
+          },
+        ],
+        completedDate: 'January 2026',
+      },
+      {
+        title: 'Pinnacle Solutions',
+        description:
+          'High-end corporate branding and digital presence for a global technology solutions provider.',
+        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        gallery: [
+          '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        ],
+        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        content:
+          'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services. This project involved a complete brand overhaul, focusing on a clean, powerful aesthetic that reflects their commitment to innovation and peak performance.',
+        tags: ['Branding', 'Print', 'Graphic Design'],
+        type: 'print',
+        challenge:
+          'The existing brand felt outdated and failed to communicate the scale and sophistication of the company’s services. Pinnacle needed a visual identity that would stand out in a crowded global market while remaining professional and approachable.',
+        solution:
+          'I created a bold, geometric logo and a refined color palette of deep blue and metallic silver. The new branding was applied across a full suite of corporate materials, including high-end business cards and a modern, responsive website mockup that emphasizes clarity and impact.',
+        result:
+          'The rebranded Pinnacle Solutions has seen a significant increase in lead generation and client confidence. The cohesive visual language has strengthened their market position, helping them secure several multi-million dollar contracts in the tech sector.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#003366', type: 'color' },
+          { label: 'Secondary Color', value: '#C0C0C0', type: 'color' },
+          { label: 'Typography', value: 'Modern Geometric Sans', type: 'text' },
+          { label: 'Print Detail', value: 'Spot UV & Matte Laminate', type: 'text' },
+        ],
+        completedDate: 'March 2026',
+      },
+      {
+        title: 'Apparent Insurance',
+        description:
+          'Modern digital experience and brand system for a customer-centric insurance provider.',
+        imageUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        gallery: [
+          '/assets/projects/apparent-insurance/apparent-logo.jpg',
+          '/assets/projects/apparent-insurance/apparent-web-mockup.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_About.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_AddInfo.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_Coverage.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_Exterior.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_Purchase.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ThankYou.jpg',
+          '/assets/projects/apparent-insurance/APPARENTINSURANCE_HO3_ssn.jpg',
+        ],
+        mockupUrl: '/assets/projects/apparent-insurance/APPARENTINSURANCE_RETRIEVE_MOCKUP.jpg',
+        content:
+          'Apparent Insurance focuses on providing clear, transparent, and family-oriented insurance solutions. The project involved creating a cohesive visual language that simplifies complex insurance information and builds user trust through a clean, modern aesthetic.',
+        tags: ['Branding', 'UI/UX', 'Digital Identity'],
+        type: 'print',
+        challenge:
+          'The insurance industry often feels opaque and intimidating. Apparent needed a brand that felt approachable and reliable, with a digital-first approach that could translate seamlessly into high-end printed collateral.',
+        solution:
+          'I developed a soft yet professional color palette and a typography system centered on readability. The visual assets emphasize clarity and ease of use, using a modular design system that works effectively across both web platforms and printed marketing materials.',
+        result:
+          'The new brand identity and digital mockups successfully communicated Apparent’s core values of transparency and simplicity. The cohesive system provided a strong foundation for their market launch and has been instrumental in establishing their presence in a competitive landscape.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#2C3E50', type: 'color' },
+          { label: 'Secondary Color', value: '#E74C3C', type: 'color' },
+          { label: 'Typography', value: 'Clean Humanist Sans', type: 'text' },
+          { label: 'Key Feature', value: 'High-Contrast Clarity', type: 'text' },
+        ],
+        completedDate: 'April 2026',
+      },
+      {
+        title: 'Progressive Insurance',
+        description:
+          'Streamlined digital quoting experience and visual systems for a leading national insurer.',
+        imageUrl: '/assets/projects/progressive-insurance/1.jpg',
+        gallery: [
+          '/assets/projects/progressive-insurance/1.jpg',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-21_at_9.47.55_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.12.58_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.26.32_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.37.05_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.45.50_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.47.13_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.56.14_AM_copy.png',
+          '/assets/projects/progressive-insurance/Screen_Shot_2018-09-20_at_10.58.29_AM_copy.png',
+        ],
+        mockupUrl: '/assets/projects/progressive-insurance/1.jpg',
+        content:
+          'Progressive Insurance required a modern, user-centric approach to their digital quoting and customer engagement platforms. This project focused on creating a seamless, intuitive interface that simplifies the insurance process while maintaining a strong, recognizable brand identity across all touchpoints.',
+        tags: ['UI/UX Design', 'Branding', 'Digital Strategy'],
+        type: 'print',
+        challenge:
+          'Designing for a large-scale insurance provider involves balancing complex data entry requirements with a need for speed and clarity. The goal was to reduce user friction during the quoting process while ensuring that the brand’s friendly and reliable persona remained consistent.',
+        solution:
+          'I implemented a modular design system that prioritizes clarity and efficiency. By focusing on clean typography, intuitive navigation, and high-impact visual cues, I developed a series of mockups that demonstrate a more streamlined and approachable insurance experience, suitable for both digital and high-quality print presentations.',
+        result:
+          'The resulting design systems provided a clear path for digital transformation, enhancing the overall customer journey. The cohesive visual language has been praised for its ability to demystify complex information, leading to improved user confidence and brand loyalty.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#00529B', type: 'color' },
+          { label: 'Secondary Color', value: '#FFFFFF', type: 'color' },
+          { label: 'Typography', value: 'Frutiger Sans-Serif', type: 'text' },
+          { label: 'Key Goal', value: 'Quoting Optimization', type: 'text' },
+        ],
+        completedDate: 'May 2026',
+      },
+      {
+        title: 'Movement Insurance',
+        description:
+          'Dynamic brand identity and digital interface design for a modern insurance disruptor.',
+        imageUrl: '/assets/projects/movement-insurance/1.jpg',
+        gallery: [
+          '/assets/projects/movement-insurance/1.jpg',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_1.56.40_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.08.24_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.13.50_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.20.03_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.28.47_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.30.10_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_2.57.11_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_3.00.03_PM_copy.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_3.03.54_PM.png',
+          '/assets/projects/movement-insurance/Screen_Shot_2018-09-14_at_3.06.10_PM_copy.png',
+        ],
+        mockupUrl: '/assets/projects/movement-insurance/1.jpg',
+        content:
+          'Movement Insurance is built on the philosophy of constant evolution and user-centricity. The branding and UI/UX project focused on creating a high-energy, kinetic visual language that reflects the "movement" of the brand and the fluidity of modern insurance needs.',
+        tags: ['Branding', 'UI/UX Design', 'Digital Identity'],
+        type: 'print',
+        challenge:
+          'The brand needed to appeal to a younger, more tech-savvy demographic that finds traditional insurance stagnant. The challenge was to create a visual identity that felt fast-paced and innovative while maintaining the trust and reliability essential to the insurance sector.',
+        solution:
+          'I developed a bold, modern brand system with a vibrant color palette and kinetic typography. The digital mockups feature a streamlined, "mobile-first" quoting experience that minimizes friction and maximizes engagement. The resulting design system is highly scalable, working effectively across all digital platforms and printed marketing collateral.',
+        result:
+          'The new identity successfully positioned Movement Insurance as a major disruptor in the market. The intuitive UI/UX design has significantly reduced bounce rates in the quoting funnel and has established a strong, memorable brand presence that resonates with the target audience.',
+        designSpecs: [
+          { label: 'Primary Color', value: '#3498DB', type: 'color' },
+          { label: 'Secondary Color', value: '#2ECC71', type: 'color' },
+          { label: 'Typography', value: 'Modern Geometric Sans', type: 'text' },
+          { label: 'Core Vibe', value: 'Disruptive & Kinetic', type: 'text' },
+        ],
+        completedDate: 'June 2026',
+      },
       {
         title: 'Sorella Home Solutions',
         description:
@@ -245,61 +466,11 @@ export class SeedService implements OnModuleInit {
           'The final platform serves as a dynamic, living archive that Harrison manages entirely on his own. By eliminating the technical barrier of manual updates, the custom CMS has empowered the artist to maintain an up-to-the-minute showcase of his career, bridging his Paraguayan roots with his formal training from SCAD and the School of the Art Institute of Chicago.',
         completedDate: 'February 2026',
       },
-      {
-        title: 'Farmland Consulting',
-        description:
-          'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
-        imageUrl: '/assets/projects/farmland/main_header_logo.jpg',
-        gallery: [
-          '/assets/projects/farmland/main_header_logo.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
-          '/assets/projects/farmland/business_card_mockup.jpg',
-          '/assets/projects/farmland/Farmland_Letterhead_folder.png',
-          '/assets/projects/farmland/Farmland_Letterhead.png',
-          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
-        ],
-        mockupUrl: '/assets/projects/farmland/main_header_logo.jpg',
-        content:
-          'Farmland Consulting provides expert advisory services to the agricultural sector. The branding project focused on creating a professional, trustworthy, and modern identity that resonates with both traditional farmers and corporate agribusiness stakeholders.',
-        tags: ['Branding', 'Print', 'Identity'],
-        type: 'print',
-        challenge:
-          'The challenge was to create a visual identity that felt grounded in agricultural heritage while appearing sophisticated enough for high-level consulting. The brand needed to work across diverse applications, from digital headers to high-quality print stationery.',
-        solution:
-          'I developed a clean, minimalist logo featuring a stylized seal that evokes authority and growth. The color palette uses deep greens and earthy tones, paired with modern typography to balance tradition with innovation. The resulting stationery suite includes business cards, letterheads, and folders that project professional excellence.',
-        result:
-          'The final brand identity successfully positioned Farmland Consulting as a leader in their field. The cohesive stationery suite has been praised for its high-production value and has helped the client secure significant new advisory contracts.',
-        designSpecs: [
-          { label: 'Primary Color', value: '#2D5A27', type: 'color' },
-          { label: 'Secondary Color', value: '#F5F5F0', type: 'color' },
-          {
-            label: 'Typography',
-            value: 'Serif & Sans-Serif Mix',
-            type: 'text',
-          },
-          {
-            label: 'Print Stock',
-            value: '120gsm Uncoated Premium',
-            type: 'text',
-          },
-        ],
-        completedDate: 'January 2026',
-      },
     ];
 
     for (const projectData of initialProjects) {
-      const existingProject = projects.find(
-        (p) => p.title === projectData.title,
-      );
-
-      if (!existingProject) {
-        await this.projectsService.create(projectData);
-        console.log(`Added new project: ${projectData.title}`);
-      } else {
-        // Update existing project with any new fields (like mockupUrl)
-        await this.projectsService.update(existingProject.id, projectData);
-        console.log(`Updated project: ${projectData.title}`);
-      }
+      await this.projectsService.create(projectData);
+      console.log(`Added project: ${projectData.title}`);
     }
   }
 }
