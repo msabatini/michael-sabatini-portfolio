@@ -611,6 +611,59 @@ export class SeedService implements OnModuleInit {
         ],
         completedDate: 'April 2026',
       },
+      {
+        title: 'New England Ski Resort Poster Series',
+        description:
+          'A comprehensive collection of artistic trail maps for the most iconic ski resorts in New England.',
+        imageUrl: '/assets/projects/ski-resorts/killington.png',
+        gallery: [
+          '/assets/projects/ski-resorts/killington.png',
+          '/assets/projects/ski-resorts/stowe.png',
+          '/assets/projects/ski-resorts/sugarloaf.png',
+          '/assets/projects/ski-resorts/sunday-river.png',
+          '/assets/projects/ski-resorts/Jay-Peak.png',
+          '/assets/projects/ski-resorts/stratton.png',
+          '/assets/projects/ski-resorts/okemo.png',
+          '/assets/projects/ski-resorts/mount-snow.png',
+          '/assets/projects/ski-resorts/loon.png',
+          '/assets/projects/ski-resorts/cannon.png',
+          '/assets/projects/ski-resorts/waterville-valley.png',
+          '/assets/projects/ski-resorts/bretton-woods.png',
+          '/assets/projects/ski-resorts/wildcat.png',
+          '/assets/projects/ski-resorts/attitash-bearpeak.png',
+          '/assets/projects/ski-resorts/sugarbush.png',
+          '/assets/projects/ski-resorts/mad-river-glen.png',
+          '/assets/projects/ski-resorts/smuggs.png',
+          '/assets/projects/ski-resorts/burke.png',
+          '/assets/projects/ski-resorts/pico.png',
+          '/assets/projects/ski-resorts/bromley.png',
+          '/assets/projects/ski-resorts/bolton-valley.png',
+          '/assets/projects/ski-resorts/gunstock.png',
+          '/assets/projects/ski-resorts/sunapee.png',
+          '/assets/projects/ski-resorts/pats-peak.png',
+          '/assets/projects/ski-resorts/Berkshire-east.png',
+          '/assets/projects/ski-resorts/whiteface.png',
+        ],
+        mockupUrl: '/assets/projects/ski-resorts/killington.png',
+        content:
+          'This extensive series of artistic trail maps reimagines the New England ski experience through a clean, modern design lens. Each poster features a meticulously crafted representation of a resort’s unique terrain, peaks, and trail networks, capturing the essence of the region’s diverse skiing heritage.',
+        tags: ['Print', 'Poster Series', 'Sports'],
+        type: 'print',
+        layout: 'grid',
+        challenge:
+          'The primary challenge was to maintain visual consistency across 26 different resorts with varying topography and trail complexities. Each map needed to be both geographically recognizable and aesthetically pleasing as a piece of wall art.',
+        solution:
+          'I developed a standardized design system that uses a consistent color palette, topographic line weights, and typographic hierarchies. This allowed each resort to shine individually while ensuring the entire collection feels like a unified set.',
+        result:
+          'The collection has become a must-have for New England skiers and outdoor enthusiasts. It successfully bridges the gap between technical trail maps and decorative fine art, creating a lasting visual record of the region’s most beloved mountain destinations.',
+        designSpecs: [
+          { label: 'Paper Stock', value: '180gsm Archival Matte', type: 'text' },
+          { label: 'Print Method', value: 'High-Fidelity Inkjet', type: 'text' },
+          { label: 'Typography', value: 'Modern Geometric Sans', type: 'text' },
+          { label: 'Series Count', value: '26 Unique Maps', type: 'text' },
+        ],
+        completedDate: 'May 2026',
+      },
     ];
 
     for (const projectData of initialProjects) {
