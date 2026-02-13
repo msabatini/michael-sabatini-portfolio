@@ -33,7 +33,13 @@ export class Print implements OnInit {
 
   loadProjects() {
     this.projectService.getProjects().subscribe({
-      next: (data) => this.projects.set(data.filter(p => p.type === 'print')),
+      next: (data) => {
+        const filtered = data.filter(p => {
+          const type = (p.type || '').toLowerCase().trim();
+          return type === 'print';
+        });
+        this.projects.set(filtered);
+      },
       error: (err) => console.error('Error fetching print projects', err)
     });
   }

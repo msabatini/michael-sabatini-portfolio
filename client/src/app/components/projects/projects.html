@@ -20,6 +20,7 @@
           <p>{{ errorMessage }}</p>
         </div>
       } @else {
+        <!-- Debug: {{ projects.length }} projects found -->
         @for (project of projects; track project.id) {
           <div class="project-card" [routerLink]="['/projects', project.id]">
             @if (project.imageUrl) {
