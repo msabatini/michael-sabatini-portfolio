@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v8]...');
+    this.logger.log('Starting project seeding process [v9]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -101,6 +101,30 @@ export class SeedService implements OnModuleInit {
         layout: 'grid-2',
         order: 3,
         completedDate: 'March 2026',
+      },
+      {
+        title: 'The Service Course',
+        description: 'Premium brand identity and technical apparel for a high-end cycling experience center.',
+        imageUrl: '/assets/projects/the-service-course/bizcard-mockup.jpg',
+        gallery: [
+          '/assets/projects/the-service-course/bizcard-mockup.jpg',
+          '/assets/projects/the-service-course/scene-09.jpg',
+          '/assets/projects/the-service-course/mockup-4.jpg',
+          '/assets/projects/the-service-course/mockup-5.jpg',
+          '/assets/projects/the-service-course/stickers.jpg',
+          '/assets/projects/the-service-course/bizcard-front.png',
+          '/assets/projects/the-service-course/bizcard-back.png',
+          '/assets/projects/the-service-course/tshirt.jpg',
+          '/assets/projects/the-service-course/tag-mockup.jpg',
+          '/assets/projects/the-service-course/tag.jpg',
+        ],
+        mockupUrl: '/assets/projects/the-service-course/bizcard-mockup.jpg',
+        content: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
+        tags: ['Branding', 'Print', 'Apparel Design'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 4,
+        completedDate: 'February 2026',
       },
       {
         title: 'Apparent Insurance',
@@ -580,12 +604,10 @@ export class SeedService implements OnModuleInit {
         description: 'Brand identity and custom apparel for a specialized endurance cycling initiative.',
         imageUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
         gallery: [
-          '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
+          '/assets/projects/solo-century-cyclist/logo-glamour.png',
+          '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
           '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
           '/assets/projects/solo-century-cyclist/stickers.jpg',
-          '/assets/projects/solo-century-cyclist/bizcard-front.jpg',
-          '/assets/projects/solo-century-cyclist/bizcard-back.jpg',
-          '/assets/projects/solo-century-cyclist/logo-glamour.png',
         ],
         mockupUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
         content: 'Solo Century Cyclist celebrates the spirit of independent endurance cycling through bold branding and high-visibility technical apparel.',
