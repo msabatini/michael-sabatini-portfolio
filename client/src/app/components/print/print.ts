@@ -34,11 +34,7 @@ export class Print implements OnInit {
   loadProjects() {
     this.projectService.getProjects().subscribe({
       next: (data) => {
-        const mapped = data.map(p => ({
-          ...p,
-          imageUrl: p.imageUrl?.startsWith('/') ? `${this.apiUrl}${p.imageUrl}` : p.imageUrl
-        }));
-        const filtered = mapped.filter(p => {
+        const filtered = data.filter(p => {
           const type = (p.type || '').toLowerCase();
           return type.includes('print');
         });
