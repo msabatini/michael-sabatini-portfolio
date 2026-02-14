@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v12]...');
+    this.logger.log('Starting project seeding process [v13]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -34,7 +34,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Signage', 'Web Design'],
         type: 'print-only',
         isFeatured: false,
-        order: 0,
+        order: 5,
         completedDate: 'February 2026',
       },
       {
@@ -43,19 +43,20 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         gallery: [
           '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/Farmland_Letterhead_folder.png',
           '/assets/projects/farmland/Farmland_Letterhead.png',
           '/assets/projects/farmland/FarmlandConsulting_businesscard-front.png',
           '/assets/projects/farmland/FarmlandConsulting_businesscard-back.png',
           '/assets/projects/farmland/FarmlandConsulting_envelope.png',
           '/assets/projects/farmland/business_card_mockup.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
         ],
         mockupUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         order: 1,
+        layout: 'grid-2',
         completedDate: 'January 2026',
       },
       {
@@ -75,8 +76,27 @@ export class SeedService implements OnModuleInit {
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
-        order: 2,
+        order: 4,
         completedDate: 'March 2026',
+      },
+      {
+        title: 'Hingham Homemade Face Mask Initiative',
+        description: 'Community-driven brand identity and merchandise for a local COVID-19 relief effort.',
+        imageUrl: '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
+        gallery: [
+          '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
+          '/assets/projects/hingham-face-mask/HHFMI-mug.jpg',
+          '/assets/projects/hingham-face-mask/HHFMI-pin-badge.jpg',
+          '/assets/projects/hingham-face-mask/HHFMI-t-shirt.png',
+          '/assets/projects/hingham-face-mask/HHFMI-Vector-transparent-bg.png',
+        ],
+        mockupUrl: '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
+        content: 'The Hingham Homemade Face Mask Initiative was a volunteer-led effort to provide protective gear to the community during the pandemic. The branding project focused on creating a unified, hopeful visual identity that could be applied across various volunteer-led initiatives.',
+        tags: ['Branding', 'Print', 'Non-Profit'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 5,
+        completedDate: 'April 2020',
       },
       {
         title: 'Dingo Films',
@@ -108,13 +128,13 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/the-service-course/bizcard-mockup.jpg',
         gallery: [
           '/assets/projects/the-service-course/bizcard-mockup.jpg',
-          '/assets/projects/the-service-course/scene-09.jpg',
-          '/assets/projects/the-service-course/mockup-4.jpg',
           '/assets/projects/the-service-course/mockup-5.jpg',
           '/assets/projects/the-service-course/stickers.jpg',
+          '/assets/projects/the-service-course/mockup-4.jpg',
+          '/assets/projects/the-service-course/scene-09.jpg',
+          '/assets/projects/the-service-course/tshirt.jpg',
           '/assets/projects/the-service-course/bizcard-front.png',
           '/assets/projects/the-service-course/bizcard-back.png',
-          '/assets/projects/the-service-course/tshirt.jpg',
           '/assets/projects/the-service-course/tag-mockup.jpg',
           '/assets/projects/the-service-course/tag.jpg',
         ],
@@ -123,7 +143,25 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 4,
+        order: 0,
+        completedDate: 'February 2026',
+      },
+      {
+        title: 'Solo Century Cyclist',
+        description: 'Brand identity and custom apparel for a specialized endurance cycling initiative.',
+        imageUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
+        gallery: [
+          '/assets/projects/solo-century-cyclist/logo-glamour.png',
+          '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
+          '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
+          '/assets/projects/solo-century-cyclist/stickers.jpg',
+        ],
+        mockupUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
+        content: 'Solo Century Cyclist celebrates the spirit of independent endurance cycling through bold branding and high-visibility technical apparel.',
+        tags: ['Branding', 'Apparel Design', 'Print'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 2,
         completedDate: 'February 2026',
       },
       {
@@ -599,24 +637,7 @@ export class SeedService implements OnModuleInit {
         order: 20,
         completedDate: 'June 2026',
       },
-      {
-        title: 'Solo Century Cyclist',
-        description: 'Brand identity and custom apparel for a specialized endurance cycling initiative.',
-        imageUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
-        gallery: [
-          '/assets/projects/solo-century-cyclist/logo-glamour.png',
-          '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
-          '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
-          '/assets/projects/solo-century-cyclist/stickers.jpg',
-        ],
-        mockupUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
-        content: 'Solo Century Cyclist celebrates the spirit of independent endurance cycling through bold branding and high-visibility technical apparel.',
-        tags: ['Branding', 'Apparel Design', 'Print'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 21,
-        completedDate: 'February 2026',
-      },
+      
     ];
 
     for (const projectData of initialProjects) {
