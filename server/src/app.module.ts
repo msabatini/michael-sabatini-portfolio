@@ -28,7 +28,7 @@ import { SettingsController } from './settings.controller';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ServeStaticModule.forRoot([
+    ServeStaticModule.forRoot(
       {
         rootPath: join(__dirname, '..', 'uploads'),
         serveRoot: '/uploads',
@@ -37,7 +37,7 @@ import { SettingsController } from './settings.controller';
         rootPath: join(__dirname, '..', '..', 'client', 'public'),
         exclude: ['/api*'],
       }
-    ]),
+    ),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'sqlite',
