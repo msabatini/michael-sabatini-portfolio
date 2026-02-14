@@ -12,20 +12,7 @@ export class ProjectService {
   private http = inject(HttpClient);
   private baseApiUrl = environment.apiUrl;
 
-  private mapAssetUrl(url: string | undefined): string | undefined {
-    if (!url) return url;
-    if (url.startsWith('http')) return url;
-    return `${this.baseApiUrl}${url.startsWith('/') ? '' : '/'}${url}`;
-  }
-
-  private normalizeProject(project: Project): Project {
-    // Map image URLs to absolute paths
-    project.imageUrl = this.mapAssetUrl(project.imageUrl) as string;
-    project.mockupUrl = this.mapAssetUrl(project.mockupUrl) as string;
-    if (project.gallery) {
-      project.gallery = project.gallery.map(img => this.mapAssetUrl(img) as string);
-    }
-
+  private normalizeTags(project: Project): Project {
     if (project.tags) {
       const defaultTags = ['Full-Stack', 'UI/UX', 'Responsive', 'Development', 'Software', 'Digital'];
       let tags = [...project.tags];
@@ -44,19 +31,19 @@ export class ProjectService {
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.baseApiUrl}/projects`).pipe(
-      map(projects => projects.map(p => this.normalizeProject(p)))
+      map(projects => projects.map(p => this.normalizeTags(p)))
     );
   }
 
   getProjectsByType(type: string): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.baseApiUrl}/projects/type/${type}`).pipe(
-      map(projects => projects.map(p => this.normalizeProject(p)))
+      map(projects => projects.map(p => this.normalizeTags(p)))
     );
   }
 
   getProject(id: number): Observable<Project> {
     return this.http.get<Project>(`${this.baseApiUrl}/projects/${id}`).pipe(
-      map(project => this.normalizeProject(project))
+      map(project => this.normalizeTags(project))
     );
   }
 
