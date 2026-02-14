@@ -57,9 +57,13 @@ export class ProjectsService {
 
   async clearAll(): Promise<void> {
     console.log('Clearing project table...');
-    await this.projectsRepository.query('DELETE FROM project');
-    const count = await this.projectsRepository.count();
-    console.log(`Project table cleared. Current count: ${count}`);
+    try {
+      await this.projectsRepository.clear();
+      console.log('Project table cleared.');
+    } catch (e) {
+      console.log('Error clearing project table, attempting fallback DELETE:', e);
+      await this.projectsRepository.query('DELETE FROM project');
+    }
     
     // Reset auto-increment for SQLite
     try {
