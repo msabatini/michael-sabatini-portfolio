@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v13]...');
+    this.logger.log('Starting project seeding process [v14]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -145,6 +145,30 @@ export class SeedService implements OnModuleInit {
         layout: 'grid-2',
         order: 0,
         completedDate: 'February 2026',
+      },
+      {
+        title: 'SOFFRA.io',
+        description: 'Comprehensive brand identity and visual language for a cycling data and community platform.',
+        imageUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
+        gallery: [
+          '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
+          '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-back.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-front.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-mockup-3.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-mockup-1.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
+          '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-mens.png',
+          '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-womens.png',
+          '/assets/projects/soffra-brand/soffra-icon-for-strava-api.jpg',
+        ],
+        mockupUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
+        content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
+        tags: ['Branding', 'Print', 'Identity'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 1,
+        completedDate: 'March 2026',
       },
       {
         title: 'Solo Century Cyclist',
