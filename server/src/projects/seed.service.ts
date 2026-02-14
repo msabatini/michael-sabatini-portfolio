@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v16]...');
+    this.logger.log('Starting project seeding process [v19]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -151,16 +151,25 @@ export class SeedService implements OnModuleInit {
         description: 'Comprehensive brand identity and visual language for a cycling data and community platform.',
         imageUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
         gallery: [
+          '/assets/projects/soffra-brand/soffra-mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
           '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
+          '/assets/projects/soffra-brand/SOFFRA_CLIMB-ATLAS-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-back.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-front.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-mockup-3.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-mockup-1.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-front-1.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-front-2.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-back.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-front.jpg',
           '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-mens.png',
           '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-womens.png',
           '/assets/projects/soffra-brand/soffra-icon-for-strava-api.jpg',
+          '/assets/projects/soffra-brand/forest-defense.jpg',
+          '/assets/projects/soffra-brand/Screen%20Shot%202023-05-11%20at%202.53.44%20PM.png',
+          '/assets/projects/soffra-brand/Screen%20Shot%202023-05-11%20at%202.55.44%20PM.png',
         ],
         mockupUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',

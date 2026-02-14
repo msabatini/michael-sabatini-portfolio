@@ -30,7 +30,7 @@ import { SettingsController } from './settings.controller';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
-      serveRoot: '/uploads',
+      serveRoot: '/assets',
     }),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({

@@ -7,6 +7,7 @@ client/node_modules/
 server/node_modules/
 server/dist/
 client/dist/
+server/uploads/
 .angular/
 .vscode/
 *.sqlite
