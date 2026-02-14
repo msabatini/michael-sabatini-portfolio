@@ -34,7 +34,10 @@ export class Projects implements OnInit {
     this.projectService.getProjects().subscribe({
       next: (data) => {
         console.log('Fetched projects total:', data.length);
-        this.projects = data.filter(p => {
+        this.projects = data.map(p => ({
+          ...p,
+          imageUrl: p.imageUrl?.startsWith('/') ? `${this.apiUrl}${p.imageUrl}` : p.imageUrl
+        })).filter(p => {
           const type = (p.type || '').toLowerCase();
           const isWeb = type.includes('web');
           console.log(`Project: ${p.title}, Type: ${p.type}, isWeb: ${isWeb}`);
