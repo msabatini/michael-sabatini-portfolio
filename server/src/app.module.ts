@@ -29,7 +29,9 @@ import { SettingsController } from './settings.controller';
       isGlobal: true,
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads'),
+      rootPath: process.env.NODE_ENV === 'production' 
+        ? '/var/data/uploads' 
+        : join(__dirname, '..', 'uploads'),
       serveRoot: '/assets',
     }),
     TypeOrmModule.forRootAsync({

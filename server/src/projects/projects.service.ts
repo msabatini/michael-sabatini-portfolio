@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, Like } from 'typeorm';
 import { Project } from './project.entity';
 
 @Injectable()
@@ -23,9 +23,11 @@ export class ProjectsService {
   }
 
   async findByType(type: string): Promise<Project[]> {
-    console.log(`Searching for projects with type: "${type}"`);
+    console.log(`Searching for projects with type containing: "${type}"`);
     const projects = await this.projectsRepository.find({
-      where: { type },
+      where: [
+        { type: Like(`%${type}%`) }
+      ],
       order: {
         order: 'ASC',
         createdAt: 'DESC',

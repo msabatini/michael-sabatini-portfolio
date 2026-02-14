@@ -7,9 +7,11 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v20]...');
+    this.logger.log('Starting project seeding process [v24]...');
     try {
+      console.log('SEEDER: Clearing database...');
       await this.projectsService.clearAll();
+      console.log('SEEDER: Database cleared.');
       this.logger.log('Database cleared successfully.');
 
       const initialProjects = [
@@ -34,7 +36,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Signage', 'Web Design'],
         type: 'print-only',
         isFeatured: false,
-        order: 5,
+        order: 8,
         completedDate: 'February 2026',
       },
       {
@@ -76,7 +78,7 @@ export class SeedService implements OnModuleInit {
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
-        order: 4,
+        order: 6,
         completedDate: 'March 2026',
       },
       {
@@ -95,7 +97,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Non-Profit'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 5,
+        order: 7,
         completedDate: 'April 2020',
       },
       {
@@ -143,7 +145,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 0,
+        order: 4,
         completedDate: 'February 2026',
       },
       {
@@ -176,7 +178,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 1,
+        order: 5,
         completedDate: 'March 2026',
       },
       {
@@ -186,6 +188,8 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/solo-century-cyclist/logo-glamour.png',
           '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
+          '/assets/projects/solo-century-cyclist/bizcard-front.jpg',
+          '/assets/projects/solo-century-cyclist/bizcard-back.jpg',
           '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
           '/assets/projects/solo-century-cyclist/stickers.jpg',
         ],
@@ -194,7 +198,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Apparel Design', 'Print'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 2,
+        order: 100,
         completedDate: 'February 2026',
       },
       {
@@ -477,7 +481,7 @@ export class SeedService implements OnModuleInit {
         completedDate: 'February 2026',
       },
       {
-        title: 'Hub Bicycles',
+        title: 'Hub Bicycles Web Site',
         description: 'Modern, high-performance web experience for an urban bicycle boutique.',
         imageUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
         gallery: [
@@ -495,7 +499,7 @@ export class SeedService implements OnModuleInit {
         completedDate: 'February 2026',
       },
       {
-        title: 'Pinnacle Solutions',
+        title: 'Pinnacle Solutions Web Site',
         description: 'Sophisticated enterprise web presence for a global technology provider.',
         imageUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-website-mockup.jpg',
         gallery: [
