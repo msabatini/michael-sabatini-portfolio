@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v9]...');
+    this.logger.log('Starting project seeding process [v12]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -146,7 +146,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 12,
+        order: 10,
         completedDate: 'April 2026',
       },
       {
@@ -169,7 +169,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Strategy', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 13,
+        order: 11,
         completedDate: 'May 2026',
       },
       {
@@ -194,7 +194,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 14,
+        order: 12,
         completedDate: 'June 2026',
       },
       {
@@ -219,7 +219,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design', 'Print Design'],
         type: 'web,print',
         isFeatured: false,
-        order: 15,
+        order: 13,
         completedDate: 'July 2026',
       },
       {
@@ -239,7 +239,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 16,
+        order: 14,
         completedDate: 'August 2026',
       },
       {
@@ -420,7 +420,7 @@ export class SeedService implements OnModuleInit {
         content: 'Custom web application design and development for Hub Bicycle, focusing on user experience and brand consistency.',
         tags: ['Application Development', 'UI/UX', 'Angular'],
         type: 'web',
-        order: 10,
+        order: 15,
         completedDate: 'February 2026',
       },
       {
@@ -440,7 +440,7 @@ export class SeedService implements OnModuleInit {
         content: 'A comprehensive web platform designed to showcase high-end corporate solutions and technology services.',
         tags: ['Application Development', 'UI/UX Design', 'Development'],
         type: 'web',
-        order: 11,
+        order: 16,
         completedDate: 'March 2026',
       },
       {
