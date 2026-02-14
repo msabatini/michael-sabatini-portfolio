@@ -37,6 +37,7 @@ export class SeedService implements OnModuleInit {
         type: 'print-only',
         isFeatured: false,
         order: 8,
+        layout: 'grid-2',
         completedDate: 'February 2026',
       },
       {
@@ -67,18 +68,19 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
         gallery: [
           '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
         ],
         mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
         order: 6,
+        layout: 'grid-2',
         completedDate: 'March 2026',
       },
       {
@@ -97,18 +99,18 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Non-Profit'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 7,
+        order: 5,
         completedDate: 'April 2020',
       },
       {
         title: 'Dingo Films',
         description: 'Dynamic brand identity and visual storytelling for an independent film production house.',
-        imageUrl: '/assets/projects/dingo/dingocard_IG3.jpg',
+        imageUrl: '/assets/projects/dingo/dingocard_IG4.jpg',
         gallery: [
+          '/assets/projects/dingo/dingocard_IG4.jpg',
           '/assets/projects/dingo/dingocard_IG3.jpg',
           '/assets/projects/dingo/dingo1_glam.jpg',
           '/assets/projects/dingo/dingo5_glam.jpg',
-          '/assets/projects/dingo/dingocard_IG4.jpg',
           '/assets/projects/dingo/dingo-press-badge.jpg',
           '/assets/projects/dingo/dingo-press-badge2.jpg',
           '/assets/projects/dingo/dingo-tshirt1.jpg',
@@ -116,7 +118,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/dingo/dingocard_IG.jpg',
           '/assets/projects/dingo/dingocard_IG2.jpg',
         ],
-        mockupUrl: '/assets/projects/dingo/dingo1_glam.jpg',
+        mockupUrl: '/assets/projects/dingo/dingocard_IG4.jpg',
         content: 'Dingo Films is an independent production company dedicated to bold, cinematic storytelling. The branding project focused on creating a raw, high-impact visual identity that reflects the grit and creativity of their film roster.',
         tags: ['Branding', 'Print', 'Film'],
         type: 'print-only',
@@ -145,7 +147,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 4,
+        order: 0,
         completedDate: 'February 2026',
       },
       {
@@ -178,7 +180,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 5,
+        order: 2,
         completedDate: 'March 2026',
       },
       {
@@ -198,7 +200,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Apparel Design', 'Print'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 100,
+        order: 2,
         completedDate: 'February 2026',
       },
       {
@@ -222,6 +224,7 @@ export class SeedService implements OnModuleInit {
         type: 'web,print',
         isFeatured: false,
         order: 10,
+        layout: 'grid-2',
         completedDate: 'April 2026',
       },
       {
@@ -245,6 +248,7 @@ export class SeedService implements OnModuleInit {
         type: 'web,print',
         isFeatured: false,
         order: 11,
+        layout: 'grid-2',
         completedDate: 'May 2026',
       },
       {
@@ -270,6 +274,7 @@ export class SeedService implements OnModuleInit {
         type: 'web,print',
         isFeatured: false,
         order: 12,
+        layout: 'grid-2',
         completedDate: 'June 2026',
       },
       {
@@ -295,6 +300,7 @@ export class SeedService implements OnModuleInit {
         type: 'web,print',
         isFeatured: false,
         order: 13,
+        layout: 'grid-2',
         completedDate: 'July 2026',
       },
       {
@@ -315,6 +321,7 @@ export class SeedService implements OnModuleInit {
         type: 'web,print',
         isFeatured: false,
         order: 14,
+        layout: 'grid-2',
         completedDate: 'August 2026',
       },
       {
