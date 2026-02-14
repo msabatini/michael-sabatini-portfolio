@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v19]...');
+    this.logger.log('Starting project seeding process [v20]...');
     try {
       await this.projectsService.clearAll();
       this.logger.log('Database cleared successfully.');
@@ -168,8 +168,8 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-womens.png',
           '/assets/projects/soffra-brand/soffra-icon-for-strava-api.jpg',
           '/assets/projects/soffra-brand/forest-defense.jpg',
-          '/assets/projects/soffra-brand/Screen%20Shot%202023-05-11%20at%202.53.44%20PM.png',
-          '/assets/projects/soffra-brand/Screen%20Shot%202023-05-11%20at%202.55.44%20PM.png',
+          '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.53.44 PM.png',
+          '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.55.44 PM.png',
         ],
         mockupUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
