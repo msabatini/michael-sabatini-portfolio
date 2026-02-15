@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v32]...');
+    this.logger.log('Starting project seeding process [v33]...');
     try {
       console.log('SEEDER: Checking if seeding is needed...');
       // We always clear and re-seed to ensure consistency across environments
@@ -37,7 +37,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 10,
+        order: 0,
         completedDate: 'February 2026',
       },
       {
@@ -58,7 +58,7 @@ export class SeedService implements OnModuleInit {
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
-        order: 11,
+        order: 1,
         layout: 'grid-2',
         completedDate: 'January 2026',
       },
@@ -92,7 +92,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 12,
+        order: 2,
         completedDate: 'March 2026',
       },
       {
@@ -114,7 +114,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 13,
+        order: 3,
         completedDate: 'April 2026',
       },
       {
@@ -138,7 +138,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Film'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 14,
+        order: 4,
         completedDate: 'March 2026',
       },
       {
@@ -158,7 +158,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Apparel Design', 'Print'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 15,
+        order: 5,
         completedDate: 'February 2026',
       },
       {
@@ -177,7 +177,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Non-Profit'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 16,
+        order: 6,
         completedDate: 'April 2020',
       },
       {
@@ -197,7 +197,7 @@ export class SeedService implements OnModuleInit {
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
-        order: 17,
+        order: 7,
         layout: 'grid-2',
         completedDate: 'March 2026',
       },
@@ -246,7 +246,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 10,
+        order: 9,
         layout: 'grid-2',
         completedDate: 'April 2026',
       },
@@ -270,7 +270,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Strategy', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 11,
+        order: 10,
         layout: 'grid-2',
         completedDate: 'May 2026',
       },
@@ -296,7 +296,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 12,
+        order: 11,
         layout: 'grid-2',
         completedDate: 'June 2026',
       },
@@ -322,7 +322,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design', 'Print Design'],
         type: 'web,print',
         isFeatured: false,
-        order: 13,
+        order: 12,
         layout: 'grid-2',
         completedDate: 'July 2026',
       },
@@ -343,7 +343,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Identity', 'Print'],
         type: 'web,print',
         isFeatured: false,
-        order: 14,
+        order: 13,
         layout: 'grid-2',
         completedDate: 'August 2026',
       },
@@ -365,7 +365,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'Graphic Design', 'Print', 'Insurance'],
         type: 'web,print',
         isFeatured: false,
-        order: 15,
+        order: 14,
         layout: 'grid-2',
         completedDate: 'July 2026',
         designSpecs: [
@@ -597,7 +597,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Print', 'Poster Series'],
         type: 'print-only',
         layout: 'grid-3',
-        order: 30,
+        order: 15,
         completedDate: 'February 2026',
       },
       {
@@ -617,7 +617,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Print', 'Graphic Design'],
         type: 'print-only',
         layout: 'grid-3',
-        order: 31,
+        order: 16,
         completedDate: 'March 2026',
       },
       {
@@ -657,7 +657,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Print', 'Cartography'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 32,
+        order: 17,
         completedDate: 'May 2026',
       },
       {
@@ -674,7 +674,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Print', 'Poster Design'],
         type: 'print-only',
         layout: 'grid-3',
-        order: 33,
+        order: 18,
         completedDate: 'April 2026',
       },
       {
@@ -697,7 +697,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'stack',
-        order: 34,
+        order: 19,
         completedDate: 'May 2026',
       },
       {
@@ -729,7 +729,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Apparel Design', 'Branding'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 35,
+        order: 20,
         completedDate: 'June 2026',
       },
     ];
