@@ -1,17 +1,31 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { AppSettings } from '../app-settings.entity';
 
 @Injectable()
 export class SeedService implements OnModuleInit {
   private readonly logger = new Logger(SeedService.name);
-  constructor(private readonly projectsService: ProjectsService) {}
+  constructor(
+    private readonly projectsService: ProjectsService,
+    @InjectRepository(AppSettings)
+    private readonly settingsRepository: Repository<AppSettings>,
+  ) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v33]...');
+    const SEEDER_VERSION = 'v34';
+    this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
+    
     try {
-      console.log('SEEDER: Checking if seeding is needed...');
-      // We always clear and re-seed to ensure consistency across environments
-      console.log('SEEDER: Clearing database...');
+      // Check if we already seeded this version
+      const settings = await this.settingsRepository.findOneBy({ key: 'seeder_version' });
+      if (settings && settings.heroTitle === SEEDER_VERSION) {
+        this.logger.log(`Seeding version ${SEEDER_VERSION} already applied. Skipping.`);
+        return;
+      }
+
+      console.log('SEEDER: Seeding needed. Clearing database...');
       await this.projectsService.clearAll();
       console.log('SEEDER: Database cleared.');
 
@@ -455,7 +469,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra/climb-atlas-world-list.png',
           '/assets/projects/soffra/climb-atlas-world-rank-list-perspective.png',
           '/assets/projects/soffra/climb-atlas-world-rank-list.png',
-          '/assets/projects/soffra/soffra-climb-atlas-world-ranking.png',
+          '/assets/projects/soffra/climb-atlas-world-ranking.png',
           '/assets/projects/soffra/climb-atlas-world.png',
         ],
         mockupUrl: '/assets/projects/soffra/soffra-mockup.jpg',
@@ -684,7 +698,6 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/hellhole/ccap_insta4.jpg',
           '/assets/projects/hellhole/HellHole.jpg',
-          '/assets/projects/hellhole/HellHole_6.jpg',
           '/assets/projects/hellhole/Hellhole5_T-Shirt_Mockup_Front.jpg',
           '/assets/projects/hellhole/Number6-Tshirt-MockUp.jpg',
           '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Back.jpg',
@@ -715,7 +728,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/kit/JKIT-2025-Jersey7.png',
           '/assets/projects/kit/JKIT-2025-Jersey8.png',
           '/assets/projects/kit/JKIT-2025-Jersey9.png',
-          '/assets/projects/kit/JKIT-2025-Jersey10.png',
           '/assets/projects/kit/JKIT-2025-Jersey11.jpg',
           '/assets/projects/kit/JKIT-2025-Jersey12.jpg',
           '/assets/projects/kit/JKIT-2025-Jersey13.jpg',
@@ -742,7 +754,19 @@ export class SeedService implements OnModuleInit {
         this.logger.error(`Failed to add project ${projectData.title}:`, e);
       }
     }
-    this.logger.log('Project seeding completed successfully.');
+    
+    // Save seeder version to prevent re-seeding
+    try {
+      let settings = await this.settingsRepository.findOneBy({ key: 'seeder_version' });
+      if (!settings) {
+        settings = this.settingsRepository.create({ key: 'seeder_version' });
+      }
+      settings.heroTitle = SEEDER_VERSION;
+      await this.settingsRepository.save(settings);
+      this.logger.log(`Project seeding completed successfully. Version ${SEEDER_VERSION} saved.`);
+    } catch (e) {
+      this.logger.error('Failed to save seeder version:', e);
+    }
     } catch (error) {
       this.logger.error('Failed to seed projects:', error);
     }
