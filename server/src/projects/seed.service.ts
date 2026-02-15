@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v34';
+    const SEEDER_VERSION = 'v35';
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -392,7 +392,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Sorella Home Solutions',
         description: 'Sophisticated corporate website for a premium home concierge service company.',
-        imageUrl: '/assets/projects/sorella/sorella-case-study10.jpg',
+        imageUrl: '/assets/projects/sorella/sorella-mockup.jpg',
         gallery: [
           '/assets/projects/sorella/sorella-case-study10.jpg',
           '/assets/projects/sorella/sorella-case-study1.jpg',
@@ -416,7 +416,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Clinical Resources SLP Platform',
         description: 'Revolutionary digital assessment platform for speech-language pathologists.',
-        imageUrl: '/assets/projects/clinical/cr-hero.jpg',
+        imageUrl: '/assets/projects/clinical/clinical-mockup.jpg',
         gallery: [
           '/assets/projects/clinical/cr-hero.jpg',
           '/assets/projects/clinical/cr-main.jpg',
