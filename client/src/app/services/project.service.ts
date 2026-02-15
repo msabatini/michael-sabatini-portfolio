@@ -15,36 +15,40 @@ export class ProjectService {
   private normalizeProject(project: Project): Project {
     if (!project) return project;
 
-    // Normalize Tags
-    if (project.tags) {
-      const defaultTags = ['Full-Stack', 'UI/UX', 'Responsive', 'Development', 'Software', 'Digital'];
-      let tags = [...project.tags];
-      if (tags.length > 6) {
-        tags = tags.slice(0, 6);
-      } else {
-        while (tags.length < 6) {
-          const nextDefault = defaultTags.find(t => !tags.includes(t)) || 'Web';
-          tags.push(nextDefault);
+    try {
+      // Normalize Tags
+      if (project.tags && Array.isArray(project.tags)) {
+        const defaultTags = ['Full-Stack', 'UI/UX', 'Responsive', 'Development', 'Software', 'Digital'];
+        let tags = [...project.tags];
+        if (tags.length > 6) {
+          tags = tags.slice(0, 6);
+        } else {
+          while (tags.length < 6) {
+            const nextDefault = defaultTags.find(t => !tags.includes(t)) || 'Web';
+            tags.push(nextDefault);
+          }
         }
+        project.tags = tags;
       }
-      project.tags = tags;
-    }
 
-    // Prepend API URL to relative asset paths
-    const apiUrl = environment.apiUrl ? (environment.apiUrl.endsWith('/') 
-      ? environment.apiUrl.slice(0, -1) 
-      : environment.apiUrl) : '';
+      // Prepend API URL to relative asset paths
+      const apiUrl = environment.apiUrl ? (environment.apiUrl.endsWith('/') 
+        ? environment.apiUrl.slice(0, -1) 
+        : environment.apiUrl) : '';
 
-    if (project.imageUrl && project.imageUrl.startsWith('/assets/')) {
-      project.imageUrl = `${apiUrl}${project.imageUrl}`;
-    }
-    if (project.mockupUrl && project.mockupUrl.startsWith('/assets/')) {
-      project.mockupUrl = `${apiUrl}${project.mockupUrl}`;
-    }
-    if (project.gallery) {
-      project.gallery = project.gallery.map(img => 
-        (img && img.startsWith('/assets/')) ? `${apiUrl}${img}` : img
-      );
+      if (project.imageUrl && typeof project.imageUrl === 'string' && project.imageUrl.startsWith('/assets/')) {
+        project.imageUrl = `${apiUrl}${project.imageUrl}`;
+      }
+      if (project.mockupUrl && typeof project.mockupUrl === 'string' && project.mockupUrl.startsWith('/assets/')) {
+        project.mockupUrl = `${apiUrl}${project.mockupUrl}`;
+      }
+      if (project.gallery && Array.isArray(project.gallery)) {
+        project.gallery = project.gallery.map(img => 
+          (img && typeof img === 'string' && img.startsWith('/assets/')) ? `${apiUrl}${img}` : img
+        );
+      }
+    } catch (e) {
+      console.error('Error normalizing project:', e, project);
     }
 
     return project;
