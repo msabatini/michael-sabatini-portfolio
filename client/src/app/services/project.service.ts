@@ -36,16 +36,25 @@ export class ProjectService {
         ? environment.apiUrl.slice(0, -1) 
         : environment.apiUrl) : '';
 
-      if (project.imageUrl && typeof project.imageUrl === 'string' && project.imageUrl.startsWith('/assets/')) {
-        project.imageUrl = `${apiUrl}${project.imageUrl}`;
-      }
-      if (project.mockupUrl && typeof project.mockupUrl === 'string' && project.mockupUrl.startsWith('/assets/')) {
-        project.mockupUrl = `${apiUrl}${project.mockupUrl}`;
-      }
+      const normalizeUrl = (url: any) => {
+        if (!url || typeof url !== 'string') return url;
+        // If it's already an absolute URL, return it
+        if (url.startsWith('http://') || url.startsWith('https://')) return url;
+        // If it starts with /assets/, prepend the API URL
+        if (url.startsWith('/assets/')) {
+          return `${apiUrl}${url}`;
+        }
+        // If it starts with assets/ (no leading slash), prepend API URL with a slash
+        if (url.startsWith('assets/')) {
+          return `${apiUrl}/${url}`;
+        }
+        return url;
+      };
+
+      if (project.imageUrl) project.imageUrl = normalizeUrl(project.imageUrl);
+      if (project.mockupUrl) project.mockupUrl = normalizeUrl(project.mockupUrl);
       if (project.gallery && Array.isArray(project.gallery)) {
-        project.gallery = project.gallery.map(img => 
-          (img && typeof img === 'string' && img.startsWith('/assets/')) ? `${apiUrl}${img}` : img
-        );
+        project.gallery = project.gallery.map(img => normalizeUrl(img));
       }
     } catch (e) {
       console.error('Error normalizing project:', e, project);

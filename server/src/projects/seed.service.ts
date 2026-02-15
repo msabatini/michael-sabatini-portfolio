@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v36';
+    const SEEDER_VERSION = 'v43';
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -33,9 +33,9 @@ export class SeedService implements OnModuleInit {
       {
         title: 'The Service Course',
         description: 'Premium brand identity and technical apparel for a high-end cycling experience center.',
-        imageUrl: '/assets/projects/the-service-course/bizcard-mockup.jpg',
+        imageUrl: '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
         gallery: [
-          '/assets/projects/the-service-course/bizcard-mockup.jpg',
+          '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
           '/assets/projects/the-service-course/mockup-5.jpg',
           '/assets/projects/the-service-course/stickers.jpg',
           '/assets/projects/the-service-course/mockup-4.jpg',
@@ -46,7 +46,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/the-service-course/tag-mockup.jpg',
           '/assets/projects/the-service-course/tag.jpg',
         ],
-        mockupUrl: '/assets/projects/the-service-course/bizcard-mockup.jpg',
+        mockupUrl: '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
         content: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
@@ -79,10 +79,10 @@ export class SeedService implements OnModuleInit {
       {
         title: 'SOFFRA.io',
         description: 'Comprehensive brand identity and visual language for a cycling data and community platform.',
-        imageUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
+        imageUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         gallery: [
-          '/assets/projects/soffra-brand/soffra-mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
+          '/assets/projects/soffra-brand/soffra-mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA_CLIMB-ATLAS-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-back.jpg',
@@ -101,7 +101,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.53.44 PM.png',
           '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.55.44 PM.png',
         ],
-        mockupUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
+        mockupUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
@@ -197,17 +197,16 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Pinnacle Solutions',
         description: 'High-end corporate branding and digital presence for a global technology solutions provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
+        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
         gallery: [
-          '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
         ],
-        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
