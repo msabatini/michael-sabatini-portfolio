@@ -37,7 +37,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 0,
+        order: 10,
         completedDate: 'February 2026',
       },
       {
@@ -58,7 +58,7 @@ export class SeedService implements OnModuleInit {
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
-        order: 1,
+        order: 11,
         layout: 'grid-2',
         completedDate: 'January 2026',
       },
@@ -92,7 +92,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 2,
+        order: 12,
         completedDate: 'March 2026',
       },
       {
@@ -114,7 +114,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 3,
+        order: 13,
         completedDate: 'April 2026',
       },
       {
@@ -138,7 +138,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Film'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 4,
+        order: 14,
         completedDate: 'March 2026',
       },
       {
@@ -158,7 +158,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Apparel Design', 'Print'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 5,
+        order: 15,
         completedDate: 'February 2026',
       },
       {
@@ -177,7 +177,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Non-Profit'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 6,
+        order: 16,
         completedDate: 'April 2020',
       },
       {
@@ -197,7 +197,7 @@ export class SeedService implements OnModuleInit {
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
-        order: 7,
+        order: 17,
         layout: 'grid-2',
         completedDate: 'March 2026',
       },
@@ -396,7 +396,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Application Development', 'UI/UX Design'],
         type: 'web',
         isFeatured: true,
-        order: 16,
+        order: 0,
         completedDate: 'September 2025',
       },
       {
@@ -427,7 +427,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Application Development', 'Angular', 'Clinical Tech'],
         type: 'web',
         isFeatured: true,
-        order: 17,
+        order: 1,
         completedDate: 'August 2025',
       },
       {
@@ -463,7 +463,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Application Development','Angular', 'Node.js'],
         type: 'web',
         isFeatured: true,
-        order: 18,
+        order: 2,
         completedDate: 'June 2022',
       },
       {
@@ -486,7 +486,7 @@ export class SeedService implements OnModuleInit {
         content: 'Flourrish is a revolutionary environmental fintech platform.',
         tags: ['Application Development','Angular', 'FinTech'],
         type: 'web',
-        order: 19,
+        order: 3,
         completedDate: 'October 2025',
       },
       {
@@ -513,7 +513,7 @@ export class SeedService implements OnModuleInit {
         content: 'Pixlhaus is a comprehensive digital agency delivering pixel-perfect websites.',
         tags: ['Application Development','React', 'Angular'],
         type: 'web',
-        order: 20,
+        order: 4,
         completedDate: 'July 2025',
       },
       {
@@ -535,7 +535,7 @@ export class SeedService implements OnModuleInit {
         content: 'Harrison Deller is a prolific Paraguayan artist and musician.',
         tags: ['Application Development', 'Fine Art', 'Custom CMS'],
         type: 'web',
-        order: 21,
+        order: 5,
         completedDate: 'February 2026',
       },
       {
@@ -553,7 +553,7 @@ export class SeedService implements OnModuleInit {
         content: 'Custom web application design and development for Hub Bicycle, focusing on user experience and brand consistency.',
         tags: ['Application Development', 'UI/UX', 'Angular'],
         type: 'web',
-        order: 22,
+        order: 6,
         completedDate: 'February 2026',
       },
       {
@@ -573,7 +573,7 @@ export class SeedService implements OnModuleInit {
         content: 'A comprehensive web platform designed to showcase high-end corporate solutions and technology services.',
         tags: ['Application Development', 'UI/UX Design', 'Development'],
         type: 'web',
-        order: 23,
+        order: 7,
         completedDate: 'March 2026',
       },
       {
