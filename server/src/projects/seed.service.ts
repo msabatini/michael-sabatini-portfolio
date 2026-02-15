@@ -7,12 +7,13 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v27]...');
+    this.logger.log('Starting project seeding process [v28]...');
     try {
+      console.log('SEEDER: Checking if seeding is needed...');
+      // We always clear and re-seed to ensure consistency across environments
       console.log('SEEDER: Clearing database...');
       await this.projectsService.clearAll();
       console.log('SEEDER: Database cleared.');
-      this.logger.log('Database cleared successfully.');
 
       const initialProjects = [
       {
@@ -734,8 +735,12 @@ export class SeedService implements OnModuleInit {
     ];
 
     for (const projectData of initialProjects) {
-      const created = await this.projectsService.create(projectData);
-      this.logger.log(`Added project: ${created.title} (ID: ${created.id}, Type: ${created.type}, Order: ${created.order})`);
+      try {
+        const created = await this.projectsService.create(projectData);
+        this.logger.log(`Added project: ${created.title} (ID: ${created.id}, Type: ${created.type}, Order: ${created.order})`);
+      } catch (e) {
+        this.logger.error(`Failed to add project ${projectData.title}:`, e);
+      }
     }
     this.logger.log('Project seeding completed successfully.');
     } catch (error) {
