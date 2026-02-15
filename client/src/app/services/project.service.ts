@@ -13,6 +13,8 @@ export class ProjectService {
   private baseApiUrl = environment.apiUrl;
 
   private normalizeProject(project: Project): Project {
+    if (!project) return project;
+
     // Normalize Tags
     if (project.tags) {
       const defaultTags = ['Full-Stack', 'UI/UX', 'Responsive', 'Development', 'Software', 'Digital'];
@@ -29,7 +31,10 @@ export class ProjectService {
     }
 
     // Prepend API URL to relative asset paths
-    const apiUrl = environment.apiUrl;
+    const apiUrl = environment.apiUrl ? (environment.apiUrl.endsWith('/') 
+      ? environment.apiUrl.slice(0, -1) 
+      : environment.apiUrl) : '';
+
     if (project.imageUrl && project.imageUrl.startsWith('/assets/')) {
       project.imageUrl = `${apiUrl}${project.imageUrl}`;
     }
