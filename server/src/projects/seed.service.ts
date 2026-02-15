@@ -7,7 +7,7 @@ export class SeedService implements OnModuleInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   async onModuleInit() {
-    this.logger.log('Starting project seeding process [v30]...');
+    this.logger.log('Starting project seeding process [v31]...');
     try {
       console.log('SEEDER: Checking if seeding is needed...');
       // We always clear and re-seed to ensure consistency across environments
