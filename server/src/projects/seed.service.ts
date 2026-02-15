@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v43';
+    const SEEDER_VERSION = 'v44';
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -60,6 +60,7 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         gallery: [
           '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+          '/assets/projects/farmland/FarmlandConsulting_sticker-mockup.jpg',
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/Farmland_Letterhead_folder.png',
           '/assets/projects/farmland/Farmland_Letterhead.png',
