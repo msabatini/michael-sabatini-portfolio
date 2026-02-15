@@ -31,8 +31,11 @@ export class ProjectService {
         project.tags = tags;
       }
 
-      /* Prepend API URL only if images are served from backend. 
-         Currently images are bundled with the frontend assets.
+      // Prepend API URL to relative asset paths
+      const apiUrl = environment.apiUrl ? (environment.apiUrl.endsWith('/') 
+        ? environment.apiUrl.slice(0, -1) 
+        : environment.apiUrl) : '';
+
       if (project.imageUrl && typeof project.imageUrl === 'string' && project.imageUrl.startsWith('/assets/')) {
         project.imageUrl = `${apiUrl}${project.imageUrl}`;
       }
@@ -44,7 +47,6 @@ export class ProjectService {
           (img && typeof img === 'string' && img.startsWith('/assets/')) ? `${apiUrl}${img}` : img
         );
       }
-      */
     } catch (e) {
       console.error('Error normalizing project:', e, project);
     }
