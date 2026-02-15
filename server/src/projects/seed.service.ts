@@ -14,7 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v45';
+    const SEEDER_VERSION = 'v61';
+    this.logger.log(`FORCE SEED: v61`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -49,7 +50,7 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
         content: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
         tags: ['Branding', 'Print', 'Apparel Design'],
-        type: 'print-only',
+        type: 'web,print',
         layout: 'grid-2',
         order: 0,
         completedDate: 'February 2026',
@@ -57,22 +58,21 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Farmland Consulting',
         description: 'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
-        imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        imageUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
         gallery: [
-          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+          '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+          '/assets/projects/farmland/envelope-mockup.jpg',
+          '/assets/projects/farmland/business_card_mockup.jpg',
           '/assets/projects/farmland/FarmlandConsulting_sticker-mockup.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/Farmland_Letterhead_folder.png',
           '/assets/projects/farmland/Farmland_Letterhead.png',
-          '/assets/projects/farmland/FarmlandConsulting_businesscard-front.png',
-          '/assets/projects/farmland/FarmlandConsulting_businesscard-back.png',
-          '/assets/projects/farmland/FarmlandConsulting_envelope.png',
-          '/assets/projects/farmland/business_card_mockup.jpg',
+          '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
+          '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
         ],
-        mockupUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
+        mockupUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
-        type: 'print-only',
+        type: 'web,print',
         order: 1,
         layout: 'grid-2',
         completedDate: 'January 2026',
