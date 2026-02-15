@@ -35,17 +35,6 @@ export class ProjectDetail implements OnInit {
               return;
             }
             
-            // Prepend API URL to image paths if they are relative
-            if (data.imageUrl && data.imageUrl.startsWith('/assets/')) {
-              data.imageUrl = `${this.apiUrl}${data.imageUrl}`;
-            }
-            if (data.gallery) {
-              data.gallery = data.gallery.map(img => img.startsWith('/assets/') ? `${this.apiUrl}${img}` : img);
-            }
-            if (data.mockupUrl && data.mockupUrl.startsWith('/assets/')) {
-              data.mockupUrl = `${this.apiUrl}${data.mockupUrl}`;
-            }
-
             this.project = data;
             this.seoService.updateMetaTags({
               title: data.title,

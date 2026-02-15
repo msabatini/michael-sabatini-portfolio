@@ -36,18 +36,6 @@ export class Print implements OnInit {
       next: (data) => {
         const filtered = data.filter(p => {
           const type = (p.type || '').toLowerCase();
-          
-          // Prepend API URL to image paths if they are relative
-          if (p.imageUrl && p.imageUrl.startsWith('/assets/')) {
-            p.imageUrl = `${this.apiUrl}${p.imageUrl}`;
-          }
-          if (p.gallery) {
-            p.gallery = p.gallery.map(img => img.startsWith('/assets/') ? `${this.apiUrl}${img}` : img);
-          }
-          if (p.mockupUrl && p.mockupUrl.startsWith('/assets/')) {
-            p.mockupUrl = `${this.apiUrl}${p.mockupUrl}`;
-          }
-
           return type.includes('print');
         });
         this.projects.set(filtered);
