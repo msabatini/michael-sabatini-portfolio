@@ -7,6 +7,8 @@ import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 import { Carousel } from '../carousel/carousel';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-project-detail',
   standalone: true,
@@ -20,6 +22,7 @@ export class ProjectDetail implements OnInit {
   private projectService = inject(ProjectService);
   private seoService = inject(SeoService);
   project: Project | null = null;
+  apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -31,6 +34,18 @@ export class ProjectDetail implements OnInit {
               this.router.navigate(['/404'], { skipLocationChange: true });
               return;
             }
+            
+            // Prepend API URL to image paths if they are relative
+            if (data.imageUrl && data.imageUrl.startsWith('/assets/')) {
+              data.imageUrl = `${this.apiUrl}${data.imageUrl}`;
+            }
+            if (data.gallery) {
+              data.gallery = data.gallery.map(img => img.startsWith('/assets/') ? `${this.apiUrl}${img}` : img);
+            }
+            if (data.mockupUrl && data.mockupUrl.startsWith('/assets/')) {
+              data.mockupUrl = `${this.apiUrl}${data.mockupUrl}`;
+            }
+
             this.project = data;
             this.seoService.updateMetaTags({
               title: data.title,

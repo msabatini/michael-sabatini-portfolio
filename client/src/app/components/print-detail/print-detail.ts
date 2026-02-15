@@ -6,6 +6,8 @@ import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-print-detail',
   standalone: true,
@@ -17,6 +19,7 @@ export class PrintDetail implements OnInit {
   private route = inject(ActivatedRoute);
   private seoService = inject(SeoService);
   private projectService = inject(ProjectService);
+  apiUrl = environment.apiUrl;
   
   project = signal<Project | null>(null);
 
@@ -30,6 +33,17 @@ export class PrintDetail implements OnInit {
   loadProject(id: number) {
     this.projectService.getProject(id).subscribe({
       next: (proj) => {
+        // Prepend API URL to image paths if they are relative
+        if (proj.imageUrl && proj.imageUrl.startsWith('/assets/')) {
+          proj.imageUrl = `${this.apiUrl}${proj.imageUrl}`;
+        }
+        if (proj.gallery) {
+          proj.gallery = proj.gallery.map(img => img.startsWith('/assets/') ? `${this.apiUrl}${img}` : img);
+        }
+        if (proj.mockupUrl && proj.mockupUrl.startsWith('/assets/')) {
+          proj.mockupUrl = `${this.apiUrl}${proj.mockupUrl}`;
+        }
+
         this.project.set(proj);
         this.seoService.updateMetaTags({
           title: `${proj.title} | Graphic Design`,

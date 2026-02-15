@@ -37,6 +37,18 @@ export class Projects implements OnInit {
         this.projects = data.filter(p => {
           const type = (p.type || '').toLowerCase();
           const isWeb = type.includes('web');
+          
+          // Prepend API URL to image paths if they are relative
+          if (p.imageUrl && p.imageUrl.startsWith('/assets/')) {
+            p.imageUrl = `${this.apiUrl}${p.imageUrl}`;
+          }
+          if (p.gallery) {
+            p.gallery = p.gallery.map(img => img.startsWith('/assets/') ? `${this.apiUrl}${img}` : img);
+          }
+          if (p.mockupUrl && p.mockupUrl.startsWith('/assets/')) {
+            p.mockupUrl = `${this.apiUrl}${p.mockupUrl}`;
+          }
+
           console.log(`Project: ${p.title}, Type: ${p.type}, isWeb: ${isWeb}`);
           return isWeb;
         });
