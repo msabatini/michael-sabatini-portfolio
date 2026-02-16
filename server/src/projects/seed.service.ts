@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v76';
-    this.logger.log(`FORCE SEED: v76`);
+    const SEEDER_VERSION = 'v77';
+    this.logger.log(`FORCE SEED: v77`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -760,6 +760,25 @@ export class SeedService implements OnModuleInit {
         layout: 'grid-2',
         order: 20,
         completedDate: 'June 2026',
+      },
+      {
+        title: 'Findash',
+        description: 'Comprehensive brand identity for a financial technology firm specializing in data visualization and dashboard solutions.',
+        imageUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        gallery: [
+          '/assets/projects/findash/findash-stationary-mockup.jpg',
+          '/assets/projects/findash/findash-bizcard-mockup.jpg',
+          '/assets/projects/findash/findash-brochure.jpg',
+          '/assets/projects/findash/findash-envelope-mockup.jpg',
+          '/assets/projects/findash/findash-logo.jpg',
+        ],
+        mockupUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        content: 'Findash is a cutting-edge fintech company that provides advanced dashboard technology for financial institutions. The branding project focused on creating a clean, professional, and tech-forward visual identity.',
+        tags: ['Branding', 'Print', 'FinTech'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 21,
+        completedDate: 'August 2026',
       },
     ];
 
