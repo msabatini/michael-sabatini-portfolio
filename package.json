@@ -1,6 +1,6 @@
 {
   "name": "michael-sabatini-portfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Portfolio Monorepo",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
