@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v87';
-    this.logger.log(`FORCE SEED: v87`);
+    const SEEDER_VERSION = 'v88';
+    this.logger.log(`FORCE SEED: v88`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
