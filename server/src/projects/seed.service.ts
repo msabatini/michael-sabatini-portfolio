@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v83';
-    this.logger.log(`FORCE SEED: v83`);
+    const SEEDER_VERSION = 'v84';
+    this.logger.log(`FORCE SEED: v84`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -61,11 +61,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
         ],
         mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
