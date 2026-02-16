@@ -40,6 +40,10 @@ export class ProjectService {
         if (!url || typeof url !== 'string') return url;
         // If it's already an absolute URL, return it
         if (url.startsWith('http://') || url.startsWith('https://')) return url;
+        
+        // In production, assets are served by the frontend from /assets
+        if (environment.production) return url;
+
         // If it starts with /assets/, prepend the API URL
         if (url.startsWith('/assets/')) {
           return `${apiUrl}${url}`;
