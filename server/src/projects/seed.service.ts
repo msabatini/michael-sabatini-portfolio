@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v86';
-    this.logger.log(`FORCE SEED: v86`);
+    const SEEDER_VERSION = 'v87';
+    this.logger.log(`FORCE SEED: v87`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -102,18 +102,11 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/farmland/farmland-stationary-mockup.jpg',
           '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup_insta.jpg',
           '/assets/projects/farmland/envelope-mockup.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_envelope.png',
           '/assets/projects/farmland/business_card_mockup.jpg',
-          '/assets/projects/farmland/FarmlandConsulting_businesscard-front.png',
-          '/assets/projects/farmland/FarmlandConsulting_businesscard-back.png',
           '/assets/projects/farmland/FarmlandConsulting_sticker-mockup.jpg',
-          '/assets/projects/farmland/Farmland_Letterhead_folder.png',
-          '/assets/projects/farmland/Farmland_Letterhead.png',
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
-          '/assets/projects/farmland/main_header_logo.jpg',
         ],
         mockupUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
