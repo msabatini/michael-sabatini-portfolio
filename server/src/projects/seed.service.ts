@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v95';
-    this.logger.log(`FORCE SEED: v95`);
+    const SEEDER_VERSION = 'v96';
+    this.logger.log(`FORCE SEED: v96`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -154,14 +154,13 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/landrys/landrys-business-card-mockup.jpg',
         gallery: [
           '/assets/projects/landrys/landrys-business-card-mockup.jpg',
-          '/assets/projects/landrys/landrys-jersey-mockup.png',
+          '/assets/projects/landrys/landrys-jersey.png',
           '/assets/projects/landrys/landrys_seal_final.png',
           '/assets/projects/landrys/landrys_seal_polo-shirt-blue.jpg',
           '/assets/projects/landrys/landrys_seal_t-shirt-blue.jpg',
           '/assets/projects/landrys/landrys_seal_t-shirt-white.jpg',
           '/assets/projects/landrys/landrys-business-card-front.jpg',
           '/assets/projects/landrys/landrys-business-card-back.jpg',
-          '/assets/projects/landrys/landrys-sticker-mockup.jpg',
         ],
         mockupUrl: '/assets/projects/landrys/landrys-business-card-mockup.jpg',
         content: "Landry's Bicycles project involved a comprehensive rebranding effort, focusing on a clean, modern aesthetic that pays homage to their deep roots in the New England cycling community.",
