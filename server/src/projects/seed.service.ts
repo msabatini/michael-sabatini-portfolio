@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v77';
-    this.logger.log(`FORCE SEED: v77`);
+    const SEEDER_VERSION = 'v83';
+    this.logger.log(`FORCE SEED: v83`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -31,6 +31,50 @@ export class SeedService implements OnModuleInit {
       console.log('SEEDER: Database cleared.');
 
       const initialProjects = [
+      {
+        title: 'Findash',
+        description: 'Comprehensive brand identity for a financial technology firm specializing in data visualization and dashboard solutions.',
+        imageUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        gallery: [
+          '/assets/projects/findash/findash-stationary-mockup.jpg',
+          '/assets/projects/findash/findash-bizcard-mockup.jpg',
+          '/assets/projects/findash/findash-brochure.jpg',
+          '/assets/projects/findash/findash-envelope-mockup.jpg',
+          '/assets/projects/findash/findash-logo.jpg',
+        ],
+        mockupUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        content: 'Findash is a cutting-edge fintech company that provides advanced dashboard technology for financial institutions. The branding project focused on creating a clean, professional, and tech-forward visual identity.',
+        tags: ['Branding', 'Print', 'FinTech'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 0,
+        completedDate: 'August 2026',
+      },
+      {
+        title: 'Pinnacle Solutions',
+        description: 'High-end corporate branding and digital presence for a global technology solutions provider.',
+        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+        gallery: [
+          '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
+        ],
+        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+        content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
+        tags: ['Branding', 'Print', 'Graphic Design'],
+        type: 'print-only',
+        order: 1,
+        layout: 'grid-2',
+        completedDate: 'March 2026',
+      },
       {
         title: 'The Service Course',
         description: 'Premium brand identity and technical apparel for a high-end cycling experience center.',
@@ -53,7 +97,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 0,
+        order: 2,
         completedDate: 'February 2026',
       },
       {
@@ -80,7 +124,7 @@ export class SeedService implements OnModuleInit {
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
-        order: 1,
+        order: 3,
         layout: 'grid-2',
         completedDate: 'January 2026',
       },
@@ -114,7 +158,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 2,
+        order: 4,
         completedDate: 'March 2026',
       },
       {
@@ -123,8 +167,7 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/landrys/landrys-business-card-mockup.jpg',
         gallery: [
           '/assets/projects/landrys/landrys-business-card-mockup.jpg',
-          '/assets/projects/landrys/landrys_seal_final.png',
-          '/assets/projects/landrys/Landrys-jersey.jpg',
+          '/assets/projects/landrys/landrys-jersey-mockup.png',
           '/assets/projects/landrys/landrys_seal_polo-shirt-blue.jpg',
           '/assets/projects/landrys/landrys_seal_t-shirt-blue.jpg',
           '/assets/projects/landrys/landrys_seal_t-shirt-white.jpg',
@@ -137,7 +180,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 3,
+        order: 5,
         completedDate: 'April 2026',
       },
       {
@@ -161,7 +204,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Film'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 4,
+        order: 6,
         completedDate: 'March 2026',
       },
       {
@@ -180,7 +223,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Apparel Design', 'Print'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 5,
+        order: 7,
         completedDate: 'February 2026',
       },
       {
@@ -199,33 +242,8 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Non-Profit'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 6,
+        order: 8,
         completedDate: 'April 2020',
-      },
-      {
-        title: 'Pinnacle Solutions',
-        description: 'High-end corporate branding and digital presence for a global technology solutions provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
-        gallery: [
-          '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle_logo.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-front-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup-back-white.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-bizcard-mockup.jpg',
-        ],
-        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
-        content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
-        tags: ['Branding', 'Print', 'Graphic Design'],
-        type: 'print-only',
-        order: 7,
-        layout: 'grid-2',
-        completedDate: 'March 2026',
       },
       {
         title: 'Hub Bicycle',
@@ -254,7 +272,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Signage', 'Web Design'],
         type: 'print-only',
         isFeatured: false,
-        order: 8,
+        order: 9,
         layout: 'grid-2',
         completedDate: 'February 2026',
       },
@@ -278,7 +296,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX', 'Digital Identity'],
         type: 'web',
         isFeatured: false,
-        order: 9,
+        order: 10,
         layout: 'grid-2',
         completedDate: 'April 2026',
       },
@@ -302,7 +320,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Strategy'],
         type: 'web',
         isFeatured: false,
-        order: 10,
+        order: 11,
         layout: 'grid-2',
         completedDate: 'May 2026',
       },
@@ -328,7 +346,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design', 'Digital Identity'],
         type: 'web',
         isFeatured: false,
-        order: 11,
+        order: 12,
         layout: 'grid-2',
         completedDate: 'June 2026',
       },
@@ -354,7 +372,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'UI/UX Design'],
         type: 'web',
         isFeatured: false,
-        order: 12,
+        order: 13,
         layout: 'grid-2',
         completedDate: 'July 2026',
       },
@@ -375,7 +393,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UI/UX Design', 'Branding', 'Digital Identity'],
         type: 'web',
         isFeatured: false,
-        order: 13,
+        order: 14,
         layout: 'grid-2',
         completedDate: 'August 2026',
       },
@@ -397,7 +415,7 @@ export class SeedService implements OnModuleInit {
         tags: ['UX/UI Design', 'Graphic Design', 'Insurance'],
         type: 'web',
         isFeatured: false,
-        order: 14,
+        order: 15,
         layout: 'grid-2',
         completedDate: 'July 2026',
         designSpecs: [
@@ -760,25 +778,6 @@ export class SeedService implements OnModuleInit {
         layout: 'grid-2',
         order: 20,
         completedDate: 'June 2026',
-      },
-      {
-        title: 'Findash',
-        description: 'Comprehensive brand identity for a financial technology firm specializing in data visualization and dashboard solutions.',
-        imageUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
-        gallery: [
-          '/assets/projects/findash/findash-stationary-mockup.jpg',
-          '/assets/projects/findash/findash-bizcard-mockup.jpg',
-          '/assets/projects/findash/findash-brochure.jpg',
-          '/assets/projects/findash/findash-envelope-mockup.jpg',
-          '/assets/projects/findash/findash-logo.jpg',
-        ],
-        mockupUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
-        content: 'Findash is a cutting-edge fintech company that provides advanced dashboard technology for financial institutions. The branding project focused on creating a clean, professional, and tech-forward visual identity.',
-        tags: ['Branding', 'Print', 'FinTech'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 21,
-        completedDate: 'August 2026',
       },
     ];
 
