@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v61';
-    this.logger.log(`FORCE SEED: v61`);
+    const SEEDER_VERSION = 'v68';
+    this.logger.log(`FORCE SEED: v68`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -163,9 +163,8 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/solo-century-cyclist/logo-glamour.png',
           '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
-          '/assets/projects/solo-century-cyclist/bizcard-front.jpg',
-          '/assets/projects/solo-century-cyclist/bizcard-back.jpg',
           '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
+          '/assets/projects/solo-century-cyclist/ssc-jersey.jpg',
           '/assets/projects/solo-century-cyclist/stickers.jpg',
         ],
         mockupUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
@@ -221,15 +220,19 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
         gallery: [
           '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
+          '/assets/projects/hub-bicycle/hub_bizcard-mockup.jpg',
+          '/assets/projects/hub-bicycle/hub_t-shirt-mockup.jpg',
+          '/assets/projects/hub-bicycle/HUB-jersey.png',
           '/assets/projects/hub-bicycle/hub-web-mockup.jpg',
-          '/assets/projects/hub-bicycle/hub_bizcard.png',
+          '/assets/projects/hub-bicycle/hub_bizcard-front.jpg',
+          '/assets/projects/hub-bicycle/hub_bizcard-back.jpg',
           '/assets/projects/hub-bicycle/hub-index.png',
           '/assets/projects/hub-bicycle/hub-about.png',
           '/assets/projects/hub-bicycle/hub-equipment.png',
           '/assets/projects/hub-bicycle/hub-service.png',
-          '/assets/projects/hub-bicycle/hub-icons.png',
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_front.jpg',
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_back.jpg',
+          '/assets/projects/hub-bicycle/hub-icons.png',
         ],
         mockupUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
         content: 'Hub Bicycle is a community-focused bike shop specializing in urban commuting and custom builds.',
@@ -732,7 +735,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/kit/JKIT-2025-Jersey12.jpg',
           '/assets/projects/kit/JKIT-2025-Jersey13.jpg',
           '/assets/projects/kit/JKIT-2025-Jersey14.jpg',
-          '/assets/projects/kit/KIT-2025-Jersey-Final.png',
           '/assets/projects/kit/Scene-01.jpg',
           '/assets/projects/kit/Scene-03.jpg',
         ],
