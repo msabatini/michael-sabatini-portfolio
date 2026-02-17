@@ -38,6 +38,12 @@ export class SettingsService implements OnModuleInit {
         email: 'michael@example.com',
       });
       await this.settingsRepository.save(defaultSettings);
+    } else {
+      // Force update the bioLead to the new version if it's the old default
+      if (settings.bioLead === 'A passionate Front End Engineer with over 10 years of experience building modern web applications.') {
+        settings.bioLead = 'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.';
+        await this.settingsRepository.save(settings);
+      }
     }
   }
 
