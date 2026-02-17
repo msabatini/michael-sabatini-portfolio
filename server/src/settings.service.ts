@@ -22,7 +22,7 @@ export class SettingsService implements OnModuleInit {
         heroSubtitle:
           'Designing & building high-performance, accessible, and beautiful web experiences.',
         bioLead:
-          'A passionate Front End Engineer with over 10 years of experience building modern web applications.',
+          'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.',
         bioFull:
           "I specialize in building scalable, high-performance applications using Angular and NestJS. My focus is on creating intuitive user experiences that are both beautiful and accessible.\n\nWhen I'm not building, creating or envisioning, you can find me exploring new technologies, thinking about how we can make this world a better place, or enjoying a good cup of coffee after a long bike ride.",
         frontendSkills: ['Angular', 'TypeScript', 'SCSS / Tailwind', 'RxJS'],
