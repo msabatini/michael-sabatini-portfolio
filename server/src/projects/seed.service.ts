@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v105';
-    this.logger.log(`FORCE SEED: v105`);
+    const SEEDER_VERSION = 'v106';
+    this.logger.log(`FORCE SEED: v106`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -592,17 +592,25 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Pinnacle Solutions Web Site',
         description: 'Sophisticated enterprise web presence for a global technology provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-website-mockup.jpg',
+        imageUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
         gallery: [
-          '/assets/projects/pinnacle-solutions-web/pinnacle-website-mockup.jpg',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.50.31 PM.png',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.50.46 PM.png',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.51.35 PM.png',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.51.09 PM.png',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.51.26 PM.png',
-          '/assets/projects/pinnacle-solutions-web/Screenshot 2026-02-13 at 12.51.44 PM.png',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-index-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-services-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-services-page2.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-about-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-clients-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-clients-page2.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-client-benefits-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-human-capital-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-human-capital-page2.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-blog-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-blog-page2.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-white-papers-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-contact-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-contact-page2.jpg',
         ],
-        mockupUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-website-mockup.jpg',
+        mockupUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
         content: 'A comprehensive web platform designed to showcase high-end corporate solutions and technology services.',
         tags: ['Application Development', 'UI/UX Design', 'Development'],
         type: 'web',
