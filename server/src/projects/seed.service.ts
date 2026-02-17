@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v103';
-    this.logger.log(`FORCE SEED: v103`);
+    const SEEDER_VERSION = 'v104';
+    this.logger.log(`FORCE SEED: v104`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -121,6 +121,7 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
           '/assets/projects/soffra-brand/soffra-mockup.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-jersey.jpg',
           '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA_CLIMB-ATLAS-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-back.jpg',

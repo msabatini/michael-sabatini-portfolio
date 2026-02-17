@@ -22,7 +22,7 @@ export class SettingsService implements OnModuleInit {
         heroSubtitle:
           'Designing & building high-performance, accessible, and beautiful web experiences.',
         bioLead:
-          'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.',
+          'A passionate Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience, designing & building modern web applications.',
         bioFull:
           "I specialize in building scalable, high-performance applications using Angular and NestJS. My focus is on creating intuitive user experiences that are both beautiful and accessible.\n\nWhen I'm not building, creating or envisioning, you can find me exploring new technologies, thinking about how we can make this world a better place, or enjoying a good cup of coffee after a long bike ride.",
         frontendSkills: ['Angular', 'TypeScript', 'SCSS / Tailwind', 'RxJS'],
@@ -39,9 +39,10 @@ export class SettingsService implements OnModuleInit {
       });
       await this.settingsRepository.save(defaultSettings);
     } else {
-      // Force update the bioLead to the new version if it's the old default
-      if (settings.bioLead === 'A passionate Front End Engineer with over 10 years of experience building modern web applications.') {
-        settings.bioLead = 'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.';
+      // Force update the bioLead to the new version if it doesn't match
+      const targetBioLead = 'A passionate Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience, designing & building modern web applications.';
+      if (settings.bioLead !== targetBioLead) {
+        settings.bioLead = targetBioLead;
         await this.settingsRepository.save(settings);
       }
     }
