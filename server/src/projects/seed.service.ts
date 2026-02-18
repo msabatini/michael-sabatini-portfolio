@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v106';
-    this.logger.log(`FORCE SEED: v106`);
+    const SEEDER_VERSION = 'v110';
+    this.logger.log(`FORCE SEED: v110`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -60,8 +60,10 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
-          '/assets/projects/pinnacle-solutions/pinnacle-website-mockup.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-brochure1.jpg',
+          '/assets/projects/pinnacle-solutions/pinnacle-brochure2.jpg',
         ],
         mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
@@ -606,7 +608,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pinnacle-solutions-web/pinnacle-human-capital-page2.jpg',
           '/assets/projects/pinnacle-solutions-web/pinnacle-blog-page.jpg',
           '/assets/projects/pinnacle-solutions-web/pinnacle-blog-page2.jpg',
-          '/assets/projects/pinnacle-solutions-web/pinnacle-white-papers-page.jpg',
+          '/assets/projects/pinnacle-solutions-web/pinnacle-white-papers-page2.jpg',
           '/assets/projects/pinnacle-solutions-web/pinnacle-contact-page.jpg',
           '/assets/projects/pinnacle-solutions-web/pinnacle-contact-page2.jpg',
         ],
