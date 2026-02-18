@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v112';
-    this.logger.log(`FORCE SEED: v112`);
+    const SEEDER_VERSION = 'v113';
+    this.logger.log(`FORCE SEED: v113`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -739,7 +739,7 @@ export class SeedService implements OnModuleInit {
         content: 'A "devilish" and high-impact visual identity reflecting the difficulty of the race.',
         tags: ['Print', 'Apparel Design'],
         type: 'print-only',
-        layout: 'stack',
+        layout: 'grid-2',
         order: 19,
         completedDate: 'May 2026',
       },
