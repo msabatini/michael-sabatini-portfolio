@@ -40,7 +40,7 @@ export class SettingsService implements OnModuleInit {
       await this.settingsRepository.save(defaultSettings);
     } else {
       // Force update the bioLead to the new version if it doesn't match
-      const targetBioLead = 'A passionate Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience, designing & building modern web applications.';
+      const targetBioLead = 'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.';
       if (settings.bioLead !== targetBioLead) {
         settings.bioLead = targetBioLead;
         await this.settingsRepository.save(settings);
