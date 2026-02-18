@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v111';
-    this.logger.log(`FORCE SEED: v111`);
+    const SEEDER_VERSION = 'v112';
+    this.logger.log(`FORCE SEED: v112`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -729,6 +729,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/hellhole/HellHole.jpg',
           '/assets/projects/hellhole/Hellhole5_T-Shirt_Mockup_Front.jpg',
           '/assets/projects/hellhole/Number6-Tshirt-MockUp.jpg',
+          '/assets/projects/hellhole/HellHole-no6.jpg',
           '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Back.jpg',
           '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Front.jpg',
           '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic_Back.jpg',
