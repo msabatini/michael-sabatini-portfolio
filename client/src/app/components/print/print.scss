@@ -81,6 +81,7 @@
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-10px);
