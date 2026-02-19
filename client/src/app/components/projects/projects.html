@@ -22,7 +22,7 @@
       } @else {
         <!-- Debug: {{ projects.length }} projects found -->
         @for (project of projects; track project.id) {
-          <div class="project-card" [routerLink]="['/projects', project.id]">
+          <div class="project-card" [routerLink]="['/web-apps', project.id]">
             @if (project.imageUrl) {
               <div class="project-image">
                 <img [src]="project.imageUrl" [alt]="project.title">

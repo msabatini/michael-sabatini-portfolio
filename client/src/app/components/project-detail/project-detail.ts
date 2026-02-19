@@ -40,7 +40,7 @@ export class ProjectDetail implements OnInit {
               title: data.title,
               description: data.description,
               image: this.project.imageUrl,
-              url: `projects/${id}`
+              url: `web-apps/${id}`
             });
           },
           error: (err) => {

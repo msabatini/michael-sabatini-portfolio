@@ -25,9 +25,9 @@ export class Projects implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'Projects',
+      title: 'Web Apps',
       description: 'Explore a showcase of my latest work, including web applications, design systems, and creative experiments.',
-      url: 'projects'
+      url: 'web-apps'
     });
 
     this.isLoading = true;

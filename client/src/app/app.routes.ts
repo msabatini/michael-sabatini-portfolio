@@ -15,10 +15,10 @@ import { AdminDashboard } from './components/admin-dashboard/admin-dashboard';
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'resume', component: Resume },
-  { path: 'projects', component: Projects },
+  { path: 'web-apps', component: Projects },
   { path: 'print', component: Print },
   { path: 'print/:id', component: PrintDetail },
-  { path: 'projects/:id', component: ProjectDetail },
+  { path: 'web-apps/:id', component: ProjectDetail },
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
   { path: 'quick-estimate', component: QuickEstimate },

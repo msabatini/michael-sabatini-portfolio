@@ -13,8 +13,8 @@
         </h1>
         <p class="subtitle">{{ settings()?.heroSubtitle || 'Designing & building high-performance, accessible, and beautiful web experiences.' }}</p>
         <div class="cta-group">
-          <a routerLink="/projects" class="btn btn-primary">
-            View Projects
+          <a routerLink="/web-apps" class="btn btn-primary">
+            View Web Apps
             <app-icon name="chevron-right" [size]="18"></app-icon>
           </a>
           <a routerLink="/quick-estimate" class="btn btn-accent">
@@ -35,7 +35,7 @@
 
     <div class="featured-grid">
       @for (project of featuredProjects; track project.id) {
-        <div class="project-card" [routerLink]="['/projects', project.id]">
+        <div class="project-card" [routerLink]="['/web-apps', project.id]">
           <div class="project-image">
             <img [src]="project.imageUrl" [alt]="project.title">
             <div class="project-overlay">
@@ -61,8 +61,8 @@
     </div>
     
     <div class="see-all">
-      <a routerLink="/projects" class="btn btn-outline">
-        View All Projects
+      <a routerLink="/web-apps" class="btn btn-outline">
+        View All Web Apps
         <app-icon name="chevron-right" [size]="18"></app-icon>
       </a>
     </div>
