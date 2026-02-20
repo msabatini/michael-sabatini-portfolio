@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v114';
-    this.logger.log(`FORCE SEED: v114`);
+    const SEEDER_VERSION = 'v115';
+    this.logger.log(`FORCE SEED: v115`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -245,10 +245,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/hub-bicycle/hub-web-mockup.jpg',
           '/assets/projects/hub-bicycle/hub_bizcard-front.jpg',
           '/assets/projects/hub-bicycle/hub_bizcard-back.jpg',
-          '/assets/projects/hub-bicycle/hub-index.png',
-          '/assets/projects/hub-bicycle/hub-about.png',
-          '/assets/projects/hub-bicycle/hub-equipment.png',
-          '/assets/projects/hub-bicycle/hub-service.png',
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_front.jpg',
           '/assets/projects/hub-bicycle/hubbicycle_hangtag_back.jpg',
           '/assets/projects/hub-bicycle/hub-signage.jpg',
@@ -580,10 +576,6 @@ export class SeedService implements OnModuleInit {
         imageUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
         gallery: [
           '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
-          '/assets/projects/hub-bicycle-web/hub-index.png',
-          '/assets/projects/hub-bicycle-web/hub-about.png',
-          '/assets/projects/hub-bicycle-web/hub-equipment.png',
-          '/assets/projects/hub-bicycle-web/hub-service.png',
         ],
         mockupUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
         content: 'Custom web application design and development for Hub Bicycle, focusing on user experience and brand consistency.',
