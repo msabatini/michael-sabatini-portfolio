@@ -39,12 +39,15 @@ export class SettingsService implements OnModuleInit {
       });
       await this.settingsRepository.save(defaultSettings);
     } else {
-      // Force update the bioLead to the new version if it doesn't match
-      const targetBioLead = 'A Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience building modern web applications.';
-      if (settings.bioLead !== targetBioLead) {
-        settings.bioLead = targetBioLead;
-        await this.settingsRepository.save(settings);
-      }
+      // Force update the bioLead and skills to the new version
+      const targetBioLead = 'Senior Graphic Designer with 15+ years of experience in brand strategy, visual storytelling, and high-impact creative execution, supported by 10+ years of front-end development experience. Proven track record of contributing to over $5M in revenue through strategic proposal design, brand initiatives, and results-driven marketing campaigns. Specialized in UI/UX design, brand systems, marketing collateral, and print production, with advanced proficiency in Adobe Creative Suite. Experienced in designing and building responsive websites using HTML, CSS, and JavaScript, bridging design vision with technical implementation. Delivers cohesive, user-focused creative solutions that strengthen brand identity, enhance engagement, and drive measurable business results.';
+      
+      settings.bioLead = targetBioLead;
+      settings.frontendSkills = ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'Sass', 'Responsive design', 'Bootstrap', 'Component libraries', 'UI frameworks', 'Mobile-first engineering', 'Google Maps', 'Google Charts', 'Cross-browser compatibility', 'Accessibility', 'Code quality', 'Unit testing'];
+      settings.backendSkills = ['Node.js', 'NestJS', 'MongoDB', 'PostgreSQL', 'RESTful APIs'];
+      settings.toolSkills = ['Agile Methodology', 'Version Control Systems', 'Jira', 'GitHub', 'Bitbucket', 'VS Code', 'AI Pair Programmers'];
+      
+      await this.settingsRepository.save(settings);
     }
   }
 
