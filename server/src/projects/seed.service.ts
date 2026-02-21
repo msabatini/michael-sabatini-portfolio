@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v115';
-    this.logger.log(`FORCE SEED: v115`);
+    const SEEDER_VERSION = 'v116';
+    this.logger.log(`FORCE SEED: v116`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -41,6 +41,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/findash/findash-brochure.jpg',
           '/assets/projects/findash/findash-brochure-closeup.jpg',
           '/assets/projects/findash/findash-envelope-mockup.jpg',
+          '/assets/projects/findash/findash-web-mockup.jpg',
           '/assets/projects/findash/findash-logo.jpg',
         ],
         mockupUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',

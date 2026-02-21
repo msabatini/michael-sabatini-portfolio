@@ -1,41 +1,78 @@
 <article class="print-detail-view fade-in-animation">
   @if (project(); as p) {
-    <header class="detail-hero" [class.has-background]="p.mockupUrl">
-      @if (p.mockupUrl) {
-        <div class="hero-background-image">
-          <img [src]="p.mockupUrl" alt="">
+    @if (p.title === 'Findash') {
+      <app-findash-hero></app-findash-hero>
+    } @else {
+      <header class="detail-hero" [class.has-background]="p.mockupUrl">
+        @if (p.mockupUrl) {
+          <div class="hero-background-image">
+            <img [src]="p.mockupUrl" alt="">
+          </div>
+          <div class="hero-overlay"></div>
+        }
+        <div class="container">
+          <a routerLink="/print" class="back-btn">
+            <app-icon name="chevron-left" [size]="16"></app-icon> Back to Print
+          </a>
+          <div class="hero-content">
+            <div class="meta">{{ p.tags?.[0] || 'Design' }} &bull; {{ p.completedDate }}</div>
+            <h1 class="title">{{ p.title }}</h1>
+            <p class="lead">{{ p.description }}</p>
+          </div>
         </div>
-        <div class="hero-overlay"></div>
-      }
-      <div class="container">
-        <a routerLink="/print" class="back-btn">
-          <app-icon name="chevron-left" [size]="16"></app-icon> Back to Print
-        </a>
-        <div class="hero-content">
-          <div class="meta">{{ p.tags?.[0] || 'Design' }} &bull; {{ p.completedDate }}</div>
-          <h1 class="title">{{ p.title }}</h1>
-          <p class="lead">{{ p.description }}</p>
-        </div>
-      </div>
-    </header>
+      </header>
+    }
 
     <div class="container detail-body">
-      <div class="detail-layout">
-        <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
-          <!-- Large Format Visuals -->
-          @for (img of p.gallery; track img; let i = $index) {
-            <div class="visual-item">
-              <img [src]="img" [alt]="p.title + ' view ' + (i + 1)">
+      @if (p.title === 'Findash') {
+        <a routerLink="/print" class="back-btn">Back to Print</a>
+      }
+      @if (p.title === 'Findash') {
+        <!-- Findash layout -->
+        <div class="findash-main-layout">
+          <main class="visual-storyboard findash-layout">
+            <!-- Featured web mockup - full width -->
+            <div class="visual-item featured-item">
+              <img src="/assets/projects/findash/findash-web-mockup.jpg" alt="Findash Web Mockup">
             </div>
-          }
+            <!-- Two-column grid for remaining items -->
+            <div class="findash-grid">
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-stationary-mockup.jpg" alt="Findash Stationery">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-bizcard-mockup.jpg" alt="Findash Business Card">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-brochure.jpg" alt="Findash Brochure">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-envelope-mockup.jpg" alt="Findash Envelope">
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else {
+        <div class="detail-layout">
+          <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
+            @for (img of p.gallery; track img; let i = $index) {
+              <div class="visual-item">
+                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)">
+              </div>
+            }
+          </main>
 
           <section class="project-narrative">
             <h2>The Process</h2>
             <p>{{ p.content }}</p>
           </section>
-        </main>
 
-        <aside class="design-specs">
+          <aside class="design-specs">
           <div class="spec-card">
             <h3>Project Info</h3>
             <div class="info-row">
@@ -67,7 +104,8 @@
             </div>
           }
         </aside>
-      </div>
+        </div>
+      }
     </div>
   } @else {
     <div class="loading-container">
@@ -75,3 +113,40 @@
     </div>
   }
 </article>
+
+@if (project(); as p) {
+  @if (p.title === 'Findash') {
+    <aside class="design-specs findash-sidebar">
+      <div class="spec-card">
+        <h3>Project Info</h3>
+        <div class="info-row">
+          <span class="label">Client</span>
+          <span class="value">{{ p.title }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Year</span>
+          <span class="value">{{ p.completedDate }}</span>
+        </div>
+      </div>
+
+      @if (p.designSpecs && p.designSpecs.length > 0) {
+        <div class="spec-card">
+          <h3>Design Specs</h3>
+          <div class="specs-list">
+            @for (spec of p.designSpecs; track spec.label) {
+              <div class="spec-item" [class.color-spec]="spec.type === 'color'">
+                @if (spec.type === 'color') {
+                  <div class="color-swatch" [style.background-color]="spec.value"></div>
+                }
+                <div class="spec-meta">
+                  <span class="spec-label">{{ spec.label }}</span>
+                  <span class="spec-value">{{ spec.value }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </aside>
+  }
+}

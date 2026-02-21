@@ -106,7 +106,27 @@
   }
 
   .detail-body {
-    padding-top: 4rem;
+    padding-top: 2rem;
+
+    &:has(.findash-main-layout) {
+      padding-top: 0.5rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 20px;
+      opacity: 0.75;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   .detail-layout {
@@ -124,6 +144,43 @@
     flex-direction: column;
     gap: 3rem;
 
+    .featured-item {
+      grid-column: 1 / -1;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .findash-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      width: 100%;
+      margin-bottom: 3rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-item:nth-child(2),
+      .visual-item:nth-child(3) {
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .findash-main-layout {
+    width: 100%;
+  }
+
+  .findash-layout {
+    width: 100%;
+  }
+
+  .visual-storyboard {
     &.grid, &.grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -217,7 +274,7 @@
     .info-row {
       display: flex;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 1.25rem 0;
       border-bottom: 1px solid var(--border-color);
       font-size: 0.95rem;
 
@@ -272,4 +329,76 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.findash-sidebar {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  width: 280px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem 1.5rem;
+  z-index: 100;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .spec-card {
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+
+    &:first-child {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    &:not(:first-child) {
+      padding-top: 0;
+    }
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      color: var(--text-muted);
+    }
+
+    .value {
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    position: static;
+    width: 100%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background: transparent;
+    border-radius: 0;
+    right: auto;
+    top: auto;
+    box-shadow: none;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }

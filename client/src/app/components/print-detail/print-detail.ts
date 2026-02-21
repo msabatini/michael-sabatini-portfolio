@@ -5,13 +5,14 @@ import { SeoService } from '../../services/seo';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { Icon } from '../icon/icon';
+import { FindashHero } from '../findash-hero/findash-hero';
 
 import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-print-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, Icon],
+  imports: [CommonModule, RouterModule, Icon, FindashHero],
   templateUrl: './print-detail.html',
   styleUrl: './print-detail.scss',
 })
