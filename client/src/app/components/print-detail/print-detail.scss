@@ -334,7 +334,7 @@
 .findash-sidebar {
   position: fixed;
   top: 120px;
-  right: 20px;
+  right: 0;
   width: 280px;
   height: fit-content;
   display: flex;
@@ -386,16 +386,18 @@
   @media (max-width: 1024px) {
     position: static;
     width: 100%;
-    padding: 0;
+    padding: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
-    background: transparent;
-    border-radius: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
     right: auto;
     top: auto;
-    box-shadow: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    order: -1;
   }
 
   @media (max-width: 768px) {
