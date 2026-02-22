@@ -109,17 +109,21 @@
         <div [ngClass]="{'soffra-main-layout': p.title === 'SOFFRA.io', 'solo-main-layout': p.title === 'Solo Century Cyclist', 'hingham-main-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-main-layout': p.title === 'Hub Bicycle'}">
           <main [ngClass]="{'visual-storyboard': true, 'soffra-layout': p.title === 'SOFFRA.io', 'solo-layout': p.title === 'Solo Century Cyclist', 'hingham-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-layout': p.title === 'Hub Bicycle'}">
             <!-- Featured item - full width -->
-            <div class="visual-item featured-item">
-              <img [src]="p.gallery[0]" [alt]="p.title + ' featured'" [attr.data-modal-src]="p.gallery[0]" [attr.data-meta]="p.title + ' • Featured'">
-            </div>
+            @if (p.gallery && p.gallery.length > 0) {
+              <div class="visual-item featured-item">
+                <img [src]="p.gallery[0]" [alt]="p.title + ' featured'" [attr.data-modal-src]="p.gallery[0]" [attr.data-meta]="p.title + ' • Featured'">
+              </div>
+            }
             <!-- Two-column grid for remaining items -->
-            <div [ngClass]="{'soffra-grid': p.title === 'SOFFRA.io', 'solo-grid': p.title === 'Solo Century Cyclist', 'hingham-grid': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-grid': p.title === 'Hub Bicycle'}">
-              @for (img of p.gallery.slice(1); track img; let i = $index) {
-                <div class="visual-item">
-                  <img [src]="img" [alt]="p.title + ' view ' + (i + 2)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 2)">
-                </div>
-              }
-            </div>
+            @if (p.gallery && p.gallery.length > 1) {
+              <div [ngClass]="{'soffra-grid': p.title === 'SOFFRA.io', 'solo-grid': p.title === 'Solo Century Cyclist', 'hingham-grid': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-grid': p.title === 'Hub Bicycle'}">
+                @for (img of p.gallery.slice(1); track img; let i = $index) {
+                  <div class="visual-item">
+                    <img [src]="img" [alt]="p.title + ' view ' + (i + 2)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 2)">
+                  </div>
+                }
+              </div>
+            }
           </main>
         </div>
 
