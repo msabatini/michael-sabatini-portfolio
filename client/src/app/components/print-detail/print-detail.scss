@@ -139,6 +139,21 @@
     }
   }
 
+  .project-intro {
+    grid-column: 1 / -1;
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-color);
+      margin-bottom: 1.25rem;
+
+      &:last-child {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
   .visual-storyboard {
     display: flex;
     flex-direction: column;

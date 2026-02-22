@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v116';
-    this.logger.log(`FORCE SEED: v116`);
+    const SEEDER_VERSION = 'v123';
+    this.logger.log(`FORCE SEED: v123`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -83,8 +83,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/the-service-course/mockup-5.jpg',
           '/assets/projects/the-service-course/stickers.jpg',
           '/assets/projects/the-service-course/mockup-4.jpg',
-          '/assets/projects/the-service-course/scene-09.jpg',
-          '/assets/projects/the-service-course/tshirt.jpg',
           '/assets/projects/the-service-course/tag-mockup.jpg',
           '/assets/projects/the-service-course/tag.jpg',
         ],
@@ -135,12 +133,8 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-back.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-front.jpg',
-          '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-mens.png',
-          '/assets/projects/soffra-brand/Shop-ltd-ed-mountain-stripes-running-t-shirt-womens.png',
           '/assets/projects/soffra-brand/soffra-icon-for-strava-api.jpg',
           '/assets/projects/soffra-brand/forest-defense.jpg',
-          '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.53.44 PM.png',
-          '/assets/projects/soffra-brand/Screen Shot 2023-05-11 at 2.55.44 PM.png',
         ],
         mockupUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
@@ -155,14 +149,10 @@ export class SeedService implements OnModuleInit {
         description: 'New brand identity and visual systems for a legendary New England bicycle retailer.',
         imageUrl: '/assets/projects/landrys/landrys-business-card-mockup.jpg',
         gallery: [
+          '/assets/projects/landrys/landrys-business-card-back.jpg',
+          '/assets/projects/landrys/landrys-business-card-front.jpg',
           '/assets/projects/landrys/landrys-business-card-mockup.jpg',
           '/assets/projects/landrys/landrys-jersey.png',
-          '/assets/projects/landrys/landrys_seal_final.png',
-          '/assets/projects/landrys/landrys_seal_polo-shirt-blue.jpg',
-          '/assets/projects/landrys/landrys_seal_t-shirt-blue.jpg',
-          '/assets/projects/landrys/landrys_seal_t-shirt-white.jpg',
-          '/assets/projects/landrys/landrys-business-card-front.jpg',
-          '/assets/projects/landrys/landrys-business-card-back.jpg',
         ],
         mockupUrl: '/assets/projects/landrys/landrys-business-card-mockup.jpg',
         content: "Landry's Bicycles project involved a comprehensive rebranding effort, focusing on a clean, modern aesthetic that pays homage to their deep roots in the New England cycling community.",
@@ -172,30 +162,7 @@ export class SeedService implements OnModuleInit {
         order: 5,
         completedDate: 'April 2026',
       },
-      {
-        title: 'Dingo Films',
-        description: 'Dynamic brand identity and visual storytelling for an independent film production house.',
-        imageUrl: '/assets/projects/dingo/dingocard_IG4.jpg',
-        gallery: [
-          '/assets/projects/dingo/dingocard_IG4.jpg',
-          '/assets/projects/dingo/dingocard_IG3.jpg',
-          '/assets/projects/dingo/dingo1_glam.jpg',
-          '/assets/projects/dingo/dingo5_glam.jpg',
-          '/assets/projects/dingo/dingo-press-badge.jpg',
-          '/assets/projects/dingo/dingo-press-badge2.jpg',
-          '/assets/projects/dingo/dingo-tshirt1.jpg',
-          '/assets/projects/dingo/dingo-tshirt2.jpg',
-          '/assets/projects/dingo/dingocard_IG.jpg',
-          '/assets/projects/dingo/dingocard_IG2.jpg',
-        ],
-        mockupUrl: '/assets/projects/dingo/dingocard_IG4.jpg',
-        content: 'Dingo Films is an independent production company dedicated to bold, cinematic storytelling. The branding project focused on creating a raw, high-impact visual identity that reflects the grit and creativity of their film roster.',
-        tags: ['Branding', 'Print', 'Film'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 6,
-        completedDate: 'March 2026',
-      },
+
       {
         title: 'Solo Century Cyclist',
         description: 'Brand identity and custom apparel for a specialized endurance cycling initiative.',
@@ -737,37 +704,7 @@ export class SeedService implements OnModuleInit {
         order: 19,
         completedDate: 'May 2026',
       },
-      {
-        title: 'Keep It Tight Cycling Team Apparel',
-        description: 'High-performance technical apparel design for an elite regional cycling team.',
-        imageUrl: '/assets/projects/kit/KIT-logo-seal.jpg',
-        gallery: [
-          '/assets/projects/kit/KIT-logo-seal.jpg',
-          '/assets/projects/kit/KIT-2025-Jersey-Final.png',
-          '/assets/projects/kit/JKIT-2025-Jersey1.png',
-          '/assets/projects/kit/JKIT-2025-Jersey2.png',
-          '/assets/projects/kit/JKIT-2025-Jersey3.png',
-          '/assets/projects/kit/JKIT-2025-Jersey4.png',
-          '/assets/projects/kit/JKIT-2025-Jersey5.png',
-          '/assets/projects/kit/JKIT-2025-Jersey6.png',
-          '/assets/projects/kit/JKIT-2025-Jersey7.png',
-          '/assets/projects/kit/JKIT-2025-Jersey8.png',
-          '/assets/projects/kit/JKIT-2025-Jersey9.png',
-          '/assets/projects/kit/JKIT-2025-Jersey11.jpg',
-          '/assets/projects/kit/JKIT-2025-Jersey12.jpg',
-          '/assets/projects/kit/JKIT-2025-Jersey13.jpg',
-          '/assets/projects/kit/JKIT-2025-Jersey14.jpg',
-          '/assets/projects/kit/Scene-01.jpg',
-          '/assets/projects/kit/Scene-03.jpg',
-        ],
-        mockupUrl: '/assets/projects/kit/Scene-01.jpg',
-        content: 'A comprehensive kit that balances aerodynamic performance with a modern aesthetic.',
-        tags: ['Apparel Design', 'Branding'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 20,
-        completedDate: 'June 2026',
-      },
+
     ];
 
     for (const projectData of initialProjects) {

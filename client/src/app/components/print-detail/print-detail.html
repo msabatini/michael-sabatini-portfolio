@@ -34,6 +34,11 @@
         <a routerLink="/print" class="back-btn">Back to Print</a>
       }
       @if (p.title === 'Findash') {
+        <section class="project-intro">
+          <p>FINDASH is a financial performance dashboard designed to provide organizations with real-time visibility into cost, allocation, and operational efficiency. The platform consolidates complex financial data into a streamlined, intuitive interface, enabling leaders to track spend, identify inefficiencies, and make informed decisions with precision.</p>
+          <p>Built around clarity and usability, FINDASH transforms financial oversight from reactive reporting into proactive cost control.</p>
+        </section>
+
         <!-- Findash layout -->
         <div class="findash-main-layout">
           <main class="visual-storyboard findash-layout">
@@ -81,16 +86,16 @@
                 <figcaption>Stories & Reels • 1080×1920</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-728x90.jpg" alt="Display Leaderboard 728x90" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-728x90.jpg" data-meta="Display Leaderboard • 728×90">
-                <figcaption>Display Leaderboard • 728×90</figcaption>
-              </figure>
-              <figure class="ad-item">
                 <img src="/assets/projects/findash/ads/findash-ad-300x250.jpg" alt="Display 300x250" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-300x250.jpg" data-meta="Display • 300×250">
                 <figcaption>Display • 300×250</figcaption>
               </figure>
               <figure class="ad-item">
                 <img src="/assets/projects/findash/ads/findash-ad-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-600x300.jpg" data-meta="Display • 600×300">
                 <figcaption>Display • 600×300</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/findash/ads/findash-ad-728x90.jpg" alt="Display Leaderboard 728x90" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-728x90.jpg" data-meta="Display Leaderboard • 728×90">
+                <figcaption>Display Leaderboard • 728×90</figcaption>
               </figure>
             </div>
           </div>
@@ -102,6 +107,13 @@
         </section>
       } @else {
         <div class="detail-layout">
+          @if (p.title === 'Pinnacle Solutions') {
+            <section class="project-intro">
+              <p>Pinnacle Solutions is a workforce performance platform designed to transform organizational output by shifting the traditional 80/20 performance distribution toward an 80% high-performing workforce. Powered by patented Performance Quotient (PQ)™ cloud technology, the system measures daily performance behaviors against critical success factors and equips leaders with a structured blueprint for sustained overachievement.</p>
+              <p>The platform enables organizations to operationalize a High Performance Culture™, aligning accountability, leadership capability, and measurable results across every level of the enterprise.</p>
+            </section>
+          }
+
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
             @for (img of p.gallery; track img; let i = $index) {
               <div class="visual-item">
@@ -133,16 +145,16 @@
                     <figcaption>Stories & Reels • 1080×1920</figcaption>
                   </figure>
                   <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
-                    <figcaption>Display Leaderboard • 768×90</figcaption>
-                  </figure>
-                  <figure class="ad-item">
                     <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" alt="Display 300x600" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" data-meta="Display • 300×600">
                     <figcaption>Display • 300×600</figcaption>
                   </figure>
                   <figure class="ad-item">
                     <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" data-meta="Display • 600×300">
                     <figcaption>Display • 600×300</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
+                    <figcaption>Display Leaderboard • 768×90</figcaption>
                   </figure>
                 </div>
               </div>
