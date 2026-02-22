@@ -25,47 +25,59 @@
         <div class="skills-area">
           <div class="section-heading">
             <app-icon name="terminal" [size]="24"></app-icon>
-            <h2>Technical Skills</h2>
+            <h2>Skills & Tools</h2>
           </div>
           <div class="skills-grid">
-            <div class="skill-category">
-              <h3>Frontend</h3>
-              <ul>
-                @for (skill of settings()?.frontendSkills; track skill) {
-                  <li>{{ skill }}</li>
-                } @empty {
-                  <li>Angular</li>
-                  <li>TypeScript</li>
-                  <li>SCSS / Tailwind</li>
-                  <li>RxJS</li>
-                }
-              </ul>
+            <div class="skill-category skill-category-two-col">
+              <h3>Graphic Design</h3>
+              <div class="two-col-list">
+                <ul>
+                  @for (skill of settings()?.frontendSkills?.slice(0, 8); track skill) {
+                    <li>{{ skill }}</li>
+                  } @empty {
+                    <li>Graphic Design</li>
+                    <li>Adobe Creative Cloud</li>
+                    <li>Figma</li>
+                    <li>Digital Design</li>
+                  }
+                </ul>
+                <ul>
+                  @for (skill of settings()?.frontendSkills?.slice(8); track skill) {
+                    <li>{{ skill }}</li>
+                  } @empty {
+                    <li>Responsive design</li>
+                    <li>Communication</li>
+                    <li>Problem Solving</li>
+                  }
+                </ul>
+              </div>
             </div>
-            <div class="skill-category">
-              <h3>Backend</h3>
-              <ul>
-                @for (skill of settings()?.backendSkills; track skill) {
-                  <li>{{ skill }}</li>
-                } @empty {
-                  <li>NestJS</li>
-                  <li>Node.js</li>
-                  <li>PostgreSQL / SQLite</li>
-                  <li>RESTful APIs</li>
-                }
-              </ul>
-            </div>
-            <div class="skill-category">
-              <h3>Tools</h3>
-              <ul>
-                @for (skill of settings()?.toolSkills; track skill) {
-                  <li>{{ skill }}</li>
-                } @empty {
-                  <li>Git / GitHub</li>
-                  <li>Docker</li>
-                  <li>CI/CD Pipelines</li>
-                  <li>VS Code</li>
-                }
-              </ul>
+            <div class="skill-category skill-category-two-col">
+              <div class="two-col-header">
+                <h3>Frontend</h3>
+                <h3>Tools</h3>
+              </div>
+              <div class="two-col-list">
+                <ul>
+                  @for (skill of settings()?.backendSkills; track skill) {
+                    <li>{{ skill }}</li>
+                  } @empty {
+                    <li>JavaScript (ES6+)</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Sass</li>
+                  }
+                </ul>
+                <ul>
+                  @for (skill of settings()?.toolSkills; track skill) {
+                    <li>{{ skill }}</li>
+                  } @empty {
+                    <li>Jira</li>
+                    <li>GitHub</li>
+                    <li>VS Code</li>
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         </div>

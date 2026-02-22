@@ -108,10 +108,10 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     @media (min-width: 768px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -151,6 +151,30 @@
           color: var(--accent-color);
           font-weight: 800;
         }
+      }
+    }
+  }
+
+  .skill-category-two-col {
+    grid-column: 1 / -1;
+
+    .two-col-header {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
+      h3 {
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    .two-col-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
+      ul {
+        margin-bottom: 0;
       }
     }
   }
