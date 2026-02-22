@@ -371,8 +371,6 @@
 
 .campaigns {
   padding: 4rem 1.5rem;
-  width: calc(100% + 320px);
-  margin-right: -320px;
 
   h2 {
     font-size: 1.75rem;
@@ -381,10 +379,14 @@
   }
 
   @media (max-width: 1024px) {
-    width: 100%;
-    margin-right: 0;
     padding: 4rem 0;
   }
+}
+
+.detail-layout .campaigns {
+  width: 100%;
+  margin-right: 0;
+  padding-right: 1.5rem;
 }
 
 .campaigns-description {
