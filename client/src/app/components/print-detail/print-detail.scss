@@ -195,6 +195,69 @@
     width: 100%;
   }
 
+  .soffra-main-layout,
+  .solo-main-layout,
+  .hingham-main-layout,
+  .hub-main-layout {
+    width: 100%;
+  }
+
+  .soffra-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .featured-item {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .solo-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hingham-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hub-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .soffra-grid,
+  .solo-grid,
+  .hingham-grid,
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .visual-item {
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
   .visual-storyboard {
     &.grid, &.grid-3 {
       display: grid;
