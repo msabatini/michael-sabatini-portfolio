@@ -25,6 +25,11 @@
     
 
     <div class="container detail-body">
+      @if (p.title !== 'Findash') {
+        <a routerLink="/print" class="back-btn">
+          <app-icon name="chevron-left" [size]="16"></app-icon> Back to Print
+        </a>
+      }
       @if (p.title === 'Findash') {
         <a routerLink="/print" class="back-btn">Back to Print</a>
       }
@@ -34,21 +39,21 @@
           <main class="visual-storyboard findash-layout">
             <!-- Featured web mockup - full width -->
             <div class="visual-item featured-item">
-              <img src="/assets/projects/findash/findash-web-mockup.jpg" alt="Findash Web Mockup">
+              <img src="/assets/projects/findash/findash-web-mockup.jpg" alt="Findash Web Mockup" data-modal-src="/assets/projects/findash/findash-web-mockup.jpg" data-meta="Findash Web Mockup">
             </div>
             <!-- Two-column grid for remaining items -->
             <div class="findash-grid">
               <div class="visual-item">
-                <img src="/assets/projects/findash/findash-stationary-mockup.jpg" alt="Findash Stationery">
+                <img src="/assets/projects/findash/findash-stationary-mockup.jpg" alt="Findash Stationery" data-modal-src="/assets/projects/findash/findash-stationary-mockup.jpg" data-meta="Findash Stationery">
               </div>
               <div class="visual-item">
-                <img src="/assets/projects/findash/findash-bizcard-mockup.jpg" alt="Findash Business Card">
+                <img src="/assets/projects/findash/findash-bizcard-mockup.jpg" alt="Findash Business Card" data-modal-src="/assets/projects/findash/findash-bizcard-mockup.jpg" data-meta="Findash Business Card">
               </div>
               <div class="visual-item">
-                <img src="/assets/projects/findash/findash-brochure.jpg" alt="Findash Brochure">
+                <img src="/assets/projects/findash/findash-brochure.jpg" alt="Findash Brochure" data-modal-src="/assets/projects/findash/findash-brochure.jpg" data-meta="Findash Brochure">
               </div>
               <div class="visual-item">
-                <img src="/assets/projects/findash/findash-envelope-mockup.jpg" alt="Findash Envelope">
+                <img src="/assets/projects/findash/findash-envelope-mockup.jpg" alt="Findash Envelope" data-modal-src="/assets/projects/findash/findash-envelope-mockup.jpg" data-meta="Findash Envelope">
               </div>
             </div>
           </main>
@@ -60,31 +65,31 @@
             <p class="campaigns-description">FINDASH campaign creative is built to communicate financial clarity in a crowded digital landscape. Each execution translates complex cost and performance data into a direct, outcome-driven value proposition tailored for finance teams and operational leaders. Messaging is optimized across channels to drive qualified engagement and product adoption.</p>
             <div class="campaigns-grid">
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-1200x1200.jpg" alt="Social Feed 1200x1200" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-1200x1200.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-1200x1200.jpg" data-meta="Social Feed • 1200×1200">
                 <figcaption>Social Feed • 1200×1200</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-1080x1080.jpg" alt="Instagram 1080x1080" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-1080x1080.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-1080x1080.jpg" data-meta="Instagram • 1080×1080">
                 <figcaption>Instagram • 1080×1080</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
                 <figcaption>Instagram Mobile • 1080×1350</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
                 <figcaption>Stories & Reels • 1080×1920</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-728x90.jpg" alt="Display Leaderboard 728x90" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-728x90.jpg" alt="Display Leaderboard 728x90" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-728x90.jpg" data-meta="Display Leaderboard • 728×90">
                 <figcaption>Display Leaderboard • 728×90</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-300x250.jpg" alt="Display 300x250" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-300x250.jpg" alt="Display 300x250" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-300x250.jpg" data-meta="Display • 300×250">
                 <figcaption>Display • 300×250</figcaption>
               </figure>
               <figure class="ad-item">
-                <img src="/assets/projects/findash/ads/findash-ad-600x300.jpg" alt="Display 600x300" class="ad-tile">
+                <img src="/assets/projects/findash/ads/findash-ad-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/findash/ads/findash-ad-600x300.jpg" data-meta="Display • 600×300">
                 <figcaption>Display • 600×300</figcaption>
               </figure>
             </div>
@@ -100,10 +105,49 @@
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
             @for (img of p.gallery; track img; let i = $index) {
               <div class="visual-item">
-                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)">
+                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
               </div>
             }
           </main>
+
+          @if (p.title === 'Pinnacle Solutions') {
+            <section class="campaigns">
+              <div class="campaigns-wrap">
+                <h2>Digital Social Ads</h2>
+                <p class="campaigns-description">Pinnacle Solutions campaign creative communicates enterprise-grade software capabilities with clarity and confidence. Each execution showcases the platform's robust features while maintaining accessibility for decision-makers. Messaging is optimized across channels to drive qualified enterprise engagement and product awareness.</p>
+                <div class="campaigns-grid">
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" data-meta="Social Feed • 1200×1200">
+                    <figcaption>Social Feed • 1200×1200</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" data-meta="Instagram • 1080×1080">
+                    <figcaption>Instagram • 1080×1080</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
+                    <figcaption>Instagram Mobile • 1080×1350</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
+                    <figcaption>Stories & Reels • 1080×1920</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
+                    <figcaption>Display Leaderboard • 768×90</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" alt="Display 300x600" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" data-meta="Display • 300×600">
+                    <figcaption>Display • 300×600</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" data-meta="Display • 600×300">
+                    <figcaption>Display • 600×300</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </section>
+          }
 
           <section class="project-narrative">
             <h2>The Process</h2>
@@ -188,3 +232,12 @@
     </aside>
   }
 }
+
+<div id="imageModal" class="modal" aria-hidden="true">
+  <div class="modal__backdrop" data-close="true"></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="modal__close" type="button" aria-label="Close" data-close="true">×</button>
+    <img id="imageModalImg" alt="" />
+    <div id="imageModalMeta" class="modal__meta"></div>
+  </div>
+</div>
