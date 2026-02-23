@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v123';
-    this.logger.log(`FORCE SEED: v123`);
+    const SEEDER_VERSION = 'v128';
+    this.logger.log(`FORCE SEED: v128`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -91,7 +91,7 @@ export class SeedService implements OnModuleInit {
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 2,
+        order: 4,
         completedDate: 'February 2026',
       },
       {
@@ -119,8 +119,8 @@ export class SeedService implements OnModuleInit {
         description: 'Comprehensive brand identity and visual language for a cycling data and community platform.',
         imageUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         gallery: [
-          '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
           '/assets/projects/soffra-brand/soffra-mockup.jpg',
+          '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
           '/assets/projects/soffra-brand/SOFFRA-jersey.jpg',
           '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
           '/assets/projects/soffra-brand/SOFFRA_CLIMB-ATLAS-logo.jpg',
@@ -133,15 +133,14 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-back.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-front.jpg',
-          '/assets/projects/soffra-brand/soffra-icon-for-strava-api.jpg',
-          '/assets/projects/soffra-brand/forest-defense.jpg',
+          '/assets/projects/soffra-brand/soffra-social-avatar.jpg',
         ],
         mockupUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
         layout: 'grid-2',
-        order: 4,
+        order: 2,
         completedDate: 'March 2026',
       },
       {

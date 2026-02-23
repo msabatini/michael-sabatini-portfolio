@@ -101,6 +101,28 @@
           </div>
         </section>
 
+        <section class="email-mockups">
+          <div class="campaigns-wrap">
+            <h2>Email Campaign</h2>
+            <div class="email-layout">
+              <!-- Featured email design - larger with visual hierarchy -->
+              <div class="email-featured">
+                <figure class="email-item">
+                  <img src="/assets/projects/findash/email/findash-email-template1.jpg" alt="FINDASH Email Template Design" class="ad-tile" data-modal-src="/assets/projects/findash/email/findash-email-template1.jpg" data-meta="FINDASH Email Template">
+                  <figcaption>Email Template Design</figcaption>
+                </figure>
+              </div>
+              <!-- Gmail mockup - smaller, showing context -->
+              <div class="email-secondary">
+                <figure class="email-item">
+                  <img src="/assets/projects/findash/email/findash-email-mockup.jpg" alt="FINDASH Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/findash/email/findash-email-mockup.jpg" data-meta="FINDASH Gmail Inbox Mockup">
+                  <figcaption>Gmail Inbox Mockup</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
@@ -126,6 +148,65 @@
             }
           </main>
         </div>
+
+        @if (p.title === 'SOFFRA.io') {
+          <section class="campaigns">
+            <div class="campaigns-wrap">
+              <h2>Digital Social Ads</h2>
+              <p class="campaigns-description">SOFFRA campaign creative showcases the platform's comprehensive climbing tracking and community features. Each execution emphasizes data clarity and the global cycling community. Messaging is optimized across channels to drive engagement with cyclists and mountain enthusiasts.</p>
+              <div class="campaigns-grid">
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1200x1200.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1200x1200.jpg" data-meta="Social Feed • 1200×1200">
+                  <figcaption>Social Feed • 1200×1200</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1080.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1080.jpg" data-meta="Instagram • 1080×1080">
+                  <figcaption>Instagram • 1080×1080</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
+                  <figcaption>Instagram Mobile • 1080×1350</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
+                  <figcaption>Stories & Reels • 1080×1920</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-250x350.jpg" alt="Display 250x350" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-250x350.jpg" data-meta="Display • 250×350">
+                  <figcaption>Display • 250×350</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-600x300.jpg" data-meta="Display • 600×300">
+                  <figcaption>Display • 600×300</figcaption>
+                </figure>
+                <figure class="ad-item">
+                  <img src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/soffra-ads/SOFFRA-768x90.jpg" data-meta="Display Leaderboard • 768×90">
+                  <figcaption>Display Leaderboard • 768×90</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          @if (p.title === 'SOFFRA.io') {
+            <section class="email-mockups email-mockups-floating">
+              <div class="campaigns-wrap">
+                <h2>Email Campaign</h2>
+                <div class="email-layout-floating">
+                  <!-- Featured email design - larger with visual hierarchy -->
+                  <div class="email-featured-floating">
+                    <img src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" alt="SOFFRA Email Template Design" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" data-meta="SOFFRA Email Template">
+                    <p class="email-caption">Email Template Design</p>
+                  </div>
+                  <!-- Gmail mockup - smaller, showing context -->
+                  <div class="email-secondary-floating">
+                    <img src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" alt="SOFFRA Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" data-meta="SOFFRA Gmail Inbox Mockup">
+                    <p class="email-caption">Gmail Inbox Mockup</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          }
+        }
 
         <section class="project-narrative">
           <h2>The Process</h2>
@@ -182,6 +263,26 @@
                     <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
                     <figcaption>Display Leaderboard • 768×90</figcaption>
                   </figure>
+                </div>
+              </div>
+            </section>
+          }
+
+          @if (p.title === 'Pinnacle Solutions') {
+            <section class="email-mockups email-mockups-floating">
+              <div class="campaigns-wrap">
+                <h2>Email Campaign</h2>
+                <div class="email-layout-floating">
+                  <!-- Featured email design - larger with visual hierarchy -->
+                  <div class="email-featured-floating">
+                    <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" alt="Pinnacle Email Template Design" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" data-meta="Pinnacle Email Template">
+                    <p class="email-caption">Email Template Design</p>
+                  </div>
+                  <!-- Gmail mockup - smaller, showing context -->
+                  <div class="email-secondary-floating">
+                    <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" alt="Pinnacle Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" data-meta="Pinnacle Gmail Inbox Mockup">
+                    <p class="email-caption">Gmail Inbox Mockup</p>
+                  </div>
                 </div>
               </div>
             </section>
