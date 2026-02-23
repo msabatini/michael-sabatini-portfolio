@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v131';
-    this.logger.log(`FORCE SEED: v131`);
+    const SEEDER_VERSION = 'v132';
+    this.logger.log(`FORCE SEED: v132`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -107,7 +107,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
         ],
-        mockupUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+        mockupUrl: '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
