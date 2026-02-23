@@ -128,6 +128,11 @@
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'SOFFRA.io' || p.title === 'Solo Century Cyclist' || p.title === 'Hingham Homemade Face Mask Initiative' || p.title === 'Hub Bicycle') {
+        @if (p.title === 'SOFFRA.io') {
+          <section class="project-intro">
+            <p>SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.</p>
+          </section>
+        }
         <div [ngClass]="{'soffra-main-layout': p.title === 'SOFFRA.io', 'solo-main-layout': p.title === 'Solo Century Cyclist', 'hingham-main-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-main-layout': p.title === 'Hub Bicycle'}">
           <main [ngClass]="{'visual-storyboard': true, 'soffra-layout': p.title === 'SOFFRA.io', 'solo-layout': p.title === 'Solo Century Cyclist', 'hingham-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-layout': p.title === 'Hub Bicycle'}">
             <!-- Featured item - full width -->
@@ -256,8 +261,8 @@
                     <figcaption>Display • 300×600</figcaption>
                   </figure>
                   <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" alt="Display 600x300" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-600x300.jpg" data-meta="Display • 600×300">
-                    <figcaption>Display • 600×300</figcaption>
+                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" alt="Display 250x350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" data-meta="Display • 250×350">
+                    <figcaption>Display • 250×350</figcaption>
                   </figure>
                   <figure class="ad-item">
                     <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
@@ -281,6 +286,59 @@
                   <!-- Gmail mockup - smaller, showing context -->
                   <div class="email-secondary-floating">
                     <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" alt="Pinnacle Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" data-meta="Pinnacle Gmail Inbox Mockup">
+                    <p class="email-caption">Gmail Inbox Mockup</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          }
+
+          @if (p.title === 'Farmland Consulting') {
+            <section class="campaigns">
+              <div class="campaigns-wrap">
+                <h2>Digital Social Ads</h2>
+                <p class="campaigns-description">Farmland Consulting campaign creative emphasizes agricultural expertise and sustainable farming solutions. Each execution communicates trust and knowledge within the farming community. Messaging is optimized across channels to drive engagement with agricultural professionals and farmers.</p>
+                <div class="campaigns-grid farmland-grouped">
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" alt="Corporate 1200x1200" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" data-meta="Corporate • 1200×1200">
+                    <figcaption>Corporate • 1200×1200</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" alt="Corporate 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" data-meta="Corporate • 1200×628">
+                    <figcaption>Corporate • 1200×628</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" alt="Farmland 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" data-meta="Farmland • 1080×1080">
+                    <figcaption>Farmland • 1080×1080</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" alt="Farmland 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" data-meta="Farmland • 1200×628">
+                    <figcaption>Farmland • 1200×628</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" alt="Parent-children 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" data-meta="Parent-Children • 1080×1080">
+                    <figcaption>Parent-Children • 1080×1080</figcaption>
+                  </figure>
+                  <figure class="ad-item">
+                    <img src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" alt="Parent-children 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" data-meta="Parent-Children • 1200×628">
+                    <figcaption>Parent-Children • 1200×628</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </section>
+
+            <section class="email-mockups email-mockups-floating">
+              <div class="campaigns-wrap">
+                <h2>Email Campaign</h2>
+                <div class="email-layout-floating">
+                  <!-- Featured email design - larger with visual hierarchy -->
+                  <div class="email-featured-floating">
+                    <img src="/assets/projects/farmland/email/farmland-email.jpg" alt="Farmland Email Template Design" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email.jpg" data-meta="Farmland Email Template">
+                    <p class="email-caption">Email Template Design</p>
+                  </div>
+                  <!-- Gmail mockup - smaller, showing context -->
+                  <div class="email-secondary-floating">
+                    <img src="/assets/projects/farmland/email/farmland-email-mockup.jpg" alt="Farmland Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email-mockup.jpg" data-meta="Farmland Gmail Inbox Mockup">
                     <p class="email-caption">Gmail Inbox Mockup</p>
                   </div>
                 </div>

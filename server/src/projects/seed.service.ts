@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v128';
-    this.logger.log(`FORCE SEED: v128`);
+    const SEEDER_VERSION = 'v130';
+    this.logger.log(`FORCE SEED: v130`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -97,8 +97,9 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Farmland Consulting',
         description: 'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
-        imageUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+        imageUrl: '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
         gallery: [
+          '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
           '/assets/projects/farmland/farmland-stationary-mockup.jpg',
           '/assets/projects/farmland/envelope-mockup.jpg',
           '/assets/projects/farmland/business_card_mockup.jpg',
@@ -106,7 +107,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
         ],
-        mockupUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+        mockupUrl: '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
@@ -116,7 +117,7 @@ export class SeedService implements OnModuleInit {
       },
       {
         title: 'SOFFRA.io',
-        description: 'Comprehensive brand identity and visual language for a cycling data and community platform.',
+        description: 'SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.',
         imageUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         gallery: [
           '/assets/projects/soffra-brand/soffra-mockup.jpg',
