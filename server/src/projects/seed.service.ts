@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v133';
-    this.logger.log(`FORCE SEED: v133`);
+    const SEEDER_VERSION = 'v134';
+    this.logger.log(`FORCE SEED: v134`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -99,8 +99,8 @@ export class SeedService implements OnModuleInit {
         description: 'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
         imageUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         gallery: [
-          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
           '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
+          '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
           '/assets/projects/farmland/farmland-stationary-mockup.jpg',
           '/assets/projects/farmland/envelope-mockup.jpg',
           '/assets/projects/farmland/business_card_mockup.jpg',
@@ -108,7 +108,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
         ],
-        mockupUrl: '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
+        mockupUrl: '/assets/projects/farmland/FarmlandConsulting_StationaryMockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
