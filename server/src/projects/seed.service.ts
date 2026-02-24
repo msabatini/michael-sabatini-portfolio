@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v134';
-    this.logger.log(`FORCE SEED: v134`);
+    const SEEDER_VERSION = 'v135';
+    this.logger.log(`FORCE SEED: v135`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -33,7 +33,7 @@ export class SeedService implements OnModuleInit {
       const initialProjects = [
       {
         title: 'Findash',
-        description: 'Comprehensive brand identity for a financial technology firm specializing in data visualization and dashboard solutions.',
+        description: 'FINDASH — Real-Time Financial Intelligence Platform. A modern financial dashboard platform designed to transform complex operational data into clear, real-time insight.',
         imageUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
         gallery: [
           '/assets/projects/findash/findash-stationary-mockup.jpg',
