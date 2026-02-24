@@ -633,6 +633,95 @@
   letter-spacing: 0.02em;
 }
 
+.landing-page-section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-color);
+
+  .landing-page-visual {
+    margin: 3rem 0;
+    
+    .landing-responsive-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 0.6fr;
+      gap: 2rem;
+      align-items: start;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .landing-item {
+      margin: 0;
+      
+      figcaption {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .responsive-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+      }
+
+      &.mobile {
+        max-width: 280px;
+        justify-self: center;
+        
+        @media (max-width: 640px) {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .landing-page-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .detail-callout {
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    }
+  }
+}
+
 .campaigns-grid.farmland-grouped {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
