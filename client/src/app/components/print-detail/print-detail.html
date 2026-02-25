@@ -39,27 +39,11 @@
           <p>FINDASH is a modern financial dashboard platform designed to transform complex operational data into clear, real-time insight. I developed a conversion-focused marketing website that communicates precision, speed, and enterprise trust while guiding users through the platform’s core value pillars: clarity, intelligence, integration, and security.</p>
         </section>
 
-        <!-- Findash layout -->
         <div class="findash-main-layout">
           <main class="visual-storyboard findash-layout">
             <!-- Featured web mockup - full width -->
             <div class="visual-item featured-item">
               <img src="/assets/projects/findash/findash-web-mockup.jpg" alt="Findash Web Mockup" data-modal-src="/assets/projects/findash/findash-web-mockup.jpg" data-meta="Findash Web Mockup">
-            </div>
-            <!-- Two-column grid for remaining items -->
-            <div class="findash-grid">
-              <div class="visual-item">
-                <img src="/assets/projects/findash/findash-stationary-mockup.jpg" alt="Findash Stationery" data-modal-src="/assets/projects/findash/findash-stationary-mockup.jpg" data-meta="Findash Stationery">
-              </div>
-              <div class="visual-item">
-                <img src="/assets/projects/findash/findash-bizcard-mockup.jpg" alt="Findash Business Card" data-modal-src="/assets/projects/findash/findash-bizcard-mockup.jpg" data-meta="Findash Business Card">
-              </div>
-              <div class="visual-item">
-                <img src="/assets/projects/findash/findash-brochure.jpg" alt="Findash Brochure" data-modal-src="/assets/projects/findash/findash-brochure.jpg" data-meta="Findash Brochure">
-              </div>
-              <div class="visual-item">
-                <img src="/assets/projects/findash/findash-envelope-mockup.jpg" alt="Findash Envelope" data-modal-src="/assets/projects/findash/findash-envelope-mockup.jpg" data-meta="Findash Envelope">
-              </div>
             </div>
           </main>
         </div>
@@ -181,6 +165,27 @@
           </div>
         </section>
 
+        <!-- Findash layout -->
+        <div class="findash-main-layout">
+          <main class="visual-storyboard findash-layout">
+            <!-- Two-column grid for remaining items -->
+            <div class="findash-grid">
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-stationary-mockup.jpg" alt="Findash Stationery" data-modal-src="/assets/projects/findash/findash-stationary-mockup.jpg" data-meta="Findash Stationery">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-bizcard-mockup.jpg" alt="Findash Business Card" data-modal-src="/assets/projects/findash/findash-bizcard-mockup.jpg" data-meta="Findash Business Card">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-brochure.jpg" alt="Findash Brochure" data-modal-src="/assets/projects/findash/findash-brochure.jpg" data-meta="Findash Brochure">
+              </div>
+              <div class="visual-item">
+                <img src="/assets/projects/findash/findash-envelope-mockup.jpg" alt="Findash Envelope" data-modal-src="/assets/projects/findash/findash-envelope-mockup.jpg" data-meta="Findash Envelope">
+              </div>
+            </div>
+          </main>
+        </div>
+
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
@@ -190,29 +195,18 @@
           <section class="project-intro">
             <p>SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.</p>
           </section>
-        }
-        <div [ngClass]="{'soffra-main-layout': p.title === 'SOFFRA.io', 'solo-main-layout': p.title === 'Solo Century Cyclist', 'hingham-main-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-main-layout': p.title === 'Hub Bicycle'}">
-          <main [ngClass]="{'visual-storyboard': true, 'soffra-layout': p.title === 'SOFFRA.io', 'solo-layout': p.title === 'Solo Century Cyclist', 'hingham-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-layout': p.title === 'Hub Bicycle'}">
-            <!-- Featured item - full width -->
-            @if (p.gallery && p.gallery.length > 0) {
-              <div class="visual-item featured-item">
-                <img [src]="p.gallery[0]" [alt]="p.title + ' featured'" [attr.data-modal-src]="p.gallery[0]" [attr.data-meta]="p.title + ' • Featured'">
-              </div>
-            }
-            <!-- Two-column grid for remaining items -->
-            @if (p.gallery && p.gallery.length > 1) {
-              <div [ngClass]="{'soffra-grid': p.title === 'SOFFRA.io', 'solo-grid': p.title === 'Solo Century Cyclist', 'hingham-grid': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-grid': p.title === 'Hub Bicycle'}">
-                @for (img of p.gallery.slice(1); track img; let i = $index) {
-                  <div class="visual-item">
-                    <img [src]="img" [alt]="p.title + ' view ' + (i + 2)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 2)">
-                  </div>
-                }
-              </div>
-            }
-          </main>
-        </div>
 
-        @if (p.title === 'SOFFRA.io') {
+          <section class="landing-page-section soffra-web-section">
+            <div class="campaigns-wrap">
+              <h2>Web Application Marketing Site</h2>
+              <div class="landing-page-visual">
+                <div class="visual-item featured-item">
+                  <img src="/assets/projects/soffra-brand/soffra-mockup.jpg" alt="SOFFRA Web Mockup" data-modal-src="/assets/projects/soffra-brand/soffra-mockup.jpg" data-meta="SOFFRA Web Mockup">
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section class="campaigns">
             <div class="campaigns-wrap">
               <h2>Digital Social Ads</h2>
@@ -250,26 +244,45 @@
             </div>
           </section>
 
-          @if (p.title === 'SOFFRA.io') {
-            <section class="email-mockups email-mockups-floating">
-              <div class="campaigns-wrap">
-                <h2>Email Campaign</h2>
-                <div class="email-layout-floating">
-                  <!-- Featured email design - larger with visual hierarchy -->
-                  <div class="email-featured-floating">
-                    <img src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" alt="SOFFRA Email Template Design" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" data-meta="SOFFRA Email Template">
-                    <p class="email-caption">Email Template Design</p>
-                  </div>
-                  <!-- Gmail mockup - smaller, showing context -->
-                  <div class="email-secondary-floating">
-                    <img src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" alt="SOFFRA Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" data-meta="SOFFRA Gmail Inbox Mockup">
-                    <p class="email-caption">Gmail Inbox Mockup</p>
-                  </div>
+          <section class="email-mockups email-mockups-floating">
+            <div class="campaigns-wrap">
+              <h2>Email Campaign</h2>
+              <div class="email-layout-floating">
+                <!-- Featured email design - larger with visual hierarchy -->
+                <div class="email-featured-floating">
+                  <img src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" alt="SOFFRA Email Template Design" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" data-meta="SOFFRA Email Template">
+                  <p class="email-caption">Email Template Design</p>
+                </div>
+                <!-- Gmail mockup - smaller, showing context -->
+                <div class="email-secondary-floating">
+                  <img src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" alt="SOFFRA Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-mockup.jpg" data-meta="SOFFRA Gmail Inbox Mockup">
+                  <p class="email-caption">Gmail Inbox Mockup</p>
                 </div>
               </div>
-            </section>
-          }
+            </div>
+          </section>
         }
+
+        <div [ngClass]="{'soffra-main-layout': p.title === 'SOFFRA.io', 'solo-main-layout': p.title === 'Solo Century Cyclist', 'hingham-main-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-main-layout': p.title === 'Hub Bicycle'}">
+          <main [ngClass]="{'visual-storyboard': true, 'soffra-layout': p.title === 'SOFFRA.io', 'solo-layout': p.title === 'Solo Century Cyclist', 'hingham-layout': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-layout': p.title === 'Hub Bicycle'}">
+            <!-- Featured item - full width -->
+            @if (p.gallery && p.gallery.length > 0 && p.title !== 'SOFFRA.io') {
+              <div class="visual-item featured-item">
+                <img [src]="p.gallery[0]" [alt]="p.title + ' featured'" [attr.data-modal-src]="p.gallery[0]" [attr.data-meta]="p.title + ' • Featured'">
+              </div>
+            }
+            <!-- Two-column grid for remaining items -->
+            @if (p.gallery && p.gallery.length > 1) {
+              <div [ngClass]="{'soffra-grid': p.title === 'SOFFRA.io', 'solo-grid': p.title === 'Solo Century Cyclist', 'hingham-grid': p.title === 'Hingham Homemade Face Mask Initiative', 'hub-grid': p.title === 'Hub Bicycle'}">
+                @for (img of p.gallery.slice(p.title === 'SOFFRA.io' ? 1 : 1); track img; let i = $index) {
+                  <div class="visual-item">
+                    <img [src]="img" [alt]="p.title + ' view ' + (i + 2)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 2)">
+                  </div>
+                }
+              </div>
+            }
+          </main>
+        </div>
 
         <section class="project-narrative">
           <h2>The Process</h2>
@@ -282,17 +295,38 @@
               <p>Pinnacle Solutions is a workforce performance platform designed to transform organizational output by shifting the traditional 80/20 performance distribution toward an 80% high-performing workforce. Powered by patented Performance Quotient (PQ)™ cloud technology, the system measures daily performance behaviors against critical success factors and equips leaders with a structured blueprint for sustained overachievement.</p>
               <p>The platform enables organizations to operationalize a High Performance Culture™, aligning accountability, leadership capability, and measurable results across every level of the enterprise.</p>
             </section>
-          }
 
-          <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
-            @for (img of p.gallery; track img; let i = $index) {
-              <div class="visual-item">
-                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+            <div class="pinnacle-main-layout">
+              <main class="visual-storyboard pinnacle-layout">
+                <!-- Featured web mockup - full width -->
+                <div class="visual-item featured-item">
+                  <img src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" alt="Pinnacle Web Mockup" data-modal-src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" data-meta="Pinnacle Web Mockup">
+                </div>
+              </main>
+            </div>
+
+            <section class="landing-page-section pinnacle-web-section">
+              <div class="campaigns-wrap">
+                <h2>Web Application Marketing Site</h2>
+                <div class="landing-page-visual">
+                  <div class="landing-responsive-grid">
+                    <figure class="landing-item desktop">
+                      <img src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" alt="Pinnacle Web App Desktop" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" data-meta="Desktop Version">
+                      <figcaption>Desktop</figcaption>
+                    </figure>
+                    <figure class="landing-item tablet">
+                      <img src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" alt="Pinnacle Web App Tablet" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" data-meta="Tablet Version">
+                      <figcaption>Tablet</figcaption>
+                    </figure>
+                    <figure class="landing-item mobile">
+                      <img src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" alt="Pinnacle Web App Mobile" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" data-meta="Mobile Version">
+                      <figcaption>Mobile</figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
-            }
-          </main>
+            </section>
 
-          @if (p.title === 'Pinnacle Solutions') {
             <section class="campaigns">
               <div class="campaigns-wrap">
                 <h2>Digital Social Ads</h2>
@@ -329,9 +363,7 @@
                 </div>
               </div>
             </section>
-          }
 
-          @if (p.title === 'Pinnacle Solutions') {
             <section class="email-mockups email-mockups-floating">
               <div class="campaigns-wrap">
                 <h2>Email Campaign</h2>
@@ -442,6 +474,16 @@
               </div>
             </section>
           }
+
+          <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
+            @for (img of p.gallery; track img; let i = $index) {
+              @if (p.title !== 'Pinnacle Solutions' || !img.includes('pinnacle-web-mockup.jpg')) {
+                <div class="visual-item">
+                  <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                </div>
+              }
+            }
+          </main>
 
           <section class="project-narrative">
             <h2>The Process</h2>
