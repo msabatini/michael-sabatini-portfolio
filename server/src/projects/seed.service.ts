@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v140';
-    this.logger.log(`FORCE SEED: v140`);
+    const SEEDER_VERSION = 'v147';
+    this.logger.log(`FORCE SEED: v147`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -77,8 +77,12 @@ export class SeedService implements OnModuleInit {
       {
         title: 'The Service Course',
         description: 'Premium brand identity and technical apparel for a high-end cycling experience center.',
-        imageUrl: '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
+        imageUrl: '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
         gallery: [
+          '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
+          '/assets/projects/the-service-course/landing-page/service-course-desktop.jpg',
+          '/assets/projects/the-service-course/landing-page/service-course-tablet.jpg',
+          '/assets/projects/the-service-course/landing-page/service-course-mobile.jpg',
           '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
           '/assets/projects/the-service-course/mockup-5.jpg',
           '/assets/projects/the-service-course/stickers.jpg',
@@ -86,7 +90,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/the-service-course/tag-mockup.jpg',
           '/assets/projects/the-service-course/tag.jpg',
         ],
-        mockupUrl: '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
+        mockupUrl: '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
         content: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
         tags: ['Branding', 'Print', 'Apparel Design'],
         type: 'print-only',
@@ -122,19 +126,12 @@ export class SeedService implements OnModuleInit {
         gallery: [
           '/assets/projects/soffra-brand/soffra-mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
+          '/assets/projects/soffra-brand/soffra-letterhead-mockup.jpg',
+          '/assets/projects/soffra/soffra_flyer_mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA-jersey.jpg',
-          '/assets/projects/soffra-brand/SOFFRA_main-logo.jpg',
-          '/assets/projects/soffra-brand/SOFFRA_CLIMB-ATLAS-logo.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-back.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-Climb-Atlas-brochure-3-front.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-mockup-3.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-mockup-1.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-front-1.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-front-2.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-back.jpg',
-          '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-front.jpg',
-          '/assets/projects/soffra-brand/soffra-social-avatar.jpg',
         ],
         mockupUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',

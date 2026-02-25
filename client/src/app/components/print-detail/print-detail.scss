@@ -192,14 +192,8 @@
     }
   }
 
-  .findash-main-layout {
-    width: 100%;
-  }
-
-  .findash-layout {
-    width: 100%;
-  }
-
+  .findash-main-layout,
+  .service-course-main-layout,
   .soffra-main-layout,
   .solo-main-layout,
   .hingham-main-layout,
@@ -207,49 +201,24 @@
     width: 100%;
   }
 
-  .soffra-layout {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .featured-item {
-    width: 100%;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color);
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
+  .soffra-main-layout {
+    .featured-item {
+      max-width: 1000px;
+      margin: 0 auto 3rem;
     }
   }
 
-  .solo-layout {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .hingham-layout {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
+  .findash-layout,
+  .service-course-layout,
+  .soffra-layout,
+  .solo-layout,
+  .hingham-layout,
   .hub-layout {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
   }
 
+  .findash-grid,
+  .service-course-grid,
   .soffra-grid,
   .solo-grid,
   .hingham-grid,
@@ -276,6 +245,18 @@
         height: auto;
         display: block;
       }
+    }
+  }
+
+  .service-course-print-layout,
+  .soffra-print-layout {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border-color);
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      font-weight: 600;
     }
   }
 

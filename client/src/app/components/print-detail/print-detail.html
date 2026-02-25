@@ -192,19 +192,18 @@
         </section>
       } @else if (p.title === 'SOFFRA.io') {
         <section class="project-intro">
+          <h2>SOFFRA — Global Elevation Platform</h2>
           <p>SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.</p>
         </section>
 
-        <section class="landing-page-section soffra-web-section">
-          <div class="campaigns-wrap">
-            <h2>Web Application Marketing Site</h2>
-            <div class="landing-page-visual">
-              <div class="visual-item featured-item">
-                <img src="/assets/projects/soffra-brand/soffra-mockup.jpg" alt="SOFFRA Web Mockup" data-modal-src="/assets/projects/soffra-brand/soffra-mockup.jpg" data-meta="SOFFRA Web Mockup">
-              </div>
+        <div class="soffra-main-layout">
+          <main class="visual-storyboard soffra-layout">
+            <!-- Featured web mockup - full width -->
+            <div class="visual-item featured-item">
+              <img src="/assets/projects/soffra-brand/soffra-mockup.jpg" alt="SOFFRA Web Mockup" data-modal-src="/assets/projects/soffra-brand/soffra-mockup.jpg" data-meta="SOFFRA Web Mockup">
             </div>
-          </div>
-        </section>
+          </main>
+        </div>
 
         <section class="campaigns">
           <div class="campaigns-wrap">
@@ -247,7 +246,6 @@
           <div class="campaigns-wrap">
             <h2>Email Campaign</h2>
             <div class="email-layout-floating">
-              <!-- Featured email design - larger with visual hierarchy -->
               <div class="email-featured-floating">
                 <img src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" alt="SOFFRA Email Template Design" class="ad-tile" data-modal-src="/assets/projects/soffra-brand/email/soffra-email-template.jpg" data-meta="SOFFRA Email Template">
                 <p class="email-caption">Email Template Design</p>
@@ -261,17 +259,315 @@
           </div>
         </section>
 
-        <div class="soffra-main-layout">
-          <main class="visual-storyboard soffra-layout">
-            <!-- Two-column grid for remaining items -->
-            @if (p.gallery && p.gallery.length > 1) {
+        <div class="soffra-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard soffra-layout">
+              <!-- Grid for print items -->
               <div class="soffra-grid">
-                @for (img of p.gallery.slice(1); track img; let i = $index) {
-                  <div class="visual-item">
-                    <img [src]="img" [alt]="p.title + ' view ' + (i + 2)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 2)">
-                  </div>
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (!img.includes('soffra-mockup.jpg') && !img.includes('SOFFRA-jersey.jpg')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                  <!-- Add Jersey at the end to ensure it's in the bottom row -->
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (img.includes('SOFFRA-jersey.jpg')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
                 }
               </div>
+            </main>
+          </div>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else if (p.title === 'The Service Course') {
+        <section class="project-intro">
+          <h2>THE SERVICE COURSE — Premium Cycling Identity & Web Experience</h2>
+          <p>The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service. I developed a comprehensive brand system that spans from high-end technical apparel and physical touchpoints to a modern, conversion-focused digital presence.</p>
+        </section>
+
+        <div class="service-course-main-layout">
+          <main class="visual-storyboard service-course-layout">
+            <!-- Featured web mockup - full width -->
+            <div class="visual-item featured-item">
+              <img src="/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg" alt="The Service Course Web Mockup" data-modal-src="/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg" data-meta="The Service Course Web Mockup">
+            </div>
+          </main>
+        </div>
+
+        <section class="landing-page-section service-course-web-section">
+          <div class="campaigns-wrap">
+            <h2>Digital Experience & Landing Page</h2>
+            
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/the-service-course/landing-page/service-course-desktop.jpg" alt="The Service Course Desktop" class="responsive-image" data-modal-src="/assets/projects/the-service-course/landing-page/service-course-desktop.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/the-service-course/landing-page/service-course-tablet.jpg" alt="The Service Course Tablet" class="responsive-image" data-modal-src="/assets/projects/the-service-course/landing-page/service-course-tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/the-service-course/landing-page/service-course-mobile.jpg" alt="The Service Course Mobile" class="responsive-image" data-modal-src="/assets/projects/the-service-course/landing-page/service-course-mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="service-course-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard service-course-layout">
+              <!-- Grid for print items -->
+              <div class="service-course-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (!img.includes('landing-page') && !img.includes('service-course-web-mockup.jpg')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else if (p.title === 'Pinnacle Solutions') {
+        <section class="project-intro">
+          <p>Pinnacle Solutions is a workforce performance platform designed to transform organizational output by shifting the traditional 80/20 performance distribution toward an 80% high-performing workforce. Powered by patented Performance Quotient (PQ)™ cloud technology, the system measures daily performance behaviors against critical success factors and equips leaders with a structured blueprint for sustained overachievement.</p>
+          <p>The platform enables organizations to operationalize a High Performance Culture™, aligning accountability, leadership capability, and measurable results across every level of the enterprise.</p>
+        </section>
+
+        <div class="pinnacle-main-layout">
+          <main class="visual-storyboard pinnacle-layout">
+            <!-- Featured web mockup - full width -->
+            <div class="visual-item featured-item">
+              <img src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" alt="Pinnacle Web Mockup" data-modal-src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" data-meta="Pinnacle Web Mockup">
+            </div>
+          </main>
+        </div>
+
+        <section class="landing-page-section pinnacle-web-section">
+          <div class="campaigns-wrap">
+            <h2>Web Application Marketing Site</h2>
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" alt="Pinnacle Web App Desktop" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" alt="Pinnacle Web App Tablet" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" alt="Pinnacle Web App Mobile" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="campaigns">
+          <div class="campaigns-wrap">
+            <h2>Digital Social Ads</h2>
+            <p class="campaigns-description">Pinnacle Solutions campaign creative communicates enterprise-grade software capabilities with clarity and confidence. Each execution showcases the platform's robust features while maintaining accessibility for decision-makers. Messaging is optimized across channels to drive qualified enterprise engagement and product awareness.</p>
+            <div class="campaigns-grid">
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" data-meta="Social Feed • 1200×1200">
+                <figcaption>Social Feed • 1200×1200</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" data-meta="Instagram • 1080×1080">
+                <figcaption>Instagram • 1080×1080</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
+                <figcaption>Instagram Mobile • 1080×1350</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
+                <figcaption>Stories & Reels • 1080×1920</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" alt="Display 300x600" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" data-meta="Display • 300×600">
+                <figcaption>Display • 300×600</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" alt="Display 250x350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" data-meta="Display • 250×350">
+                <figcaption>Display • 250×350</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
+                <figcaption>Display Leaderboard • 768×90</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="email-mockups email-mockups-floating">
+          <div class="campaigns-wrap">
+            <h2>Email Campaign</h2>
+            <div class="email-layout-floating">
+              <!-- Featured email design - larger with visual hierarchy -->
+              <div class="email-featured-floating">
+                <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" alt="Pinnacle Email Template Design" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" data-meta="Pinnacle Email Template">
+                <p class="email-caption">Email Template Design</p>
+              </div>
+              <!-- Gmail mockup - smaller, showing context -->
+              <div class="email-secondary-floating">
+                <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" alt="Pinnacle Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" data-meta="Pinnacle Gmail Inbox Mockup">
+                <p class="email-caption">Gmail Inbox Mockup</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="pinnacle-main-layout">
+          <main class="visual-storyboard pinnacle-layout">
+            <h2>Brand Identity & Print Collateral</h2>
+            <div class="pinnacle-grid">
+              @if (p.gallery && p.gallery.length > 0) {
+                @for (img of p.gallery; track img; let i = $index) {
+                  @if (!img.includes('pinnacle-web-mockup.jpg') && !img.includes('landing page')) {
+                    <div class="visual-item">
+                      <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                    </div>
+                  }
+                }
+              }
+            </div>
+          </main>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else if (p.title === 'Farmland Consulting') {
+        <section class="landing-page-section">
+          <div class="campaigns-wrap">
+            <h2>Digital Fundraising Platform</h2>
+            <p class="campaigns-description">To extend the Farmland Consulting brand into digital engagement, I designed a conversion-focused fundraising landing page that communicates urgency, institutional credibility, and long-term impact while guiding donors through a structured 99-year conservation easement model.</p>
+            
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/farmland/landing page/farmland-landing-page.jpg" alt="Farmland Landing Page Desktop" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/farmland/landing page/farmland-landing-page-tablet.jpg" alt="Farmland Landing Page Tablet" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page-tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/farmland/landing page/farmland-landing-page-mobile.jpg" alt="Farmland Landing Page Mobile" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page-mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="landing-page-details">
+              <div class="detail-callout">
+                <h3>Hero + Value Proposition</h3>
+                <p>Clear institutional messaging establishes trust and communicates the 99-year easement model immediately.</p>
+              </div>
+              <div class="detail-callout">
+                <h3>Donation Tier Strategy</h3>
+                <p>Tiered contribution structure balances accessibility for individual donors with scalable options for regional and corporate stewardship partners.</p>
+              </div>
+              <div class="detail-callout">
+                <h3>Impact Map Section</h3>
+                <p>Interactive impact visualization reinforces national scale and transparency.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="campaigns">
+          <div class="campaigns-wrap">
+            <h2>Digital Social Ads</h2>
+            <p class="campaigns-description">Farmland Consulting campaign creative emphasizes agricultural expertise and sustainable farming solutions. Each execution communicates trust and knowledge within the farming community. Messaging is optimized across channels to drive engagement with agricultural professionals and farmers.</p>
+            <div class="campaigns-grid farmland-grouped">
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" alt="Corporate 1200x1200" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" data-meta="Corporate • 1200×1200">
+                <figcaption>Corporate • 1200×1200</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" alt="Corporate 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" data-meta="Corporate • 1200×628">
+                <figcaption>Corporate • 1200×628</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" alt="Farmland 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" data-meta="Farmland • 1080×1080">
+                <figcaption>Farmland • 1080×1080</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" alt="Farmland 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" data-meta="Farmland • 1200×628">
+                <figcaption>Farmland • 1200×628</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" alt="Parent-children 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" data-meta="Parent-Children • 1080×1080">
+                <figcaption>Parent-Children • 1080×1080</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" alt="Parent-children 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" data-meta="Parent-Children • 1200×628">
+                <figcaption>Parent-Children • 1200×628</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="email-mockups email-mockups-floating">
+          <div class="campaigns-wrap">
+            <h2>Email Campaign</h2>
+            <div class="email-layout-floating">
+              <!-- Featured email design - larger with visual hierarchy -->
+              <div class="email-featured-floating">
+                <img src="/assets/projects/farmland/email/farmland-email.jpg" alt="Farmland Email Template Design" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email.jpg" data-meta="Farmland Email Template">
+                <p class="email-caption">Email Template Design</p>
+              </div>
+              <!-- Gmail mockup - smaller, showing context -->
+              <div class="email-secondary-floating">
+                <img src="/assets/projects/farmland/email/farmland-email-mockup.jpg" alt="Farmland Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email-mockup.jpg" data-meta="Farmland Gmail Inbox Mockup">
+                <p class="email-caption">Gmail Inbox Mockup</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="farmland-main-layout">
+          <main class="visual-storyboard stack">
+            <h2>Brand Identity & Print Collateral</h2>
+            @if (p.gallery && p.gallery.length > 0) {
+              @for (img of p.gallery; track img; let i = $index) {
+                @if (!img.includes('landing page')) {
+                  <div class="visual-item">
+                    <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                  </div>
+                }
+              }
             }
           </main>
         </div>
@@ -282,198 +578,11 @@
         </section>
       } @else {
         <div class="detail-layout">
-          @if (p.title === 'Pinnacle Solutions') {
-            <section class="project-intro">
-              <p>Pinnacle Solutions is a workforce performance platform designed to transform organizational output by shifting the traditional 80/20 performance distribution toward an 80% high-performing workforce. Powered by patented Performance Quotient (PQ)™ cloud technology, the system measures daily performance behaviors against critical success factors and equips leaders with a structured blueprint for sustained overachievement.</p>
-              <p>The platform enables organizations to operationalize a High Performance Culture™, aligning accountability, leadership capability, and measurable results across every level of the enterprise.</p>
-            </section>
-
-            <div class="pinnacle-main-layout">
-              <main class="visual-storyboard pinnacle-layout">
-                <!-- Featured web mockup - full width -->
-                <div class="visual-item featured-item">
-                  <img src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" alt="Pinnacle Web Mockup" data-modal-src="/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg" data-meta="Pinnacle Web Mockup">
-                </div>
-              </main>
-            </div>
-
-            <section class="landing-page-section pinnacle-web-section">
-              <div class="campaigns-wrap">
-                <h2>Web Application Marketing Site</h2>
-                <div class="landing-page-visual">
-                  <div class="landing-responsive-grid">
-                    <figure class="landing-item desktop">
-                      <img src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" alt="Pinnacle Web App Desktop" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/Desktop.jpg" data-meta="Desktop Version">
-                      <figcaption>Desktop</figcaption>
-                    </figure>
-                    <figure class="landing-item tablet">
-                      <img src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" alt="Pinnacle Web App Tablet" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/tablet.jpg" data-meta="Tablet Version">
-                      <figcaption>Tablet</figcaption>
-                    </figure>
-                    <figure class="landing-item mobile">
-                      <img src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" alt="Pinnacle Web App Mobile" class="responsive-image" data-modal-src="/assets/projects/pinnacle-solutions/landing page/mobile.jpg" data-meta="Mobile Version">
-                      <figcaption>Mobile</figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="campaigns">
-              <div class="campaigns-wrap">
-                <h2>Digital Social Ads</h2>
-                <p class="campaigns-description">Pinnacle Solutions campaign creative communicates enterprise-grade software capabilities with clarity and confidence. Each execution showcases the platform's robust features while maintaining accessibility for decision-makers. Messaging is optimized across channels to drive qualified enterprise engagement and product awareness.</p>
-                <div class="campaigns-grid">
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1080.jpg" data-meta="Social Feed • 1200×1200">
-                    <figcaption>Social Feed • 1200×1200</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1200x1200.jpg" data-meta="Instagram • 1080×1080">
-                    <figcaption>Instagram • 1080×1080</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
-                    <figcaption>Instagram Mobile • 1080×1350</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
-                    <figcaption>Stories & Reels • 1080×1920</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" alt="Display 300x600" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-300x600.jpg" data-meta="Display • 300×600">
-                    <figcaption>Display • 300×600</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" alt="Display 250x350" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad- 250X350.jpg" data-meta="Display • 250×350">
-                    <figcaption>Display • 250×350</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/ads/pinnacle-ad-768x90.jpg" data-meta="Display Leaderboard • 768×90">
-                    <figcaption>Display Leaderboard • 768×90</figcaption>
-                  </figure>
-                </div>
-              </div>
-            </section>
-
-            <section class="email-mockups email-mockups-floating">
-              <div class="campaigns-wrap">
-                <h2>Email Campaign</h2>
-                <div class="email-layout-floating">
-                  <!-- Featured email design - larger with visual hierarchy -->
-                  <div class="email-featured-floating">
-                    <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" alt="Pinnacle Email Template Design" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-template.jpg" data-meta="Pinnacle Email Template">
-                    <p class="email-caption">Email Template Design</p>
-                  </div>
-                  <!-- Gmail mockup - smaller, showing context -->
-                  <div class="email-secondary-floating">
-                    <img src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" alt="Pinnacle Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/pinnacle-solutions/email/Pinnacle-email-mockup.jpg" data-meta="Pinnacle Gmail Inbox Mockup">
-                    <p class="email-caption">Gmail Inbox Mockup</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          }
-
-          @if (p.title === 'Farmland Consulting') {
-            <section class="landing-page-section">
-              <div class="campaigns-wrap">
-                <h2>Digital Fundraising Platform</h2>
-                <p class="campaigns-description">To extend the Farmland Consulting brand into digital engagement, I designed a conversion-focused fundraising landing page that communicates urgency, institutional credibility, and long-term impact while guiding donors through a structured 99-year conservation easement model.</p>
-                
-                <div class="landing-page-visual">
-                  <div class="landing-responsive-grid">
-                    <figure class="landing-item desktop">
-                      <img src="/assets/projects/farmland/landing page/farmland-landing-page.jpg" alt="Farmland Landing Page Desktop" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page.jpg" data-meta="Desktop Version">
-                      <figcaption>Desktop</figcaption>
-                    </figure>
-                    <figure class="landing-item tablet">
-                      <img src="/assets/projects/farmland/landing page/farmland-landing-page-tablet.jpg" alt="Farmland Landing Page Tablet" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page-tablet.jpg" data-meta="Tablet Version">
-                      <figcaption>Tablet</figcaption>
-                    </figure>
-                    <figure class="landing-item mobile">
-                      <img src="/assets/projects/farmland/landing page/farmland-landing-page-mobile.jpg" alt="Farmland Landing Page Mobile" class="responsive-image" data-modal-src="/assets/projects/farmland/landing page/farmland-landing-page-mobile.jpg" data-meta="Mobile Version">
-                      <figcaption>Mobile</figcaption>
-                    </figure>
-                  </div>
-                </div>
-
-                <div class="landing-page-details">
-                  <div class="detail-callout">
-                    <h3>Hero + Value Proposition</h3>
-                    <p>Clear institutional messaging establishes trust and communicates the 99-year easement model immediately.</p>
-                  </div>
-                  <div class="detail-callout">
-                    <h3>Donation Tier Strategy</h3>
-                    <p>Tiered contribution structure balances accessibility for individual donors with scalable options for regional and corporate stewardship partners.</p>
-                  </div>
-                  <div class="detail-callout">
-                    <h3>Impact Map Section</h3>
-                    <p>Interactive impact visualization reinforces national scale and transparency.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="campaigns">
-              <div class="campaigns-wrap">
-                <h2>Digital Social Ads</h2>
-                <p class="campaigns-description">Farmland Consulting campaign creative emphasizes agricultural expertise and sustainable farming solutions. Each execution communicates trust and knowledge within the farming community. Messaging is optimized across channels to drive engagement with agricultural professionals and farmers.</p>
-                <div class="campaigns-grid farmland-grouped">
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" alt="Corporate 1200x1200" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x1200-corporate.jpg" data-meta="Corporate • 1200×1200">
-                    <figcaption>Corporate • 1200×1200</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" alt="Corporate 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-corporate.jpg" data-meta="Corporate • 1200×628">
-                    <figcaption>Corporate • 1200×628</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" alt="Farmland 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080-farmland.jpg" data-meta="Farmland • 1080×1080">
-                    <figcaption>Farmland • 1080×1080</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" alt="Farmland 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-farmland.jpg" data-meta="Farmland • 1200×628">
-                    <figcaption>Farmland • 1200×628</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" alt="Parent-children 1080x1080" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1080x1080 -Parent-children.jpg" data-meta="Parent-Children • 1080×1080">
-                    <figcaption>Parent-Children • 1080×1080</figcaption>
-                  </figure>
-                  <figure class="ad-item">
-                    <img src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" alt="Parent-children 1200x628" class="ad-tile" data-modal-src="/assets/projects/farmland/Ads/1200x628-Parent-children.jpg" data-meta="Parent-Children • 1200×628">
-                    <figcaption>Parent-Children • 1200×628</figcaption>
-                  </figure>
-                </div>
-              </div>
-            </section>
-
-            <section class="email-mockups email-mockups-floating">
-              <div class="campaigns-wrap">
-                <h2>Email Campaign</h2>
-                <div class="email-layout-floating">
-                  <!-- Featured email design - larger with visual hierarchy -->
-                  <div class="email-featured-floating">
-                    <img src="/assets/projects/farmland/email/farmland-email.jpg" alt="Farmland Email Template Design" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email.jpg" data-meta="Farmland Email Template">
-                    <p class="email-caption">Email Template Design</p>
-                  </div>
-                  <!-- Gmail mockup - smaller, showing context -->
-                  <div class="email-secondary-floating">
-                    <img src="/assets/projects/farmland/email/farmland-email-mockup.jpg" alt="Farmland Gmail Inbox Mockup" class="ad-tile" data-modal-src="/assets/projects/farmland/email/farmland-email-mockup.jpg" data-meta="Farmland Gmail Inbox Mockup">
-                    <p class="email-caption">Gmail Inbox Mockup</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          }
-
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
             @for (img of p.gallery; track img; let i = $index) {
-              @if (p.title !== 'Pinnacle Solutions' || !img.includes('pinnacle-web-mockup.jpg')) {
-                <div class="visual-item">
-                  <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
-                </div>
-              }
+              <div class="visual-item">
+                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+              </div>
             }
           </main>
 
@@ -483,37 +592,37 @@
           </section>
 
           <aside class="design-specs">
-          <div class="spec-card">
-            <h3>Project Info</h3>
-            <div class="info-row">
-              <span class="label">Client</span>
-              <span class="value">{{ p.title }}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">Year</span>
-              <span class="value">{{ p.completedDate }}</span>
-            </div>
-          </div>
-
-          @if (p.designSpecs && p.designSpecs.length > 0) {
             <div class="spec-card">
-              <h3>Design Specs</h3>
-              <div class="specs-list">
-                @for (spec of p.designSpecs; track spec.label) {
-                  <div class="spec-item" [class.color-spec]="spec.type === 'color'">
-                    @if (spec.type === 'color') {
-                      <div class="color-swatch" [style.background-color]="spec.value"></div>
-                    }
-                    <div class="spec-meta">
-                      <span class="spec-label">{{ spec.label }}</span>
-                      <span class="spec-value">{{ spec.value }}</span>
-                    </div>
-                  </div>
-                }
+              <h3>Project Info</h3>
+              <div class="info-row">
+                <span class="label">Client</span>
+                <span class="value">{{ p.title }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Year</span>
+                <span class="value">{{ p.completedDate }}</span>
               </div>
             </div>
-          }
-        </aside>
+
+            @if (p.designSpecs && p.designSpecs.length > 0) {
+              <div class="spec-card">
+                <h3>Design Specs</h3>
+                <div class="specs-list">
+                  @for (spec of p.designSpecs; track spec.label) {
+                    <div class="spec-item" [class.color-spec]="spec.type === 'color'">
+                      @if (spec.type === 'color') {
+                        <div class="color-swatch" [style.background-color]="spec.value"></div>
+                      }
+                      <div class="spec-meta">
+                        <span class="spec-label">{{ spec.label }}</span>
+                        <span class="spec-value">{{ spec.value }}</span>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </aside>
         </div>
       }
     </div>
