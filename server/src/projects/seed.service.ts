@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v137';
-    this.logger.log(`FORCE SEED: v137`);
+    const SEEDER_VERSION = 'v138';
+    this.logger.log(`FORCE SEED: v138`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -163,70 +163,6 @@ export class SeedService implements OnModuleInit {
         completedDate: 'April 2026',
       },
 
-      {
-        title: 'Solo Century Cyclist',
-        description: 'Brand identity and custom apparel for a specialized endurance cycling initiative.',
-        imageUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
-        gallery: [
-          '/assets/projects/solo-century-cyclist/logo-glamour.png',
-          '/assets/projects/solo-century-cyclist/solo-century-cyclist-bizcard-mockup.jpg',
-          '/assets/projects/solo-century-cyclist/tshirt-mockup.png',
-          '/assets/projects/solo-century-cyclist/ssc-jersey.jpg',
-          '/assets/projects/solo-century-cyclist/stickers.jpg',
-        ],
-        mockupUrl: '/assets/projects/solo-century-cyclist/bizcard-mockup.jpg',
-        content: 'Solo Century Cyclist celebrates the spirit of independent endurance cycling through bold branding and high-visibility technical apparel.',
-        tags: ['Branding', 'Apparel Design', 'Print'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 7,
-        completedDate: 'February 2026',
-      },
-      {
-        title: 'Hingham Homemade Face Mask Initiative',
-        description: 'Community-driven brand identity and merchandise for a local COVID-19 relief effort.',
-        imageUrl: '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
-        gallery: [
-          '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
-          '/assets/projects/hingham-face-mask/HHFMI-mug.jpg',
-          '/assets/projects/hingham-face-mask/HHFMI-pin-badge.jpg',
-          '/assets/projects/hingham-face-mask/HHFMI-t-shirt.png',
-          '/assets/projects/hingham-face-mask/HHFMI-Vector-transparent-bg.png',
-        ],
-        mockupUrl: '/assets/projects/hingham-face-mask/HHFMI-stickers.jpg',
-        content: 'The Hingham Homemade Face Mask Initiative was a volunteer-led effort to provide protective gear to the community during the pandemic. The branding project focused on creating a unified, hopeful visual identity that could be applied across various volunteer-led initiatives.',
-        tags: ['Branding', 'Print', 'Non-Profit'],
-        type: 'print-only',
-        layout: 'grid-2',
-        order: 8,
-        completedDate: 'April 2020',
-      },
-      {
-        title: 'Hub Bicycle',
-        description: 'Modern brand identity and signage for an urban bicycle boutique.',
-        imageUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
-        gallery: [
-          '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
-          '/assets/projects/hub-bicycle/hub_bizcard-mockup.jpg',
-          '/assets/projects/hub-bicycle/hub_t-shirt-mockup.jpg',
-          '/assets/projects/hub-bicycle/HUB-jersey.png',
-          '/assets/projects/hub-bicycle/hub-web-mockup.jpg',
-          '/assets/projects/hub-bicycle/hub_bizcard-front.jpg',
-          '/assets/projects/hub-bicycle/hub_bizcard-back.jpg',
-          '/assets/projects/hub-bicycle/hubbicycle_hangtag_front.jpg',
-          '/assets/projects/hub-bicycle/hubbicycle_hangtag_back.jpg',
-          '/assets/projects/hub-bicycle/hub-signage.jpg',
-          '/assets/projects/hub-bicycle/hub-icons.png',
-        ],
-        mockupUrl: '/assets/projects/hub-bicycle/Postcard-Mock-up.jpg',
-        content: 'Hub Bicycle is a community-focused bike shop specializing in urban commuting and custom builds.',
-        tags: ['Branding', 'Print', 'Signage', 'Web Design'],
-        type: 'print-only',
-        isFeatured: false,
-        order: 9,
-        layout: 'grid-2',
-        completedDate: 'February 2026',
-      },
       {
         title: 'Apparent Insurance',
         description: 'Modern digital experience and brand system for a customer-centric insurance provider.',
