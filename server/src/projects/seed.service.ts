@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v138';
-    this.logger.log(`FORCE SEED: v138`);
+    const SEEDER_VERSION = 'v140';
+    this.logger.log(`FORCE SEED: v140`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -472,20 +472,6 @@ export class SeedService implements OnModuleInit {
         tags: ['Application Development', 'Fine Art', 'Custom CMS'],
         type: 'web',
         order: 5,
-        completedDate: 'February 2026',
-      },
-      {
-        title: 'Hub Bicycles Web Site',
-        description: 'Modern, high-performance web experience for an urban bicycle boutique.',
-        imageUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
-        gallery: [
-          '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
-        ],
-        mockupUrl: '/assets/projects/hub-bicycle-web/hub-web-mockup.jpg',
-        content: 'Custom web application design and development for Hub Bicycle, focusing on user experience and brand consistency.',
-        tags: ['Application Development', 'UI/UX', 'Angular'],
-        type: 'web',
-        order: 6,
         completedDate: 'February 2026',
       },
       {
