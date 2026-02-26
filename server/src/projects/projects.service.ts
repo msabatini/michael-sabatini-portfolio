@@ -25,9 +25,7 @@ export class ProjectsService {
   async findByType(type: string): Promise<Project[]> {
     console.log(`Searching for projects with type containing: "${type}"`);
     const projects = await this.projectsRepository.find({
-      where: [
-        { type: Like(`%${type}%`) }
-      ],
+      where: [{ type: Like(`%${type}%`) }],
       order: {
         order: 'ASC',
         createdAt: 'DESC',
@@ -63,16 +61,23 @@ export class ProjectsService {
       await this.projectsRepository.clear();
       console.log('Project table cleared.');
     } catch (e) {
-      console.log('Error clearing project table, attempting fallback DELETE:', e);
+      console.log(
+        'Error clearing project table, attempting fallback DELETE:',
+        e,
+      );
       await this.projectsRepository.query('DELETE FROM project');
     }
-    
+
     // Reset auto-increment for SQLite
     try {
-      await this.projectsRepository.query('DELETE FROM sqlite_sequence WHERE name="project"');
+      await this.projectsRepository.query(
+        'DELETE FROM sqlite_sequence WHERE name="project"',
+      );
       console.log('Reset sqlite_sequence for project table');
     } catch (e) {
-      console.log('sqlite_sequence table not found or error resetting, skipping reset');
+      console.log(
+        'sqlite_sequence table not found or error resetting, skipping reset',
+      );
     }
   }
 }

@@ -29,9 +29,10 @@ import { SettingsController } from './settings.controller';
       isGlobal: true,
     }),
     ServeStaticModule.forRoot({
-      rootPath: process.env.NODE_ENV === 'production' 
-        ? join(__dirname, '..', 'uploads')
-        : join(process.cwd(), '..', 'client', 'public', 'assets'),
+      rootPath:
+        process.env.NODE_ENV === 'production'
+          ? join(__dirname, '..', 'uploads')
+          : join(process.cwd(), '..', 'client', 'public', 'assets'),
       serveRoot: '/assets',
     }),
     TypeOrmModule.forRootAsync({
@@ -64,4 +65,4 @@ import { SettingsController } from './settings.controller';
   providers: [AppService, SettingsService],
 })
 export class AppModule {}
-// Trigger Deploy: 2026-02-15 21:00:00
+// Trigger Deploy: 2025-02-15 21:00:00
