@@ -13,8 +13,8 @@
         </h1>
         <p class="subtitle">{{ settings()?.heroSubtitle || 'Designing & building high-performance, accessible, and beautiful web experiences.' }}</p>
         <div class="cta-group">
-          <a routerLink="/web-apps" class="btn btn-primary">
-            View Web Apps
+          <a routerLink="/portfolio" class="btn btn-primary">
+            View Portfolio
             <app-icon name="chevron-right" [size]="18"></app-icon>
           </a>
           <a routerLink="/quick-estimate" class="btn btn-accent">
@@ -30,16 +30,16 @@
   <section class="intro">
     <div class="section-title-area">
       <h2>Selected Work</h2>
-      <p>A collection of case studies and projects that demonstrate my expertise in Angular, TypeScript, and modern UI/UX design.</p>
+      <p>A collection of case studies and projects that demonstrate my expertise in Design, UI/UX, and Branding.</p>
     </div>
 
     <div class="featured-grid">
       @for (project of featuredProjects; track project.id) {
-        <div class="project-card" [routerLink]="['/web-apps', project.id]">
+        <div class="project-card" [routerLink]="['/portfolio', project.id]">
           <div class="project-image">
             <img [src]="project.imageUrl" [alt]="project.title">
             <div class="project-overlay">
-              <span class="view-project">Read Case Study</span>
+              <span class="view-project">View Portfolio</span>
             </div>
           </div>
           <div class="project-content">
@@ -53,7 +53,7 @@
             <h3 class="project-title">{{ project.title }}</h3>
             <p class="project-description">{{ project.description }}</p>
             <div class="project-footer">
-              <span class="btn-link">Case Study <app-icon name="chevron-right" [size]="16"></app-icon></span>
+              <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
             </div>
           </div>
         </div>
@@ -61,8 +61,8 @@
     </div>
     
     <div class="see-all">
-      <a routerLink="/web-apps" class="btn btn-outline">
-        View All Web Apps
+      <a routerLink="/portfolio" class="btn btn-outline">
+        View Full Portfolio
         <app-icon name="chevron-right" [size]="18"></app-icon>
       </a>
     </div>

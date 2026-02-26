@@ -23,9 +23,9 @@ export class Print implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'Print & Graphic Design',
-      description: 'Explore my graphic design portfolio, featuring branding, editorial layouts, and print media projects.',
-      url: 'print'
+      title: 'Design Portfolio',
+      description: 'Explore my design portfolio, featuring branding, editorial layouts, and visual communication projects.',
+      url: 'portfolio'
     });
 
     this.loadProjects();

@@ -49,9 +49,9 @@ export class PrintDetail implements OnInit, AfterViewInit, OnDestroy {
       next: (proj) => {
         this.project.set(proj);
         this.seoService.updateMetaTags({
-          title: `${proj.title} | Graphic Design`,
+          title: `${proj.title} | Portfolio`,
           description: proj.description,
-          url: `print/${id}`
+          url: `portfolio/${id}`
         });
       },
       error: (err) => console.error('Error loading project', err)
