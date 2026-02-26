@@ -475,6 +475,43 @@
           </div>
         </section>
 
+        <section class="campaigns">
+          <div class="campaigns-wrap">
+            <h2>Digital Social Ads</h2>
+            <p class="campaigns-description">The Service Course campaign creative reflects the brand's premium positioning in the high-end cycling market. Each execution highlights the intersection of professional-grade service, performance apparel, and the unique cycling culture of Girona. Messaging is tailored across channels to reach discerning athletes and cycling enthusiasts globally.</p>
+            <div class="campaigns-grid">
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/1200x1200.jpg" alt="Social Feed 1200x1200" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/1200x1200.jpg" data-meta="Social Feed • 1200×1200">
+                <figcaption>Social Feed • 1200×1200</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/1080x1080.jpg" alt="Instagram 1080x1080" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/1080x1080.jpg" data-meta="Instagram • 1080×1080">
+                <figcaption>Instagram • 1080×1080</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/1080x1350.jpg" alt="Instagram Mobile 1080x1350" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/1080x1350.jpg" data-meta="Instagram Mobile • 1080×1350">
+                <figcaption>Instagram Mobile • 1080×1350</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/1080x1920.jpg" alt="Stories 1080x1920" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/1080x1920.jpg" data-meta="Stories & Reels • 1080×1920">
+                <figcaption>Stories & Reels • 1080×1920</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/250x350.jpg" alt="Display 250x350" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/250x350.jpg" data-meta="Display • 250×350">
+                <figcaption>Display • 250×350</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/300x600.jpg" alt="Display 300x600" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/300x600.jpg" data-meta="Display • 300×600">
+                <figcaption>Display • 300×600</figcaption>
+              </figure>
+              <figure class="ad-item">
+                <img src="/assets/projects/the-service-course/Ads/768x90@2x.jpg" alt="Display Leaderboard 768x90" class="ad-tile" data-modal-src="/assets/projects/the-service-course/Ads/768x90@2x.jpg" data-meta="Display Leaderboard • 768×90">
+                <figcaption>Display Leaderboard • 768×90</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
         <div class="service-course-print-layout">
           <div class="campaigns-wrap">
             <h2>Brand Identity & Print Collateral</h2>
@@ -483,7 +520,7 @@
               <div class="service-course-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
-                    @if (!img.includes('landing-page') && !img.includes('service-course-web-mockup.jpg')) {
+                    @if (!img.includes('landing-page') && !img.includes('service-course-web-mockup.jpg') && !img.toLowerCase().includes('/ads/')) {
                       <div class="visual-item">
                         <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
                       </div>

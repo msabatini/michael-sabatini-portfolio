@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v161';
-    this.logger.log(`FORCE SEED: v161`);
+    const SEEDER_VERSION = 'v167';
+    this.logger.log(`FORCE SEED: v167`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -84,11 +84,16 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/the-service-course/landing-page/service-course-tablet.jpg',
           '/assets/projects/the-service-course/landing-page/service-course-mobile.jpg',
           '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
-          '/assets/projects/the-service-course/mockup-5.jpg',
-          '/assets/projects/the-service-course/stickers.jpg',
-          '/assets/projects/the-service-course/mockup-4.jpg',
+          '/assets/projects/the-service-course/theServiceCourse-stationary-mockup.jpg',
+          '/assets/projects/the-service-course/servicecourse-postcard-mockup.jpg',
           '/assets/projects/the-service-course/tag-mockup.jpg',
-          '/assets/projects/the-service-course/tag.jpg',
+          '/assets/projects/the-service-course/Ads/1080x1080.jpg',
+          '/assets/projects/the-service-course/Ads/1080x1350.jpg',
+          '/assets/projects/the-service-course/Ads/1080x1920.jpg',
+          '/assets/projects/the-service-course/Ads/1200x1200.jpg',
+          '/assets/projects/the-service-course/Ads/250x350.jpg',
+          '/assets/projects/the-service-course/Ads/300x600.jpg',
+          '/assets/projects/the-service-course/Ads/768x90@2x.jpg',
         ],
         mockupUrl: '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
         content: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
@@ -132,7 +137,6 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra/climb-atlas-world-ranking.png',
           '/assets/projects/soffra/climb-atlas-country.png',
           '/assets/projects/soffra/climb-atlas-country-list.png',
-          '/assets/projects/soffra/climb-atlas-climb-page.png',
           '/assets/projects/soffra/climb-atlas-climb-page-top.png',
           '/assets/projects/soffra/climb-atlas-climb-page-map.png',
           '/assets/projects/soffra/climb-atlas-climb-list.png',
