@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v177';
-    this.logger.log(`FORCE SEED: v177`);
+    const SEEDER_VERSION = 'v179';
+    this.logger.log(`FORCE SEED: v179`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -41,10 +41,10 @@ export class SeedService implements OnModuleInit {
             'FINDASH — Real-Time Financial Intelligence Platform. A modern financial dashboard platform designed to transform complex operational data into clear, real-time insight.',
           imageUrl: '/assets/projects/findash/findash-web-mockup.jpg',
           gallery: [
+            '/assets/projects/findash/findash-brochure-closeup.jpg',
             '/assets/projects/findash/findash-stationary-mockup.jpg',
             '/assets/projects/findash/findash-bizcard-mockup.jpg',
             '/assets/projects/findash/findash-brochure.jpg',
-            '/assets/projects/findash/findash-brochure-closeup.jpg',
             '/assets/projects/findash/findash-envelope-mockup.jpg',
             '/assets/projects/findash/findash-web-mockup.jpg',
             '/assets/projects/findash/findash-logo.jpg',
@@ -66,7 +66,6 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
           gallery: [
             '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
-            '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
             '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
