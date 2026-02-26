@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v147';
-    this.logger.log(`FORCE SEED: v147`);
+    const SEEDER_VERSION = 'v157';
+    this.logger.log(`FORCE SEED: v157`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -34,7 +34,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Findash',
         description: 'FINDASH — Real-Time Financial Intelligence Platform. A modern financial dashboard platform designed to transform complex operational data into clear, real-time insight.',
-        imageUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        imageUrl: '/assets/projects/findash/findash-web-mockup.jpg',
         gallery: [
           '/assets/projects/findash/findash-stationary-mockup.jpg',
           '/assets/projects/findash/findash-bizcard-mockup.jpg',
@@ -44,7 +44,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/findash/findash-web-mockup.jpg',
           '/assets/projects/findash/findash-logo.jpg',
         ],
-        mockupUrl: '/assets/projects/findash/findash-stationary-mockup.jpg',
+        mockupUrl: '/assets/projects/findash/findash-web-mockup.jpg',
         content: 'Findash is a cutting-edge fintech company that provides advanced dashboard technology for financial institutions. The branding project focused on creating a clean, professional, and tech-forward visual identity.',
         tags: ['Branding', 'Print', 'FinTech'],
         type: 'print-only',
@@ -55,7 +55,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Pinnacle Solutions',
         description: 'High-end corporate branding and digital presence for a global technology solutions provider.',
-        imageUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+        imageUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
         gallery: [
           '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-logo-mockup.jpg',
@@ -66,7 +66,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/pinnacle-solutions/pinnacle-brochure1.jpg',
           '/assets/projects/pinnacle-solutions/pinnacle-brochure2.jpg',
         ],
-        mockupUrl: '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
+        mockupUrl: '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
         content: 'Pinnacle Solutions is a leading provider of enterprise-grade technology and consulting services.',
         tags: ['Branding', 'Print', 'Graphic Design'],
         type: 'print-only',
@@ -101,8 +101,9 @@ export class SeedService implements OnModuleInit {
       {
         title: 'Farmland Consulting',
         description: 'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
-        imageUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+        imageUrl: '/assets/projects/farmland/landing page/farmland-landing-page-web-mockup.jpg',
         gallery: [
+          '/assets/projects/farmland/landing page/farmland-landing-page-web-mockup.jpg',
           '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
           '/assets/projects/farmland/farmland-stationary-mockup.jpg',
           '/assets/projects/farmland/envelope-mockup.jpg',
@@ -111,7 +112,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/farmland/FarmlandConsulting_seal_Final.png',
           '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
         ],
-        mockupUrl: '/assets/projects/farmland/farmland-stationary-mockup.jpg',
+        mockupUrl: '/assets/projects/farmland/landing page/farmland-landing-page-web-mockup.jpg',
         content: 'Farmland Consulting provides expert advisory services to the agricultural sector.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
@@ -122,7 +123,7 @@ export class SeedService implements OnModuleInit {
       {
         title: 'SOFFRA.io',
         description: 'SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.',
-        imageUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
+        imageUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
         gallery: [
           '/assets/projects/soffra-brand/soffra-mockup.jpg',
           '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
@@ -133,7 +134,7 @@ export class SeedService implements OnModuleInit {
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-mockup-1.jpg',
           '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
         ],
-        mockupUrl: '/assets/projects/soffra-brand/SOFFRA-Business-Card.jpg',
+        mockupUrl: '/assets/projects/soffra-brand/soffra-mockup.jpg',
         content: 'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
         tags: ['Branding', 'Print', 'Identity'],
         type: 'print-only',
@@ -158,6 +159,46 @@ export class SeedService implements OnModuleInit {
         layout: 'grid-2',
         order: 5,
         completedDate: 'April 2026',
+      },
+      {
+        title: 'Sorella Home Solutions',
+        description: 'Comprehensive brand identity and print collateral for a premium home concierge service.',
+        imageUrl: '/assets/projects/sorella/sorella-mockup.jpg',
+        gallery: [
+          '/assets/projects/sorella/sorella-mockup.jpg',
+          '/assets/projects/sorella/Landing Page/sorella-desktop.jpg',
+          '/assets/projects/sorella/Landing Page/sorella-tablet.jpg',
+          '/assets/projects/sorella/Landing Page/sorella-mobile.jpg',
+          '/assets/projects/sorella/stationary web/sorella-stationary-mockup.jpg',
+          '/assets/projects/sorella/stationary web/sorella-business-card-mockup.jpg',
+          '/assets/projects/sorella/stationary web/sorella-envelope-mpckup.jpg',
+          '/assets/projects/sorella/stationary web/sorella-stationary-mockup2.jpg',
+        ],
+        mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
+        content: 'Brand identity development and print materials for Sorella Home Solutions.',
+        tags: ['Branding', 'Print', 'Identity'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 6,
+        completedDate: 'October 2026',
+      },
+      {
+        title: 'Clinical Resources',
+        description: 'Advanced assessment platform branding and print collateral for speech-language pathologists.',
+        imageUrl: '/assets/projects/clinical/clinical-mockup.jpg',
+        gallery: [
+          '/assets/projects/clinical/clinical-mockup.jpg',
+          '/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg',
+          '/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg',
+          '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
+        ],
+        mockupUrl: '/assets/projects/clinical/clinical-mockup.jpg',
+        content: 'Brand identity development and specialized print materials for Clinical Resources Assessment Platform.',
+        tags: ['Branding', 'Print', 'Healthcare'],
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 7,
+        completedDate: 'November 2026',
       },
 
       {

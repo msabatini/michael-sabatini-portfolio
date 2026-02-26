@@ -25,7 +25,7 @@
     
 
     <div class="container detail-body">
-      @if (p.title !== 'Findash') {
+      @if (p.title !== 'Findash' && p.title !== 'Sorella Home Solutions' && p.title !== 'Clinical Resources') {
         <a routerLink="/print" class="back-btn">
           <app-icon name="chevron-left" [size]="16"></app-icon> Back to Print
         </a>
@@ -33,7 +33,105 @@
       @if (p.title === 'Findash') {
         <a routerLink="/print" class="back-btn">Back to Print</a>
       }
-      @if (p.title === 'Findash') {
+      @if (p.title === 'Clinical Resources') {
+        <section class="project-intro">
+          <h2>Clinical Resources — Speech Assessment Platform</h2>
+          <p>Comprehensive brand identity and specialized print collateral for Clinical Resources, an assessment platform for speech-language pathologists. The design system emphasizes clarity, professional trust, and diagnostic precision.</p>
+        </section>
+
+        <div class="clinical-main-layout">
+          <main class="visual-storyboard clinical-layout">
+            <div class="visual-item featured-item">
+              <img [src]="p.mockupUrl" alt="Clinical Resources Mockup" [attr.data-modal-src]="p.mockupUrl" data-meta="Clinical Resources Mockup">
+            </div>
+          </main>
+        </div>
+
+        <section class="landing-page-section clinical-web-section">
+          <div class="campaigns-wrap">
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg" alt="Clinical Resources Desktop" class="responsive-image" data-modal-src="/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg" alt="Clinical Resources Tablet" class="responsive-image" data-modal-src="/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg" alt="Clinical Resources Mobile" class="responsive-image" data-modal-src="/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      }
+      @if (p.title === 'Sorella Home Solutions') {
+        <section class="project-intro">
+          <h2>Sorella Home Solutions — Premium Home Concierge</h2>
+          <p>Comprehensive brand identity and print collateral development for a high-end home concierge service. The visual system was designed to evoke trust, reliability, and sophisticated care.</p>
+        </section>
+
+        <div class="sorella-main-layout">
+          <main class="visual-storyboard sorella-layout">
+            <div class="visual-item featured-item">
+              <img [src]="p.mockupUrl" alt="Sorella Home Solutions Mockup" [attr.data-modal-src]="p.mockupUrl" data-meta="Sorella Home Solutions Mockup">
+            </div>
+          </main>
+        </div>
+
+        <section class="landing-page-section sorella-web-section">
+          <div class="campaigns-wrap">
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/sorella/Landing Page/sorella-desktop.jpg" alt="Sorella Desktop" class="responsive-image" data-modal-src="/assets/projects/sorella/Landing Page/sorella-desktop.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/sorella/Landing Page/sorella-tablet.jpg" alt="Sorella Tablet" class="responsive-image" data-modal-src="/assets/projects/sorella/Landing Page/sorella-tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/sorella/Landing Page/sorella-mobile.jpg" alt="Sorella Mobile" class="responsive-image" data-modal-src="/assets/projects/sorella/Landing Page/sorella-mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="sorella-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard sorella-layout">
+              <div class="sorella-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (img.includes('stationary web')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else if (p.title === 'Findash') {
         <section class="project-intro">
           <h2>FINDASH — Real-Time Financial Intelligence Platform</h2>
           <p>FINDASH is a modern financial dashboard platform designed to transform complex operational data into clear, real-time insight. I developed a conversion-focused marketing website that communicates precision, speed, and enterprise trust while guiding users through the platform’s core value pillars: clarity, intelligence, integration, and security.</p>
@@ -445,21 +543,23 @@
           </div>
         </section>
 
-        <div class="pinnacle-main-layout">
-          <main class="visual-storyboard pinnacle-layout">
+        <div class="pinnacle-print-layout">
+          <div class="campaigns-wrap">
             <h2>Brand Identity & Print Collateral</h2>
-            <div class="pinnacle-grid">
-              @if (p.gallery && p.gallery.length > 0) {
-                @for (img of p.gallery; track img; let i = $index) {
-                  @if (!img.includes('pinnacle-web-mockup.jpg') && !img.includes('landing page')) {
-                    <div class="visual-item">
-                      <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
-                    </div>
+            <main class="visual-storyboard pinnacle-layout">
+              <div class="pinnacle-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (!img.includes('pinnacle-web-mockup.jpg') && !img.includes('landing page')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
                   }
                 }
-              }
-            </div>
-          </main>
+              </div>
+            </main>
+          </div>
         </div>
 
         <section class="project-narrative">

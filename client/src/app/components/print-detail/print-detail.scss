@@ -193,12 +193,23 @@
   }
 
   .findash-main-layout,
+  .sorella-main-layout,
+  .clinical-main-layout,
+  .pinnacle-main-layout,
   .service-course-main-layout,
   .soffra-main-layout,
   .solo-main-layout,
   .hingham-main-layout,
   .hub-main-layout {
     width: 100%;
+  }
+
+  .sorella-main-layout,
+  .clinical-main-layout {
+    .featured-item {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
   }
 
   .soffra-main-layout {
@@ -209,6 +220,9 @@
   }
 
   .findash-layout,
+  .sorella-layout,
+  .clinical-layout,
+  .pinnacle-layout,
   .service-course-layout,
   .soffra-layout,
   .solo-layout,
@@ -218,6 +232,9 @@
   }
 
   .findash-grid,
+  .sorella-grid,
+  .clinical-grid,
+  .pinnacle-grid,
   .service-course-grid,
   .soffra-grid,
   .solo-grid,
@@ -249,7 +266,9 @@
   }
 
   .service-course-print-layout,
-  .soffra-print-layout {
+  .soffra-print-layout,
+  .sorella-print-layout,
+  .pinnacle-print-layout {
     padding: 4rem 0;
     border-top: 1px solid var(--border-color);
 
