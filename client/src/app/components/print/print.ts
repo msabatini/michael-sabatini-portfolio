@@ -37,7 +37,7 @@ export class Print implements OnInit {
       next: (data) => {
         const standard = data.filter(p => {
           const type = (p.type || '').toLowerCase();
-          return type === 'print-only';
+          return type === 'print-only' || type === 'print';
         });
         const posters = data.filter(p => {
           const type = (p.type || '').toLowerCase();
