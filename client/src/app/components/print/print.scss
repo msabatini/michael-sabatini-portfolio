@@ -155,6 +155,40 @@
   }
 }
 
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 6rem 0;
+  opacity: 0.5;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+  }
+}
+
 .no-projects {
   grid-column: 1 / -1;
   text-align: center;

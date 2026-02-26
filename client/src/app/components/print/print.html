@@ -10,7 +10,7 @@
 <section class="print-list-section">
   <div class="container">
     <div class="print-grid">
-      @for (project of projects(); track project.id) {
+      @for (project of standardProjects(); track project.id) {
         <div class="print-card" [routerLink]="['/portfolio', project.id]">
           <div class="print-image">
             @if (project.imageUrl) {
@@ -35,5 +35,36 @@
         </div>
       }
     </div>
+
+    @if (posterProjects().length > 0) {
+      <hr class="section-divider">
+      
+      <div class="section-header">
+        <h2 class="section-title">Poster Prints</h2>
+      </div>
+
+      <div class="print-grid">
+        @for (project of posterProjects(); track project.id) {
+          <div class="print-card" [routerLink]="['/portfolio', project.id]">
+            <div class="print-image">
+              @if (project.imageUrl) {
+                <img [src]="project.imageUrl" [alt]="project.title">
+              } @else {
+                <div class="placeholder-image">
+                  <app-icon name="image" [size]="48"></app-icon>
+                </div>
+              }
+              <div class="print-overlay">
+                <span class="category-tag">{{ project.tags?.[0] || 'Design' }}</span>
+              </div>
+            </div>
+            <div class="print-content">
+              <h2 class="print-title">{{ project.title }}</h2>
+              <p class="print-description">{{ project.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    }
   </div>
 </section>

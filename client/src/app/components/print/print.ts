@@ -18,7 +18,8 @@ export class Print implements OnInit {
   private seoService = inject(SeoService);
   private projectService = inject(ProjectService);
   
-  projects = signal<Project[]>([]);
+  standardProjects = signal<Project[]>([]);
+  posterProjects = signal<Project[]>([]);
   apiUrl = environment.apiUrl;
 
   ngOnInit(): void {
@@ -34,11 +35,17 @@ export class Print implements OnInit {
   loadProjects() {
     this.projectService.getProjects().subscribe({
       next: (data) => {
-        const filtered = data.filter(p => {
+        const standard = data.filter(p => {
           const type = (p.type || '').toLowerCase();
-          return type.includes('print');
+          return type === 'print-only';
         });
-        this.projects.set(filtered);
+        const posters = data.filter(p => {
+          const type = (p.type || '').toLowerCase();
+          return type === 'poster-print';
+        });
+        
+        this.standardProjects.set(standard);
+        this.posterProjects.set(posters);
       },
       error: (err) => console.error('Error fetching print projects', err)
     });

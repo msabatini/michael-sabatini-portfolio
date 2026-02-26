@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v175';
-    this.logger.log(`FORCE SEED: v175`);
+    const SEEDER_VERSION = 'v176';
+    this.logger.log(`FORCE SEED: v176`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -627,7 +627,7 @@ export class SeedService implements OnModuleInit {
           content:
             'Limited-edition posters capturing the beauty and challenge of iconic mountain passes.',
           tags: ['Print', 'Poster Series'],
-          type: 'print-only',
+          type: 'poster-print',
           layout: 'grid-3',
           order: 15,
           completedDate: 'February 2025',
@@ -649,7 +649,7 @@ export class SeedService implements OnModuleInit {
           content:
             'A comprehensive series of high-quality prints celebrating the unique geography of Martha’s Vineyard.',
           tags: ['Print', 'Graphic Design'],
-          type: 'print-only',
+          type: 'poster-print',
           layout: 'grid-3',
           order: 16,
           completedDate: 'March 2025',
@@ -691,7 +691,7 @@ export class SeedService implements OnModuleInit {
           content:
             'A series of over 26 unique maps capturing the intricate trail systems of major New England resorts.',
           tags: ['Print', 'Cartography'],
-          type: 'print-only',
+          type: 'poster-print',
           layout: 'grid-2',
           order: 17,
           completedDate: 'May 2025',
@@ -710,7 +710,7 @@ export class SeedService implements OnModuleInit {
           content:
             'Aggressive typography and rugged aesthetic reflecting the spirit of the riders.',
           tags: ['Print', 'Poster Design'],
-          type: 'print-only',
+          type: 'poster-print',
           layout: 'grid-3',
           order: 18,
           completedDate: 'April 2025',
@@ -735,7 +735,7 @@ export class SeedService implements OnModuleInit {
           content:
             'A "devilish" and high-impact visual identity reflecting the difficulty of the race.',
           tags: ['Print', 'Apparel Design'],
-          type: 'print-only',
+          type: 'poster-print',
           layout: 'grid-2',
           order: 19,
           completedDate: 'May 2025',
