@@ -196,6 +196,7 @@
   .sorella-main-layout,
   .clinical-main-layout,
   .flourrish-main-layout,
+  .progressive-main-layout,
   .pinnacle-main-layout,
   .service-course-main-layout,
   .soffra-main-layout,
@@ -207,7 +208,8 @@
 
   .sorella-main-layout,
   .clinical-main-layout,
-  .flourrish-main-layout {
+  .flourrish-main-layout,
+  .progressive-main-layout {
     .featured-item {
       width: 100%;
       margin-bottom: 3rem;
@@ -226,6 +228,7 @@
   .clinical-layout,
   .flourrish-layout,
   .farmland-layout,
+  .progressive-layout,
   .pinnacle-layout,
   .service-course-layout,
   .soffra-layout,
@@ -240,6 +243,7 @@
   .clinical-grid,
   .flourrish-grid,
   .farmland-grid,
+  .progressive-grid,
   .pinnacle-grid,
   .service-course-grid,
   .soffra-grid,
@@ -276,6 +280,7 @@
   .sorella-print-layout,
   .flourrish-print-layout,
   .farmland-print-layout,
+  .progressive-print-layout,
   .pinnacle-print-layout {
     padding: 4rem 0;
     border-top: 1px solid var(--border-color);

@@ -687,25 +687,25 @@
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      } @else if (p.title === 'Flourrish Environmental Funding') {
+      } @else if (p.title === 'Flourrish Environmental Funding' || p.title === 'Progressive Insurance') {
         <section class="project-intro">
-          <h2>Flourrish Environmental Funding — Environmental Fintech Branding</h2>
-          <p>Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.</p>
+          <h2>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance — Case Study & Interface Design' : 'Flourrish Environmental Funding — Environmental Fintech Branding' }}</h2>
+          <p>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance required a modern, user-centric approach to their digital platforms. I developed a comprehensive interface design system that emphasizes clarity and efficiency.' : 'Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.' }}</p>
         </section>
 
-        <div class="flourrish-main-layout">
-          <main class="visual-storyboard flourrish-layout">
+        <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-main-layout'">
+          <main class="visual-storyboard" [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-layout'">
             <div class="visual-item featured-item">
-              <img [src]="p.mockupUrl" alt="Flourrish Mockup" [attr.data-modal-src]="p.mockupUrl" data-meta="Flourrish Mockup">
+              <img [src]="p.mockupUrl" alt="{{ p.title }} Mockup" [attr.data-modal-src]="p.mockupUrl" [attr.data-meta]="p.title + ' Mockup'">
             </div>
           </main>
         </div>
 
-        <div class="flourrish-print-layout">
+        <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-print-layout'">
           <div class="campaigns-wrap">
-            <h2>Brand Identity & Print Collateral</h2>
-            <main class="visual-storyboard flourrish-layout">
-              <div class="flourrish-grid">
+            <h2>{{ p.title === 'Progressive Insurance' ? 'Interface Design & Case Study' : 'Brand Identity & Print Collateral' }}</h2>
+            <main class="visual-storyboard" [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-layout'">
+              <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-grid'">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
                     @if (img !== p.mockupUrl) {
