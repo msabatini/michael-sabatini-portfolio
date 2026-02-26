@@ -72,8 +72,7 @@
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      @if (p.title === 'Sorella Home Solutions') {
+      } @else if (p.title === 'Sorella Home Solutions') {
         <section class="project-intro">
           <h2>Sorella Home Solutions — Premium Home Concierge</h2>
           <p>Comprehensive brand identity and print collateral development for a high-end home concierge service. The visual system was designed to evoke trust, reliability, and sophisticated care.</p>
@@ -567,6 +566,14 @@
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Farmland Consulting') {
+        <div class="farmland-main-layout">
+          <main class="visual-storyboard stack">
+            <div class="visual-item featured-item">
+              <img [src]="p.mockupUrl" alt="Farmland Consulting Mockup" [attr.data-modal-src]="p.mockupUrl" data-meta="Farmland Consulting Mockup">
+            </div>
+          </main>
+        </div>
+
         <section class="landing-page-section">
           <div class="campaigns-wrap">
             <h2>Digital Fundraising Platform</h2>
@@ -657,19 +664,60 @@
           </div>
         </section>
 
-        <div class="farmland-main-layout">
-          <main class="visual-storyboard stack">
+        <div class="farmland-print-layout">
+          <div class="campaigns-wrap">
             <h2>Brand Identity & Print Collateral</h2>
-            @if (p.gallery && p.gallery.length > 0) {
-              @for (img of p.gallery; track img; let i = $index) {
-                @if (!img.includes('landing page')) {
-                  <div class="visual-item">
-                    <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
-                  </div>
+            <main class="visual-storyboard farmland-layout">
+              <div class="farmland-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (!img.includes('landing page')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
                 }
-              }
-            }
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <section class="project-narrative">
+          <h2>The Process</h2>
+          <p>{{ p.content }}</p>
+        </section>
+      } @else if (p.title === 'Flourrish Environmental Funding') {
+        <section class="project-intro">
+          <h2>Flourrish Environmental Funding — Environmental Fintech Branding</h2>
+          <p>Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.</p>
+        </section>
+
+        <div class="flourrish-main-layout">
+          <main class="visual-storyboard flourrish-layout">
+            <div class="visual-item featured-item">
+              <img [src]="p.mockupUrl" alt="Flourrish Mockup" [attr.data-modal-src]="p.mockupUrl" data-meta="Flourrish Mockup">
+            </div>
           </main>
+        </div>
+
+        <div class="flourrish-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard flourrish-layout">
+              <div class="flourrish-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (img !== p.mockupUrl) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </main>
+          </div>
         </div>
 
         <section class="project-narrative">

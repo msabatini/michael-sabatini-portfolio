@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v157';
-    this.logger.log(`FORCE SEED: v157`);
+    const SEEDER_VERSION = 'v158';
+    this.logger.log(`FORCE SEED: v158`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
     
     try {
@@ -459,8 +459,9 @@ export class SeedService implements OnModuleInit {
         mockupUrl: '/assets/projects/flourrish/flourrish-mockup.jpg',
         content: 'Flourrish is a revolutionary environmental fintech platform.',
         tags: ['Application Development','Angular', 'FinTech'],
-        type: 'web',
-        order: 3,
+        type: 'print-only',
+        layout: 'grid-2',
+        order: 8,
         completedDate: 'October 2025',
       },
       {
