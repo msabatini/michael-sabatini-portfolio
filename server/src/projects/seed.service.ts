@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v180';
-    this.logger.log(`FORCE SEED: v180`);
+    const SEEDER_VERSION = 'v181';
+    this.logger.log(`FORCE SEED: v181`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -136,6 +136,7 @@ export class SeedService implements OnModuleInit {
             'Farmland Consulting provides expert advisory services to the agricultural sector.',
           tags: ['Branding', 'Print', 'Identity'],
           type: 'print-only',
+          isFeatured: true,
           order: 3,
           layout: 'grid-2',
           completedDate: 'January 2025',
