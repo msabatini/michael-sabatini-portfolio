@@ -601,6 +601,26 @@
   gap: 1.5rem;
   grid-auto-rows: max-content;
 
+  .leaderboard-item {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+
+    .leaderboard-ad {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 768 / 90;
+    }
+    
+    figcaption {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -612,43 +632,87 @@
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
+
+  &.ads-flex-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 4rem;
+    grid-template-columns: none;
+
+    .ad-item {
+      flex: 0 0 auto;
+      margin: 0;
+      
+      // Proportional widths that decrease in scale to make them "get smaller"
+      &:nth-child(1) { width: 380px; } // 1080x1920 (tallest/biggest)
+      &:nth-child(2) { width: 320px; } // 1080x1350
+      &:nth-child(3) { width: 300px; } // 1200x1200
+      &:nth-child(4) { width: 240px; } // 1080x1080
+      &:nth-child(5) { width: 120px; } // 300x600
+
+      @media (max-width: 1280px) {
+        gap: 2rem;
+        &:nth-child(1) { width: 280px; }
+        &:nth-child(2) { width: 240px; }
+        &:nth-child(3) { width: 220px; }
+        &:nth-child(4) { width: 180px; }
+        &:nth-child(5) { width: 90px; }
+      }
+
+      @media (max-width: 480px) {
+        width: 100% !important;
+      }
+
+      .ad-tile {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
 }
 
 .ad-item {
   margin: 0;
 
+  &.featured-ad {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    @media (max-width: 480px) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+
   &:nth-child(1) { 
-    .ad-tile { aspect-ratio: 1200 / 1200; }
+    .ad-tile { aspect-ratio: 1920 / 1920; }
   }
   &:nth-child(2) { 
-    .ad-tile { aspect-ratio: 1080 / 1080; }
-  }
-  &:nth-child(3) { 
     .ad-tile { aspect-ratio: 1080 / 1350; }
   }
+  &:nth-child(3) { 
+    .ad-tile { aspect-ratio: 1200 / 1200; }
+  }
   &:nth-child(4) { 
-    .ad-tile { aspect-ratio: 1080 / 1920; }
+    .ad-tile { aspect-ratio: 1080 / 1080; }
   }
   &:nth-child(5) { 
-    .ad-tile { aspect-ratio: 250 / 350; }
-  }
-  &:nth-child(6) { 
-    .ad-tile { aspect-ratio: 300 / 600; }
-  }
-  &:nth-child(7) { 
-    .ad-tile { aspect-ratio: 768 / 90; }
+    .ad-tile { aspect-ratio: 490 / 600; }
   }
 }
 
 .ad-tile {
   width: 100%;
+  max-width: 1080px;
   height: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: 0.75rem;
 }
 
 .ad-item figcaption {
+  margin-top: 0.5rem;
   font-size: 0.75rem;
   color: var(--text-muted);
   letter-spacing: 0.02em;

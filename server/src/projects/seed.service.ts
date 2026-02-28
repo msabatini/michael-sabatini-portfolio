@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v182';
-    this.logger.log(`FORCE SEED: v182`);
+    const SEEDER_VERSION = 'v184';
+    this.logger.log(`FORCE SEED: v184`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -438,6 +438,11 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/sorella/sorella-case-study7.jpg',
             '/assets/projects/sorella/sorella-case-study8.jpg',
             '/assets/projects/sorella/sorella-case-study9.jpg',
+            '/assets/projects/sorella/Ads/1080x1080.jpg',
+            '/assets/projects/sorella/Ads/1080x1350.jpg',
+            '/assets/projects/sorella/Ads/1080x1920.jpg',
+            '/assets/projects/sorella/Ads/1200x1200.jpg',
+            '/assets/projects/sorella/Ads/300x600.jpg',
           ],
           mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
           content:
