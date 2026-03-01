@@ -3,21 +3,98 @@
     @if (p.title === 'Findash') {
       <app-findash-hero></app-findash-hero>
     } @else {
-      <header class="detail-hero" [class.has-background]="p.mockupUrl">
-        @if (p.mockupUrl) {
-          <div class="hero-background-image">
-            <img [src]="p.mockupUrl" alt="">
-          </div>
-          <div class="hero-overlay"></div>
+      <header class="detail-hero detail-hero--split detail-hero--dark" 
+        [class.detail-hero--pinnacle]="p.title === 'Pinnacle Solutions'"
+        [class.detail-hero--farmland]="p.title === 'Farmland Consulting'"
+        [class.detail-hero--service-course]="p.title === 'The Service Course'"
+        [class.detail-hero--sorella]="p.title === 'Sorella Home Solutions'">
+        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting') {
+          <div class="hero-watermark" aria-hidden="true"></div>
         }
         <div class="container">
           <a routerLink="/portfolio" class="back-btn">
-            <app-icon name="chevron-left" [size]="16"></app-icon> Back to Portfolio
+            <app-icon name="chevron-left"></app-icon>
+            Back to Portfolio
           </a>
-          <div class="hero-content">
-            <div class="meta">{{ p.completedDate }}</div>
-            <h1 class="title">{{ p.title }}</h1>
-            <p class="lead">{{ p.description }}</p>
+
+          <div class="hero-grid">
+            <div class="hero-content">
+              @if (p.title === 'SOFFRA.io') {
+                <img src="/assets/projects/soffra-brand/soffra-logo.svg" alt="SOFFRA Logo" class="hero-logo" />
+              } @else if (p.title === 'Pinnacle Solutions') {
+                <img src="/assets/projects/pinnacle-solutions/pinnacle-logo.svg" alt="Pinnacle Solutions Logo" class="hero-logo" />
+              } @else if (p.title === 'Farmland Consulting') {
+                <img src="/assets/projects/farmland/main_header_logo-transparent-bg.svg" alt="Farmland Consulting Logo" class="hero-logo" />
+              } @else if (p.title === 'The Service Course') {
+                <img src="/assets/projects/the-service-course/theServiceCourse-logo-no-border.png" alt="The Service Course Logo" class="hero-logo" />
+              } @else if (p.title === 'Sorella Home Solutions') {
+                <img src="/assets/projects/sorella/SHS-main-logo.png" alt="Sorella Logo" class="hero-logo" />
+              }
+              <div class="meta">{{ p.completedDate }}</div>
+              @if (p.title === 'SOFFRA.io') {
+                <h1 class="title">PAIN IS ONLY TEMPORARY</h1>
+              } @else if (p.title === 'Pinnacle Solutions') {
+                <h1 class="title">Performance, Engineered.</h1>
+              } @else if (p.title === 'Farmland Consulting') {
+                <h1 class="title">Supporting Communities Through Farmland Preservation</h1>
+              } @else if (p.title === 'The Service Course') {
+                <h1 class="title">Superior Bicycle Cleaning Tools</h1>
+                <p class="hero-tagline">Simple. Effective. High-Quality.</p>
+              } @else if (p.title === 'Sorella Home Solutions') {
+                <h1 class="title">With Sorella, consider it done.</h1>
+              } @else {
+                <h1 class="title">{{ p.title }}</h1>
+              }
+              <p class="lead">{{ p.description }}</p>
+            </div>
+
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-media__card">
+                @if (p.title === 'SOFFRA.io') {
+                  <img
+                    src="/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'Pinnacle Solutions') {
+                  <img
+                    src="/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'Farmland Consulting') {
+                  <img
+                    src="/assets/projects/farmland/farmland-device-mockup-transparent-bg.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'The Service Course') {
+                  <img
+                    src="/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'Sorella Home Solutions') {
+                  <img
+                    src="/assets/projects/sorella/sorella-device-mockup-transparent-bg.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else {
+                  <img
+                    [src]="p.mockupUrl"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                }
+              </div>
+            </div>
           </div>
         </div>
       </header>

@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v196';
-    this.logger.log(`FORCE SEED: v196`);
+    const SEEDER_VERSION = 'v198';
+    this.logger.log(`FORCE SEED: v198`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -88,9 +88,9 @@ export class SeedService implements OnModuleInit {
           description:
             'Premium brand identity and technical apparel for a high-end cycling experience center.',
           imageUrl:
-            '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
+            '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
           gallery: [
-            '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
+            '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
             '/assets/projects/the-service-course/landing-page/service-course-desktop.jpg',
             '/assets/projects/the-service-course/landing-page/service-course-tablet.jpg',
             '/assets/projects/the-service-course/landing-page/service-course-mobile.jpg',
@@ -107,7 +107,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/the-service-course/Ads/768x90@2x.jpg',
           ],
           mockupUrl:
-            '/assets/projects/the-service-course/landing-page/service-course-web-mockup.jpg',
+            '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
           content:
             'The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service.',
           tags: ['Branding', 'Print', 'Apparel Design'],
@@ -145,7 +145,8 @@ export class SeedService implements OnModuleInit {
           title: 'SOFFRA.io',
           description:
             'SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.',
-          imageUrl: '/assets/projects/soffra/soffra-mockup.jpg',
+          imageUrl:
+            '/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png',
           gallery: [
             '/assets/projects/soffra/soffra-mockup.jpg',
             '/assets/projects/soffra/soffra-main-hero.jpg',
@@ -168,7 +169,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-1-mockup-1.jpg',
             '/assets/projects/soffra-brand/SOFFRA-leave-behind-brochure-2-mockup-2.jpg',
           ],
-          mockupUrl: '/assets/projects/soffra/soffra-mockup.jpg',
+          mockupUrl:
+            '/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png',
           content:
             'The SOFFRA.io branding project involved creating a cohesive and high-impact visual identity that spans across digital and physical touchpoints, including specialized cycling apparel and marketing collateral.',
           tags: ['Branding', 'Print', 'Identity'],
@@ -181,9 +183,9 @@ export class SeedService implements OnModuleInit {
           title: 'Sorella Home Solutions',
           description:
             'Comprehensive brand identity and print collateral for a premium home concierge service.',
-          imageUrl: '/assets/projects/sorella/sorella-mockup.jpg',
+          imageUrl: '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
           gallery: [
-            '/assets/projects/sorella/sorella-mockup.jpg',
+            '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
             '/assets/projects/sorella/Landing Page/sorella-desktop.jpg',
             '/assets/projects/sorella/Landing Page/sorella-tablet.jpg',
             '/assets/projects/sorella/Landing Page/sorella-mobile.jpg',
@@ -194,7 +196,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/sorella/email/sorella-email.jpg',
             '/assets/projects/sorella/email/sorella-email-mockup.jpg',
           ],
-          mockupUrl: '/assets/projects/sorella/sorella-mockup.jpg',
+          mockupUrl: '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
           content:
             'Brand identity development and print materials for Sorella Home Solutions.',
           tags: ['Branding', 'Print', 'Identity'],
