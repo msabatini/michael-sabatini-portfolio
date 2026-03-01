@@ -209,9 +209,9 @@ export class SeedService implements OnModuleInit {
           title: 'Clinical Resources',
           description:
             'Advanced assessment platform branding and print collateral for speech-language pathologists.',
-          imageUrl: '/assets/projects/clinical/clinical-mockup.jpg',
+          imageUrl: '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
           gallery: [
-            '/assets/projects/clinical/clinical-mockup.jpg',
+            '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
             '/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
@@ -221,7 +221,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
             '/assets/projects/clinical/Print/clinical-resources-stationary.jpg',
           ],
-          mockupUrl: '/assets/projects/clinical/clinical-mockup.jpg',
+          mockupUrl: '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
           content:
             'Brand identity development and specialized print materials for Clinical Resources Assessment Platform.',
           tags: ['Branding', 'Print', 'Healthcare'],

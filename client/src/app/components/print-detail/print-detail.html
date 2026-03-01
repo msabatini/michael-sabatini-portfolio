@@ -7,8 +7,9 @@
         [class.detail-hero--pinnacle]="p.title === 'Pinnacle Solutions'"
         [class.detail-hero--farmland]="p.title === 'Farmland Consulting'"
         [class.detail-hero--service-course]="p.title === 'The Service Course'"
-        [class.detail-hero--sorella]="p.title === 'Sorella Home Solutions'">
-        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting') {
+        [class.detail-hero--sorella]="p.title === 'Sorella Home Solutions'"
+        [class.detail-hero--clinical]="p.title === 'Clinical Resources'">
+        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting' || p.title === 'Clinical Resources') {
           <div class="hero-watermark" aria-hidden="true"></div>
         }
         <div class="container">
@@ -29,6 +30,8 @@
                 <img src="/assets/projects/the-service-course/theServiceCourse-logo-no-border.png" alt="The Service Course Logo" class="hero-logo" />
               } @else if (p.title === 'Sorella Home Solutions') {
                 <img src="/assets/projects/sorella/SHS-main-logo.png" alt="Sorella Logo" class="hero-logo" />
+              } @else if (p.title === 'Clinical Resources') {
+                <img src="/assets/projects/clinical/clinical-resources-logo-white-lighthouse.png" alt="Clinical Resources Logo" class="hero-logo" />
               }
               <div class="meta">{{ p.completedDate }}</div>
               @if (p.title === 'SOFFRA.io') {
@@ -42,6 +45,8 @@
                 <p class="hero-tagline">Simple. Effective. High-Quality.</p>
               } @else if (p.title === 'Sorella Home Solutions') {
                 <h1 class="title">With Sorella, consider it done.</h1>
+              } @else if (p.title === 'Clinical Resources') {
+                <h1 class="title">Anchored in Evidence. Built for SLPs.</h1>
               } @else {
                 <h1 class="title">{{ p.title }}</h1>
               }
@@ -81,6 +86,13 @@
                 } @else if (p.title === 'Sorella Home Solutions') {
                   <img
                     src="/assets/projects/sorella/sorella-device-mockup-transparent-bg.png"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'Clinical Resources') {
+                  <img
+                    src="/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png"
                     alt=""
                     loading="eager"
                     decoding="async"

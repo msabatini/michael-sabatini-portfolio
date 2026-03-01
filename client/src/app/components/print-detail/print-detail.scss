@@ -146,7 +146,7 @@
       .hero-media__card img {
         width: 100%;
         height: 100%;
-        min-width: 620px;
+        min-width: 680px;
         object-fit: contain; /* changed to contain to avoid cropping transparent mockup */
         display: block;
       }
@@ -208,6 +208,21 @@
 
         .hero-watermark {
           background-image: url('/assets/projects/sorella/sorella-hero-bacground-image.jpg');
+          opacity: .1;
+        }
+      }
+
+      &.detail-hero--clinical {
+        background: linear-gradient(90deg, #0c233d, #040b12);
+
+        .hero-logo {
+          height: clamp(65px, 10vw, 160px);
+        }
+
+        .hero-watermark {
+          background-image: url('/assets/projects/clinical/HES_logo-background.jpg');
+          background-size: cover;
+          background-position: center;
           opacity: .1;
         }
       }
