@@ -25,7 +25,7 @@
     
 
     <div class="container detail-body">
-      @if (p.title !== 'Findash' && p.title !== 'Sorella Home Solutions' && p.title !== 'Clinical Resources') {
+      @if (p.title !== 'Findash' && p.title !== 'Sorella Home Solutions' && p.title !== 'Clinical Resources' && p.title !== 'Clinical Resources SLP Platform') {
         <a routerLink="/portfolio" class="back-btn">
           <app-icon name="chevron-left" [size]="16"></app-icon> Back to Portfolio
         </a>
@@ -33,7 +33,7 @@
       @if (p.title === 'Findash') {
         <a routerLink="/portfolio" class="back-btn">Back to Portfolio</a>
       }
-      @if (p.title === 'Clinical Resources') {
+      @if (p.title === 'Clinical Resources' || p.title === 'Clinical Resources SLP Platform') {
         <section class="project-intro">
           <h2>Clinical Resources — Speech Assessment Platform</h2>
           <p>Comprehensive brand identity and specialized print collateral for Clinical Resources, an assessment platform for speech-language pathologists. The design system emphasizes clarity, professional trust, and diagnostic precision.</p>
@@ -67,6 +67,25 @@
             </div>
           </div>
         </section>
+
+        <div class="clinical-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard clinical-layout">
+              <div class="clinical-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (img.toLowerCase().includes('/print/')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </main>
+          </div>
+        </div>
 
         <section class="project-narrative">
           <h2>The Process</h2>

@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v184';
-    this.logger.log(`FORCE SEED: v184`);
+    const SEEDER_VERSION = 'v187';
+    this.logger.log(`FORCE SEED: v187`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -211,6 +211,10 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
+            '/assets/projects/clinical/print/clinical-resources-bizcard-mockup.jpg',
+            '/assets/projects/clinical/print/clinical-resources-brochure.jpg',
+            '/assets/projects/clinical/print/clinical-resources-envelope-mockup.jpg',
+            '/assets/projects/clinical/print/clinical-resources-stationary.jpg',
           ],
           mockupUrl: '/assets/projects/clinical/clinical-mockup.jpg',
           content:
@@ -476,6 +480,10 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/clinical-case-study13.jpg',
             '/assets/projects/clinical/clinical-case-study14.jpg',
             '/assets/projects/clinical/clinical-case-study15.jpg',
+            '/assets/projects/clinical/print/clinical-resources-bizcard-mockup.jpg',
+            '/assets/projects/clinical/print/clinical-resources-brochure.jpg',
+            '/assets/projects/clinical/print/clinical-resources-envelope-mockup.jpg',
+            '/assets/projects/clinical/print/clinical-resources-stationary.jpg',
           ],
           mockupUrl: '/assets/projects/clinical/clinical-mockup.jpg',
           content:
