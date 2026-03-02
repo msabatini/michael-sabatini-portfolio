@@ -74,7 +74,7 @@
 }
 
 .print-card {
-  background: var(--card-bg);
+  background: transparent;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -94,7 +94,7 @@
     aspect-ratio: 4 / 3;
     overflow: hidden;
     position: relative;
-    background: transparent;
+    background: var(--project-card-image-bg);
 
     img {
       width: 100%;
@@ -138,6 +138,8 @@
 
   .print-content {
     padding: 2rem;
+    background: var(--card-bg);
+    flex-grow: 1;
 
     .print-title {
       font-size: 1.75rem;

@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v234';
+    const SEEDER_VERSION = 'v235';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -442,6 +442,13 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/tour-de-france/tourmalet.jpg',
             '/assets/projects/tour-de-france/stelvio.jpg',
             '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
+            '/assets/projects/tour-de-france/aubisque.jpg',
+            '/assets/projects/tour-de-france/flandeers.jpg',
+            '/assets/projects/tour-de-france/galibier.jpg',
+            '/assets/projects/tour-de-france/gavia.jpg',
+            '/assets/projects/tour-de-france/madeleine.jpg',
+            '/assets/projects/tour-de-france/montventoux.jpg',
+            '/assets/projects/tour-de-france/parisroubaix.jpg',
           ],
           mockupUrl: '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
           content:
@@ -461,6 +468,9 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/mv/katama-airpark.jpg',
             '/assets/projects/mv/aquinnah.jpg',
             '/assets/projects/mv/cape-poge.jpg',
+            '/assets/projects/mv/corbin-norton.jpg',
+            '/assets/projects/mv/flying-horses.jpg',
+            '/assets/projects/mv/state-beach.jpg',
           ],
           mockupUrl: '/assets/projects/mv/katama-airpark.jpg',
           content:
@@ -480,6 +490,29 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/ski-maps/killington.png',
             '/assets/projects/ski-maps/stowe.png',
             '/assets/projects/ski-maps/jay-peak.png',
+            '/assets/projects/ski-maps/attitash-bearpeak.png',
+            '/assets/projects/ski-maps/berkshire-east.png',
+            '/assets/projects/ski-maps/bolton-valley.png',
+            '/assets/projects/ski-maps/bretton-woods.png',
+            '/assets/projects/ski-maps/bromley.png',
+            '/assets/projects/ski-maps/burke.png',
+            '/assets/projects/ski-maps/cannon.png',
+            '/assets/projects/ski-maps/gunstock.png',
+            '/assets/projects/ski-maps/loon.png',
+            '/assets/projects/ski-maps/mad-river-glen.png',
+            '/assets/projects/ski-maps/mount-snow.png',
+            '/assets/projects/ski-maps/okemo.png',
+            '/assets/projects/ski-maps/pats-peak.png',
+            '/assets/projects/ski-maps/pico.png',
+            '/assets/projects/ski-maps/smuggs.png',
+            '/assets/projects/ski-maps/stratton.png',
+            '/assets/projects/ski-maps/sugarbush.png',
+            '/assets/projects/ski-maps/sugarloaf.png',
+            '/assets/projects/ski-maps/sunapee.png',
+            '/assets/projects/ski-maps/sunday-river.png',
+            '/assets/projects/ski-maps/waterville-valley.png',
+            '/assets/projects/ski-maps/whiteface.png',
+            '/assets/projects/ski-maps/wildcat.png',
           ],
           mockupUrl: '/assets/projects/ski-maps/killington.png',
           content:
@@ -497,6 +530,7 @@ export class SeedService implements OnModuleInit {
           imageUrl: '/assets/projects/rasputitsa/2019rasputitsa.jpg',
           gallery: [
             '/assets/projects/rasputitsa/2017RASP_Framed_Mockup.jpg',
+            '/assets/projects/rasputitsa/2018rasputitsa.jpg',
             '/assets/projects/rasputitsa/2019rasputitsa.jpg',
           ],
           mockupUrl: '/assets/projects/rasputitsa/2019rasputitsa.jpg',
@@ -516,6 +550,15 @@ export class SeedService implements OnModuleInit {
           gallery: [
             '/assets/projects/hellhole/HellHole.jpg',
             '/assets/projects/hellhole/Hellhole5_T-Shirt_Mockup_Front.jpg',
+            '/assets/projects/hellhole/ccap_insta4.jpg',
+            '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic_Back.jpg',
+            '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic.jpg',
+            '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Back.jpg',
+            '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Front.jpg',
+            '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Back.png',
+            '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Front.png',
+            '/assets/projects/hellhole/HellHole-no6.jpg',
+            '/assets/projects/hellhole/Number6-Tshirt-MockUp.jpg',
           ],
           mockupUrl: '/assets/projects/hellhole/HellHole.jpg',
           content:

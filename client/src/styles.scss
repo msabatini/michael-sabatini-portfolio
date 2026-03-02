@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5, h6,
   --border-color: #e2e8f0;
   --footer-bg: #e2e8f0;
   --footer-border: #e2e8f0;
+  --project-card-image-bg: #ffffff;
 }
 
 html.dark {
@@ -45,6 +46,7 @@ html.dark {
   --border-color: rgba(51, 65, 85, 0.8);
   --footer-bg: rgba(30, 41, 59, 0.8);
   --footer-border: #334155;
+  --project-card-image-bg: #0c1323f2;
 }
 
 body {
