@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v218';
-    this.logger.log(`FORCE SEED: v218`);
+    const SEEDER_VERSION = 'v220';
+    this.logger.log(`FORCE SEED: v220`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -38,7 +38,7 @@ export class SeedService implements OnModuleInit {
         {
           title: 'Findash',
           description:
-            'FINDASH — Real-Time Financial Intelligence Platform. A modern financial dashboard platform designed to transform complex operational data into clear, real-time insight.',
+            'An enterprise financial dashboard system built to bring clarity, hierarchy, and control to complex data environments.',
           imageUrl: '/assets/projects/findash/findash-web-mockup.jpg',
           gallery: [
             '/assets/projects/findash/findash-brochure-closeup.jpg',
@@ -58,17 +58,42 @@ export class SeedService implements OnModuleInit {
           order: 0,
           completedDate: 'August 2025',
           colorPalette: [
-            { hex: '#0B1F33', rgb: '11, 31, 51', cmyk: '78, 39, 0, 80', pms: '2965 C' },
-            { hex: '#55bdbf', rgb: '85, 189, 191', cmyk: '55, 1, 0, 25', pms: '3252 C' },
-            { hex: '#744476', rgb: '116, 68, 118', cmyk: '2, 42, 0, 54', pms: '520 C' },
-            { hex: '#2a3d58', rgb: '42, 61, 88', cmyk: '52, 31, 0, 65', pms: '534 C' },
-            { hex: '#dadada', rgb: '218, 218, 218', cmyk: '0, 0, 0, 15', pms: 'Cool Gray 2 C' }
-          ]
+            {
+              hex: '#0B1F33',
+              rgb: '11, 31, 51',
+              cmyk: '78, 39, 0, 80',
+              pms: '2965 C',
+            },
+            {
+              hex: '#55bdbf',
+              rgb: '85, 189, 191',
+              cmyk: '55, 1, 0, 25',
+              pms: '3252 C',
+            },
+            {
+              hex: '#744476',
+              rgb: '116, 68, 118',
+              cmyk: '2, 42, 0, 54',
+              pms: '520 C',
+            },
+            {
+              hex: '#2a3d58',
+              rgb: '42, 61, 88',
+              cmyk: '52, 31, 0, 65',
+              pms: '534 C',
+            },
+            {
+              hex: '#dadada',
+              rgb: '218, 218, 218',
+              cmyk: '0, 0, 0, 15',
+              pms: 'Cool Gray 2 C',
+            },
+          ],
         },
         {
           title: 'Pinnacle Solutions',
           description:
-            'High-end corporate branding and digital presence for a global technology solutions provider.',
+            'A corporate brand and UI transformation aligning visual authority with enterprise-scale human capital technology.',
           imageUrl:
             '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
           gallery: [
@@ -90,16 +115,36 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           completedDate: 'March 2025',
           colorPalette: [
-            { hex: '#1a2742', rgb: '26, 39, 66', cmyk: '61, 41, 0, 74', pms: '282 C' },
-            { hex: '#0dc1bf', rgb: '13, 193, 191', cmyk: '93, 0, 1, 24', pms: '3262 C' },
-            { hex: '#faf7f8', rgb: '250, 247, 248', cmyk: '0, 1, 1, 2', pms: 'Cool Gray 1 C' },
-            { hex: '#eaebe4', rgb: '234, 235, 228', cmyk: '0, 0, 3, 8', pms: '7527 C' }
-          ]
+            {
+              hex: '#1a2742',
+              rgb: '26, 39, 66',
+              cmyk: '61, 41, 0, 74',
+              pms: '282 C',
+            },
+            {
+              hex: '#0dc1bf',
+              rgb: '13, 193, 191',
+              cmyk: '93, 0, 1, 24',
+              pms: '3262 C',
+            },
+            {
+              hex: '#faf7f8',
+              rgb: '250, 247, 248',
+              cmyk: '0, 1, 1, 2',
+              pms: 'Cool Gray 1 C',
+            },
+            {
+              hex: '#eaebe4',
+              rgb: '234, 235, 228',
+              cmyk: '0, 0, 3, 8',
+              pms: '7527 C',
+            },
+          ],
         },
         {
           title: 'The Service Course',
           description:
-            'Premium brand identity and technical apparel for a high-end cycling experience center.',
+            'A premium performance retail identity expressing culture, confidence, and disciplined brand structure.',
           imageUrl:
             '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
           gallery: [
@@ -129,15 +174,30 @@ export class SeedService implements OnModuleInit {
           order: 4,
           completedDate: 'February 2025',
           colorPalette: [
-            { hex: '#07749d', rgb: '7, 116, 157', cmyk: '96, 26, 0, 38', pms: '2188 C' },
-            { hex: '#045372', rgb: '4, 83, 114', cmyk: '96, 27, 0, 55', pms: '2187 C' },
-            { hex: '#d9d6d7', rgb: '217, 214, 215', cmyk: '0, 1, 1, 15', pms: 'Cool Gray 2 C' }
-          ]
+            {
+              hex: '#07749d',
+              rgb: '7, 116, 157',
+              cmyk: '96, 26, 0, 38',
+              pms: '2188 C',
+            },
+            {
+              hex: '#045372',
+              rgb: '4, 83, 114',
+              cmyk: '96, 27, 0, 55',
+              pms: '2187 C',
+            },
+            {
+              hex: '#d9d6d7',
+              rgb: '217, 214, 215',
+              cmyk: '0, 1, 1, 15',
+              pms: 'Cool Gray 2 C',
+            },
+          ],
         },
         {
           title: 'Farmland Consulting',
           description:
-            'Comprehensive brand identity and stationery design for a specialized agricultural consultancy.',
+            'A heritage-driven brand redesign balancing land stewardship legacy with modern advisory clarity.',
           imageUrl:
             '/assets/projects/farmland/landing page/farmland-landing-page-web-mockup.jpg',
           gallery: [
@@ -159,16 +219,36 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           completedDate: 'January 2025',
           colorPalette: [
-            { hex: '#10202F', rgb: '16, 32, 47', cmyk: '66, 32, 0, 82', pms: '296 C' },
-            { hex: '#fbaf44', rgb: '251, 175, 68', cmyk: '0, 30, 73, 2', pms: '137 C' },
-            { hex: '#4e8abe', rgb: '78, 138, 190', cmyk: '59, 27, 0, 25', pms: '660 C' },
-            { hex: '#162a3c', rgb: '22, 42, 60', cmyk: '63, 30, 0, 76', pms: '2965 C' }
-          ]
+            {
+              hex: '#10202F',
+              rgb: '16, 32, 47',
+              cmyk: '66, 32, 0, 82',
+              pms: '296 C',
+            },
+            {
+              hex: '#fbaf44',
+              rgb: '251, 175, 68',
+              cmyk: '0, 30, 73, 2',
+              pms: '137 C',
+            },
+            {
+              hex: '#4e8abe',
+              rgb: '78, 138, 190',
+              cmyk: '59, 27, 0, 25',
+              pms: '660 C',
+            },
+            {
+              hex: '#162a3c',
+              rgb: '22, 42, 60',
+              cmyk: '63, 30, 0, 76',
+              pms: '2965 C',
+            },
+          ],
         },
         {
           title: 'SOFFRA.io',
           description:
-            'SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.',
+            'A climb-first digital ecosystem structured around global elevation performance and scalable competitive architecture.',
           imageUrl:
             '/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png',
           gallery: [
@@ -203,18 +283,44 @@ export class SeedService implements OnModuleInit {
           order: 2,
           completedDate: 'March 2025',
           colorPalette: [
-            { hex: '#050505', rgb: '5, 5, 5', cmyk: '45, 25, 0, 92', pms: 'Black 6 C' },
-            { hex: '#FF4D00', rgb: '255, 77, 0', cmyk: '0, 70, 100, 0', pms: 'Bright Orange C' },
-            { hex: '#666666', rgb: '102, 102, 102', cmyk: '0, 0, 0, 60', pms: 'Cool Gray 9 C' },
-            { hex: '#00FFFF', rgb: '0, 255, 255', cmyk: '100, 0, 0, 0', pms: 'Process Cyan C' },
-            { hex: '#333235', rgb: '51, 50, 53', cmyk: '4, 6, 0, 79', pms: '447 C' }
-          ]
+            {
+              hex: '#050505',
+              rgb: '5, 5, 5',
+              cmyk: '45, 25, 0, 92',
+              pms: 'Black 6 C',
+            },
+            {
+              hex: '#FF4D00',
+              rgb: '255, 77, 0',
+              cmyk: '0, 70, 100, 0',
+              pms: 'Bright Orange C',
+            },
+            {
+              hex: '#666666',
+              rgb: '102, 102, 102',
+              cmyk: '0, 0, 0, 60',
+              pms: 'Cool Gray 9 C',
+            },
+            {
+              hex: '#00FFFF',
+              rgb: '0, 255, 255',
+              cmyk: '100, 0, 0, 0',
+              pms: 'Process Cyan C',
+            },
+            {
+              hex: '#333235',
+              rgb: '51, 50, 53',
+              cmyk: '4, 6, 0, 79',
+              pms: '447 C',
+            },
+          ],
         },
         {
           title: 'Sorella Home Solutions',
           description:
-            'Comprehensive brand identity and print collateral for a premium home concierge service.',
-          imageUrl: '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
+            'A trust-driven service brand built from launch to communicate reliability across digital and print touchpoints.',
+          imageUrl:
+            '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
           gallery: [
             '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
             '/assets/projects/sorella/Landing Page/sorella-desktop.jpg',
@@ -227,7 +333,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/sorella/email/sorella-email.jpg',
             '/assets/projects/sorella/email/sorella-email-mockup.jpg',
           ],
-          mockupUrl: '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
+          mockupUrl:
+            '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
           content:
             'Brand identity development and print materials for Sorella Home Solutions.',
           tags: ['Branding', 'Print', 'Identity'],
@@ -236,17 +343,38 @@ export class SeedService implements OnModuleInit {
           order: 5,
           completedDate: 'October 2025',
           colorPalette: [
-            { hex: '#092642', rgb: '9, 38, 66', cmyk: '86, 42, 0, 74', pms: '282 C' },
-            { hex: '#37a6ed', rgb: '55, 166, 237', cmyk: '77, 30, 0, 7', pms: '285 C' },
-            { hex: '#e6f0fe', rgb: '230, 240, 254', cmyk: '9, 6, 0, 0', pms: '656 C' },
-            { hex: '#2e3340', rgb: '46, 51, 64', cmyk: '28, 20, 0, 75', pms: '432 C' }
-          ]
+            {
+              hex: '#092642',
+              rgb: '9, 38, 66',
+              cmyk: '86, 42, 0, 74',
+              pms: '282 C',
+            },
+            {
+              hex: '#37a6ed',
+              rgb: '55, 166, 237',
+              cmyk: '77, 30, 0, 7',
+              pms: '285 C',
+            },
+            {
+              hex: '#e6f0fe',
+              rgb: '230, 240, 254',
+              cmyk: '9, 6, 0, 0',
+              pms: '656 C',
+            },
+            {
+              hex: '#2e3340',
+              rgb: '46, 51, 64',
+              cmyk: '28, 20, 0, 75',
+              pms: '432 C',
+            },
+          ],
         },
         {
           title: 'Clinical Resources',
           description:
-            'Advanced assessment platform branding and print collateral for speech-language pathologists.',
-          imageUrl: '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
+            'A healthcare education platform digitizing clinical workflows through structured design, automation, and analytics visibility.',
+          imageUrl:
+            '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
           gallery: [
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
             '/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg',
@@ -258,7 +386,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
             '/assets/projects/clinical/Print/clinical-resources-stationary.jpg',
           ],
-          mockupUrl: '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
+          mockupUrl:
+            '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
           content:
             'Brand identity development and specialized print materials for Clinical Resources Assessment Platform.',
           tags: ['Branding', 'Print', 'Healthcare'],
@@ -267,16 +396,36 @@ export class SeedService implements OnModuleInit {
           order: 6,
           completedDate: 'November 2025',
           colorPalette: [
-            { hex: '#cf3178', rgb: '207, 49, 120', cmyk: '0, 76, 42, 19', pms: '213 C' },
-            { hex: '#6dc4e1', rgb: '109, 196, 225', cmyk: '52, 13, 0, 12', pms: '298 C' },
-            { hex: '#0c1624', rgb: '12, 22, 36', cmyk: '67, 39, 0, 86', pms: '2965 C' },
-            { hex: '#0d223c', rgb: '13, 34, 60', cmyk: '78, 43, 0, 76', pms: '282 C' }
-          ]
+            {
+              hex: '#cf3178',
+              rgb: '207, 49, 120',
+              cmyk: '0, 76, 42, 19',
+              pms: '213 C',
+            },
+            {
+              hex: '#6dc4e1',
+              rgb: '109, 196, 225',
+              cmyk: '52, 13, 0, 12',
+              pms: '298 C',
+            },
+            {
+              hex: '#0c1624',
+              rgb: '12, 22, 36',
+              cmyk: '67, 39, 0, 86',
+              pms: '2965 C',
+            },
+            {
+              hex: '#0d223c',
+              rgb: '13, 34, 60',
+              cmyk: '78, 43, 0, 76',
+              pms: '282 C',
+            },
+          ],
         },
         {
           title: 'Flourrish Environmental Funding',
           description:
-            'Global crowdsourcing platform for funding environmental restoration.',
+            'A mission-driven funding platform uniting environmental storytelling with structured contribution and impact systems.',
           imageUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           gallery: [
             '/assets/projects/flourrish/flourrish-device-mockup.png',
@@ -300,12 +449,37 @@ export class SeedService implements OnModuleInit {
           order: 7,
           completedDate: 'October 2025',
           colorPalette: [
-            { hex: '#264653', rgb: '38, 70, 83', cmyk: '54, 16, 0, 67', pms: '5405 C' },
-            { hex: '#37baa6', rgb: '55, 186, 166', cmyk: '70, 0, 11, 27', pms: '3262 C' },
-            { hex: '#10192c', rgb: '16, 25, 44', cmyk: '64, 43, 0, 83', pms: '2965 C' },
-            { hex: '#172033', rgb: '23, 32, 51', cmyk: '55, 37, 0, 80', pms: '2965 C' },
-            { hex: '#499f4e', rgb: '73, 159, 78', cmyk: '54, 0, 51, 38', pms: '362 C' }
-          ]
+            {
+              hex: '#264653',
+              rgb: '38, 70, 83',
+              cmyk: '54, 16, 0, 67',
+              pms: '5405 C',
+            },
+            {
+              hex: '#37baa6',
+              rgb: '55, 186, 166',
+              cmyk: '70, 0, 11, 27',
+              pms: '3262 C',
+            },
+            {
+              hex: '#10192c',
+              rgb: '16, 25, 44',
+              cmyk: '64, 43, 0, 83',
+              pms: '2965 C',
+            },
+            {
+              hex: '#172033',
+              rgb: '23, 32, 51',
+              cmyk: '55, 37, 0, 80',
+              pms: '2965 C',
+            },
+            {
+              hex: '#499f4e',
+              rgb: '73, 159, 78',
+              cmyk: '54, 0, 51, 38',
+              pms: '362 C',
+            },
+          ],
         },
 
         {
@@ -441,9 +615,24 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           completedDate: 'July 2025',
           colorPalette: [
-            { hex: '#7B2D26', rgb: '123, 45, 38', cmyk: '0, 63, 69, 52', pms: '1815 C' },
-            { hex: '#333333', rgb: '51, 51, 51', cmyk: '0, 0, 0, 80', pms: 'Neutral Black C' },
-            { hex: '#FFFFFF', rgb: '255, 255, 255', cmyk: '0, 0, 0, 0', pms: '000 C' }
+            {
+              hex: '#7B2D26',
+              rgb: '123, 45, 38',
+              cmyk: '0, 63, 69, 52',
+              pms: '1815 C',
+            },
+            {
+              hex: '#333333',
+              rgb: '51, 51, 51',
+              cmyk: '0, 0, 0, 80',
+              pms: 'Neutral Black C',
+            },
+            {
+              hex: '#FFFFFF',
+              rgb: '255, 255, 255',
+              cmyk: '0, 0, 0, 0',
+              pms: '000 C',
+            },
           ],
           designSpecs: [
             { label: 'Platform', value: 'Web / Responsive', type: 'technical' },
@@ -462,7 +651,7 @@ export class SeedService implements OnModuleInit {
         {
           title: 'Sorella Home Solutions',
           description:
-            'Sophisticated corporate website for a premium home concierge service company.',
+            'A trust-driven service brand built from launch to communicate reliability across digital and print touchpoints.',
           imageUrl: '/assets/projects/sorella/sorella-mockup.jpg',
           gallery: [
             '/assets/projects/sorella/sorella-case-study10.jpg',
@@ -493,7 +682,7 @@ export class SeedService implements OnModuleInit {
         {
           title: 'Clinical Resources SLP Platform',
           description:
-            'Revolutionary digital assessment platform for speech-language pathologists.',
+            'A healthcare education platform digitizing clinical workflows through structured design, automation, and analytics visibility.',
           imageUrl: '/assets/projects/clinical/clinical-mockup.jpg',
           gallery: [
             '/assets/projects/clinical/cr-hero.jpg',
@@ -531,7 +720,7 @@ export class SeedService implements OnModuleInit {
         {
           title: 'SOFFRA Climbing Platform',
           description:
-            'Global social media platform for cyclists and mountain climbing enthusiasts.',
+            'A climb-first digital ecosystem structured around global elevation performance and scalable competitive architecture.',
           imageUrl: '/assets/projects/soffra/soffra-mockup.jpg',
           gallery: [
             '/assets/projects/soffra/soffra-main-hero.jpg',
@@ -624,7 +813,7 @@ export class SeedService implements OnModuleInit {
         {
           title: 'Pinnacle Solutions Web Site',
           description:
-            'Sophisticated enterprise web presence for a global technology provider.',
+            'A corporate brand and UI transformation aligning visual authority with enterprise-scale human capital technology.',
           imageUrl:
             '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
           gallery: [

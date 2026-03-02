@@ -71,8 +71,16 @@
   .role-title {
     font-size: 1.5rem;
     color: var(--accent-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
+  }
+
+  .role-subhead {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    opacity: 0.8;
   }
 
   .summary {

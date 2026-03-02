@@ -17,14 +17,12 @@ export class SettingsService implements OnModuleInit {
     if (!settings) {
       const defaultSettings = this.settingsRepository.create({
         key: 'settings',
-        siteTitle: 'Michael Sabatini | Portfolio',
-        heroTitle: 'Graphic Designer & Frontend Engineer',
-        heroSubtitle:
-          'Designing & building high-impact brand experiences and modern web applications.',
-        bioLead:
-          'A passionate Senior Graphic Designer with 15+ years of experience and a Senior Frontend Engineer with over 10 years of experience, designing & building modern web applications.',
+        siteTitle: 'Michael Sabatini | Senior Graphic Designer',
+        heroTitle: 'Senior Graphic Designer',
+        heroSubtitle: 'Designing & building high-impact brand experiences and',
+        bioLead: '',
         bioFull:
-          "I specialize in building scalable, high-performance applications using Angular and NestJS. My focus is on creating intuitive user experiences that are both beautiful and accessible.\n\nWhen I'm not building, creating or envisioning, you can find me exploring new technologies, thinking about how we can make this world a better place, or enjoying a good cup of coffee after a long bike ride.",
+          'I design structured brand systems and digital platforms that balance clarity, performance, and scalability. My work spans identity, interface design, and complex workflow environments — translating strategy into cohesive visual systems. \n\n Outside of design, I’m drawn to emerging technologies, environmental impact initiatives, and endurance cycling in the mountains.',
         frontendSkills: [
           'Graphic Design',
           'Adobe Creative Cloud',
@@ -67,11 +65,15 @@ export class SettingsService implements OnModuleInit {
       });
       await this.settingsRepository.save(defaultSettings);
     } else {
-      // Force update the bioLead and skills to the new version
-      const targetBioLead =
-        'Senior Graphic Designer with 15+ years of experience in brand strategy, visual storytelling, and high-impact creative execution, supported by 10+ years of front-end development experience. Proven track record of contributing to over $5M in revenue through strategic proposal design, brand initiatives, and results-driven marketing campaigns. Specialized in UI/UX design, brand systems, marketing collateral, and print production, with advanced proficiency in Adobe Creative Suite. Experienced in designing and building responsive websites using HTML, CSS, and JavaScript, bridging design vision with technical implementation. Delivers cohesive, user-focused creative solutions that strengthen brand identity, enhance engagement, and drive measurable business results.';
+      // Force update the settings to the new version
+      settings.siteTitle = 'Michael Sabatini | Senior Graphic Designer';
+      settings.heroTitle = 'Senior Graphic Designer';
+      settings.heroSubtitle =
+        'Designing & building high-impact brand experiences and';
+      settings.bioLead = '';
+      settings.bioFull =
+        'I design structured brand systems and digital platforms that balance clarity, performance, and scalability. My work spans identity, interface design, and complex workflow environments — translating strategy into cohesive visual systems. \n\n Outside of design, I’m drawn to emerging technologies, environmental impact initiatives, and endurance cycling in the mountains.';
 
-      settings.bioLead = targetBioLead;
       settings.frontendSkills = [
         'Graphic Design',
         'Adobe Creative Cloud',
