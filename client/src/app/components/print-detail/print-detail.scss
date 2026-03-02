@@ -272,53 +272,6 @@
       }
     }
 
-    &.detail-hero--light {
-      background: #f4f4f4;
-      color: rgba(0, 0, 0, 0.85);
-
-      &.detail-hero--progressive {
-        .hero-logo {
-          height: clamp(25px, 5vw, 55px);
-        }
-
-        .hero-watermark {
-          background-image: url('/assets/projects/progressive-insurance/progressive-insurance-main-image.jpg');
-          background-size: cover;
-          background-position: center;
-          opacity: .3;
-        }
-      }
-
-      .hero-watermark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .back-btn {
-        color: rgba(0, 0, 0, 0.65);
-        &:hover { color: #000; }
-      }
-
-      .meta {
-        color: var(--accent-color);
-        font-weight: 700;
-      }
-
-      .title {
-        color: #111;
-      }
-
-      .lead {
-        color: rgba(0, 0, 0, 0.65);
-      }
-    }
   }
 
   .detail-body {
@@ -1308,4 +1261,95 @@
 
 img[data-modal-src] {
   cursor: pointer;
+}
+
+/* Reserve space so fixed panel does not overlap main content */
+.project-detail-with-panel {
+  padding-right: 0;
+}
+
+/* Fixed panel anchored to the viewport right edge */
+.project-desc-panel {
+  position: fixed;
+  top: 82px;
+  right: 0;
+  width: 350px;
+  height: calc(100vh - 82px);
+  z-index: 50;
+  pointer-events: none; /* prevent blocking page */
+}
+
+.project-desc-panel__inner {
+  pointer-events: auto;
+  height: 100%;
+  overflow: auto;
+  padding: 18px 18px 22px 18px;
+  background: rgba(11, 15, 20, 0.5);
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.pdp-top { 
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+.pdp-meta {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 6px;
+}
+.pdp-title { font-size: 18px; font-weight: 800; margin-bottom: 6px; color: #fff; }
+.pdp-role { font-size: 13px; color: rgba(255, 255, 255, 0.65); line-height: 1.4; }
+
+.pdp-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0 14px 0;
+}
+.pdp-tab {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border-radius: 12px;
+  height: 40px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.2s ease;
+}
+.pdp-tab.is-active {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pdp-panel { display: none; }
+.pdp-panel.is-active { display: block; }
+
+.pdp-panel p { margin: 0 0 10px 0; line-height: 1.55; color: rgba(255, 255, 255, 0.82); }
+.pdp-panel ul { margin: 0; padding-left: 18px; }
+.pdp-panel li { margin: 0 0 8px 0; line-height: 1.45; color: rgba(255, 255, 255, 0.82); }
+
+/* Mobile: panel becomes normal flow and no reserved padding */
+@media (max-width: 980px) {
+  .project-detail-with-panel {
+    padding-right: 0;
+  }
+
+  .project-desc-panel {
+    position: static;
+    width: auto;
+    height: auto;
+    pointer-events: auto;
+  }
+
+  .project-desc-panel__inner {
+    border-left: 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
 }

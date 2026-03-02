@@ -1,19 +1,16 @@
-<article class="print-detail-view fade-in-animation">
+<article class="print-detail-view project-detail-with-panel fade-in-animation">
   @if (project(); as p) {
     @if (p.title === 'Findash') {
       <app-findash-hero [project]="p"></app-findash-hero>
     } @else {
-      <header class="detail-hero detail-hero--split" 
-        [class.detail-hero--dark]="p.title !== 'Progressive Insurance'"
-        [class.detail-hero--light]="p.title === 'Progressive Insurance'"
+      <header class="detail-hero detail-hero--split detail-hero--dark" 
         [class.detail-hero--pinnacle]="p.title === 'Pinnacle Solutions'"
         [class.detail-hero--farmland]="p.title === 'Farmland Consulting'"
         [class.detail-hero--service-course]="p.title === 'The Service Course'"
         [class.detail-hero--sorella]="p.title === 'Sorella Home Solutions'"
         [class.detail-hero--clinical]="p.title === 'Clinical Resources'"
-        [class.detail-hero--flourrish]="p.title === 'Flourrish Environmental Funding'"
-        [class.detail-hero--progressive]="p.title === 'Progressive Insurance'">
-        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting' || p.title === 'Clinical Resources' || p.title === 'Flourrish Environmental Funding' || p.title === 'Progressive Insurance') {
+        [class.detail-hero--flourrish]="p.title === 'Flourrish Environmental Funding'">
+        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting' || p.title === 'Clinical Resources' || p.title === 'Flourrish Environmental Funding') {
           <div class="hero-watermark" aria-hidden="true"></div>
         }
         <div class="container">
@@ -38,8 +35,6 @@
                 <img src="/assets/projects/clinical/clinical-resources-logo-white-lighthouse.png" alt="Clinical Resources Logo" class="hero-logo" />
               } @else if (p.title === 'Flourrish Environmental Funding') {
                 <img src="/assets/projects/flourrish/flourrish-logo-production.svg" alt="Flourrish Logo" class="hero-logo" />
-              } @else if (p.title === 'Progressive Insurance') {
-                <img src="/assets/projects/progressive-insurance/Progressive-logo.png" alt="Progressive Logo" class="hero-logo" />
               }
               <div class="meta">{{ p.completedDate }}</div>
               @if (p.title === 'SOFFRA.io') {
@@ -57,12 +52,26 @@
                 <h1 class="title">Anchored in Evidence. Built for SLPs.</h1>
               } @else if (p.title === 'Flourrish Environmental Funding') {
                 <h1 class="title">Protecting Old Growth Forests</h1>
-              } @else if (p.title === 'Progressive Insurance') {
-                <h1 class="title">We exist to help people move forward and live fully</h1>
               } @else {
                 <h1 class="title">{{ p.title }}</h1>
               }
-              <p class="lead">{{ p.description }}</p>
+              <p class="lead">
+                @if (p.title === 'Pinnacle Solutions') {
+                  Pinnacle Solutions is a human capital technology company reimagined through a comprehensive brand and UI transformation designed to reflect enterprise maturity and structured innovation.
+                } @else if (p.title === 'Farmland Consulting') {
+                  Farmland Consulting is a land advisory firm reimagined through a comprehensive brand redesign rooted in heritage, clarity, and environmental stewardship.
+                } @else if (p.title === 'The Service Course') {
+                  The Service Course is a boutique cycling retail brand defined by performance culture, refined identity, and elevated service experience.
+                } @else if (p.title === 'Sorella Home Solutions') {
+                  Sorella Home Solutions is a property services brand built from the ground up to communicate trust, structure, and modern service reliability.
+                } @else if (p.title === 'Clinical Resources') {
+                  Clinical Resources is a speech-language pathology education platform that modernizes clinical workflows and business insight through structured design and digital automation.
+                } @else if (p.title === 'Flourrish Environmental Funding') {
+                  Flourrish is a mission-driven funding platform designed to connect environmental impact with structured, transparent contribution systems.
+                } @else {
+                  {{ p.description }}
+                }
+              </p>
             </div>
 
             <div class="hero-media" aria-hidden="true">
@@ -116,13 +125,6 @@
                     loading="eager"
                     decoding="async"
                   />
-                } @else if (p.title === 'Progressive Insurance') {
-                  <img
-                    src="/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png"
-                    alt=""
-                    loading="eager"
-                    decoding="async"
-                  />
                 } @else {
                   <img
                     [src]="p.mockupUrl"
@@ -138,6 +140,353 @@
       </header>
     }
     
+
+    <aside class="project-desc-panel" aria-label="Project description">
+      <div class="project-desc-panel__inner">
+        <div class="pdp-top">
+          <div class="pdp-meta">{{ p.completedDate }}</div>
+          <div class="pdp-title">{{ p.title }}</div>
+          @if (p.title === 'SOFFRA.io') {
+            <div class="pdp-role">Founder · Product Designer · Frontend Developer</div>
+          } @else if (p.title === 'Findash') {
+            <div class="pdp-role">Principal Product Designer · Design Strategy</div>
+          } @else if (p.title === 'Pinnacle Solutions') {
+            <div class="pdp-role">Principal Product Designer · Brand Strategy</div>
+          } @else if (p.title === 'Farmland Consulting') {
+            <div class="pdp-role">Principal Product Designer · Brand Identity</div>
+          } @else if (p.title === 'The Service Course') {
+            <div class="pdp-role">Principal Product Designer · Retail Brand Identity</div>
+          } @else if (p.title === 'Sorella Home Solutions') {
+            <div class="pdp-role">Principal Product Designer · Service Brand Identity</div>
+          } @else if (p.title === 'Clinical Resources') {
+            <div class="pdp-role">Principal Product Designer · Health-Tech Strategy & Analytics</div>
+          } @else if (p.title === 'Flourrish Environmental Funding') {
+            <div class="pdp-role">Principal Product Designer · Brand & Impact Strategy</div>
+          } @else {
+            <div class="pdp-role">Founder · Product Designer · Frontend Developer</div>
+          }
+        </div>
+    
+        <nav class="pdp-tabs" role="tablist" aria-label="Description tabs">
+          <button class="pdp-tab" [class.is-active]="activeTab() === 'overview'" type="button" (click)="setTab('overview')">Brand</button>
+          <button class="pdp-tab" [class.is-active]="activeTab() === 'product'" type="button" (click)="setTab('product')">System</button>
+          <button class="pdp-tab" [class.is-active]="activeTab() === 'build'" type="button" (click)="setTab('build')">Execution</button>
+        </nav>
+    
+        @if (activeTab() === 'overview') {
+          <section class="pdp-panel is-active" role="tabpanel">
+            @if (p.title === 'SOFFRA.io') {
+              <p>
+                SOFFRA was conceived as a brand built around elevation — not simply as a performance metric, but as a mindset. The identity needed to feel disciplined, structured, and powerful, reflecting the clarity and intensity of sustained mountain effort.
+              </p>
+              <p>The brand story centers on ascent: precision, progression, and measurable growth.</p>
+              <p>The visual direction is anchored in a dark, performance-forward foundation with high-contrast typography and structured grid logic inspired by elevation charts.</p>
+              <p>Key principles:</p>
+              <ul>
+                <li>Strong typographic hierarchy emphasizing metrics</li>
+                <li>Controlled accent color used to signal performance states</li>
+                <li>Structured modular grids reflecting climb segmentation</li>
+                <li>Minimal graphic noise to maintain focus on clarity</li>
+              </ul>
+              <p>Typography and spacing were treated as structural elements, reinforcing the climb-first positioning of the platform.</p>
+            } @else if (p.title === 'Findash') {
+              <p>
+                Findash was designed as an enterprise-grade financial intelligence platform serving both individuals and organizations.
+              </p>
+              <p>The brand direction centers on precision, authority, and analytical control. The visual system communicates trust and strategic depth while maintaining clarity across high-density data environments.</p>
+              <p>The identity is grounded in:</p>
+              <ul>
+                <li>Dark, high-contrast interface foundation</li>
+                <li>Structured typographic hierarchy</li>
+                <li>Controlled geometric grid logic</li>
+                <li>Futuristic but disciplined digital typography</li>
+              </ul>
+              <p>The visual tone reinforces decision-making confidence — a system built for clarity under complexity.</p>
+            } @else if (p.title === 'Pinnacle Solutions') {
+              <p>Pinnacle Solutions, a human capital technology company, required a comprehensive brand evolution to align with its growth and market maturity.</p>
+              <p>The original identity, designed over a decade prior, no longer reflected the sophistication of the organization. The visual language felt dated and inconsistent across materials.</p>
+              <p>The refreshed identity balances authority and forward-thinking precision.</p>
+              <p>The brand direction is anchored in:</p>
+              <ul>
+                <li>A structured light interface with dark accents (#1a2742)</li>
+                <li>Modern sans-serif typography for clarity and confidence</li>
+                <li>Strong grid alignment to reinforce organizational discipline</li>
+                <li>Controlled contrast hierarchy to improve marketing clarity</li>
+              </ul>
+              <p>The goal was to create a brand that feels bold, credible, and enterprise-ready.</p>
+            } @else if (p.title === 'Farmland Consulting') {
+              <p>Farmland Consulting is a land advisory and preservation firm focused on protecting agricultural land for future generations.</p>
+              <p>The previous identity lacked authority, visual clarity, and trust signaling — essential within sustainability-driven industries.</p>
+              <p>The refreshed identity balances heritage and progress.</p>
+              <p>The redesign introduced:</p>
+              <ul>
+                <li>A light foundation with grounded dark accents (#10202F)</li>
+                <li>Warm highlight tones (#FBAF44)</li>
+                <li>Traditional block serif typography to convey stability and legacy</li>
+                <li>Modern sans-serif pairing to signal forward-thinking strategy</li>
+              </ul>
+              <p>The brand language honors land preservation while positioning the firm for contemporary advisory relevance.</p>
+            } @else if (p.title === 'The Service Course') {
+              <p>The Service Course was conceived as a boutique performance brand within the cycling retail space — understated yet bold, premium yet accessible.</p>
+              <p>As a new identity, the challenge was definition: creating a visual language that communicated culture, performance, and elevated service.</p>
+              <p>The brand is anchored in:</p>
+              <ul>
+                <li>A light foundation with deep blue accents (#07749D, #045372)</li>
+                <li>Athletic sans-serif typography reflecting speed and clarity</li>
+                <li>Confident but restrained color application</li>
+                <li>Structured retail-forward visual rhythm</li>
+              </ul>
+              <p>The identity balances refinement and edge — performance-driven without visual excess.</p>
+            } @else if (p.title === 'Sorella Home Solutions') {
+              <p>Sorella Home Solutions was launched as a new property management and home services brand requiring immediate trust, clarity, and professionalism.</p>
+              <p>As a new identity, the challenge was building credibility from zero — creating a visual system that signals reliability, structure, and modern service capability.</p>
+              <p>The brand is grounded in:</p>
+              <ul>
+                <li>A light interface with deep navy foundations (#092642)</li>
+                <li>Controlled accent blue highlights (#37A6ED)</li>
+                <li>Clean, modern typography</li>
+                <li>Minimal but structured visual hierarchy</li>
+              </ul>
+              <p>The tone balances approachability with authority, positioned to serve both homeowners and property management clients with confidence.</p>
+            } @else if (p.title === 'Clinical Resources') {
+              <p>Clinical Resources is a speech-language pathology education platform designed to support clinicians, educators, and students.</p>
+              <p>As a new brand, the objective was to establish immediate trust while maintaining warmth and approachability — essential within healthcare education.</p>
+              <p>The visual direction emphasizes:</p>
+              <ul>
+                <li>A light, accessible foundation</li>
+                <li>Confident accent tones (#CF3178)</li>
+                <li>Modern sans-serif typography</li>
+                <li>Clear, welcoming hierarchy</li>
+              </ul>
+              <p>The brand is progressive and supportive — professional without feeling sterile.</p>
+            } @else if (p.title === 'Flourrish Environmental Funding') {
+              <p>Flourrish was conceived as a global crowdsourced funding platform supporting environmental initiatives across the globe.</p>
+              <p>The brand balances optimism and structure — activist in mission, corporate in execution.</p>
+              <p>The visual identity is anchored in:</p>
+              <ul>
+                <li>A dark foundation (#264653)</li>
+                <li>Vibrant accent tones (#37BAA6) signaling growth and renewal</li>
+                <li>Modern sans-serif typography</li>
+                <li>Structured visual hierarchy</li>
+              </ul>
+              <p>The tone communicates environmental urgency while maintaining credibility and financial clarity.</p>
+            }
+          </section>
+        }
+    
+        @if (activeTab() === 'product') {
+          <section class="pdp-panel is-active" role="tabpanel">
+            @if (p.title === 'SOFFRA.io') {
+              <p>Rather than designing isolated screens, I developed a modular visual system capable of scaling with the CLIMB ATLAS™.</p>
+              <p>The system includes:</p>
+              <ul>
+                <li>Reusable card components</li>
+                <li>Metric-driven data blocks</li>
+                <li>Profile and leaderboard patterns</li>
+                <li>Atlas map and list frameworks</li>
+                <li>Structured spacing rhythm across views</li>
+              </ul>
+              <p>Numbers and gradients function as primary visual elements, not secondary labels.</p>
+              <p>The design language ensures consistency across climb pages, athlete profiles, dashboards, and ranking systems while maintaining visual restraint and legibility.</p>
+            } @else if (p.title === 'Findash') {
+              <p>The primary design challenge was eliminating data chaos.</p>
+              <p>Financial dashboards often suffer from inconsistent card structures, weak hierarchy, and competing visual signals. Findash was designed as a cohesive enterprise system rather than a collection of screens.</p>
+              <p>The design system includes:</p>
+              <ul>
+                <li>Standardized card architecture</li>
+                <li>Defined chart styling language</li>
+                <li>Structured spacing framework</li>
+                <li>Consistent metric grouping logic</li>
+                <li>Hierarchical contrast controls</li>
+              </ul>
+              <p>Negative space is treated as a functional asset. Charts follow strict visual conventions to reduce cognitive load and improve scan efficiency.</p>
+            } @else if (p.title === 'Pinnacle Solutions') {
+              <p>The primary challenge was modernization and systemization.</p>
+              <p>Over time, the brand accumulated inconsistent collateral, UI patterns, and marketing materials without a unified framework.</p>
+              <p>The redesign introduced:</p>
+              <ul>
+                <li>Refined logo and wordmark</li>
+                <li>Defined color and contrast system</li>
+                <li>Modular layout structure for web and print</li>
+                <li>Standardized iconography language</li>
+                <li>Clear spacing and grid rules</li>
+                <li>Unified digital ad and social template systems</li>
+              </ul>
+              <p>The UI redesign elevated clarity while maintaining corporate polish, replacing legacy clutter with structured hierarchy.</p>
+            } @else if (p.title === 'Farmland Consulting') {
+              <p>The primary design challenge was fragmentation.</p>
+              <p>Over time, brand materials had become inconsistent and outdated, weakening credibility.</p>
+              <p>The redesign established:</p>
+              <ul>
+                <li>Refined logo and wordmark</li>
+                <li>Structured color hierarchy</li>
+                <li>Defined layout and spacing system</li>
+                <li>Clear typographic hierarchy</li>
+                <li>Cohesive website UI patterns</li>
+                <li>Unified print and digital collateral standards</li>
+                <li>Photography direction rooted in authenticity</li>
+              </ul>
+              <p>A strong grid framework provides structure while allowing organic imagery to communicate environmental integrity.</p>
+            } @else if (p.title === 'The Service Course') {
+              <p>From inception, the goal was to build a cohesive brand ecosystem rather than isolated assets.</p>
+              <p>The design system includes:</p>
+              <ul>
+                <li>Logo and wordmark architecture</li>
+                <li>Defined color hierarchy</li>
+                <li>Retail signage and environmental graphics</li>
+                <li>Print collateral standards</li>
+                <li>Digital advertising assets</li>
+                <li>Merch system alignment</li>
+                <li>Photography direction emphasizing authenticity</li>
+              </ul>
+              <p>High-end positioning is reinforced through disciplined spacing, tonal consistency, and confident brand presence.</p>
+            } @else if (p.title === 'Sorella Home Solutions') {
+              <p>The primary objective was establishing consistency across all service touchpoints.</p>
+              <p>The design system includes:</p>
+              <ul>
+                <li>Logo and wordmark architecture</li>
+                <li>Defined color and contrast hierarchy</li>
+                <li>Structured layout and spacing rules</li>
+                <li>Service-focused website UI system</li>
+                <li>Booking interface design</li>
+                <li>Iconography language for services</li>
+                <li>Print and business collateral standards</li>
+                <li>Digital advertising assets</li>
+                <li>Photography direction emphasizing professionalism</li>
+              </ul>
+              <p>Clarity was prioritized over decoration. Structured grid systems and disciplined typography reinforce service credibility.</p>
+            } @else if (p.title === 'Clinical Resources') {
+              <p>The defining contribution was the redesign of a manual diagnostic workflow into a structured digital system. Previously, clinicians manually populated test scores and transferred them to a printed Venn diagram for documentation.</p>
+              <p>The redesigned “Hook” chart workflow transforms that process into:</p>
+              <ul>
+                <li>Web-based structured data entry</li>
+                <li>Automated score grouping aligned with original diagnostic logic</li>
+                <li>Dynamic results display with clear visual hierarchy</li>
+                <li>Auto-generated, professionally designed PDF output</li>
+              </ul>
+              <p>In addition, a custom analytics dashboard was designed and implemented to translate AWS usage data into a clear, client-facing reporting interface during a six-month testing period. This provided accessible business insight without technical friction.</p>
+            } @else if (p.title === 'Flourrish Environmental Funding') {
+              <p>The primary design challenge was trust architecture. Crowdfunding platforms require clarity across individual donors, NGOs, and corporate contributors while maintaining financial transparency.</p>
+              <p>The system includes:</p>
+              <ul>
+                <li>Logo and scalable wordmark</li>
+                <li>Defined brand guidelines</li>
+                <li>Structured website UI system</li>
+                <li>NGO dashboard interface</li>
+                <li>Corporate partnership interface</li>
+                <li>Clear donation flow design</li>
+                <li>Impact tracking visualization</li>
+                <li>Data-forward reporting components</li>
+              </ul>
+              <p>Photography and visual storytelling were curated to reinforce environmental impact without overwhelming the interface.</p>
+            }
+          </section>
+        }
+    
+        @if (activeTab() === 'build') {
+          <section class="pdp-panel is-active" role="tabpanel">
+            @if (p.title === 'SOFFRA.io') {
+              <p>As founder and lead designer, I directed the visual identity from concept through functional prototype.</p>
+              <p>Responsibilities included:</p>
+              <ul>
+                <li>Brand positioning and visual strategy</li>
+                <li>Typography selection and hierarchy definition</li>
+                <li>Layout systems and responsive grid design</li>
+                <li>Component pattern development</li>
+                <li>Iterative refinement through athlete feedback</li>
+              </ul>
+              <p>The platform remains in active development, with weekly user testing informing visual clarity and usability adjustments.</p>
+              <p>Every design decision reinforces the brand promise: elevation as structure, competition as clarity.</p>
+            } @else if (p.title === 'Findash') {
+              <p>I directed the visual identity and interface system end-to-end, including:</p>
+              <ul>
+                <li>Logo and wordmark development</li>
+                <li>Brand guidelines and typographic standards</li>
+                <li>Component-based UI framework</li>
+                <li>Enterprise chart styling</li>
+                <li>Responsive grid implementation</li>
+              </ul>
+              <p>Although the platform was never launched, the visual system was fully production-ready and scalable.</p>
+              <p>Findash demonstrates how disciplined brand systems can transform complex financial data into controlled, enterprise-grade experiences.</p>
+            } @else if (p.title === 'Pinnacle Solutions') {
+              <p>I led the rebrand end-to-end, including:</p>
+              <ul>
+                <li>Logo and identity redesign</li>
+                <li>Brand guideline development</li>
+                <li>Website UI redesign and frontend implementation</li>
+                <li>Corporate collateral redesign</li>
+                <li>Digital advertising and social templates</li>
+                <li>Layout and grid system definition</li>
+              </ul>
+              <p>The result is a fully modernized brand ecosystem aligned with enterprise standards and technological capability.</p>
+            } @else if (p.title === 'Farmland Consulting') {
+              <p>I led the identity transformation from strategy through rollout, including:</p>
+              <ul>
+                <li>Logo and wordmark redesign</li>
+                <li>Brand guideline documentation</li>
+                <li>Website UI redesign</li>
+                <li>Print collateral and stationery</li>
+                <li>Digital advertising assets</li>
+                <li>Photography direction</li>
+              </ul>
+              <p>The result is a heritage-inspired yet progressive brand system that strengthens trust, clarity, and long-term positioning.</p>
+            } @else if (p.title === 'The Service Course') {
+              <p>I led the brand from concept through applied retail identity, including:</p>
+              <ul>
+                <li>Logo and identity development</li>
+                <li>Brand guidelines</li>
+                <li>Website UI design (concept and structure)</li>
+                <li>Retail graphics and in-store visuals</li>
+                <li>Print collateral</li>
+                <li>Digital advertising assets</li>
+                <li>Photography direction</li>
+              </ul>
+              <p>The result is a premium boutique identity that translates seamlessly from digital to physical environments.</p>
+            } @else if (p.title === 'Sorella Home Solutions') {
+              <p>I led the brand from initial strategy through complete rollout, including:</p>
+              <ul>
+                <li>Logo and identity development</li>
+                <li>Brand guideline documentation</li>
+                <li>Website UI design and frontend implementation</li>
+                <li>Booking interface layout</li>
+                <li>Business cards and print collateral</li>
+                <li>Digital advertising materials</li>
+                <li>Icon system creation</li>
+                <li>Photography direction</li>
+              </ul>
+              <p>The result is a cohesive service brand built to communicate trust, responsiveness, and operational structure from launch.</p>
+            } @else if (p.title === 'Clinical Resources') {
+              <p>I led the project from brand definition through system implementation, including:</p>
+              <ul>
+                <li>Logo and identity development</li>
+                <li>Website UI design and frontend implementation</li>
+                <li>Content restructuring and hierarchy refinement</li>
+                <li>Layout system definition</li>
+                <li>Print collateral development</li>
+                <li>Digital Hook chart workflow design</li>
+                <li>Automated PDF generation system</li>
+                <li>Analytics dashboard design and implementation oversight</li>
+              </ul>
+              <p>The result is a cohesive healthcare education platform that improves both clinician workflow efficiency and operational visibility.</p>
+            } @else if (p.title === 'Flourrish Environmental Funding') {
+              <p>I led the project from brand strategy through frontend implementation, including:</p>
+              <ul>
+                <li>Logo and identity development</li>
+                <li>Brand guideline documentation</li>
+                <li>Website UI/UX design</li>
+                <li>Donation flow architecture</li>
+                <li>Impact visualization system design</li>
+                <li>NGO dashboard interface design</li>
+                <li>Corporate partnership interface design</li>
+                <li>Frontend implementation</li>
+                <li>Backend collaboration</li>
+              </ul>
+              <p>Although the platform did not reach MVP launch, the full visual and interaction system was developed to production-ready standards.</p>
+            }
+          </section>
+        }
+      </div>
+    </aside>
 
     <div class="container detail-body">
       @if (p.colorPalette && p.colorPalette.length > 0 && p.type !== 'poster-print') {
@@ -170,11 +519,6 @@
         </a>
       }
       @if (p.title === 'Clinical Resources' || p.title === 'Clinical Resources SLP Platform') {
-        <section class="project-intro">
-          <h2>Clinical Resources — Speech Assessment Platform</h2>
-          <p>Comprehensive brand identity and specialized print collateral for Clinical Resources, an assessment platform for speech-language pathologists. The design system emphasizes clarity, professional trust, and diagnostic precision.</p>
-        </section>
-
         <div class="clinical-main-layout">
           <main class="visual-storyboard clinical-layout">
             <div class="visual-item featured-item">
@@ -942,25 +1286,25 @@
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      } @else if (p.title === 'Flourrish Environmental Funding' || p.title === 'Progressive Insurance') {
+      } @else if (p.title === 'Flourrish Environmental Funding') {
         <section class="project-intro">
-          <h2>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance — Case Study & Interface Design' : 'Flourrish Environmental Funding — Environmental Fintech Branding' }}</h2>
-          <p>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance required a modern, user-centric approach to their digital platforms. I developed a comprehensive interface design system that emphasizes clarity and efficiency.' : 'Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.' }}</p>
+          <h2>Flourrish Environmental Funding — Environmental Fintech Branding</h2>
+          <p>Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.</p>
         </section>
 
-        <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-main-layout'">
-          <main class="visual-storyboard" [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-layout'">
+        <div class="flourrish-main-layout">
+          <main class="visual-storyboard flourrish-layout">
             <div class="visual-item featured-item">
               <img [src]="p.mockupUrl" alt="{{ p.title }} Mockup" [attr.data-modal-src]="p.mockupUrl" [attr.data-meta]="p.title + ' Mockup'">
             </div>
           </main>
         </div>
 
-        <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-print-layout'">
+        <div class="flourrish-print-layout">
           <div class="campaigns-wrap">
-            <h2>{{ p.title === 'Progressive Insurance' ? 'Interface Design & Case Study' : 'Brand Identity & Print Collateral' }}</h2>
-            <main class="visual-storyboard" [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-layout'">
-              <div [class]="(p.title === 'Progressive Insurance' ? 'progressive' : 'flourrish') + '-grid'">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard flourrish-layout">
+              <div class="flourrish-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
                     @if (img !== p.mockupUrl) {
@@ -1035,44 +1379,6 @@
     </div>
   }
 </article>
-
-@if (project(); as p) {
-  @if (p.title === 'Findash') {
-    <aside class="design-specs findash-sidebar">
-      <div class="spec-card">
-        <h3>Project Info</h3>
-        <div class="info-row">
-          <span class="label">Client</span>
-          <span class="value">{{ p.title }}</span>
-        </div>
-        <div class="info-row">
-          <span class="label">Year</span>
-          <span class="value">{{ p.completedDate }}</span>
-        </div>
-      </div>
-
-      @if (p.designSpecs && p.designSpecs.length > 0) {
-        <div class="spec-card">
-          <h3>Design Specs</h3>
-          <div class="specs-list">
-            @for (spec of p.designSpecs; track spec.label) {
-              <div class="spec-item" [class.color-spec]="spec.type === 'color'">
-                @if (spec.type === 'color') {
-                  <div class="color-swatch" [style.background-color]="spec.value"></div>
-                }
-                <div class="spec-meta">
-                  <span class="spec-label">{{ spec.label }}</span>
-                  <span class="spec-value">{{ spec.value }}</span>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      }
-    </aside>
-  }
-}
-
 <div id="imageModal" class="modal" aria-hidden="true">
   <div class="modal__backdrop" data-close="true"></div>
   <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Image preview">

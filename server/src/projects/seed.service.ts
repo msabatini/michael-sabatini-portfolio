@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v217';
-    this.logger.log(`FORCE SEED: v217`);
+    const SEEDER_VERSION = 'v218';
+    this.logger.log(`FORCE SEED: v218`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -305,40 +305,6 @@ export class SeedService implements OnModuleInit {
             { hex: '#10192c', rgb: '16, 25, 44', cmyk: '64, 43, 0, 83', pms: '2965 C' },
             { hex: '#172033', rgb: '23, 32, 51', cmyk: '55, 37, 0, 80', pms: '2965 C' },
             { hex: '#499f4e', rgb: '73, 159, 78', cmyk: '54, 0, 51, 38', pms: '362 C' }
-          ]
-        },
-        {
-          title: 'Progressive Insurance',
-          description:
-            'Streamlined digital quoting experience and visual systems for a leading national insurer.',
-          imageUrl:
-            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
-          gallery: [
-            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
-            '/assets/projects/progressive-insurance/progressive7.jpg',
-            '/assets/projects/progressive-insurance/progressive-mockup.jpg',
-            '/assets/projects/progressive-insurance/progressive1.jpg',
-            '/assets/projects/progressive-insurance/progressive2.jpg',
-            '/assets/projects/progressive-insurance/progressive3.jpg',
-            '/assets/projects/progressive-insurance/progressive4.jpg',
-            '/assets/projects/progressive-insurance/progressive5.jpg',
-            '/assets/projects/progressive-insurance/progressive6.jpg',
-            '/assets/projects/progressive-insurance/progressive8.jpg',
-          ],
-          mockupUrl:
-            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
-          content:
-            'Progressive Insurance required a modern, user-centric approach to their digital platforms.',
-          tags: ['UI/UX Design', 'Branding', 'Digital Strategy'],
-          type: 'print-only',
-          isFeatured: false,
-          order: 8,
-          layout: 'grid-2',
-          completedDate: 'May 2025',
-          colorPalette: [
-            { hex: '#2275e8', rgb: '34, 117, 232', cmyk: '85, 50, 0, 9', pms: '2133 C' },
-            { hex: '#F4F4F4', rgb: '244, 244, 244', cmyk: '0, 0, 0, 4', pms: 'Cool Gray 1 C' },
-            { hex: '#eaf1f8', rgb: '234, 241, 248', cmyk: '8, 3, 0, 3', pms: '656 C' }
           ]
         },
 
