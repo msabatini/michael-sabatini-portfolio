@@ -1148,7 +1148,7 @@
               <div class="pinnacle-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
-                    @if (!img.includes('pinnacle-web-mockup.jpg') && !img.includes('landing page')) {
+                    @if (!img.includes('pinnacle-web-mockup.jpg') && !img.includes('landing page') && !img.includes('pinnacle-device-mockup-transparent-bg.png')) {
                       <div class="visual-item">
                         <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
                       </div>

@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v236';
+    const SEEDER_VERSION = 'v242';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -58,6 +58,7 @@ export class SeedService implements OnModuleInit {
             'Clinical Resources is a speech-language pathology education platform that modernizes clinical workflows and business insight through structured design and digital automation.',
           tags: ['Health-Tech', 'Application Development', 'Analytics'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 0,
           completedDate: 'August 2025',
@@ -167,6 +168,7 @@ export class SeedService implements OnModuleInit {
             'Findash is an enterprise-grade financial intelligence dashboard designed to bring structure, clarity, and authority to high-density data environments.',
           tags: ['Enterprise', 'FinTech', 'Data Visualization'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 2,
           completedDate: 'August 2025',
@@ -204,7 +206,6 @@ export class SeedService implements OnModuleInit {
           imageUrl:
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
           gallery: [
-            '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
             '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
@@ -219,6 +220,7 @@ export class SeedService implements OnModuleInit {
             'Pinnacle Solutions is a human capital technology company reimagined through a comprehensive brand and UI transformation designed to reflect enterprise maturity and structured innovation.',
           tags: ['Corporate', 'Human Capital', 'Brand Transformation'],
           type: 'print-only',
+          isFeatured: true,
           order: 3,
           layout: 'grid-2',
           completedDate: 'March 2025',
@@ -271,6 +273,7 @@ export class SeedService implements OnModuleInit {
             'SOFFRA.io is a concept-stage social platform for elevation-focused cyclists and runners, centered around the CLIMB ATLAS™—a structured library of climbs designed for discovery, comparison, and competition.',
           tags: ['Branding', 'Digital Identity', 'Performance'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 4,
           completedDate: 'March 2025',
@@ -321,6 +324,7 @@ export class SeedService implements OnModuleInit {
             'Farmland Consulting is a land advisory firm reimagined through a comprehensive brand redesign rooted in heritage, clarity, and environmental stewardship.',
           tags: ['Heritage', 'Land Stewardship', 'Advisory'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 5,
           completedDate: 'January 2025',
@@ -364,6 +368,7 @@ export class SeedService implements OnModuleInit {
             'The Service Course is a boutique cycling retail brand defined by performance culture, refined identity, and elevated service experience.',
           tags: ['Retail', 'Premium', 'Performance'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 6,
           completedDate: 'February 2025',
@@ -409,6 +414,7 @@ export class SeedService implements OnModuleInit {
             'Sorella Home Solutions is a property services brand built from the ground up to communicate trust, structure, and modern service reliability.',
           tags: ['Service Brand', 'Trust', 'Reliability'],
           type: 'print-only',
+          isFeatured: true,
           layout: 'grid-2',
           order: 7,
           completedDate: 'October 2025',

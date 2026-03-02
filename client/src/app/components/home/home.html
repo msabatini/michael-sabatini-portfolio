@@ -3,11 +3,9 @@
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
       <div class="hero-content">
-        @if (featuredProjects.length > 0) {
-          <div class="hero-badge">Featured Project</div>
-          <p class="hero-featured">{{ featuredProjects[0].title }} - {{ featuredProjects[0].completedDate }}</p>
-          <div class="featured-name">{{ displayName() }}</div>
-        }
+        <div class="hero-badge">Featured Project</div>
+        <p class="hero-featured">Clinical Resources - August 2025</p>
+        <div class="featured-name">{{ displayName() }}</div>
         <h1>
           {{ settings()?.heroTitle || 'Senior Graphic Designer' }}
         </h1>
@@ -30,23 +28,73 @@
     </div>
 
     <div class="featured-grid">
-      @for (project of featuredProjects; track project.id) {
-        <div class="project-card" [routerLink]="['/portfolio', project.id]">
-          <div class="project-image">
-            <img [src]="project.imageUrl" [alt]="project.title">
-            <div class="project-overlay">
-              <span class="view-project">View Portfolio</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">{{ project.title }}</h3>
-            <p class="project-description">{{ project.description }}</p>
-            <div class="project-footer">
-              <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
-            </div>
+      <!-- Clinical Resources -->
+      <div class="project-card" [routerLink]="['/portfolio', 1]">
+        <div class="project-image">
+          <img src="/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png" alt="Clinical Resources">
+          <div class="project-overlay">
+            <span class="view-project">View Portfolio</span>
           </div>
         </div>
-      }
+        <div class="project-content">
+          <h3 class="project-title">Clinical Resources</h3>
+          <p class="project-description">A healthcare education platform digitizing clinical workflows through structured design, automation, and analytics visibility.</p>
+          <div class="project-footer">
+            <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Farmland Consulting -->
+      <div class="project-card" [routerLink]="['/portfolio', 6]">
+        <div class="project-image">
+          <img src="/assets/projects/farmland/farmland-device-mockup-transparent-bg.png" alt="Farmland Consulting">
+          <div class="project-overlay">
+            <span class="view-project">View Portfolio</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Farmland Consulting</h3>
+          <p class="project-description">A heritage-driven brand redesign balancing land stewardship legacy with modern advisory clarity.</p>
+          <div class="project-footer">
+            <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Findash -->
+      <div class="project-card" [routerLink]="['/portfolio', 3]">
+        <div class="project-image">
+          <img src="/assets/projects/findash/findash-web-mockup-transparent-bg.png" alt="Findash">
+          <div class="project-overlay">
+            <span class="view-project">View Portfolio</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Findash</h3>
+          <p class="project-description">An enterprise financial dashboard system built to bring clarity, hierarchy, and control to complex data environments.</p>
+          <div class="project-footer">
+            <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flourrish Environmental Funding -->
+      <div class="project-card" [routerLink]="['/portfolio', 2]">
+        <div class="project-image">
+          <img src="/assets/projects/flourrish/flourrish-device-mockup.png" alt="Flourrish Environmental Funding">
+          <div class="project-overlay">
+            <span class="view-project">View Portfolio</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Flourrish Environmental Funding</h3>
+          <p class="project-description">A mission-driven funding platform uniting environmental storytelling with structured contribution and impact systems.</p>
+          <div class="project-footer">
+            <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+          </div>
+        </div>
+      </div>
     </div>
     
     <div class="see-all">
