@@ -136,6 +136,17 @@
     transform: scale(1.05);
   }
 
+  &.hellhole-card {
+    .print-image img {
+      object-fit: cover;
+      transform: scale(1.4); // Zoom in to remove the frame from the shot
+    }
+    
+    &:hover .print-image img {
+      transform: scale(1.5); // Slightly more zoom on hover
+    }
+  }
+
   .print-content {
     padding: 2rem;
     background: var(--card-bg);

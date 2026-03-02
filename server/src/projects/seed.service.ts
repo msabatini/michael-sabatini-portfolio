@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v242';
+    const SEEDER_VERSION = 'v245';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -555,16 +555,8 @@ export class SeedService implements OnModuleInit {
           imageUrl: '/assets/projects/hellhole/HellHole.jpg',
           gallery: [
             '/assets/projects/hellhole/HellHole.jpg',
-            '/assets/projects/hellhole/Hellhole5_T-Shirt_Mockup_Front.jpg',
+            '/assets/projects/hellhole/HellHole_6.jpg',
             '/assets/projects/hellhole/ccap_insta4.jpg',
-            '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic_Back.jpg',
-            '/assets/projects/hellhole/HellHole_6_T-Shirt_Graphic.jpg',
-            '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Back.jpg',
-            '/assets/projects/hellhole/Hellhole_T-Shirt_FinalGraphic_Front.jpg',
-            '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Back.png',
-            '/assets/projects/hellhole/Hellhole_T-Shirt_MockUp_Front.png',
-            '/assets/projects/hellhole/HellHole-no6.jpg',
-            '/assets/projects/hellhole/Number6-Tshirt-MockUp.jpg',
           ],
           mockupUrl: '/assets/projects/hellhole/HellHole.jpg',
           content:
