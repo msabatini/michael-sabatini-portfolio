@@ -164,12 +164,10 @@
     }
 
     &.detail-hero--dark {
-      background: #0B0F14; /* dark base */
+      background: #050505; /* dark base */
       color: rgba(255, 255, 255, 0.92);
 
       &.detail-hero--pinnacle {
-        background: #113559;
-
         .hero-watermark {
           background-image: url('/assets/projects/pinnacle-solutions/pinnacle-hero-background.svg');
           background-position: -210px center;
@@ -178,8 +176,6 @@
       }
 
       &.detail-hero--farmland {
-        background: #10202f;
-
         .hero-logo {
           height: clamp(53px, 8vw, 144px);
         }
@@ -191,10 +187,8 @@
       }
 
       &.detail-hero--service-course {
-        background: #005071;
-
         .hero-logo {
-          height: clamp(65px, 10vw, 180px);
+          height: clamp(100px, 16vw, 280px);
         }
 
         .hero-watermark {
@@ -204,8 +198,6 @@
       }
 
       &.detail-hero--sorella {
-        background: #0d2340;
-
         .hero-watermark {
           background-image: url('/assets/projects/sorella/sorella-hero-bacground-image.jpg');
           opacity: .1;
@@ -213,8 +205,6 @@
       }
 
       &.detail-hero--clinical {
-        background: linear-gradient(90deg, #0c233d, #040b12);
-
         .hero-logo {
           height: clamp(65px, 10vw, 160px);
         }
@@ -240,16 +230,25 @@
         }
       }
 
+      &.detail-hero--soffra {
+        .hero-logo {
+          height: clamp(35px, 6vw, 100px);
+        }
+
+        .hero-watermark {
+          background-image: url('/assets/projects/soffra-brand/SOFFRA-contour-lines.svg');
+          opacity: .1;
+        }
+      }
+
       .hero-watermark {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('/assets/projects/soffra-brand/SOFFRA-contour-lines.svg');
         background-size: cover;
         background-position: center;
-        opacity: .1; // Subtle overlay
         pointer-events: none;
         z-index: 1;
       }
@@ -273,8 +272,8 @@
     }
 
     &.detail-hero--light {
-      background: #f4f4f4;
-      color: rgba(0, 0, 0, 0.85);
+      background: #050505;
+      color: rgba(255, 255, 255, 0.92);
 
       &.detail-hero--progressive {
         .hero-logo {
@@ -302,8 +301,8 @@
       }
 
       .back-btn {
-        color: rgba(0, 0, 0, 0.65);
-        &:hover { color: #000; }
+        color: rgba(255, 255, 255, 0.82);
+        &:hover { color: #fff; }
       }
 
       .meta {
@@ -312,11 +311,11 @@
       }
 
       .title {
-        color: #111;
+        color: #fff;
       }
 
       .lead {
-        color: rgba(0, 0, 0, 0.65);
+        color: rgba(255, 255, 255, 0.82);
       }
     }
   }

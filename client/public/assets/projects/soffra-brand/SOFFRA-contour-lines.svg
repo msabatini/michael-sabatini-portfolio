@@ -9,7 +9,7 @@
 
       .st0, .st1, .st2 {
         fill: none;
-        stroke: #2f2b2f;
+        stroke: #4b464a;
         stroke-miterlimit: 10;
       }
 
