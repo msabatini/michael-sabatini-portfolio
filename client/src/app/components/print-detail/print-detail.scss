@@ -260,6 +260,26 @@
         }
       }
 
+      &.detail-hero--tdf {
+        .hero-watermark {
+          background-image: url('/assets/projects/tour-de-france/tour-de-france-hero-background.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: .1;
+        }
+
+        .hero-media {
+          min-height: clamp(240px, 30vw, 400px);
+        }
+
+        .hero-media__card img {
+          max-height: 420px;
+          width: auto;
+          min-width: 0;
+          margin: 0 auto;
+        }
+      }
+
       .hero-watermark {
         position: absolute;
         top: 0;

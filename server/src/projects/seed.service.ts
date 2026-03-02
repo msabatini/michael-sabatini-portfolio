@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v245';
+    const SEEDER_VERSION = 'v246';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -456,7 +456,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/tour-de-france/montventoux.jpg',
             '/assets/projects/tour-de-france/parisroubaix.jpg',
           ],
-          mockupUrl: '/assets/projects/tour-de-france/alpe_Dhuez.jpg',
+          mockupUrl: '/assets/projects/tour-de-france/tourmalet.jpg',
           content:
             'Limited-edition posters capturing the beauty and challenge of iconic mountain passes.',
           tags: ['Print', 'Poster Series'],
