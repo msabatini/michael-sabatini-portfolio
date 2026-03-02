@@ -61,25 +61,4 @@ export class Project {
 
   @Column('simple-json', { nullable: true })
   colorPalette: { hex: string; rgb: string; cmyk: string; pms: string }[];
-
-  @Column({ nullable: true })
-  year: string;
-
-  @Column({ nullable: true })
-  role: string;
-
-  @Column('simple-json', { nullable: true })
-  overview: { lead: string; bullets: string[] };
-
-  @Column('simple-json', { nullable: true })
-  product: { problem: string; uxChallenge: string; decisions: string[] };
-
-  @Column('simple-json', { nullable: true })
-  build: { responsibilities: string[]; stack: string[]; status: string };
-
-  @Column('simple-json', { nullable: true })
-  links: { label: string; href: string }[];
-
-  @Column('simple-json', { nullable: true })
-  extraSections: { title: string; paragraphs: string[] }[];
 }

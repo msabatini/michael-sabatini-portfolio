@@ -1,6 +1,6 @@
 <article class="print-detail-view fade-in-animation">
   @if (project(); as p) {
-    @if (p.title === 'Findash' && !p.overview) {
+    @if (p.title === 'Findash') {
       <app-findash-hero [project]="p"></app-findash-hero>
     } @else {
       <header class="detail-hero detail-hero--split" 
@@ -54,7 +54,7 @@
                 <p class="hero-tagline">Simple. Effective. High-Quality.</p>
               } @else if (p.title === 'Sorella Home Solutions') {
                 <h1 class="title">With Sorella, consider it done.</h1>
-              } @else if (p.title === 'Assessment Platform') {
+              } @else if (p.title === 'Clinical Resources') {
                 <h1 class="title">Anchored in Evidence. Built for SLPs.</h1>
               } @else if (p.title === 'Flourrish Environmental Funding') {
                 <h1 class="title">Protecting Old Growth Forests</h1>
@@ -141,10 +141,6 @@
     
 
     <div class="container detail-body">
-      @if (p.overview) {
-        <app-project-description [project]="p"></app-project-description>
-      }
-
       @if (p.colorPalette && p.colorPalette.length > 0 && p.type !== 'poster-print') {
         <div class="color-palette-section">
           <h3>Color Palette</h3>
@@ -174,7 +170,7 @@
           <app-icon name="chevron-left" [size]="20"></app-icon> Back to Portfolio
         </a>
       }
-      @if ((p.title === 'Clinical Resources' || p.title === 'Clinical Resources SLP Platform') && !p.overview) {
+      @if (p.title === 'Clinical Resources' || p.title === 'Clinical Resources SLP Platform') {
         <section class="project-intro">
           <h2>Clinical Resources — Speech Assessment Platform</h2>
           <p>Comprehensive brand identity and specialized print collateral for Clinical Resources, an assessment platform for speech-language pathologists. The design system emphasizes clarity, professional trust, and diagnostic precision.</p>
@@ -228,13 +224,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'Sorella Home Solutions' && !p.overview) {
+      } @else if (p.title === 'Sorella Home Solutions') {
         <section class="project-intro">
           <h2>Sorella Home Solutions — Premium Home Concierge</h2>
           <p>Comprehensive brand identity and print collateral development for a high-end home concierge service. The visual system was designed to evoke trust, reliability, and sophisticated care.</p>
@@ -335,13 +329,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'Findash' && !p.overview) {
+      } @else if (p.title === 'Findash') {
         <section class="project-intro">
           <h2>FINDASH — Real-Time Financial Intelligence Platform</h2>
           <p>FINDASH is a modern financial dashboard platform designed to transform complex operational data into clear, real-time insight. I developed a conversion-focused marketing website that communicates precision, speed, and enterprise trust while guiding users through the platform’s core value pillars: clarity, intelligence, integration, and security.</p>
@@ -497,13 +489,25 @@
           </main>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'SOFFRA.io' && !p.overview) {
+      } @else if (p.title === 'SOFFRA.io') {
+        <section class="project-intro">
+          <h2>SOFFRA — Global Elevation Platform</h2>
+          <p>SOFFRA is a global social platform for cyclists and runners, built around the pursuit of elevation. Through its interactive CLIMB ATLAS™ system, athletes can explore, track, and compete on thousands of uphill segments across the world.</p>
+        </section>
+
+        <div class="soffra-main-layout">
+          <main class="visual-storyboard soffra-layout">
+            <!-- Featured web mockup - full width -->
+            <div class="visual-item featured-item">
+              <img src="/assets/projects/soffra/soffra-mockup.jpg" alt="SOFFRA Web Mockup" data-modal-src="/assets/projects/soffra/soffra-mockup.jpg" data-meta="SOFFRA Web Mockup">
+            </div>
+          </main>
+        </div>
+
         <section class="landing-page-section soffra-web-section">
           <div class="campaigns-wrap">
             <h2>CLIMB ATLAS™ — Web Interface</h2>
@@ -621,13 +625,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'The Service Course' && !p.overview) {
+      } @else if (p.title === 'The Service Course') {
         <section class="project-intro">
           <h2>THE SERVICE COURSE — Premium Cycling Identity & Web Experience</h2>
           <p>The Service Course project involved creating a sophisticated, performance-oriented visual identity that resonates with dedicated cyclists and the pursuit of professional-grade service. I developed a comprehensive brand system that spans from high-end technical apparel and physical touchpoints to a modern, conversion-focused digital presence.</p>
@@ -711,13 +713,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'Pinnacle Solutions' && !p.overview) {
+      } @else if (p.title === 'Pinnacle Solutions') {
         <section class="project-intro">
           <p>Pinnacle Solutions is a workforce performance platform designed to transform organizational output by shifting the traditional 80/20 performance distribution toward an 80% high-performing workforce. Powered by patented Performance Quotient (PQ)™ cloud technology, the system measures daily performance behaviors against critical success factors and equips leaders with a structured blueprint for sustained overachievement.</p>
           <p>The platform enables organizations to operationalize a High Performance Culture™, aligning accountability, leadership capability, and measurable results across every level of the enterprise.</p>
@@ -817,13 +817,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if (p.title === 'Farmland Consulting' && !p.overview) {
+      } @else if (p.title === 'Farmland Consulting') {
         <div class="farmland-main-layout">
           <main class="visual-storyboard stack">
             <div class="visual-item featured-item">
@@ -941,13 +939,11 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
-      } @else if ((p.title === 'Flourrish Environmental Funding' || p.title === 'Progressive Insurance') && !p.overview) {
+      } @else if (p.title === 'Flourrish Environmental Funding' || p.title === 'Progressive Insurance') {
         <section class="project-intro">
           <h2>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance — Case Study & Interface Design' : 'Flourrish Environmental Funding — Environmental Fintech Branding' }}</h2>
           <p>{{ p.title === 'Progressive Insurance' ? 'Progressive Insurance required a modern, user-centric approach to their digital platforms. I developed a comprehensive interface design system that emphasizes clarity and efficiency.' : 'Flourrish is a revolutionary environmental fintech platform. I developed a comprehensive brand system and print collateral that communicates transparency, sustainability, and trust.' }}</p>
@@ -980,12 +976,10 @@
           </div>
         </div>
 
-      @if (!p.overview) {
         <section class="project-narrative">
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
-      }
       } @else {
         <div class="detail-layout">
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">

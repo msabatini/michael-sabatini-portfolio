@@ -19,24 +19,4 @@ export interface Project {
   layout?: string;
   designSpecs?: { label: string, value: string, type: string }[];
   colorPalette?: { hex: string, rgb: string, cmyk: string, pms: string }[];
-  
-  // New fields for ProjectDescription component
-  year?: string;
-  role?: string;
-  overview?: {
-    lead: string;
-    bullets: string[];
-  };
-  product?: {
-    problem: string;
-    uxChallenge: string;
-    decisions: string[];
-  };
-  build?: {
-    responsibilities: string[];
-    stack: string[];
-    status: string;
-  };
-  links?: { label: string, href: string }[];
-  extraSections?: { title: string, paragraphs: string[] }[];
 }
