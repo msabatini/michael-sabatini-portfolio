@@ -58,4 +58,7 @@ export class Project {
 
   @Column('simple-json', { nullable: true })
   designSpecs: { label: string; value: string; type: string }[];
+
+  @Column('simple-json', { nullable: true })
+  colorPalette: { hex: string; rgb: string; cmyk: string; pms: string }[];
 }

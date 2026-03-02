@@ -1,7 +1,7 @@
 <article class="print-detail-view fade-in-animation">
   @if (project(); as p) {
     @if (p.title === 'Findash') {
-      <app-findash-hero></app-findash-hero>
+      <app-findash-hero [project]="p"></app-findash-hero>
     } @else {
       <header class="detail-hero detail-hero--split" 
         [class.detail-hero--dark]="p.title !== 'Progressive Insurance'"
@@ -18,7 +18,7 @@
         }
         <div class="container">
           <a routerLink="/portfolio" class="back-btn">
-            <app-icon name="chevron-left"></app-icon>
+            <app-icon name="chevron-left" [size]="20"></app-icon>
             Back to Portfolio
           </a>
 
@@ -140,13 +140,34 @@
     
 
     <div class="container detail-body">
+      @if (p.colorPalette && p.colorPalette.length > 0 && p.type !== 'poster-print') {
+        <div class="color-palette-section">
+          <h3>Color Palette</h3>
+          <div class="color-palette">
+            @for (color of p.colorPalette; track color.hex) {
+              <div class="color-swatch-container">
+                <div class="color-swatch" [style.background-color]="color.hex" [attr.title]="color.hex"></div>
+                <div class="color-details">
+                  <span class="color-hex">{{ color.hex }}</span>
+                  <span class="color-rgb">RGB: {{ color.rgb }}</span>
+                  <span class="color-cmyk">CMYK: {{ color.cmyk }}</span>
+                  <span class="color-pms">PMS: {{ color.pms }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
       @if (p.title !== 'Findash' && p.title !== 'Sorella Home Solutions' && p.title !== 'Clinical Resources' && p.title !== 'Clinical Resources SLP Platform') {
         <a routerLink="/portfolio" class="back-btn">
-          <app-icon name="chevron-left" [size]="16"></app-icon> Back to Portfolio
+          <app-icon name="chevron-left" [size]="20"></app-icon> Back to Portfolio
         </a>
       }
       @if (p.title === 'Findash') {
-        <a routerLink="/portfolio" class="back-btn">Back to Portfolio</a>
+        <a routerLink="/portfolio" class="back-btn">
+          <app-icon name="chevron-left" [size]="20"></app-icon> Back to Portfolio
+        </a>
       }
       @if (p.title === 'Clinical Resources' || p.title === 'Clinical Resources SLP Platform') {
         <section class="project-intro">

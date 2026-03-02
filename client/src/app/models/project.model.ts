@@ -18,4 +18,5 @@ export interface Project {
   type?: string;
   layout?: string;
   designSpecs?: { label: string, value: string, type: string }[];
+  colorPalette?: { hex: string, rgb: string, cmyk: string, pms: string }[];
 }

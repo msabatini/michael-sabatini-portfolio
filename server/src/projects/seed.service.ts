@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v198';
-    this.logger.log(`FORCE SEED: v198`);
+    const SEEDER_VERSION = 'v215';
+    this.logger.log(`FORCE SEED: v215`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -57,6 +57,13 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 0,
           completedDate: 'August 2025',
+          colorPalette: [
+            { hex: '#0B1F33', rgb: '11, 31, 51', cmyk: '78, 39, 0, 80', pms: '2965 C' },
+            { hex: '#55bdbf', rgb: '85, 189, 191', cmyk: '55, 1, 0, 25', pms: '3252 C' },
+            { hex: '#744476', rgb: '116, 68, 118', cmyk: '2, 42, 0, 54', pms: '520 C' },
+            { hex: '#2a3d58', rgb: '42, 61, 88', cmyk: '52, 31, 0, 65', pms: '534 C' },
+            { hex: '#dadada', rgb: '218, 218, 218', cmyk: '0, 0, 0, 15', pms: 'Cool Gray 2 C' }
+          ]
         },
         {
           title: 'Pinnacle Solutions',
@@ -82,6 +89,12 @@ export class SeedService implements OnModuleInit {
           order: 1,
           layout: 'grid-2',
           completedDate: 'March 2025',
+          colorPalette: [
+            { hex: '#1a2742', rgb: '26, 39, 66', cmyk: '61, 41, 0, 74', pms: '282 C' },
+            { hex: '#0dc1bf', rgb: '13, 193, 191', cmyk: '93, 0, 1, 24', pms: '3262 C' },
+            { hex: '#faf7f8', rgb: '250, 247, 248', cmyk: '0, 1, 1, 2', pms: 'Cool Gray 1 C' },
+            { hex: '#eaebe4', rgb: '234, 235, 228', cmyk: '0, 0, 3, 8', pms: '7527 C' }
+          ]
         },
         {
           title: 'The Service Course',
@@ -115,6 +128,11 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 4,
           completedDate: 'February 2025',
+          colorPalette: [
+            { hex: '#07749d', rgb: '7, 116, 157', cmyk: '96, 26, 0, 38', pms: '2188 C' },
+            { hex: '#045372', rgb: '4, 83, 114', cmyk: '96, 27, 0, 55', pms: '2187 C' },
+            { hex: '#d9d6d7', rgb: '217, 214, 215', cmyk: '0, 1, 1, 15', pms: 'Cool Gray 2 C' }
+          ]
         },
         {
           title: 'Farmland Consulting',
@@ -140,6 +158,12 @@ export class SeedService implements OnModuleInit {
           order: 3,
           layout: 'grid-2',
           completedDate: 'January 2025',
+          colorPalette: [
+            { hex: '#10202F', rgb: '16, 32, 47', cmyk: '66, 32, 0, 82', pms: '296 C' },
+            { hex: '#fbaf44', rgb: '251, 175, 68', cmyk: '0, 30, 73, 2', pms: '137 C' },
+            { hex: '#4e8abe', rgb: '78, 138, 190', cmyk: '59, 27, 0, 25', pms: '660 C' },
+            { hex: '#162a3c', rgb: '22, 42, 60', cmyk: '63, 30, 0, 76', pms: '2965 C' }
+          ]
         },
         {
           title: 'SOFFRA.io',
@@ -178,6 +202,13 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 2,
           completedDate: 'March 2025',
+          colorPalette: [
+            { hex: '#0B0F14', rgb: '11, 15, 20', cmyk: '45, 25, 0, 92', pms: 'Black 6 C' },
+            { hex: '#FF4D00', rgb: '255, 77, 0', cmyk: '0, 70, 100, 0', pms: 'Bright Orange C' },
+            { hex: '#666666', rgb: '102, 102, 102', cmyk: '0, 0, 0, 60', pms: 'Cool Gray 9 C' },
+            { hex: '#00FFFF', rgb: '0, 255, 255', cmyk: '100, 0, 0, 0', pms: 'Process Cyan C' },
+            { hex: '#333235', rgb: '51, 50, 53', cmyk: '4, 6, 0, 79', pms: '447 C' }
+          ]
         },
         {
           title: 'Sorella Home Solutions',
@@ -204,6 +235,12 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 5,
           completedDate: 'October 2025',
+          colorPalette: [
+            { hex: '#092642', rgb: '9, 38, 66', cmyk: '86, 42, 0, 74', pms: '282 C' },
+            { hex: '#37a6ed', rgb: '55, 166, 237', cmyk: '77, 30, 0, 7', pms: '285 C' },
+            { hex: '#e6f0fe', rgb: '230, 240, 254', cmyk: '9, 6, 0, 0', pms: '656 C' },
+            { hex: '#2e3340', rgb: '46, 51, 64', cmyk: '28, 20, 0, 75', pms: '432 C' }
+          ]
         },
         {
           title: 'Clinical Resources',
@@ -229,6 +266,12 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 6,
           completedDate: 'November 2025',
+          colorPalette: [
+            { hex: '#cf3178', rgb: '207, 49, 120', cmyk: '0, 76, 42, 19', pms: '213 C' },
+            { hex: '#6dc4e1', rgb: '109, 196, 225', cmyk: '52, 13, 0, 12', pms: '298 C' },
+            { hex: '#0c1624', rgb: '12, 22, 36', cmyk: '67, 39, 0, 86', pms: '2965 C' },
+            { hex: '#0d223c', rgb: '13, 34, 60', cmyk: '78, 43, 0, 76', pms: '282 C' }
+          ]
         },
         {
           title: 'Flourrish Environmental Funding',
@@ -256,6 +299,13 @@ export class SeedService implements OnModuleInit {
           layout: 'grid-2',
           order: 7,
           completedDate: 'October 2025',
+          colorPalette: [
+            { hex: '#264653', rgb: '38, 70, 83', cmyk: '54, 16, 0, 67', pms: '5405 C' },
+            { hex: '#37baa6', rgb: '55, 186, 166', cmyk: '70, 0, 11, 27', pms: '3262 C' },
+            { hex: '#10192c', rgb: '16, 25, 44', cmyk: '64, 43, 0, 83', pms: '2965 C' },
+            { hex: '#172033', rgb: '23, 32, 51', cmyk: '55, 37, 0, 80', pms: '2965 C' },
+            { hex: '#499f4e', rgb: '73, 159, 78', cmyk: '54, 0, 51, 38', pms: '362 C' }
+          ]
         },
         {
           title: 'Progressive Insurance',
@@ -285,6 +335,11 @@ export class SeedService implements OnModuleInit {
           order: 8,
           layout: 'grid-2',
           completedDate: 'May 2025',
+          colorPalette: [
+            { hex: '#2275e8', rgb: '34, 117, 232', cmyk: '85, 50, 0, 9', pms: '2133 C' },
+            { hex: '#F4F4F4', rgb: '244, 244, 244', cmyk: '0, 0, 0, 4', pms: 'Cool Gray 1 C' },
+            { hex: '#eaf1f8', rgb: '234, 241, 248', cmyk: '8, 3, 0, 3', pms: '656 C' }
+          ]
         },
 
         {
@@ -419,6 +474,11 @@ export class SeedService implements OnModuleInit {
           order: 15,
           layout: 'grid-2',
           completedDate: 'July 2025',
+          colorPalette: [
+            { hex: '#7B2D26', rgb: '123, 45, 38', cmyk: '0, 63, 69, 52', pms: '1815 C' },
+            { hex: '#333333', rgb: '51, 51, 51', cmyk: '0, 0, 0, 80', pms: 'Neutral Black C' },
+            { hex: '#FFFFFF', rgb: '255, 255, 255', cmyk: '0, 0, 0, 0', pms: '000 C' }
+          ],
           designSpecs: [
             { label: 'Platform', value: 'Web / Responsive', type: 'technical' },
             {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-findash-hero',
@@ -9,4 +10,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './findash-hero.html',
   styleUrl: './findash-hero.scss',
 })
-export class FindashHero {}
+export class FindashHero {
+  @Input() project: Project | null = null;
+}
