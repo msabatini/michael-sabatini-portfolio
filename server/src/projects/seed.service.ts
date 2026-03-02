@@ -14,12 +14,13 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v246';
+    const SEEDER_VERSION = 'v1000';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
     try {
       // Check if we already seeded this version
+      /*
       const settings = await this.settingsRepository.findOneBy({
         key: 'seeder_version',
       });
@@ -29,6 +30,7 @@ export class SeedService implements OnModuleInit {
         );
         return;
       }
+      */
 
       console.log('SEEDER: Seeding needed. Clearing database...');
       await this.projectsService.clearAll();
@@ -469,16 +471,16 @@ export class SeedService implements OnModuleInit {
           title: "Martha's Vineyard Poster Series",
           description:
             'A vintage-inspired collection of maps and posters for Martha’s Vineyard.',
-          imageUrl: '/assets/projects/mv/katama-airpark.jpg',
+          imageUrl: '/assets/projects/mv/state-beach.jpg',
           gallery: [
+            '/assets/projects/mv/state-beach.jpg',
             '/assets/projects/mv/katama-airpark.jpg',
             '/assets/projects/mv/aquinnah.jpg',
             '/assets/projects/mv/cape-poge.jpg',
             '/assets/projects/mv/corbin-norton.jpg',
             '/assets/projects/mv/flying-horses.jpg',
-            '/assets/projects/mv/state-beach.jpg',
           ],
-          mockupUrl: '/assets/projects/mv/katama-airpark.jpg',
+          mockupUrl: '/assets/projects/mv/state-beach.jpg',
           content:
             'A comprehensive series of high-quality prints celebrating the unique geography of Martha’s Vineyard.',
           tags: ['Print', 'Graphic Design'],
