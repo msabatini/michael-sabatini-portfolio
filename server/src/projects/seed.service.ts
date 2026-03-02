@@ -234,8 +234,9 @@ export class SeedService implements OnModuleInit {
           title: 'Flourrish Environmental Funding',
           description:
             'Global crowdsourcing platform for funding environmental restoration.',
-          imageUrl: '/assets/projects/flourrish/flourrish-mockup.jpg',
+          imageUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           gallery: [
+            '/assets/projects/flourrish/flourrish-device-mockup.png',
             '/assets/projects/flourrish/flourrish-case-study1.jpg',
             '/assets/projects/flourrish/flourrish-case-study2.jpg',
             '/assets/projects/flourrish/flourrish-case-study3.jpg',
@@ -247,7 +248,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/flourrish/flourrish-case-study9.jpg',
             '/assets/projects/flourrish/flourrish-case-study10.jpg',
           ],
-          mockupUrl: '/assets/projects/flourrish/flourrish-mockup.jpg',
+          mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content:
             'Flourrish is a revolutionary environmental fintech platform.',
           tags: ['Application Development', 'Angular', 'FinTech'],
@@ -261,8 +262,9 @@ export class SeedService implements OnModuleInit {
           description:
             'Streamlined digital quoting experience and visual systems for a leading national insurer.',
           imageUrl:
-            '/assets/projects/progressive-insurance/progressive-mockup.jpg',
+            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
           gallery: [
+            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
             '/assets/projects/progressive-insurance/progressive7.jpg',
             '/assets/projects/progressive-insurance/progressive-mockup.jpg',
             '/assets/projects/progressive-insurance/progressive1.jpg',
@@ -274,7 +276,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/progressive-insurance/progressive8.jpg',
           ],
           mockupUrl:
-            '/assets/projects/progressive-insurance/progressive-mockup.jpg',
+            '/assets/projects/progressive-insurance/progressive-device-mockup-transparent-bg.png',
           content:
             'Progressive Insurance required a modern, user-centric approach to their digital platforms.',
           tags: ['UI/UX Design', 'Branding', 'Digital Strategy'],
