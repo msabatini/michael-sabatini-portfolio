@@ -1,0 +1,183 @@
+<section class="project-layout">
+  <div class="container">
+    <div class="layout-grid">
+      <!-- MAIN: images/content -->
+      <main class="layout-main">
+        <div class="image-stack">
+          @if (project.gallery && project.gallery.length > 0) {
+            @for (img of project.gallery; track img; let i = $index) {
+              <figure class="shot">
+                <img [src]="img" [alt]="project.title + ' view ' + (i + 1)" loading="lazy" decoding="async" [attr.data-modal-src]="img" [attr.data-meta]="project.title + ' • View ' + (i + 1)" />
+              </figure>
+            }
+          }
+        </div>
+
+        <!-- Optional: any extra body content below images -->
+        @if (project.extraSections && project.extraSections.length > 0) {
+          <section class="below-fold">
+            @for (s of project.extraSections; track s.title) {
+              <div class="section">
+                <h2 class="section__title">{{ s.title }}</h2>
+                @for (p of s.paragraphs; track p) {
+                  <p class="section__p">{{ p }}</p>
+                }
+              </div>
+            }
+          </section>
+        }
+      </main>
+
+      <!-- ASIDE: sticky tabs -->
+      <aside class="layout-aside" aria-label="Project details">
+        <div class="aside-card">
+          <div class="aside-top">
+            <div class="aside-meta">{{ project.year }}</div>
+            <div class="aside-title">{{ project.title }}</div>
+            <div class="aside-role">{{ project.role }}</div>
+          </div>
+
+          <nav class="tabs" role="tablist" aria-label="Project tabs">
+            <button
+              class="tab"
+              type="button"
+              role="tab"
+              id="tab-overview"
+              [attr.aria-selected]="activeTab === 'overview'"
+              [class.is-active]="activeTab === 'overview'"
+              (click)="setTab('overview')"
+            >
+              Overview
+            </button>
+
+            <button
+              class="tab"
+              type="button"
+              role="tab"
+              id="tab-product"
+              [attr.aria-selected]="activeTab === 'product'"
+              [class.is-active]="activeTab === 'product'"
+              (click)="setTab('product')"
+            >
+              Product
+            </button>
+
+            <button
+              class="tab"
+              type="button"
+              role="tab"
+              id="tab-build"
+              [attr.aria-selected]="activeTab === 'build'"
+              [class.is-active]="activeTab === 'build'"
+              (click)="setTab('build')"
+            >
+              Build
+            </button>
+          </nav>
+
+          <!-- PANELS -->
+          @if (activeTab === 'overview') {
+            <section
+              class="tab-panel"
+              role="tabpanel"
+              aria-labelledby="tab-overview"
+            >
+              @if (project.overview) {
+                <p class="panel-lead">{{ project.overview.lead }}</p>
+
+                @if (project.overview.bullets && project.overview.bullets.length > 0) {
+                  <ul class="panel-list">
+                    @for (b of project.overview.bullets; track b) {
+                      <li>{{ b }}</li>
+                    }
+                  </ul>
+                }
+              }
+            </section>
+          }
+
+          @if (activeTab === 'product') {
+            <section
+              class="tab-panel"
+              role="tabpanel"
+              aria-labelledby="tab-product"
+            >
+              @if (project.product) {
+                <div class="panel-block">
+                  <div class="panel-h">Problem</div>
+                  <p class="panel-p">{{ project.product.problem }}</p>
+                </div>
+
+                <div class="panel-block">
+                  <div class="panel-h">Key UX challenge</div>
+                  <p class="panel-p">{{ project.product.uxChallenge }}</p>
+                </div>
+
+                @if (project.product.decisions && project.product.decisions.length > 0) {
+                  <div class="panel-block">
+                    <div class="panel-h">Design decisions</div>
+                    <ul class="panel-list">
+                      @for (d of project.product.decisions; track d) {
+                        <li>{{ d }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+              }
+            </section>
+          }
+
+          @if (activeTab === 'build') {
+            <section
+              class="tab-panel"
+              role="tabpanel"
+              aria-labelledby="tab-build"
+            >
+              @if (project.build) {
+                <div class="panel-block">
+                  <div class="panel-h">My role</div>
+                  <ul class="panel-list">
+                    @for (r of project.build.responsibilities; track r) {
+                      <li>{{ r }}</li>
+                    }
+                  </ul>
+                </div>
+
+                <div class="panel-block">
+                  <div class="panel-h">Stack</div>
+                  <div class="chips">
+                    @for (tech of project.build.stack; track tech) {
+                      <span class="chip">{{ tech }}</span>
+                    }
+                  </div>
+                </div>
+
+                @if (project.build.status) {
+                  <div class="panel-block">
+                    <div class="panel-h">Status</div>
+                    <p class="panel-p">{{ project.build.status }}</p>
+                  </div>
+                }
+              }
+            </section>
+          }
+
+          @if (project.links && project.links.length > 0) {
+            <div class="aside-actions">
+              @for (l of project.links; track l.href) {
+                <a
+                  class="action"
+                  [href]="l.href"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {{ l.label }}
+                </a>
+              }
+            </div>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

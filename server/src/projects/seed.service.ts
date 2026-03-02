@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v217';
-    this.logger.log(`FORCE SEED: v217`);
+    const SEEDER_VERSION = 'v219';
+    this.logger.log(`FORCE SEED: v219`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -63,7 +63,36 @@ export class SeedService implements OnModuleInit {
             { hex: '#744476', rgb: '116, 68, 118', cmyk: '2, 42, 0, 54', pms: '520 C' },
             { hex: '#2a3d58', rgb: '42, 61, 88', cmyk: '52, 31, 0, 65', pms: '534 C' },
             { hex: '#dadada', rgb: '218, 218, 218', cmyk: '0, 0, 0, 15', pms: 'Cool Gray 2 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Lead Product Designer',
+          overview: {
+            lead: 'Findash is a cutting-edge fintech platform that provides advanced dashboard technology for financial institutions. The project focused on creating a clean, professional, and tech-forward visual identity that reflects real-time financial intelligence.',
+            bullets: [
+              'Designed a comprehensive design system for financial data visualization',
+              'Developed a modular component library for consistent dashboard implementation',
+              'Collaborated with stakeholders to define key performance indicators and reporting metrics',
+            ],
+          },
+          product: {
+            problem: 'Financial data is often fragmented and difficult to interpret in real-time, leading to delayed decision-making and operational inefficiencies.',
+            uxChallenge: 'The main challenge was creating a highly dense yet readable interface that allows users to monitor multiple data streams without cognitive overload.',
+            decisions: [
+              'Implemented a customizable widget system for personalized reporting',
+              'Used a high-contrast color palette for critical data alerts and trends',
+              'Designed responsive layouts for seamless transition between desktop and mobile views',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Visual identity & brand strategy',
+              'UX/UI design for the core dashboard platform',
+              'Component library development & documentation',
+              'Data visualization research & implementation',
+            ],
+            stack: ['Angular', 'D3.js', 'TypeScript', 'Node.js', 'Express'],
+            status: 'Production-ready. Currently used by mid-market financial firms for operational tracking.',
+          },
         },
         {
           title: 'Pinnacle Solutions',
@@ -94,7 +123,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#0dc1bf', rgb: '13, 193, 191', cmyk: '93, 0, 1, 24', pms: '3262 C' },
             { hex: '#faf7f8', rgb: '250, 247, 248', cmyk: '0, 1, 1, 2', pms: 'Cool Gray 1 C' },
             { hex: '#eaebe4', rgb: '234, 235, 228', cmyk: '0, 0, 3, 8', pms: '7527 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Design Lead · Brand Strategist',
+          overview: {
+            lead: 'Pinnacle Solutions required a high-end corporate brand identity that could scale globally across technology and consulting sectors. The project involved a complete visual system, from stationary to digital presence.',
+            bullets: [
+              'Developed a global brand identity and comprehensive style guide',
+              'Designed a full suite of corporate stationary and marketing collateral',
+              'Collaborated with the digital team to ensure seamless brand integration across web platforms',
+            ],
+          },
+          product: {
+            problem: 'The existing brand lacked cohesion and failed to communicate the company’s enterprise-grade technical expertise to a global audience.',
+            uxChallenge: 'Creating a visual language that feels both technically precise and approachable for executive-level decision-makers.',
+            decisions: [
+              'Selected a sophisticated color palette that balances stability with innovation',
+              'Developed custom iconography to represent complex consulting services',
+              'Designed high-impact print layouts for corporate capabilities brochures',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Creative direction & brand identity development',
+              'Print production management & quality control',
+              'Stakeholder presentation & feedback iteration',
+            ],
+            stack: ['Adobe Creative Suite', 'Figma', 'InDesign', 'Illustrator'],
+            status: 'Completed brand rollout. All corporate assets have been deployed across international offices.',
+          },
         },
         {
           title: 'The Service Course',
@@ -132,7 +189,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#07749d', rgb: '7, 116, 157', cmyk: '96, 26, 0, 38', pms: '2188 C' },
             { hex: '#045372', rgb: '4, 83, 114', cmyk: '96, 27, 0, 55', pms: '2187 C' },
             { hex: '#d9d6d7', rgb: '217, 214, 215', cmyk: '0, 1, 1, 15', pms: 'Cool Gray 2 C' }
-          ]
+          ],
+          year: '2024',
+          role: 'Product Designer · Brand Identity',
+          overview: {
+            lead: 'The Service Course project involved creating a sophisticated, performance-oriented visual identity for a high-end cycling service center. The branding system covers digital presence, social campaigns, and technical product packaging.',
+            bullets: [
+              'Defined a minimalist yet impactful visual language for high-end cycling services',
+              'Designed a full suite of digital social ads and marketing campaigns',
+              'Developed technical apparel tags and product packaging for professional-grade cleaning tools',
+            ],
+          },
+          product: {
+            problem: 'The brand needed to transition from a local service center to a premium product and experience provider with a global outlook.',
+            uxChallenge: 'Balancing the grit of a bicycle workshop with the luxury of high-performance cycling culture.',
+            decisions: [
+              'Used a deep, technical color palette to evoke professional workshop environments',
+              'Focused on typography-driven layouts for social campaigns to ensure message clarity',
+              'Designed technical tag systems that emphasize product durability and professional heritage',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Visual identity system & brand guidelines',
+              'Social media campaign creative & production',
+              'Technical apparel & packaging design',
+            ],
+            stack: ['Figma', 'Adobe Creative Suite', 'InDesign', 'HTML/CSS'],
+            status: 'Completed brand rollout and campaign launch. Assets are currently active across all social channels.',
+          },
         },
         {
           title: 'Farmland Consulting',
@@ -163,7 +248,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#fbaf44', rgb: '251, 175, 68', cmyk: '0, 30, 73, 2', pms: '137 C' },
             { hex: '#4e8abe', rgb: '78, 138, 190', cmyk: '59, 27, 0, 25', pms: '660 C' },
             { hex: '#162a3c', rgb: '22, 42, 60', cmyk: '63, 30, 0, 76', pms: '2965 C' }
-          ]
+          ],
+          year: '2024',
+          role: 'Lead Brand Designer',
+          overview: {
+            lead: 'Farmland Consulting required a professional and grounded brand identity to serve the agricultural sector. The project involved creating a visual system that conveys trust, expertise, and a deep connection to land preservation and agricultural advisory.',
+            bullets: [
+              'Designed a unique visual identity that balances modern consultancy with traditional agricultural values',
+              'Developed a comprehensive stationery system including letterheads, business cards, and envelopes',
+              'Created a responsive landing page design that highlights the company’s core advisory services',
+            ],
+          },
+          product: {
+            problem: 'The previous branding felt outdated and didn’t accurately reflect the company’s high-level consultancy and preservation expertise.',
+            uxChallenge: 'Integrating technical agricultural data with a warm, approachable brand aesthetic for a diverse client base.',
+            decisions: [
+              'Selected an earthy, nature-inspired color palette that reflects the agricultural focus',
+              'Used clean, traditional typography to establish authority and reliability',
+              'Designed stationery layouts that emphasize clarity and professional documentation',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Brand strategy & visual identity development',
+              'Print collateral design & production management',
+              'UI design for the consultancy landing page',
+            ],
+            stack: ['Figma', 'Illustrator', 'Photoshop', 'InDesign'],
+            status: 'Completed brand identity rollout. All physical and digital assets are currently in use by the consultancy.',
+          },
         },
         {
           title: 'SOFFRA.io',
@@ -208,7 +321,36 @@ export class SeedService implements OnModuleInit {
             { hex: '#666666', rgb: '102, 102, 102', cmyk: '0, 0, 0, 60', pms: 'Cool Gray 9 C' },
             { hex: '#00FFFF', rgb: '0, 255, 255', cmyk: '100, 0, 0, 0', pms: 'Process Cyan C' },
             { hex: '#333235', rgb: '51, 50, 53', cmyk: '4, 6, 0, 79', pms: '447 C' }
-          ]
+          ],
+          year: '2022',
+          role: 'Founder · Product Designer · Frontend Developer',
+          overview: {
+            lead: 'SOFFRA.io is a concept-stage social platform for elevation-focused cyclists and runners. It’s centered around the CLIMB ATLAS™—a structured library of climbs designed for discovery, comparison, and competition.',
+            bullets: [
+              'Led the product from concept through prototype (UX, UI, IA)',
+              'Defined the climb taxonomy + metadata model that powers the Atlas',
+              'Iterating weekly with athlete testers to refine usability and prioritization',
+            ],
+          },
+          product: {
+            problem: 'General fitness platforms track climbs, but they don’t treat elevation as a first-class system. SOFFRA organizes climb discovery, effort tracking, and ranking around difficulty and context.',
+            uxChallenge: 'The hardest UX problem was integrating the climb database, user profile, and leaderboard logic so effort data feels meaningful without overwhelming the interface.',
+            decisions: [
+              'Progressive disclosure for performance metrics (scan → drill-down)',
+              'Clear hierarchy between climb entities and athlete effort objects',
+              'Leaderboards contextualized by climb difficulty, not raw speed alone',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Product strategy + information architecture',
+              'Interaction design + visual system',
+              'Frontend implementation (component-driven UI)',
+              'Dataset research + structuring for JSON-driven integration',
+            ],
+            stack: ['MongoDB', 'Express', 'Angular', 'Node', 'TypeScript', 'SCSS'],
+            status: 'In active development. Multiple athletes test weekly; feedback informs usability refinements and feature prioritization.',
+          },
         },
         {
           title: 'Sorella Home Solutions',
@@ -240,7 +382,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#37a6ed', rgb: '55, 166, 237', cmyk: '77, 30, 0, 7', pms: '285 C' },
             { hex: '#e6f0fe', rgb: '230, 240, 254', cmyk: '9, 6, 0, 0', pms: '656 C' },
             { hex: '#2e3340', rgb: '46, 51, 64', cmyk: '28, 20, 0, 75', pms: '432 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Lead Designer · Brand Strategist',
+          overview: {
+            lead: 'Sorella Home Solutions required a premium brand identity and digital presence to serve high-end home concierge clients. The project spanned from brand strategy and physical collateral to a sophisticated, responsive corporate website.',
+            bullets: [
+              'Developed a high-end visual identity reflecting trust, reliability, and sophisticated care',
+              'Designed and developed a responsive corporate website for service showcase',
+              'Created a full suite of marketing collateral, including stationery, social ads, and email templates',
+            ],
+          },
+          product: {
+            problem: 'The brand needed to communicate a sense of "quiet luxury" while clearly outlining a complex range of home concierge services.',
+            uxChallenge: 'Creating a web interface that feels as high-end as the service itself, while ensuring a simple and direct booking/contact experience.',
+            decisions: [
+              'Selected a refined color palette of deep navy and soft light blue to evoke professional reliability',
+              'Used generous whitespace and high-quality imagery to emphasize the "concierge" experience',
+              'Designed modular social ad systems for consistent brand messaging across channels',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Brand strategy & visual identity design',
+              'UX/UI design & frontend development for the corporate site',
+              'Social media campaign creative & production',
+            ],
+            stack: ['Angular', 'SCSS', 'TypeScript', 'Adobe Creative Suite', 'Figma'],
+            status: 'Production-ready. The website and marketing materials are currently active and driving client acquisitions.',
+          },
         },
         {
           title: 'Clinical Resources',
@@ -271,7 +441,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#6dc4e1', rgb: '109, 196, 225', cmyk: '52, 13, 0, 12', pms: '298 C' },
             { hex: '#0c1624', rgb: '12, 22, 36', cmyk: '67, 39, 0, 86', pms: '2965 C' },
             { hex: '#0d223c', rgb: '13, 34, 60', cmyk: '78, 43, 0, 76', pms: '282 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Lead Product Designer',
+          overview: {
+            lead: 'Clinical Resources is an advanced digital assessment platform designed specifically for speech-language pathologists. The project involved creating a professional, trust-based visual identity and a highly usable interface for diagnostic assessments.',
+            bullets: [
+              'Led the product strategy and visual system development for a specialized healthcare platform',
+              'Designed a comprehensive suite of digital and physical assessment tools and collateral',
+              'Developed a modular design system to ensure consistency across complex diagnostic workflows',
+            ],
+          },
+          product: {
+            problem: 'Existing speech assessment tools are often fragmented, difficult to navigate, and lack a modern, professional aesthetic that builds clinician trust.',
+            uxChallenge: 'Creating a diagnostic interface that is both mathematically precise and easy for clinicians to use during active patient sessions.',
+            decisions: [
+              'Implemented a high-contrast color palette to ensure readability in diverse clinical environments',
+              'Developed a clear typographic hierarchy for complex medical and diagnostic data',
+              'Designed responsive assessment views to accommodate use on both tablets and desktop workstations',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Product strategy & information architecture',
+              'Visual system & brand identity development',
+              'UI/UX design for the core assessment engine',
+            ],
+            stack: ['Angular', 'SCSS', 'TypeScript', 'Node.js', 'Figma'],
+            status: 'In active production. The platform is currently being used by specialized SLP practices for patient diagnostics.',
+          },
         },
         {
           title: 'Flourrish Environmental Funding',
@@ -305,7 +503,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#10192c', rgb: '16, 25, 44', cmyk: '64, 43, 0, 83', pms: '2965 C' },
             { hex: '#172033', rgb: '23, 32, 51', cmyk: '55, 37, 0, 80', pms: '2965 C' },
             { hex: '#499f4e', rgb: '73, 159, 78', cmyk: '54, 0, 51, 38', pms: '362 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Lead Product Designer',
+          overview: {
+            lead: 'Flourrish is a global crowdsourcing platform for funding environmental restoration. The project focused on creating a transparent, trust-based financial system that enables users to fund and track large-scale environmental projects.',
+            bullets: [
+              'Developed the product architecture and UX strategy for an environmental fintech platform',
+              'Designed a high-impact visual identity reflecting transparency and environmental focus',
+              'Created a modular system for tracking and reporting on restoration progress',
+            ],
+          },
+          product: {
+            problem: 'Traditional environmental funding is often opaque and lacks direct connection between donors and project impact.',
+            uxChallenge: 'Designing a platform that makes complex financial and environmental data accessible and engaging for everyday users.',
+            decisions: [
+              'Implemented a map-based discovery system for exploring global restoration projects',
+              'Developed a "transparent ledger" view for tracking project funding and milestones',
+              'Used an organic, nature-inspired color system to align with the platform’s core mission',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'Product strategy & information architecture',
+              'Visual identity & brand development',
+              'UX/UI design for the core funding platform',
+            ],
+            stack: ['Angular', 'SCSS', 'TypeScript', 'D3.js', 'Node.js'],
+            status: 'Initial prototype complete. The platform is currently in pilot testing with select environmental NGOs.',
+          },
         },
         {
           title: 'Progressive Insurance',
@@ -339,7 +565,35 @@ export class SeedService implements OnModuleInit {
             { hex: '#2275e8', rgb: '34, 117, 232', cmyk: '85, 50, 0, 9', pms: '2133 C' },
             { hex: '#F4F4F4', rgb: '244, 244, 244', cmyk: '0, 0, 0, 4', pms: 'Cool Gray 1 C' },
             { hex: '#eaf1f8', rgb: '234, 241, 248', cmyk: '8, 3, 0, 3', pms: '656 C' }
-          ]
+          ],
+          year: '2025',
+          role: 'Senior UX/UI Designer',
+          overview: {
+            lead: 'Progressive Insurance required a modern, user-centric approach to their digital quoting platforms. The project focused on streamlining the user journey and creating a cohesive visual system that enhances brand trust and accessibility.',
+            bullets: [
+              'Developed a high-fidelity design system for multi-channel digital products',
+              'Streamlined the digital quoting experience to improve user conversion rates',
+              'Collaborated with stakeholders to ensure accessibility and performance standards',
+            ],
+          },
+          product: {
+            problem: 'The previous quoting process was fragmented and lacked a modern, cohesive visual language, leading to user friction and lower conversion.',
+            uxChallenge: 'Simplifying complex insurance data collection while maintaining user confidence and speed throughout the process.',
+            decisions: [
+              'Implemented a progressive disclosure model for the quoting workflow',
+              'Developed a clean, high-contrast visual system for critical user actions',
+              'Designed responsive layouts that prioritize mobile-first interaction for quick quoting',
+            ],
+          },
+          build: {
+            responsibilities: [
+              'UX architecture & information design',
+              'UI design & visual system development',
+              'Prototyping & user testing iteration',
+            ],
+            stack: ['Figma', 'Sketch', 'Adobe Creative Suite', 'InVision'],
+            status: 'Implementation complete. The new design system has been integrated across core digital product lines.',
+          },
         },
 
         {
