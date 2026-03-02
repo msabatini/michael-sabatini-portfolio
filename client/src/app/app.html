@@ -10,14 +10,8 @@
         <a routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
         <a routerLink="/resume" routerLinkActive="active">Resumé</a>
         <a routerLink="/about" routerLinkActive="active">About</a>
-        <a routerLink="/quick-estimate" routerLinkActive="active">Estimate</a>
         <a routerLink="/contact" routerLinkActive="active">Contact</a>
       </div>
-
-      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm schedule-btn" (click)="trackClick('Schedule Chat Desktop')">
-        <app-icon name="chat" [size]="16"></app-icon>
-        Schedule a Chat
-      </a>
 
       <button class="theme-toggle" (click)="themeService.toggleTheme()" [title]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'">
         @if (themeService.theme() === 'light') {
@@ -41,15 +35,7 @@
     <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMenu()">Portfolio</a>
     <a routerLink="/resume" routerLinkActive="active" (click)="closeMenu()">Resumé</a>
     <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
-    <a routerLink="/quick-estimate" routerLinkActive="active" (click)="closeMenu()">Estimate</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
-    
-    <div class="mobile-cta">
-      <a href="https://michaelw7pl.setmore.com" target="_blank" rel="noopener" class="btn btn-primary btn-block" (click)="closeMenu(); trackClick('Schedule Chat Mobile')">
-        <app-icon name="chat" [size]="18"></app-icon>
-        Schedule a project chat
-      </a>
-    </div>
   </div>
 </div>
 
@@ -82,7 +68,6 @@
           <li><a routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
           <li><a routerLink="/resume" routerLinkActive="active">Resumé</a></li>
           <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-          <li><a routerLink="/quick-estimate" routerLinkActive="active">Estimate</a></li>
           <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
         </ul>
       </div>
