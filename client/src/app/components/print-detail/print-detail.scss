@@ -164,7 +164,7 @@
     }
 
     &.detail-hero--dark {
-      background: #0B0F14; /* dark base */
+      background: #050505; /* dark base */
       color: rgba(255, 255, 255, 0.92);
 
       &.detail-hero--pinnacle {
@@ -249,6 +249,7 @@
         background-image: url('/assets/projects/soffra-brand/SOFFRA-contour-lines.svg');
         background-size: cover;
         background-position: center;
+        background-attachment: fixed;
         opacity: .1; // Subtle overlay
         pointer-events: none;
         z-index: 1;

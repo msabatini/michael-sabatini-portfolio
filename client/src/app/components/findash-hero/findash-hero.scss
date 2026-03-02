@@ -20,6 +20,7 @@ $container: 1200px;
   background-repeat: no-repeat;
   background-position: right center;
   background-size: min(900px, 70vw);
+  background-attachment: fixed;
   pointer-events: none;
   z-index: 0;
 }
