@@ -14,8 +14,8 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v215';
-    this.logger.log(`FORCE SEED: v215`);
+    const SEEDER_VERSION = 'v217';
+    this.logger.log(`FORCE SEED: v217`);
     this.logger.log(`Starting project seeding process [${SEEDER_VERSION}]...`);
 
     try {
@@ -203,7 +203,7 @@ export class SeedService implements OnModuleInit {
           order: 2,
           completedDate: 'March 2025',
           colorPalette: [
-            { hex: '#0B0F14', rgb: '11, 15, 20', cmyk: '45, 25, 0, 92', pms: 'Black 6 C' },
+            { hex: '#050505', rgb: '5, 5, 5', cmyk: '45, 25, 0, 92', pms: 'Black 6 C' },
             { hex: '#FF4D00', rgb: '255, 77, 0', cmyk: '0, 70, 100, 0', pms: 'Bright Orange C' },
             { hex: '#666666', rgb: '102, 102, 102', cmyk: '0, 0, 0, 60', pms: 'Cool Gray 9 C' },
             { hex: '#00FFFF', rgb: '0, 255, 255', cmyk: '100, 0, 0, 0', pms: 'Process Cyan C' },
