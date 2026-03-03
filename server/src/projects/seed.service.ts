@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8000';
+    const SEEDER_VERSION = 'v8002';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -98,9 +98,30 @@ export class SeedService implements OnModuleInit {
           imageUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           gallery: [
             '/assets/projects/flourrish/flourrish-device-mockup.png',
+            '/assets/projects/flourrish/flourrish-case-study1.jpg',
+            '/assets/projects/flourrish/flourrish-case-study2.jpg',
+            '/assets/projects/flourrish/flourrish-case-study3.jpg',
+            '/assets/projects/flourrish/flourrish-case-study4.jpg',
+            '/assets/projects/flourrish/flourrish-case-study5.jpg',
+            '/assets/projects/flourrish/flourrish-case-study6.jpg',
+            '/assets/projects/flourrish/flourrish-case-study7.jpg',
+            '/assets/projects/flourrish/flourrish-case-study8.jpg',
+            '/assets/projects/flourrish/flourrish-case-study9.jpg',
+            '/assets/projects/flourrish/flourrish-case-study10.jpg',
+            '/assets/projects/flourrish/flourrish-mockup.jpg',
+            '/assets/projects/flourrish/fourrish-background-image.png',
             '/assets/projects/flourrish/Landing Page/flourrish-desktop-landing-page.jpg',
             '/assets/projects/flourrish/Landing Page/flourrish-tablet-landing-page.jpg',
             '/assets/projects/flourrish/Landing Page/flourrish-mobile-landing-page.jpg',
+            '/assets/projects/flourrish/Ads/1080x1080-corporate.jpg',
+            '/assets/projects/flourrish/Ads/1080x1920-corporate.jpg',
+            '/assets/projects/flourrish/Ads/1200x628-corporate.jpg',
+            '/assets/projects/flourrish/Ads/1080x1080-individual-donor.jpg',
+            '/assets/projects/flourrish/Ads/1080x1920-individual-donor.jpg',
+            '/assets/projects/flourrish/Ads/1200x628-individual-donor.jpg',
+            '/assets/projects/flourrish/Ads/1080x1080-Trustworthy.jpg',
+            '/assets/projects/flourrish/Ads/1080x1920-Trustworthy.jpg',
+            '/assets/projects/flourrish/Ads/1200x628-Trustworthy.jpg',
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content:

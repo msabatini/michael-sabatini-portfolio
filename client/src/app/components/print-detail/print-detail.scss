@@ -987,6 +987,18 @@
   max-width: 900px;
 }
 
+.ad-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 4rem 0 2rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1.25rem;
+  line-height: 1;
+}
+
 .campaigns-wrap {
   width: 100%;
 }
@@ -1040,20 +1052,20 @@
       flex: 0 0 auto;
       margin: 0;
       
-      // Proportional widths that decrease in scale to make them "get smaller"
-      &:nth-child(1) { width: 380px; } // 1080x1920 (tallest/biggest)
-      &:nth-child(2) { width: 320px; } // 1080x1350
-      &:nth-child(3) { width: 300px; } // 1200x1200
-      &:nth-child(4) { width: 240px; } // 1080x1080
-      &:nth-child(5) { width: 120px; } // 300x600
+      &.ad-size-1080x1920 { width: 380px; }
+      &.ad-size-1080x1350 { width: 320px; }
+      &.ad-size-1200x1200 { width: 300px; }
+      &.ad-size-1080x1080 { width: 320px; }
+      &.ad-size-1200x628  { width: 300px; }
+      &.ad-size-300x600   { width: 120px; }
 
       @media (max-width: 1280px) {
-        gap: 2rem;
-        &:nth-child(1) { width: 280px; }
-        &:nth-child(2) { width: 240px; }
-        &:nth-child(3) { width: 220px; }
-        &:nth-child(4) { width: 180px; }
-        &:nth-child(5) { width: 90px; }
+        &.ad-size-1080x1920 { width: 280px; }
+        &.ad-size-1080x1350 { width: 240px; }
+        &.ad-size-1200x1200 { width: 220px; }
+        &.ad-size-1080x1080 { width: 240px; }
+        &.ad-size-1200x628  { width: 220px; }
+        &.ad-size-300x600   { width: 90px; }
       }
 
       @media (max-width: 480px) {
