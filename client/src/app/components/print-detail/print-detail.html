@@ -1329,25 +1329,6 @@
           </main>
         </div>
 
-        <div class="flourrish-print-layout">
-          <div class="campaigns-wrap">
-            <h2>Brand Identity & Print Collateral</h2>
-            <main class="visual-storyboard flourrish-layout">
-              <div class="flourrish-grid">
-                @if (p.gallery && p.gallery.length > 0) {
-                  @for (img of p.gallery; track img; let i = $index) {
-                    @if (img !== p.mockupUrl && !img.includes('Landing Page')) {
-                      <div class="visual-item">
-                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
-                      </div>
-                    }
-                  }
-                }
-              </div>
-            </main>
-          </div>
-        </div>
-
         <section class="landing-page-section">
           <div class="campaigns-wrap">
             <h2>Environmental Impact Landing Page</h2>
@@ -1391,6 +1372,25 @@
           <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
+
+        <div class="flourrish-print-layout">
+          <div class="campaigns-wrap">
+            <h2>Brand Identity & Print Collateral</h2>
+            <main class="visual-storyboard flourrish-layout">
+              <div class="flourrish-grid">
+                @if (p.gallery && p.gallery.length > 0) {
+                  @for (img of p.gallery; track img; let i = $index) {
+                    @if (img !== p.mockupUrl && !img.includes('Landing Page')) {
+                      <div class="visual-item">
+                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </main>
+          </div>
+        </div>
       } @else {
         <div class="detail-layout">
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
