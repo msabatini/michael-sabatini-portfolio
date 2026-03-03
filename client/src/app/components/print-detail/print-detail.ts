@@ -24,6 +24,7 @@ export class PrintDetail implements OnInit, AfterViewInit, OnDestroy {
   
   project = signal<Project | null>(null);
   activeTab = signal<'overview' | 'product' | 'build'>('overview');
+  isPanelVisible = signal(true);
   private modal: HTMLElement | null = null;
   private modalImg: HTMLImageElement | null = null;
   private modalMeta: HTMLElement | null = null;
@@ -61,6 +62,10 @@ export class PrintDetail implements OnInit, AfterViewInit, OnDestroy {
 
   setTab(tab: 'overview' | 'product' | 'build') {
     this.activeTab.set(tab);
+  }
+
+  togglePanel() {
+    this.isPanelVisible.set(!this.isPanelVisible());
   }
 
   private initializeModal(): void {

@@ -167,7 +167,10 @@
     }
     
 
-    <aside class="project-desc-panel" aria-label="Project description">
+    <aside class="project-desc-panel" [class.is-collapsed]="!isPanelVisible()" aria-label="Project description">
+      <button class="panel-toggle" (click)="togglePanel()" [attr.aria-label]="isPanelVisible() ? 'Collapse panel' : 'Expand panel'">
+        <app-icon name="chevron-right" [size]="24" class="toggle-icon" [class.is-rotated]="!isPanelVisible()"></app-icon>
+      </button>
       <div class="project-desc-panel__inner">
         <div class="pdp-top">
           <div class="pdp-meta">{{ p.completedDate }}</div>
@@ -1365,7 +1368,10 @@
           </section>
 
           @if (p.type !== 'poster-print') {
-            <aside class="design-specs">
+            <aside class="design-specs" [class.is-collapsed]="!isPanelVisible()">
+              <button class="panel-toggle" (click)="togglePanel()" [attr.aria-label]="isPanelVisible() ? 'Collapse panel' : 'Expand panel'">
+                <app-icon name="chevron-right" [size]="24" class="toggle-icon" [class.is-rotated]="!isPanelVisible()"></app-icon>
+              </button>
               <div class="spec-card">
                 <h3>Project Info</h3>
                 <div class="info-row">
