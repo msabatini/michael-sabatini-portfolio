@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8002';
+    const SEEDER_VERSION = 'v8003';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -57,7 +57,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
           content:
-            'Clinical Resources is a speech-language pathology education platform that modernizes clinical workflows and business insight through structured design and digital automation.',
+            '',
           tags: ['Health-Tech', 'Application Development', 'Analytics'],
           type: 'print-only',
           isFeatured: true,
@@ -125,7 +125,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content:
-            'Flourrish is a mission-driven funding platform designed to connect environmental impact with structured, transparent contribution systems.',
+            '',
           tags: ['Environmental', 'FinTech', 'Crowdfunding'],
           type: 'print-only',
           isFeatured: true,
@@ -184,7 +184,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl: '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
           content:
-            'Findash is an enterprise-grade financial intelligence dashboard designed to bring structure, clarity, and authority to high-density data environments.',
+            '',
           tags: ['Enterprise', 'FinTech', 'Data Visualization'],
           type: 'print-only',
           isFeatured: true,
@@ -240,7 +240,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
           content:
-            'Pinnacle Solutions is a human capital technology company reimagined through a comprehensive brand and UI transformation designed to reflect enterprise maturity and structured innovation.',
+            '',
           tags: ['Corporate', 'Human Capital', 'Brand Transformation'],
           type: 'print-only',
           isFeatured: true,
@@ -293,7 +293,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png',
           content:
-            'SOFFRA.io is a concept-stage social platform for elevation-focused cyclists and runners, centered around the CLIMB ATLAS™—a structured library of climbs designed for discovery, comparison, and competition.',
+            '',
           tags: ['Branding', 'Digital Identity', 'Performance'],
           type: 'print-only',
           isFeatured: true,
@@ -346,7 +346,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/farmland/farmland-device-mockup-transparent-bg.png',
           content:
-            'Farmland Consulting is a land advisory firm reimagined through a comprehensive brand redesign rooted in heritage, clarity, and environmental stewardship.',
+            '',
           tags: ['Heritage', 'Land Stewardship', 'Advisory'],
           type: 'print-only',
           isFeatured: true,
@@ -393,7 +393,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
           content:
-            'The Service Course is a boutique cycling retail brand defined by performance culture, refined identity, and elevated service experience.',
+            '',
           tags: ['Retail', 'Premium', 'Performance'],
           type: 'print-only',
           isFeatured: true,
@@ -441,7 +441,7 @@ export class SeedService implements OnModuleInit {
           mockupUrl:
             '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
           content:
-            'Sorella Home Solutions is a property services brand built from the ground up to communicate trust, structure, and modern service reliability.',
+            '',
           tags: ['Service Brand', 'Trust', 'Reliability'],
           type: 'print-only',
           isFeatured: true,

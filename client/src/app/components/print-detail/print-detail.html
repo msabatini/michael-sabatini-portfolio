@@ -597,7 +597,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Sorella Home Solutions') {
@@ -702,7 +701,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Findash') {
@@ -862,7 +860,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'SOFFRA.io') {
@@ -998,7 +995,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'The Service Course') {
@@ -1086,7 +1082,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Pinnacle Solutions') {
@@ -1190,7 +1185,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Farmland Consulting') {
@@ -1312,7 +1306,6 @@
         </div>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
       } @else if (p.title === 'Flourrish Environmental Funding') {
@@ -1427,7 +1420,6 @@
         </section>
 
         <section class="project-narrative">
-          <h2>The Process</h2>
           <p>{{ p.content }}</p>
         </section>
 
@@ -1436,15 +1428,7 @@
             <h2>Brand Identity & Print Collateral</h2>
             <main class="visual-storyboard flourrish-layout">
               <div class="flourrish-grid">
-                @if (p.gallery && p.gallery.length > 0) {
-                  @for (img of p.gallery; track img; let i = $index) {
-                    @if (img !== p.mockupUrl && !img.includes('Landing Page') && !img.includes('Ads/')) {
-                      <div class="visual-item">
-                        <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
-                      </div>
-                    }
-                  }
-                }
+                <!-- Print collateral to be added -->
               </div>
             </main>
           </div>
@@ -1460,8 +1444,7 @@
           </main>
 
           <section class="project-narrative">
-            <h2>The Process</h2>
-            <p>{{ p.content }}</p>
+              <p>{{ p.content }}</p>
           </section>
 
           @if (p.type !== 'poster-print') {
