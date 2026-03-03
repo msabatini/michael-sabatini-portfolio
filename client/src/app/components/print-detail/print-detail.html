@@ -1364,38 +1364,40 @@
             <p>{{ p.content }}</p>
           </section>
 
-          <aside class="design-specs">
-            <div class="spec-card">
-              <h3>Project Info</h3>
-              <div class="info-row">
-                <span class="label">Client</span>
-                <span class="value">{{ p.title }}</span>
-              </div>
-              <div class="info-row">
-                <span class="label">Year</span>
-                <span class="value">{{ p.completedDate }}</span>
-              </div>
-            </div>
-
-            @if (p.designSpecs && p.designSpecs.length > 0) {
+          @if (p.type !== 'poster-print') {
+            <aside class="design-specs">
               <div class="spec-card">
-                <h3>Design Specs</h3>
-                <div class="specs-list">
-                  @for (spec of p.designSpecs; track spec.label) {
-                    <div class="spec-item" [class.color-spec]="spec.type === 'color'">
-                      @if (spec.type === 'color') {
-                        <div class="color-swatch" [style.background-color]="spec.value"></div>
-                      }
-                      <div class="spec-meta">
-                        <span class="spec-label">{{ spec.label }}</span>
-                        <span class="spec-value">{{ spec.value }}</span>
-                      </div>
-                    </div>
-                  }
+                <h3>Project Info</h3>
+                <div class="info-row">
+                  <span class="label">Client</span>
+                  <span class="value">{{ p.title }}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Year</span>
+                  <span class="value">{{ p.completedDate }}</span>
                 </div>
               </div>
-            }
-          </aside>
+
+              @if (p.designSpecs && p.designSpecs.length > 0) {
+                <div class="spec-card">
+                  <h3>Design Specs</h3>
+                  <div class="specs-list">
+                    @for (spec of p.designSpecs; track spec.label) {
+                      <div class="spec-item" [class.color-spec]="spec.type === 'color'">
+                        @if (spec.type === 'color') {
+                          <div class="color-swatch" [style.background-color]="spec.value"></div>
+                        }
+                        <div class="spec-meta">
+                          <span class="spec-label">{{ spec.label }}</span>
+                          <span class="spec-value">{{ spec.value }}</span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            </aside>
+          }
         </div>
       }
     </div>
