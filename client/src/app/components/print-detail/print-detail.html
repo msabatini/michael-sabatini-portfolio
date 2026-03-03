@@ -12,8 +12,10 @@
         [class.detail-hero--flourrish]="p.title === 'Flourrish Environmental Funding'"
         [class.detail-hero--hellhole]="p.title === 'The Hellhole Gravel Grind'"
         [class.detail-hero--tdf]="p.title === 'Tour de France Mountain Climb Series'"
-        [class.detail-hero--mv]="p.title === 'Martha\'s Vineyard Poster Series'">
-        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting' || p.title === 'Clinical Resources' || p.title === 'Flourrish Environmental Funding' || p.title === 'The Hellhole Gravel Grind' || p.title === 'Tour de France Mountain Climb Series' || p.title === 'Martha\'s Vineyard Poster Series') {
+        [class.detail-hero--mv]="p.title === 'Martha\'s Vineyard Poster Series'"
+        [class.detail-hero--rasputitsa]="p.title === 'Rasputitsa Gravel Race Poster Series'"
+        [class.detail-hero--ski-maps]="p.title === 'New England Ski Resort Poster Series'">
+        @if (p.title === 'SOFFRA.io' || p.title === 'Pinnacle Solutions' || p.title === 'The Service Course' || p.title === 'Sorella Home Solutions' || p.title === 'Farmland Consulting' || p.title === 'Clinical Resources' || p.title === 'Flourrish Environmental Funding' || p.title === 'The Hellhole Gravel Grind' || p.title === 'Tour de France Mountain Climb Series' || p.title === 'Martha\'s Vineyard Poster Series' || p.title === 'Rasputitsa Gravel Race Poster Series' || p.title === 'New England Ski Resort Poster Series') {
           <div class="hero-watermark" aria-hidden="true"></div>
         }
         <div class="container">
@@ -131,6 +133,20 @@
                 } @else if (p.title === 'Martha\'s Vineyard Poster Series') {
                   <img
                     src="/assets/projects/mv/state-beach.jpg"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'Rasputitsa Gravel Race Poster Series') {
+                  <img
+                    src="/assets/projects/rasputitsa/2019rasputitsa.jpg"
+                    alt=""
+                    loading="eager"
+                    decoding="async"
+                  />
+                } @else if (p.title === 'New England Ski Resort Poster Series') {
+                  <img
+                    [src]="p.mockupUrl?.replace('.png', '.jpg')"
                     alt=""
                     loading="eager"
                     decoding="async"
@@ -1338,7 +1354,7 @@
           <main class="visual-storyboard" [ngClass]="p.layout || 'stack'">
             @for (img of p.gallery; track img; let i = $index) {
               <div class="visual-item">
-                <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
+                <img [src]="p.title === 'New England Ski Resort Poster Series' ? img?.replace('.png', '.jpg') : img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="p.title === 'New England Ski Resort Poster Series' ? img?.replace('.png', '.jpg') : img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
               </div>
             }
           </main>

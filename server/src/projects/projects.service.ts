@@ -56,10 +56,12 @@ export class ProjectsService {
   }
 
   async clearAll(): Promise<void> {
-    console.log('Clearing project table...');
+    console.log('Clearing project and settings tables...');
     try {
       await this.projectsRepository.clear();
-      console.log('Project table cleared.');
+      // Also clear settings to force everything
+      await this.projectsRepository.query('DELETE FROM app_settings');
+      console.log('Tables cleared.');
     } catch (e) {
       console.log(
         'Error clearing project table, attempting fallback DELETE:',

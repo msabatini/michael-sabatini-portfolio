@@ -45,9 +45,15 @@
           <div class="print-card" [routerLink]="['/portfolio', project.id]" 
                [class.hellhole-card]="project.title === 'The Hellhole Gravel Grind'"
                [class.tdf-card]="project.title === 'Tour de France Mountain Climb Series'"
-               [class.mv-card]="project.title === 'Martha\'s Vineyard Poster Series'">
+               [class.mv-card]="project.title === 'Martha\'s Vineyard Poster Series'"
+               [class.rasputitsa-card]="project.title === 'Rasputitsa Gravel Race Poster Series'"
+               [class.ski-maps-card]="project.title === 'New England Ski Resort Poster Series'">
             <div class="print-image">
-              @if (project.imageUrl) {
+              @if (project.title === 'Martha\'s Vineyard Poster Series') {
+                <img src="/assets/projects/mv/state-beach.jpg" [alt]="project.title">
+              } @else if (project.title === 'New England Ski Resort Poster Series' && project.imageUrl) {
+                <img [src]="project.imageUrl?.replace('.png', '.jpg')" [alt]="project.title">
+              } @else if (project.imageUrl) {
                 <img [src]="project.imageUrl" [alt]="project.title">
               } @else {
                 <div class="placeholder-image">

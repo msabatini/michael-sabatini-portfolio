@@ -165,11 +165,37 @@
       object-fit: cover;
       transform: scale(1.6);
       position: relative;
-      top: 60px;
+      top: 160px;
     }
     
     &:hover .print-image img {
       transform: scale(1.7);
+    }
+  }
+
+  &.rasputitsa-card {
+    .print-image img {
+      object-fit: cover;
+      transform: scale(1.6);
+      position: relative;
+      top: 140px;
+    }
+    
+    &:hover .print-image img {
+      transform: scale(1.7);
+    }
+  }
+
+  &.ski-maps-card {
+    .print-image img {
+      object-fit: cover;
+      transform: scale(2);
+      position: relative;
+      top: 2px;
+    }
+    
+    &:hover .print-image img {
+      transform: scale(2.1);
     }
   }
 
