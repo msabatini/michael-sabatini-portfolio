@@ -1336,7 +1336,7 @@
               <div class="flourrish-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
-                    @if (img !== p.mockupUrl) {
+                    @if (img !== p.mockupUrl && !img.includes('Landing Page')) {
                       <div class="visual-item">
                         <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
                       </div>
@@ -1347,6 +1347,45 @@
             </main>
           </div>
         </div>
+
+        <section class="landing-page-section">
+          <div class="campaigns-wrap">
+            <h2>Environmental Impact Landing Page</h2>
+            <p class="campaigns-description">To drive engagement and transparent contribution, I designed a high-conversion landing page optimized for environmental storytelling across all devices. The interface balances technical data with mission-driven visuals to build trust and encourage participation.</p>
+            
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/flourrish/Landing Page/flourrish-desktop-landing-page.jpg" alt="Flourrish Landing Page Desktop" class="responsive-image" data-modal-src="/assets/projects/flourrish/Landing Page/flourrish-desktop-landing-page.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/flourrish/Landing Page/flourrish-tablet-landing-page.jpg" alt="Flourrish Landing Page Tablet" class="responsive-image" data-modal-src="/assets/projects/flourrish/Landing Page/flourrish-tablet-landing-page.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/flourrish/Landing Page/flourrish-mobile-landing-page.jpg" alt="Flourrish Landing Page Mobile" class="responsive-image" data-modal-src="/assets/projects/flourrish/Landing Page/flourrish-mobile-landing-page.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="landing-page-details">
+              <div class="detail-callout">
+                <h3>Visual Storytelling</h3>
+                <p>High-impact imagery of old-growth forests immediately connects the user with the mission.</p>
+              </div>
+              <div class="detail-callout">
+                <h3>Data Transparency</h3>
+                <p>Structured contribution systems and impact metrics provide clarity and build long-term trust.</p>
+              </div>
+              <div class="detail-callout">
+                <h3>Responsive Hierarchy</h3>
+                <p>A mobile-first approach ensures the fundraising narrative remains clear and compelling on every screen size.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section class="project-narrative">
           <h2>The Process</h2>

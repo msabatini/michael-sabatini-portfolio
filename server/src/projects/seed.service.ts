@@ -98,16 +98,9 @@ export class SeedService implements OnModuleInit {
           imageUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           gallery: [
             '/assets/projects/flourrish/flourrish-device-mockup.png',
-            '/assets/projects/flourrish/flourrish-case-study1.jpg',
-            '/assets/projects/flourrish/flourrish-case-study2.jpg',
-            '/assets/projects/flourrish/flourrish-case-study3.jpg',
-            '/assets/projects/flourrish/flourrish-case-study4.jpg',
-            '/assets/projects/flourrish/flourrish-case-study5.jpg',
-            '/assets/projects/flourrish/flourrish-case-study6.jpg',
-            '/assets/projects/flourrish/flourrish-case-study7.jpg',
-            '/assets/projects/flourrish/flourrish-case-study8.jpg',
-            '/assets/projects/flourrish/flourrish-case-study9.jpg',
-            '/assets/projects/flourrish/flourrish-case-study10.jpg',
+            '/assets/projects/flourrish/Landing Page/flourrish-desktop-landing-page.jpg',
+            '/assets/projects/flourrish/Landing Page/flourrish-tablet-landing-page.jpg',
+            '/assets/projects/flourrish/Landing Page/flourrish-mobile-landing-page.jpg',
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content:
@@ -158,6 +151,9 @@ export class SeedService implements OnModuleInit {
           imageUrl: '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
           gallery: [
             '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
+            '/assets/projects/findash/web app/Desktop.jpg',
+            '/assets/projects/findash/web app/Tablet.jpg',
+            '/assets/projects/findash/web app/Mobile.jpg',
             '/assets/projects/findash/findash-web-mockup.jpg',
             '/assets/projects/findash/findash-brochure-closeup.jpg',
             '/assets/projects/findash/findash-stationary-mockup.jpg',
@@ -208,6 +204,10 @@ export class SeedService implements OnModuleInit {
           imageUrl:
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
           gallery: [
+            '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
+            '/assets/projects/pinnacle-solutions/landing page/Desktop.jpg',
+            '/assets/projects/pinnacle-solutions/landing page/tablet.jpg',
+            '/assets/projects/pinnacle-solutions/landing page/mobile.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
@@ -315,6 +315,8 @@ export class SeedService implements OnModuleInit {
           gallery: [
             '/assets/projects/farmland/farmland-device-mockup-transparent-bg.png',
             '/assets/projects/farmland/landing page/farmland-landing-page-web-mockup.jpg',
+            '/assets/projects/farmland/landing page/farmland-landing-page-tablet.jpg',
+            '/assets/projects/farmland/landing page/farmland-landing-page-mobile.jpg',
             '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
             '/assets/projects/farmland/farmland-stationary-mockup.jpg',
             '/assets/projects/farmland/business_card_mockup.jpg',
@@ -359,6 +361,9 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
           gallery: [
             '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
+            '/assets/projects/the-service-course/landing-page/service-course-desktop.jpg',
+            '/assets/projects/the-service-course/landing-page/service-course-tablet.jpg',
+            '/assets/projects/the-service-course/landing-page/service-course-mobile.jpg',
             '/assets/projects/the-service-course/theServiceCourse-bizcard-mockup.jpg',
             '/assets/projects/the-service-course/theServiceCourse-stationary-mockup.jpg',
             '/assets/projects/the-service-course/servicecourse-postcard-mockup.jpg',
@@ -404,6 +409,8 @@ export class SeedService implements OnModuleInit {
           gallery: [
             '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
             '/assets/projects/sorella/Landing Page/sorella-desktop.jpg',
+            '/assets/projects/sorella/Landing Page/sorella-tablet.jpg',
+            '/assets/projects/sorella/Landing Page/sorella-mobile.jpg',
             '/assets/projects/sorella/stationary web/sorella-business-card-mockup.jpg',
             '/assets/projects/sorella/stationary web/sorella-postcard-mockup.jpg',
             '/assets/projects/sorella/stationary web/sorella-stationary-mockup2.jpg',
