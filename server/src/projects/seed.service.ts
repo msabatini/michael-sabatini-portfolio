@@ -15,7 +15,9 @@ export class SeedService implements OnModuleInit {
 
   async onModuleInit() {
     const SEEDER_VERSION = 'v8004';
-    console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
+    console.log(
+      `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
+    );
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
     try {
@@ -56,8 +58,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
-          content:
-            '',
+          content: '',
           tags: ['Health-Tech', 'Application Development', 'Analytics'],
           type: 'print-only',
           isFeatured: true,
@@ -124,10 +125,11 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/flourrish/Ads/1200x628-Trustworthy.jpg',
             '/assets/projects/flourrish/email/flourrish-email.jpg',
             '/assets/projects/flourrish/email/flourrish-email-mockup.jpg',
+            '/assets/projects/flourrish/stationary/flourrish-bizcard-mockup.jpg',
+            '/assets/projects/flourrish/stationary/flourrish-letterhead-mockup.jpg',
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
-          content:
-            '',
+          content: '',
           tags: ['Environmental', 'FinTech', 'Crowdfunding'],
           type: 'print-only',
           isFeatured: true,
@@ -171,7 +173,8 @@ export class SeedService implements OnModuleInit {
           title: 'Findash',
           description:
             'An enterprise financial dashboard system built to bring clarity, hierarchy, and control to complex data environments.',
-          imageUrl: '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
+          imageUrl:
+            '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
           gallery: [
             '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
             '/assets/projects/findash/web app/Desktop.jpg',
@@ -184,9 +187,9 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/findash/findash-brochure.jpg',
             '/assets/projects/findash/findash-envelope-mockup.jpg',
           ],
-          mockupUrl: '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
-          content:
-            '',
+          mockupUrl:
+            '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
+          content: '',
           tags: ['Enterprise', 'FinTech', 'Data Visualization'],
           type: 'print-only',
           isFeatured: true,
@@ -241,8 +244,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
-          content:
-            '',
+          content: '',
           tags: ['Corporate', 'Human Capital', 'Brand Transformation'],
           type: 'print-only',
           isFeatured: true,
@@ -294,8 +296,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/soffra-brand/soffra-device-mockup-transparent-bg.png',
-          content:
-            '',
+          content: '',
           tags: ['Branding', 'Digital Identity', 'Performance'],
           type: 'print-only',
           isFeatured: true,
@@ -347,8 +348,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/farmland/farmland-device-mockup-transparent-bg.png',
-          content:
-            '',
+          content: '',
           tags: ['Heritage', 'Land Stewardship', 'Advisory'],
           type: 'print-only',
           isFeatured: true,
@@ -394,8 +394,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/the-service-course/theServiceCourse-device-mockup-transparent-background.png',
-          content:
-            '',
+          content: '',
           tags: ['Retail', 'Premium', 'Performance'],
           type: 'print-only',
           isFeatured: true,
@@ -442,8 +441,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl:
             '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',
-          content:
-            '',
+          content: '',
           tags: ['Service Brand', 'Trust', 'Reliability'],
           type: 'print-only',
           isFeatured: true,

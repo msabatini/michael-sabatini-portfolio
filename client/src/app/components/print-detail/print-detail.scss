@@ -227,9 +227,15 @@
         }
       }
 
+      &.detail-hero--soffra {
+        .hero-logo {
+          height: clamp(50px, 7vw, 100px);
+        }
+      }
+
       &.detail-hero--flourrish {
         .hero-logo {
-          height: clamp(20px, 3.5vw, 45px);
+          height: clamp(25px, 4vw, 50px);
         }
 
         .hero-watermark {

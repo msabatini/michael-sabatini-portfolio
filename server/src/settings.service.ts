@@ -19,7 +19,8 @@ export class SettingsService implements OnModuleInit {
         key: 'settings',
         siteTitle: 'Michael Sabatini | Senior Graphic Designer',
         heroTitle: 'Senior Graphic Designer',
-        heroSubtitle: 'Designing structured brand systems and digital platforms.',
+        heroSubtitle:
+          'Designing structured brand systems and digital platforms.',
         bioLead: '',
         bioFull:
           'I design structured brand systems and digital platforms that balance clarity, performance, and scalability. My work spans identity, interface design, and complex workflow environments — translating strategy into cohesive visual systems. \n\n Outside of design, I’m drawn to emerging technologies, environmental impact initiatives, and endurance cycling in the mountains.',
