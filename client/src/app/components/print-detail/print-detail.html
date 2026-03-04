@@ -880,45 +880,21 @@
 
         <section class="landing-page-section soffra-web-section">
           <div class="campaigns-wrap">
-            <h2>CLIMB ATLAS™ — Web Interface</h2>
-            <div class="visual-storyboard soffra-layout">
-              <div class="soffra-grid">
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/soffra-main-hero.jpg" alt="SOFFRA Hero" data-modal-src="/assets/projects/soffra/soffra-main-hero.jpg" data-meta="SOFFRA Main Hero">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-world.jpg" alt="Climb Atlas World" data-modal-src="/assets/projects/soffra/climb-atlas-world.jpg" data-meta="CLIMB ATLAS™ World View">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-world-list.png" alt="Climb Atlas World List" data-modal-src="/assets/projects/soffra/climb-atlas-world-list.png" data-meta="CLIMB ATLAS™ World List">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-world-ranking.png" alt="Climb Atlas World Ranking" data-modal-src="/assets/projects/soffra/climb-atlas-world-ranking.png" data-meta="CLIMB ATLAS™ World Ranking">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-country.png" alt="Climb Atlas Country" data-modal-src="/assets/projects/soffra/climb-atlas-country.png" data-meta="CLIMB ATLAS™ Country View">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-country-list.png" alt="Climb Atlas Country List" data-modal-src="/assets/projects/soffra/climb-atlas-country-list.png" data-meta="CLIMB ATLAS™ Country List">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-climb-page-top.png" alt="Climb Atlas Climb Page Top" data-modal-src="/assets/projects/soffra/climb-atlas-climb-page-top.png" data-meta="CLIMB ATLAS™ Climb Page Header">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-climb-page-map.png" alt="Climb Atlas Climb Page Map" data-modal-src="/assets/projects/soffra/climb-atlas-climb-page-map.png" data-meta="CLIMB ATLAS™ Climb Page Map & Profile">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-climb-list.png" alt="Climb Atlas Climb List" data-modal-src="/assets/projects/soffra/climb-atlas-climb-list.png" data-meta="CLIMB ATLAS™ Segment List">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-climb-cards.png" alt="Climb Atlas Climb Cards" data-modal-src="/assets/projects/soffra/climb-atlas-climb-cards.png" data-meta="CLIMB ATLAS™ Segment Cards">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-leader-board-topten.png" alt="Climb Atlas Leaderboard" data-modal-src="/assets/projects/soffra/climb-atlas-leader-board-topten.png" data-meta="CLIMB ATLAS™ Leaderboard">
-                </div>
-                <div class="visual-item">
-                  <img src="/assets/projects/soffra/climb-atlas-24-forecast.png" alt="Climb Atlas Forecast" data-modal-src="/assets/projects/soffra/climb-atlas-24-forecast.png" data-meta="CLIMB ATLAS™ 24hr Forecast">
-                </div>
+            <h2>Application Landing Page</h2>
+            <div class="landing-page-visual">
+              <div class="landing-responsive-grid">
+                <figure class="landing-item desktop">
+                  <img src="/assets/projects/soffra/Landing Page/soffra-landingpage-desktop.jpg" alt="SOFFRA Desktop" class="responsive-image" data-modal-src="/assets/projects/soffra/Landing Page/soffra-landingpage-desktop.jpg" data-meta="Desktop Version">
+                  <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="landing-item tablet">
+                  <img src="/assets/projects/soffra/Landing Page/soffra-landingpage-tablet.jpg" alt="SOFFRA Tablet" class="responsive-image" data-modal-src="/assets/projects/soffra/Landing Page/soffra-landingpage-tablet.jpg" data-meta="Tablet Version">
+                  <figcaption>Tablet</figcaption>
+                </figure>
+                <figure class="landing-item mobile">
+                  <img src="/assets/projects/soffra/Landing Page/soffra-landingpage-mobile.jpg" alt="SOFFRA Mobile" class="responsive-image" data-modal-src="/assets/projects/soffra/Landing Page/soffra-landingpage-mobile.jpg" data-meta="Mobile Version">
+                  <figcaption>Mobile</figcaption>
+                </figure>
               </div>
             </div>
           </div>
@@ -975,7 +951,7 @@
               <div class="soffra-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
-                    @if ((img.includes('soffra-brand') || img.includes('soffra_flyer_mockup.jpg')) && !img.includes('soffra-mockup.jpg') && !img.includes('SOFFRA-jersey.jpg')) {
+                    @if ((img.includes('soffra-brand') || img.includes('soffra_flyer_mockup.jpg') || img.includes('SOFFRA-Climb-Atlas-brochure2.jpg')) && !img.includes('soffra-mockup.jpg') && !img.includes('SOFFRA-jersey.jpg') && !img.includes('soffra-device-mockup-transparent-bg.png')) {
                       <div class="visual-item">
                         <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
                       </div>
