@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8003';
+    const SEEDER_VERSION = 'v8004';
     console.log(`Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`);
     this.logger.log(`FORCE SEED: ${SEEDER_VERSION}`);
 
@@ -122,6 +122,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/flourrish/Ads/1080x1080-Trustworthy.jpg',
             '/assets/projects/flourrish/Ads/1080x1920-Trustworthy.jpg',
             '/assets/projects/flourrish/Ads/1200x628-Trustworthy.jpg',
+            '/assets/projects/flourrish/email/flourrish-email.jpg',
+            '/assets/projects/flourrish/email/flourrish-email-mockup.jpg',
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content:
