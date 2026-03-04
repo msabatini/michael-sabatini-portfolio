@@ -1070,7 +1070,7 @@
               <div class="service-course-grid">
                 @if (p.gallery && p.gallery.length > 0) {
                   @for (img of p.gallery; track img; let i = $index) {
-                    @if (!img.includes('landing-page') && !img.includes('service-course-web-mockup.jpg') && !img.toLowerCase().includes('/ads/')) {
+                    @if (!img.includes('landing-page') && !img.includes('service-course-web-mockup.jpg') && !img.toLowerCase().includes('/ads/') && !img.includes('theServiceCourse-device-mockup-transparent-background.png')) {
                       <div class="visual-item">
                         <img [src]="img" [alt]="p.title + ' view ' + (i + 1)" [attr.data-modal-src]="img" [attr.data-meta]="p.title + ' • View ' + (i + 1)">
                       </div>
@@ -1452,6 +1452,9 @@
                 </div>
                 <div class="visual-item">
                   <img src="/assets/projects/flourrish/stationary/flourrish-letterhead-mockup.jpg" alt="Flourrish Letterhead Mockup" data-modal-src="/assets/projects/flourrish/stationary/flourrish-letterhead-mockup.jpg" data-meta="Flourrish • Letterhead Mockup">
+                </div>
+                <div class="visual-item">
+                  <img src="/assets/projects/flourrish/stationary/flourrish-brochure-mockup.jpg" alt="Flourrish Brochure Mockup" data-modal-src="/assets/projects/flourrish/stationary/flourrish-brochure-mockup.jpg" data-meta="Flourrish • Brochure Mockup">
                 </div>
               </div>
             </main>
