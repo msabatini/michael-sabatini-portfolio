@@ -128,6 +128,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/flourrish/stationary/flourrish-bizcard-mockup.jpg',
             '/assets/projects/flourrish/stationary/flourrish-letterhead-mockup.jpg',
             '/assets/projects/flourrish/stationary/flourrish-brochure-mockup.jpg',
+            '/assets/projects/flourrish/stationary/flourrish-brochure-mockup2.jpg',
           ],
           mockupUrl: '/assets/projects/flourrish/flourrish-device-mockup.png',
           content: '',
