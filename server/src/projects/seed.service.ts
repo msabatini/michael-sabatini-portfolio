@@ -351,7 +351,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/farmland/main_header_letterhead-mockup.jpg',
             '/assets/projects/farmland/farmland-stationary-mockup.jpg',
             '/assets/projects/farmland/business_card_mockup.jpg',
-            '/assets/projects/farmland/FarmlandConsulting_logo.jpg',
+            '/assets/projects/farmland/FarmlandConsulting-envelope-mockup.jpg',
           ],
           mockupUrl:
             '/assets/projects/farmland/farmland-device-mockup-transparent-bg.png',
