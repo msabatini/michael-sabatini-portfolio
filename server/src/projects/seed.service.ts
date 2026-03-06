@@ -267,9 +267,9 @@ export class SeedService implements OnModuleInit {
               pms: '3262 C',
             },
             {
-              hex: '#faf7f8',
-              rgb: '250, 247, 248',
-              cmyk: '0, 1, 1, 2',
+              hex: '#DCE5EA',
+              rgb: '220, 229, 234',
+              cmyk: '6, 2, 0, 8',
               pms: 'Cool Gray 1 C',
             },
             {
@@ -312,10 +312,10 @@ export class SeedService implements OnModuleInit {
           completedDate: 'March 2025',
           colorPalette: [
             {
-              hex: '#050505',
-              rgb: '5, 5, 5',
-              cmyk: '45, 25, 0, 92',
-              pms: 'Black 6 C',
+              hex: '#00FFFF',
+              rgb: '0, 255, 255',
+              cmyk: '100, 0, 0, 0',
+              pms: 'Process Cyan C',
             },
             {
               hex: '#FF4D00',
@@ -324,16 +324,16 @@ export class SeedService implements OnModuleInit {
               pms: 'Bright Orange C',
             },
             {
+              hex: '#050505',
+              rgb: '5, 5, 5',
+              cmyk: '45, 25, 0, 92',
+              pms: 'Black 6 C',
+            },
+            {
               hex: '#666666',
               rgb: '102, 102, 102',
               cmyk: '0, 0, 0, 60',
               pms: 'Cool Gray 9 C',
-            },
-            {
-              hex: '#00FFFF',
-              rgb: '0, 255, 255',
-              cmyk: '100, 0, 0, 0',
-              pms: 'Process Cyan C',
             },
           ],
         },
@@ -424,6 +424,12 @@ export class SeedService implements OnModuleInit {
             {
               hex: '#d9d6d7',
               rgb: '217, 214, 215',
+              cmyk: '0, 1, 1, 15',
+              pms: 'Cool Gray 2 C',
+            },
+            {
+              hex: '#D8D6D6',
+              rgb: '216, 214, 214',
               cmyk: '0, 1, 1, 15',
               pms: 'Cool Gray 2 C',
             },
