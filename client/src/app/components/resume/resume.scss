@@ -284,6 +284,25 @@
       }
     }
 
+    .job-summary {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .contributions-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     .achievements {
       list-style: none;
       padding: 0;

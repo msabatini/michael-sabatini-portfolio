@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8004';
+    const SEEDER_VERSION = 'v8005';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
