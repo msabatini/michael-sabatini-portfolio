@@ -17,8 +17,8 @@ export class SettingsService implements OnModuleInit {
     if (!settings) {
       const defaultSettings = this.settingsRepository.create({
         key: 'settings',
-        siteTitle: 'Michael Sabatini | Senior Graphic Designer',
-        heroTitle: 'Senior Graphic Designer',
+        siteTitle: 'Michael Sabatini | Graphic Designer',
+        heroTitle: 'Graphic Designer',
         heroSubtitle:
           'Designing structured brand systems and digital platforms.',
         bioLead: '',
@@ -67,8 +67,8 @@ export class SettingsService implements OnModuleInit {
       await this.settingsRepository.save(defaultSettings);
     } else {
       // Force update the settings to the new version
-      settings.siteTitle = 'Michael Sabatini | Senior Graphic Designer';
-      settings.heroTitle = 'Senior Graphic Designer';
+      settings.siteTitle = 'Michael Sabatini | Graphic Designer';
+      settings.heroTitle = 'Graphic Designer';
       settings.heroSubtitle =
         'Designing structured brand systems and digital platforms.';
       settings.bioLead = '';

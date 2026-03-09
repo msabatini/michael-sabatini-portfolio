@@ -18,7 +18,7 @@ export class Resume implements OnInit {
   ngOnInit(): void {
     this.seoService.updateMetaTags({
       title: 'Resume',
-      description: 'Senior Graphic Designer with 15+ years of experience developing structured brand systems and digital platforms. Strategic visual leadership with 10+ years of frontend expertise.',
+      description: 'Graphic Designer with 15+ years of experience developing structured brand systems and digital platforms. Strategic visual leadership with 10+ years of frontend expertise.',
       url: 'resume'
     });
   }
