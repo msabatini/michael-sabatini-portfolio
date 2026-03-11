@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8005';
+    const SEEDER_VERSION = 'v8006';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -187,7 +187,6 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/findash/findash-stationary-mockup.jpg',
             '/assets/projects/findash/findash-bizcard-mockup.jpg',
             '/assets/projects/findash/findash-brochure.jpg',
-            '/assets/projects/findash/findash-envelope-mockup.jpg',
           ],
           mockupUrl:
             '/assets/projects/findash/findash-web-mockup-transparent-bg.png',
