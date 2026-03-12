@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8006';
+    const SEEDER_VERSION = 'v8007';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -232,7 +232,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
           gallery: [
             '/assets/projects/pinnacle-solutions/pinnacle-device-mockup-transparent-bg.png',
-            '/assets/projects/pinnacle-solutions/landing page/Desktop.jpg',
+            '/assets/projects/pinnacle-solutions/landing page/desktop.jpg',
             '/assets/projects/pinnacle-solutions/landing page/tablet.jpg',
             '/assets/projects/pinnacle-solutions/landing page/mobile.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
