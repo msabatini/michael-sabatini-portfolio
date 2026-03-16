@@ -95,9 +95,9 @@
       }
 
       .hero-logo {
-        height: clamp(53px, 8vw, 144px);
-        width: auto;
-        margin-bottom: 2rem;
+        width: clamp(160px, 18vw, 260px);
+        height: auto;
+        margin-bottom: 4rem;
         display: block;
       }
 
@@ -144,11 +144,11 @@
       }
 
       .hero-media__card img {
-        width: 100%;
-        height: 100%;
-        min-width: 680px;
-        object-fit: contain; /* changed to contain to avoid cropping transparent mockup */
+        width: clamp(480px, 55vw, 760px);
+        height: auto;
+        object-fit: contain;
         display: block;
+        margin: 0 auto;
       }
 
       /* mobile: stack; image above text */
@@ -159,6 +159,10 @@
         .hero-media {
           order: -1;
           min-height: 360px;
+
+          .hero-media__card img {
+            width: min(760px, 92vw);
+          }
         }
       }
     }
@@ -180,10 +184,6 @@
       &.detail-hero--farmland {
         background: #10202f;
 
-        .hero-logo {
-          height: clamp(53px, 8vw, 144px);
-        }
-
         .hero-watermark {
           background-image: url('/assets/projects/farmland/farmland-main-image.jpg');
           opacity: .05;
@@ -192,10 +192,6 @@
 
       &.detail-hero--service-course {
         background: #005071;
-
-        .hero-logo {
-          height: clamp(65px, 10vw, 180px);
-        }
 
         .hero-watermark {
           background-image: url('/assets/projects/the-service-course/service-course-cyclist background.jpeg');
@@ -215,10 +211,6 @@
       &.detail-hero--clinical {
         background: linear-gradient(90deg, #0c233d, #040b12);
 
-        .hero-logo {
-          height: clamp(65px, 10vw, 160px);
-        }
-
         .hero-watermark {
           background-image: url('/assets/projects/clinical/HES_logo-background.jpg');
           background-size: cover;
@@ -228,16 +220,9 @@
       }
 
       &.detail-hero--soffra {
-        .hero-logo {
-          height: clamp(50px, 7vw, 100px);
-        }
       }
 
       &.detail-hero--flourrish {
-        .hero-logo {
-          height: clamp(25px, 4vw, 50px);
-        }
-
         .hero-watermark {
           background-image: url('/assets/projects/flourrish/fourrish-background-image.png');
           background-size: cover;
