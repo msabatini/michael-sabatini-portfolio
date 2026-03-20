@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8007';
+    const SEEDER_VERSION = 'v8008';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -52,9 +52,6 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
             '/assets/projects/clinical/Print/clinical-resources-bizcard-mockup.jpg',
             '/assets/projects/clinical/Print/clinical-resources-brochure.jpg',
-            '/assets/projects/clinical/Print/clinical-resources-envelope-mockup.jpg',
-            '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
-            '/assets/projects/clinical/Print/clinical-resources-stationary.jpg',
           ],
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
@@ -236,8 +233,6 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/pinnacle-solutions/landing page/tablet.jpg',
             '/assets/projects/pinnacle-solutions/landing page/mobile.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-stationary-mockup.jpg',
-            '/assets/projects/pinnacle-solutions/pinnacle-letterhead-mockup.jpg',
-            '/assets/projects/pinnacle-solutions/pinnacle-envelope-mockup.jpg',
             '/assets/projects/pinnacle-solutions-web/pinnacle-web-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-biz-card-mockup.jpg',
             '/assets/projects/pinnacle-solutions/pinnacle-brochure1.jpg',
