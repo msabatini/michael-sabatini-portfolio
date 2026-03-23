@@ -42,11 +42,11 @@
   .hero-content {
     .title {
       font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 900;
+      font-weight: 500;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       color: white;
-      letter-spacing: 0.03em;
+      letter-spacing: 0;
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
@@ -87,7 +87,7 @@
       color: var(--text-muted);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0;
     }
 
     .btn {
@@ -136,7 +136,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 1.25rem;
       flex-shrink: 0;
     }
@@ -144,7 +144,7 @@
     h2 {
       margin: 0;
       font-size: 1.75rem;
-      font-weight: 800;
+      font-weight: 500;
       color: var(--text-color);
 
       .optional {
@@ -277,7 +277,7 @@
   .btn-lg {
     padding: 1.25rem 3rem;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .disclaimer {
@@ -316,7 +316,7 @@
 
   h2 {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-bottom: 1rem;
     color: var(--text-color);
   }

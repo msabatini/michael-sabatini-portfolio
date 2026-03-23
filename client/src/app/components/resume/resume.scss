@@ -54,17 +54,17 @@
     padding: 0.4rem 1rem;
     border-radius: 2rem;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0;
     border: 1px solid rgba(var(--accent-rgb), 0.3);
   }
 
   h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-bottom: 0.5rem;
-    letter-spacing: 0.03em;
+    letter-spacing: 0;
     line-height: 5rem;
   }
 
@@ -225,7 +225,7 @@
 
     h2 {
       font-size: 1.75rem;
-      font-weight: 800;
+      font-weight: 500;
       letter-spacing: -0.01em;
     }
   }
@@ -263,7 +263,7 @@
 
       h4 {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 500;
         margin-bottom: 0.25rem;
       }
 
@@ -295,12 +295,12 @@
 
     .contributions-title {
       font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 500;
       color: var(--text-color);
       margin-bottom: 1rem;
       display: block;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0;
     }
 
     .achievements {

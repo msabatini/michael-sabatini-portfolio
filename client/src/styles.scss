@@ -1,18 +1,11 @@
-@font-face {
-  font-family: 'Aonic Med';
-  src: url('/assets/fonts/Aonic-Medium.woff2') format('woff2'),
-       url('/assets/fonts/Aonic-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 h1, h2, h3, h4, h5, h6, 
 .full-name, 
 .footer-logo span, 
 .featured-name {
-  font-family: 'Aonic Med', sans-serif;
-  letter-spacing: 0.03em;
+  font-family: 'Exo', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 :root {

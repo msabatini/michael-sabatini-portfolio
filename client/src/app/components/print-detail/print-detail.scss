@@ -47,9 +47,9 @@
 
     .title {
       font-size: 3.5rem;
-      font-weight: 800;
+      font-weight: 500;
       margin: 0 0 1.5rem 0;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       line-height: 1.1;
 
       @media (max-width: 768px) {
@@ -104,9 +104,9 @@
       /* keep your existing sizing but use clamp for safety */
       .title {
         font-size: clamp(2.2rem, 4vw, 3rem);
-        font-weight: 800;
+        font-weight: 500;
         margin: 0 0 1.25rem 0;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
         line-height: 1.1;
       }
 

@@ -42,11 +42,11 @@
   .hero-content {
     .title {
       font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 900;
+      font-weight: 500;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       color: white;
-      letter-spacing: 0.03em;
+      letter-spacing: 0;
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
@@ -114,7 +114,7 @@
   .info-text {
     h3 {
       font-size: 1.125rem;
-      font-weight: 700;
+      font-weight: 500;
       margin-bottom: 0.25rem;
       color: var(--text-color);
     }
@@ -193,7 +193,7 @@
 
   h2 {
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-bottom: 1rem;
     color: var(--text-color);
   }
