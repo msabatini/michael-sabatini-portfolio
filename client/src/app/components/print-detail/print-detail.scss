@@ -74,7 +74,7 @@
       /* grid layout */
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-columns: 0.9fr 0.95fr;
         gap: clamp(24px, 4vw, 56px);
         align-items: center;
       }
