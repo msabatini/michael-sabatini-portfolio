@@ -177,7 +177,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       transition: transform 0.8s ease;
     }
 
@@ -216,64 +216,46 @@
 
   &.hellhole-card {
     .print-image img {
-      object-fit: cover;
-      transform: scale(1.4); // Zoom in to remove the frame from the shot
+      transform: scale(1.8);
     }
-    
     &:hover .print-image img {
-      transform: scale(1.5); // Slightly more zoom on hover
+      transform: scale(1.9);
     }
   }
 
   &.tdf-card {
     .print-image img {
-      object-fit: cover;
-      transform: scale(1.6);
-      position: relative;
-      top: 130px;
+      transform: scale(2.4) translateY(12%);
     }
-    
     &:hover .print-image img {
-      transform: scale(1.7);
+      transform: scale(2.5) translateY(12%);
     }
   }
 
   &.mv-card {
     .print-image img {
-      object-fit: cover;
-      transform: scale(1.6);
-      position: relative;
-      top: 135px;
+      transform: scale(2.4) translateY(12%);
     }
-    
     &:hover .print-image img {
-      transform: scale(1.7);
+      transform: scale(2.5) translateY(12%);
     }
   }
 
   &.rasputitsa-card {
     .print-image img {
-      object-fit: cover;
-      transform: scale(1.6);
-      position: relative;
-      top: 140px;
+      transform: scale(2.4) translateY(12%);
     }
-    
     &:hover .print-image img {
-      transform: scale(1.7);
+      transform: scale(2.5) translateY(12%);
     }
   }
 
   &.ski-maps-card {
     .print-image img {
-      object-fit: cover;
-      transform: scale(2);
-      position: relative;
-      top: 2px;
+      transform: scale(2.8);
     }
-    
     &:hover .print-image img {
-      transform: scale(2.1);
+      transform: scale(2.9);
     }
   }
 
