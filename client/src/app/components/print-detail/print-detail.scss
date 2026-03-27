@@ -99,6 +99,9 @@
         height: auto;
         margin-bottom: 4rem;
         display: block;
+        &.hero-logo-sorella {
+          width: clamp(160px, 18vw, 160px);
+        }
       }
 
       /* keep your existing sizing but use clamp for safety */
@@ -172,7 +175,7 @@
       color: rgba(255, 255, 255, 0.92);
 
       &.detail-hero--pinnacle {
-        background: #113559;
+        background: #1A2842;
 
         .hero-watermark {
           background-image: url('/assets/projects/pinnacle-solutions/pinnacle-hero-background.svg');

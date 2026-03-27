@@ -68,6 +68,23 @@
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 3rem;
 
+  &.featured-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  &.posters-grid {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
@@ -84,10 +101,71 @@
   flex-direction: column;
   cursor: pointer;
 
+  &.print-card--featured {
+    flex-direction: row;
+    min-height: 450px;
+    border-radius: 0.5rem; // matching home page consistency
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .print-image {
+      flex: 0 0 50%;
+      height: auto;
+      aspect-ratio: auto;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .print-content {
+      padding: 4rem;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      .print-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: flex-end;
+        
+        .btn-link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: 700;
+          color: var(--accent-color);
+          font-size: 1rem;
+          transition: gap 0.3s ease;
+        }
+      }
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column !important;
+      min-height: auto;
+      
+      .print-image {
+        flex: none;
+        aspect-ratio: 4 / 3;
+      }
+      
+      .print-content {
+        padding: 2rem;
+      }
+    }
+  }
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     border-color: var(--accent-color);
+
+    .print-content .print-footer .btn-link {
+      gap: 0.75rem;
+    }
   }
 
   .print-image {
@@ -203,6 +281,24 @@
     padding: 2rem;
     background: var(--card-bg);
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .print-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-end;
+
+      .btn-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        font-size: 1rem;
+        transition: gap 0.3s ease;
+      }
+    }
 
     .print-title {
       font-size: 1.75rem;
@@ -216,7 +312,11 @@
       color: var(--text-muted);
       line-height: 1.6;
       font-size: 1rem;
-      margin: 0;
+      margin: 0 0 1.5rem 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

@@ -9,9 +9,9 @@
 
 <section class="print-list-section">
   <div class="container">
-    <div class="print-grid">
+    <div class="print-grid featured-grid">
       @for (project of standardProjects(); track project.id) {
-        <div class="print-card" [routerLink]="['/portfolio', project.id]">
+        <div class="print-card print-card--featured" [routerLink]="['/portfolio', project.id]">
           <div class="print-image">
             @if (project.imageUrl) {
               <img [src]="project.imageUrl" [alt]="project.title">
@@ -24,6 +24,22 @@
           <div class="print-content">
             <h2 class="print-title">{{ project.title }}</h2>
             <p class="print-description">{{ project.description }}</p>
+            @if (project.title === 'Clinical Resources') {
+              <p class="print-description">Clinical Resources is a speech-language pathology education platform that modernizes clinical workflows and business insight through structured design and digital automation.</p>
+            } @else if (project.title.includes('Flourrish')) {
+              <p class="print-description">Flourrish is a mission-driven funding platform designed to connect environmental impact with structured, transparent contribution systems.</p>
+            } @else if (project.title === 'Pinnacle Solutions') {
+              <p class="print-description">Pinnacle Solutions is a human capital technology company reimagined through a comprehensive brand and UI transformation designed to reflect enterprise maturity and structured innovation.</p>
+            } @else if (project.title === 'Farmland Consulting') {
+              <p class="print-description">Farmland Consulting is a land advisory firm reimagined through a comprehensive brand redesign rooted in heritage, clarity, and environmental stewardship.</p>
+            } @else if (project.title === 'The Service Course') {
+              <p class="print-description">The Service Course is a boutique cycling retail brand defined by performance culture, refined identity, and elevated service experience.</p>
+            } @else if (project.title === 'Sorella Home Solutions') {
+              <p class="print-description">Sorella Home Solutions is a property services brand built from the ground up to communicate trust, structure, and modern service reliability.</p>
+            }
+            <div class="print-footer">
+              <span class="btn-link">View Full Entry <app-icon name="chevron-right" [size]="16"></app-icon></span>
+            </div>
           </div>
         </div>
       } @empty {
@@ -40,7 +56,7 @@
         <h2 class="section-title">Poster Prints</h2>
       </div>
 
-      <div class="print-grid">
+      <div class="print-grid posters-grid">
         @for (project of posterProjects(); track project.id) {
           <div class="print-card" [routerLink]="['/portfolio', project.id]" 
                [class.hellhole-card]="project.title === 'The Hellhole Gravel Grind'"
@@ -67,6 +83,9 @@
             <div class="print-content">
               <h2 class="print-title">{{ project.title }}</h2>
               <p class="print-description">{{ project.description }}</p>
+              <div class="print-footer">
+                <span class="btn-link">View Full Entry <app-icon name="chevron-right" [size]="16"></app-icon></span>
+              </div>
             </div>
           </div>
         }
