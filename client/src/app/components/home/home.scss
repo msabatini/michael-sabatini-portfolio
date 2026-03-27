@@ -187,12 +187,13 @@
         justify-content: center;
         align-items: center;
         height: 70px;
-        opacity: 0.7;
+        opacity: 0.8;
         transition: all 0.3s ease;
-        background: rgba(var(--text-color-rgb), 0.03);
+        background: rgba(15, 23, 42, 0.8); // Dark blue background for knockout logos
         border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.25rem;
         width: fit-content;
+        backdrop-filter: blur(4px);
 
         .knockout-logo {
           height: 100%;
