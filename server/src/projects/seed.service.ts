@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8014';
+    const SEEDER_VERSION = 'v8015';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -22,7 +22,6 @@ export class SeedService implements OnModuleInit {
 
     try {
       // Check if we already seeded this version
-      /*
       const settings = await this.settingsRepository.findOneBy({
         key: 'seeder_version',
       });
@@ -32,7 +31,6 @@ export class SeedService implements OnModuleInit {
         );
         return;
       }
-      */
 
       console.log('SEEDER: Seeding needed. Clearing database...');
       await this.projectsService.clearAll();
@@ -55,7 +53,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Print/clinical-resources-bizcard-mockup.jpg',
             '/assets/projects/clinical/Print/clinical-resources-brochure.jpg',
             '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
-            '/assets/projects/clinical/Print/clinical-resources-stationary.jpg',
+            '/assets/projects/clinical/Print/clinical-resources-stationery.jpg',
           ],
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
