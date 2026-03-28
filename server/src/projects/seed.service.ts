@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8011';
+    const SEEDER_VERSION = 'v8014';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -50,9 +50,12 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Landing Page/clinical-resources-desktop.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-tablet.jpg',
             '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
+            '/assets/projects/clinical/email/clinical-email-template.jpg',
+            '/assets/projects/clinical/email/clinical-email-mockup.jpg',
             '/assets/projects/clinical/Print/clinical-resources-bizcard-mockup.jpg',
             '/assets/projects/clinical/Print/clinical-resources-brochure.jpg',
             '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
+            '/assets/projects/clinical/Print/clinical-resources-stationary.jpg',
           ],
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
