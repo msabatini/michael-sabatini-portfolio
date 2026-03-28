@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8010';
+    const SEEDER_VERSION = 'v8011';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -52,6 +52,7 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/clinical/Landing Page/clinical-resources-mobile.jpg',
             '/assets/projects/clinical/Print/clinical-resources-bizcard-mockup.jpg',
             '/assets/projects/clinical/Print/clinical-resources-brochure.jpg',
+            '/assets/projects/clinical/Print/clinical-resources-letterhead.jpg',
           ],
           mockupUrl:
             '/assets/projects/clinical/clinical-resources-device-mockup-trasnparent-bg.png',
@@ -505,7 +506,7 @@ export class SeedService implements OnModuleInit {
         {
           title: "Martha's Vineyard Poster Series",
           description:
-            'A vintage-inspired collection of maps and posters for Martha’s Vineyard.',
+            'A vintage-inspired collection of poster prints for the beautiful Island of Martha’s Vineyard, Massachusetts, USA.',
           imageUrl: '/assets/projects/mv/state-beach.jpg',
           gallery: [
             '/assets/projects/mv/state-beach.jpg',
@@ -517,7 +518,7 @@ export class SeedService implements OnModuleInit {
           ],
           mockupUrl: '/assets/projects/mv/state-beach.jpg',
           content:
-            'A comprehensive series of high-quality prints celebrating the unique geography of Martha’s Vineyard.',
+            'A comprehensive series of high-quality prints celebrating the unique landmarks of Martha’s Vineyard.',
           tags: ['Print', 'Graphic Design'],
           type: 'poster-print',
           layout: 'grid-3',
