@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8015';
+    const SEEDER_VERSION = 'v8016';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -348,6 +348,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/farmland/farmland-stationary-mockup.jpg',
             '/assets/projects/farmland/business_card_mockup.jpg',
             '/assets/projects/farmland/FarmlandConsulting-envelope-mockup.jpg',
+            '/assets/projects/farmland/Brochure/farmland-consulting-brochure-inside-mockup.jpg',
+            '/assets/projects/farmland/Brochure/farmland-consulting-brochure-outside-mockup.jpg',
           ],
           mockupUrl:
             '/assets/projects/farmland/farmland-device-mockup-transparent-bg.png',
