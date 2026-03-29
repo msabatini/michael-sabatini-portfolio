@@ -14,7 +14,7 @@ export class SeedService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    const SEEDER_VERSION = 'v8017';
+    const SEEDER_VERSION = 'v8018';
     console.log(
       `Zencoder Trigger: Starting project seeding process [${SEEDER_VERSION}]...`,
     );
@@ -449,6 +449,8 @@ export class SeedService implements OnModuleInit {
             '/assets/projects/sorella/stationary web/sorella-stationary-mockup2.jpg',
             '/assets/projects/sorella/stationary web/sorella-letterhead-mockup.jpg',
             '/assets/projects/sorella/email/sorella-email-mockup.jpg',
+            '/assets/projects/sorella/Ads/250x350.jpg',
+            '/assets/projects/sorella/Ads/768x90@2x.jpg',
           ],
           mockupUrl:
             '/assets/projects/sorella/sorella-device-mockup-transparent-bg.png',

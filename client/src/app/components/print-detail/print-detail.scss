@@ -1052,6 +1052,7 @@
       &.ad-size-1080x1080 { width: 320px; }
       &.ad-size-1200x628  { width: 300px; }
       &.ad-size-300x600   { width: 120px; }
+      &.ad-size-250x350   { width: 180px; }
 
       @media (max-width: 1280px) {
         &.ad-size-1080x1920 { width: 280px; }
@@ -1060,6 +1061,7 @@
         &.ad-size-1080x1080 { width: 240px; }
         &.ad-size-1200x628  { width: 220px; }
         &.ad-size-300x600   { width: 90px; }
+        &.ad-size-250x350   { width: 140px; }
       }
 
       @media (max-width: 480px) {
