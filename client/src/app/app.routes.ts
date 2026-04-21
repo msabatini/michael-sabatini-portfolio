@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { AudienceGatewayComponent } from './components/audience-gateway/audience-gateway';
+import { HireMeComponent } from './components/hire-me/hire-me';
+import { WorkWithMeComponent } from './components/work-with-me/work-with-me';
 import { Home } from './components/home/home';
 import { Print } from './components/print/print';
 import { PrintDetail } from './components/print-detail/print-detail';
@@ -11,7 +14,9 @@ import { AdminLogin } from './components/admin-login/admin-login';
 import { AdminDashboard } from './components/admin-dashboard/admin-dashboard';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', component: AudienceGatewayComponent },
+  { path: 'hire-me', component: HireMeComponent },
+  { path: 'work-with-me', component: WorkWithMeComponent },
   { path: 'resume', component: Resume },
   { path: 'portfolio', component: Print },
   { path: 'portfolio/:id', component: PrintDetail },

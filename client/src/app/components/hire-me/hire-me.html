@@ -1,0 +1,114 @@
+<div class="home-container fade-in-animation">
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Hiring Portfolio</div>
+        <p class="hero-featured">Visual & Product Designer</p>
+        <div class="featured-name">{{ displayName() }}</div>
+        <h1>
+          Product-focused Designer & Frontend Developer
+        </h1>
+        <p class="subtitle">15+ years in design and 10+ years building real-world applications. Focused on UI systems, visual clarity, and production-ready frontend.</p>
+        <div class="cta-group">
+          <a routerLink="/portfolio" class="btn btn-primary">
+            View Portfolio
+            <app-icon name="chevron-right" [size]="18"></app-icon>
+          </a>
+          <a routerLink="/resume" class="btn btn-secondary">Download Resume</a>
+          <a routerLink="/contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="positioning-section">
+    <div class="container">
+      <div class="positioning-content">
+        <div class="positioning-icon">
+          <app-icon name="git-pull-request" [size]="48"></app-icon>
+        </div>
+        <p>I bridge the gap between complex design systems and production-ready frontend implementation. With a background rooted in systems thinking and over a decade of real-world product experience, I help teams build scalable, high-fidelity digital products that balance aesthetic authority with technical feasibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="section-title-area">
+      <h2>Selected Work</h2>
+      <p>A collection of case studies emphasizing UI systems, product sensibility, and cross-functional execution. <a routerLink="/portfolio">View full portfolio.</a></p>
+    </div>
+
+    <div class="featured-grid">
+      @for (project of featuredProjects; track project.id) {
+        <div class="project-card project-card--featured" [routerLink]="['/portfolio', project.id]">
+          <div class="project-image">
+            <img [src]="project.imageUrl" [alt]="project.title">
+            <div class="project-overlay">
+              <span class="view-project">View Case Study</span>
+            </div>
+          </div>
+          <div class="project-content">
+            @if (getKnockoutLogo(project.title)) {
+              <div class="knockout-logo-container" [class]="getLogoClass(project.title)">
+                <img [src]="getKnockoutLogo(project.title)" class="knockout-logo" [alt]="project.title + ' logo'">
+              </div>
+            }
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-footer">
+              <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="see-all">
+      <a routerLink="/portfolio" class="btn btn-outline">
+        View Full Portfolio
+        <app-icon name="chevron-right" [size]="18"></app-icon>
+      </a>
+    </div>
+  </section>
+
+  <section class="strengths-section">
+    <div class="container">
+      <div class="section-title-area text-center">
+        <h2>Strategic Strengths</h2>
+      </div>
+      <div class="strengths-grid">
+        <div class="strength-card">
+          <div class="strength-icon"><app-icon name="layout" [size]="48"></app-icon></div>
+          <h3>UI Systems & Design Thinking</h3>
+          <p>Building scalable, documented component libraries that bridge the gap between design and code.</p>
+        </div>
+        <div class="strength-card">
+          <div class="strength-icon"><app-icon name="palette" [size]="48"></app-icon></div>
+          <h3>Branding & Visual Design</h3>
+          <p>Creating authoritative visual identities and high-fidelity interfaces that build user trust.</p>
+        </div>
+        <div class="strength-card">
+          <div class="strength-icon"><app-icon name="code" [size]="48"></app-icon></div>
+          <h3>Frontend Implementation</h3>
+          <p>Writing clean, maintainable code in Angular and modern CSS to bring designs to life exactly as intended.</p>
+        </div>
+        <div class="strength-card">
+          <div class="strength-icon"><app-icon name="briefcase" [size]="48"></app-icon></div>
+          <h3>Real-world Product Experience</h3>
+          <p>Navigating the balance between user needs, business goals, and technical constraints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container text-center">
+      <div class="cta-group-centered">
+        <a routerLink="/portfolio" class="btn btn-primary">View Full Portfolio</a>
+        <a routerLink="/resume" class="btn btn-secondary">Download Resume</a>
+        <a routerLink="/contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+</div>

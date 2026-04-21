@@ -1,0 +1,149 @@
+<div class="home-container fade-in-animation">
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Web Design & Development</div>
+        <div class="featured-name">{{ displayName() }}</div>
+        <h1>
+          I design and build modern websites that actually convert visitors into customers
+        </h1>
+        <p class="subtitle">Helping businesses replace outdated websites with clean, fast, and effective digital experiences</p>
+        <div class="cta-group">
+          <a routerLink="/contact" class="btn btn-primary">
+            Start a Project
+            <app-icon name="chevron-right" [size]="18"></app-icon>
+          </a>
+          <a routerLink="/contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="container">
+      <div class="section-title-area text-center">
+        <h2>What I Do</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><app-icon name="monitor" [size]="32"></app-icon></div>
+          <h3>New Website Builds</h3>
+          <p>Full-service design and development, from initial concept to a live, high-performing site.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><app-icon name="refresh-cw" [size]="32"></app-icon></div>
+          <h3>Website Redesigns</h3>
+          <p>Transforming outdated websites into modern, professional experiences that align with your growth.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><app-icon name="zap" [size]="32"></app-icon></div>
+          <h3>UX/UI Improvements</h3>
+          <p>Refining existing interfaces to improve clarity, usability, and conversion rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-section">
+    <div class="container">
+      <div class="section-title-area text-center">
+        <h2>What You Get</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-item">
+          <app-icon name="layout" [size]="48"></app-icon>
+          <span>Modern, clean design</span>
+        </div>
+        <div class="value-item">
+          <app-icon name="smartphone" [size]="48"></app-icon>
+          <span>Mobile-first experience</span>
+        </div>
+        <div class="value-item">
+          <app-icon name="zap" [size]="48"></app-icon>
+          <span>Faster performance</span>
+        </div>
+        <div class="value-item">
+          <app-icon name="shield" [size]="48"></app-icon>
+          <span>Clear structure that builds trust</span>
+        </div>
+        <div class="value-item">
+          <app-icon name="layers" [size]="48"></app-icon>
+          <span>Design + development in one workflow</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="section-title-area">
+      <h2>Featured Work</h2>
+      <p>Recent work helping businesses define their presence and reach their audience. <a routerLink="/portfolio">See more work.</a></p>
+    </div>
+
+    <div class="featured-grid">
+      @for (project of featuredProjects; track project.id) {
+        <div class="project-card project-card--featured" [routerLink]="['/portfolio', project.id]">
+          <div class="project-image">
+            <img [src]="project.imageUrl" [alt]="project.title">
+            <div class="project-overlay">
+              <span class="view-project">View Project</span>
+            </div>
+          </div>
+          <div class="project-content">
+            @if (getKnockoutLogo(project.title)) {
+              <div class="knockout-logo-container" [class]="getLogoClass(project.title)">
+                <img [src]="getKnockoutLogo(project.title)" class="knockout-logo" [alt]="project.title + ' logo'">
+              </div>
+            }
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-footer">
+              <span class="btn-link">View Details <app-icon name="chevron-right" [size]="16"></app-icon></span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="container">
+      <div class="section-title-area text-center">
+        <h2>My Process</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Discovery</h3>
+          <p>Understanding your goals and audience.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Design</h3>
+          <p>Creating a high-fidelity visual system.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Build</h3>
+          <p>Developing a fast, responsive site.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Launch</h3>
+          <p>Going live and ensuring quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container text-center">
+      <h2>Ready to build something better?</h2>
+      <div class="cta-group-centered">
+        <a routerLink="/contact" class="btn btn-primary">Start a Project</a>
+        <a routerLink="/contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</div>

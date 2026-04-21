@@ -7,7 +7,9 @@
 
     <div class="nav-actions">
       <div class="desktop-links">
-        <a routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+        <a routerLink="/portfolio" routerLinkActive="active">Work</a>
+        <a routerLink="/hire-me" routerLinkActive="active">Hire Me</a>
+        <a routerLink="/work-with-me" routerLinkActive="active">Work With Me</a>
         <a routerLink="/resume" routerLinkActive="active">Resumé</a>
         <a routerLink="/about" routerLinkActive="active">About</a>
         <a routerLink="/contact" routerLinkActive="active">Contact</a>
@@ -32,7 +34,9 @@
 
 <div class="mobile-menu" [class.open]="isMenuOpen()">
   <div class="mobile-links">
-    <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMenu()">Portfolio</a>
+    <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMenu()">Work</a>
+    <a routerLink="/hire-me" routerLinkActive="active" (click)="closeMenu()">Hire Me</a>
+    <a routerLink="/work-with-me" routerLinkActive="active" (click)="closeMenu()">Work With Me</a>
     <a routerLink="/resume" routerLinkActive="active" (click)="closeMenu()">Resumé</a>
     <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
@@ -65,7 +69,9 @@
       <div class="footer-nav">
         <h3>Quick Links</h3>
         <ul>
-          <li><a routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
+          <li><a routerLink="/portfolio" routerLinkActive="active">Work</a></li>
+          <li><a routerLink="/hire-me" routerLinkActive="active">Hire Me</a></li>
+          <li><a routerLink="/work-with-me" routerLinkActive="active">Work With Me</a></li>
           <li><a routerLink="/resume" routerLinkActive="active">Resumé</a></li>
           <li><a routerLink="/about" routerLinkActive="active">About</a></li>
           <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
