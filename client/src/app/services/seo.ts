@@ -17,7 +17,7 @@ export class SeoService {
   }) {
     const defaultTitle = 'Michael Sabatini | Full Stack Developer & Designer';
     const defaultDesc = 'Portfolio of Michael Sabatini, a Full Stack Developer & Designer specializing in high-performance web experiences.';
-    const defaultImage = 'https://michaelsabatinidesign.com/profile-photo.jpg';
+    const defaultImage = 'https://michaelsabatinidesign.com/favicon.png';
     const baseUrl = 'https://michaelsabatinidesign.com/';
 
     const finalTitle = config.title ? `${config.title} | Michael Sabatini` : defaultTitle;
